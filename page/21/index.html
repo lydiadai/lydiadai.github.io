@@ -284,6 +284,621 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">controller&model文件头尾固定代码&migration文件代码样式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T09:14:00+08:00">
+                2017-02-20 09:14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>1.controller<br>  无namespace的：class XxxsController &lt; ApplicationController<br>  有namespace的：class Xxx::XxxsController &lt; ApplicationController<br>             namespace名称::controller名称</p>
+<p>2.model<br>  class Xxx &lt; ActiveRecord::Base<br>  end</p>
+<p>3.migrate文件中添加<br>  t.字符类型 :字段名,comment: ‘备注’<br>   t.timestamps</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails--路由</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T22:56:00+08:00">
+                2017-02-19 22:56
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.restful<br>   get  查询<br>   post 新建<br>   put  修改<br>   delete 删除</p>
+<p>2.root path<br>  root to: ‘xxx/xxx’(文件路径)</p>
+<p>3.match路径<br>  match ‘xxx/xxx’(http路径名), to: ‘xxx#xxx’(文件路径), via: <a href="http请求类型">‘get’</a></p>
+<p>4.接口<br>  render json: {<br>    key: value,<br>    ……<br>  }</p>
+<p>5.查看<br>  bunle exec rake routes<br>  过滤想要的<br>  undle exec rake routes | grep “xxx”</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">sass与css</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T15:44:00+08:00">
+                2017-02-15 15:44
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在要改全局css文件时要用<br>$ sass –watch static/sass/pin_tuan_bao.scss:static/css/pin_tuan_bao.css<br>监听文件，然后在sass文件中更改，就会自动改写到css里</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">注释</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T13:57:00+08:00">
+                2017-02-15 13:57
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>H5：<br><template>(HTML)        <!--     --></template></p>
+<script>(CSS)          /*        */ 
+                    单行：//</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">H5 页面跳转</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T13:32:00+08:00">
+                2017-02-15 13:32
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><router-link :to="{name:'要跳转到的页面名称，在main.js里面可以找到', params:{id: 你想要跳转到那个页     面需要的id}}">
+</router-link>
+
+</li>
+</ol>
+<p>2.在标签中写一个click方法<br>   eg：@click=”show_more_lists<br>  在下面的<script>标签下的method方法下写：name里面写要跳转到的页面名称，在main.js里面可以找到<br>   eg:<br>  show_more_lists () {<br>      this.$router.push({name: 'cases_list', params: {id: advertisement.id}})<br>    },</p>
+</script></p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">v-for&v-html&v-model</a></h1>
         
 
@@ -916,673 +1531,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">添加多张图片</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T12:28:00+08:00">
-                2017-02-06 12:28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.rails g uploader avatar</p>
-<figure class="highlight ruby"><figcaption><span>avatar_uploader.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">将 <span class="keyword">include</span> carrierwave::minimagick 前面的＃去掉</span><br><span class="line">在store_dir <span class="keyword">end</span> 下加</span><br><span class="line">process <span class="symbol">resize_to_fit:</span>[<span class="number">800</span>,<span class="number">800</span>]</span><br><span class="line">version <span class="symbol">:thumb</span> <span class="keyword">do</span></span><br><span class="line">process <span class="symbol">resize_to_fit:</span>[<span class="number">200</span>,<span class="number">200</span>]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">version <span class="symbol">:medium</span> <span class="keyword">do</span></span><br><span class="line">process <span class="symbol">resize_to_fit:</span>[<span class="number">400</span>,<span class="number">400</span>]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>2.建立photo.rb  model文件:<br>$ rails g model xxx xxxx:xxx avatar:string<br>自然建立migration文件</p>
-<p>3.在需要添加图片的model文件中加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">has_many :photos</span><br><span class="line">accepts_nested_attributes_for :photos</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight ruby"><figcaption><span>photo.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount_uploader <span class="symbol">:avatar</span>, AvatarUploader</span><br><span class="line">belongs_to <span class="symbol">:case</span></span><br></pre></td></tr></table></figure>
-
-<p>4.在需要添加图片的controller文件中加上<br>def new下面加<br>@photo = @xxx.photos.build</p>
-<p>def create中if @xxx.save下面加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if params[:photos] != nil</span><br><span class="line">params[:photos][&apos;avatar&apos;].each do |a|</span><br><span class="line">  @photo = @xxx.photos.create(:avatar =&gt; a)</span><br><span class="line">end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>def show 下面加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@photos = @xxx.photos.all</span><br><span class="line">```	</span><br><span class="line">在def update变成</span><br></pre></td></tr></table></figure>
-
-<p>def update<br>  if params[:photos] != nil<br>    @case.photos.destroy_all #将原来的图片删掉<br>    [:photos][‘avatar’].each do |a|<br>      @photo = @case.photos.create(:avatar =&gt; a)<br>    end<br>    @case.update(case_params)<br>    redirect_to cases_path<br>  elsif<br>    @case.update(case_params)<br>    redirect_to cases_path<br>  else<br>    render :edit<br>  end<br>end</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5.在new页面添加</span><br></pre></td></tr></table></figure>
-
-<p>&lt;%= f.label :avatar %&gt;<br>&lt;%= f.file_field :avatar, :multiple =&gt; true,name:”photos[avatar][]” %&gt;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在show页面添加</span><br></pre></td></tr></table></figure>
-
-  <div>
-  <% if @photos.present? %>
-   @xxx.photos.each  do |photo| %>
-  <%= image_tag photo.avatar.url(:thumb) %>
-  <% end %>
-  <% else %>
-   暂无图片
-  <% end %>
-  </%></%></%></%=></%></div>
-```
-ps：一个xxx对应多个photo
-   一个photo对应一个avatar
-   这种时候要显示avatar就需要对于@xxx.photos这个数组进行遍历来实现
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-容易错的地方</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T18:16:00+08:00">
-                2017-02-04 18:16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.关键字不可以做变量名！！！<br>  会报语法错误<br>  eg:case collection</p>
-<p>2.在model文件相关联的时候<br>   如果关联到同一张表但是用不同的外键时要在后面标明<br>   eg:<br>   belongs_to :she_ji_shi, :class_name =&gt; SheJiShi, :foreign_key =&gt; ‘she_ji_shi_id’</p>
-<p>3.除了rails以外其余的语言方法名之后都要加（）<br>4.||= 默认值<br>  rescue 是抛出异常时给赋的值</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css 基本样式&h5程序运行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-24T22:32:00+08:00">
-                2017-01-24 22:32
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.width/height只有在display: inline-block;下才生效<br>2.按钮变成椭圆形：border-radius:<br>3.将图片放在左边：position: absolute;<br>               left: 80px;<br>4.设置整个页面背景：<body bgcolor="white"></body><br>                 只有将最外侧标签写成body，height才会生效<br>5.改变表格边的样式：<br>  Value                Description<br>  void         The outside borders are not shown<br>  above         The top outside border is shown<br>  below         The bottom outside border is shown<br>  hsides     The top and bottom outside borders are shown<br>  vsides       The left and right outside borders are shown<br>  lhs           The left outside border is shown<br>  rhs           The right outside border is shown<br>  box           The outside borders are shown on all four sides<br>  border       The outside borders are shown on all four sides</p>
-  <th style="border-left:1px solid #b5b3b3">
-6.改变字体：<p style="font-style: oblique;">
-
-</p><p>  值          描述<br>normal    默认值。浏览器显示一个标准的字体样式。<br>italic    浏览器会显示一个斜体的字体样式。<br>oblique    浏览器会显示一个倾斜的字体样式。<br>inherit    规定应该从父元素继承字体样式</p>
-<p>  改变字体为苹方：font-family: PingFangSC-Regular, sans-serif;</p>
-<p>7.字体加粗：关键字 100 ~ 900 为字体指定了 9 级加粗度。如果一个字体内置了这些加粗级别，那么这些数字就直接映射到预  定义的级别，100 对应最细的字体变形，900 对应最粗的字体变形。数字 400 等价于 normal，而 700 等价于 bold。<br>  font-weight:900; </p>
-<p>8.将模块放在边侧，可用float，调整位置用margin-left/margin-right<br>9.padding／margin 顺序为上右下左,中间不用，隔开<br>10.position:relative 时，如果top:－50% 不生效就用px来定位<br>   或者给父类加上height<br>11.设置背景透明度：opacity:x(0-1)<br>   eg: 0.8<br>12.添加背景图片： background-image：url()</p>
-<p>ps:运行h5程序 source ~/.bash_profile<br>             npm run dev</p>
-</th>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">clone下来的代码配置运行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-22T16:42:00+08:00">
-                2017-01-22 16:42
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.$ cd config $ cp log4r.yml.example log4r.yml $ cp settings.yml.example settings.yml $ cp database.yml.example database.yml</p>
-<p>2.在项目根目录中mkdir log</p>
-<p>3.vim database.yml，把password写进去，将socket那一行删掉。</p>
-<p>4.$ bundle exec rake db:create</p>
-<p>5.用script文件下的init文件来初始化数据库<br>  eg: bundle exec ruby script/init_user.rb</p>
-<p>6.$ bundle exec rake db:migrate</p>
-<ol start="7">
-<li>cd config –&gt; touch secrets.yml<br>填入</li>
-</ol>
-<p>development:<br>secret_key_base: 52eeb9ef4aebcf526c2415a6f3c0d579c7df7de12099a89a8ed834c840b348d999dec774a11a558d89f463b6bcf810d6e8c42849530e8f6f931ed0a5e66b57a4</p>
-<p>test:<br>  secret_key_base: 3d768887879e8a78b39213eb90dfd271ac405d369d1de16945d3747a444ab0566842115abfd8b37062136c2a1a77f196aa255a16e47354fc101bac31d65acb6c</p>
-<h1 id="Do-not-keep-production-secrets-in-the-repository"><a href="#Do-not-keep-production-secrets-in-the-repository" class="headerlink" title="Do not keep production secrets in the repository,"></a>Do not keep production secrets in the repository,</h1><h1 id="instead-read-values-from-the-environment"><a href="#instead-read-values-from-the-environment" class="headerlink" title="instead read values from the environment."></a>instead read values from the environment.</h1><p>production:<br>  secret_key_base: 680911118945d25bfffe2b69ecb5d332fe9f5494ccae9f06cdc2cc74434babf5f5389d64fe1d2aad4bf9f71534c47f5f5a257affaa49af9fdea1d63314ff1993</p>
-<p>ps -ef | grep rails 查看rails进程<br>ps -ef | grep dev   查看前端进程</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">terminal&vim 基本命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-20T14:11:00+08:00">
-                2017-01-20 14:11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>terminal:<br>返回上级目录： cd..</p>
-<p>找到对应的rails运行程序：bundle exec<br>rm -rf 文件名                                                强制删除一个文件<br>cd                                                          切换目录（Change Directory）<br>cd ~                                                        会把家目录设成当前目录<br>ls                                                          这指令会列出当前资料夹里面的档案<br>ls -a                                                       列出专案中所有档案<br>pwd                                                         查看你当前所在文件路径</p>
-<p>查看硬盘状态<br>df -kh</p>
-<p>在当前目录下，从旧到新的列出所有的文件： (注意参数： trh)<br>$ ls -altrh</p>
-<p>查看当前的系统（CPU, 内存，进程）状态。<br>$ top</p>
-<p>显示出系统中的所有进程，并且以消耗的内存来从低到高的排序。<br>$ ps aux –sort rss</p>
-<p>查看当前服务器的所有分区，并且以用户<br>$ df -kh</p>
-<p>查看当前文件夹的大小<br>$ du . -kh  查看文件夹大小</p>
-<p>查看进程：<br>ps -ef | grep rails</p>
-<p>终止某个进程。 例如： 某个进程的id是3366<br>$ kill -9 3366</p>
-<p>查询：grep ‘user-select’ src  -r<br>     grep ‘user-select’ src  -r -n             —-显示行数<br>     grep login src -R –include=*vue  -n       —-查找所有.vue文件中有的</p>
-<p>查看某个文件的尾部。 例如：<br>$ tail /var/log/system.log<br>默认显示文件的最后10行。<br>可以跟踪显示某个文件的尾部：<br>$ tail -f /var/log/system.log<br>可以指定显示该文件的尾部100行：<br>$ tail -n 100 /var/log/system.log<br>最常见的用法：跟grep 共同使用, 例如，实时跟踪显示某个文件，只过滤出内容中带有ERROR：<br>$ tail -f /var/log/system.log | grep ERROR<br>－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</p>
-<p>vim:<br>在vim中打开文件列表： ,+t<br>在vim中切换分页：ctrl＋w+w<br>切换terminal窗口：shiift+command+{ ／ }<br>刷新文件树：shift+r<br>上下分割当前打开的文件:Ctrl+W s<br>让所有的屏都有一样的高度:Ctrl+W =<br>增加高度:Ctrl+W +<br>减少高度:Ctrl+W -<br>替换文本：选中之后shift+; s/ 被替换的/要替换的/(g)–全局<br>在最后加上某个： 全选 –》 ： –》s/$/你要加的东西<br>在最前面加上某个： 全选 –》： –》s//你要加的东西<br>自动换行：set wrap</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1633,12 +1581,21 @@ ps：一个xxx对应多个photo
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">237</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
@@ -1646,7 +1603,7 @@ ps：一个xxx对应多个photo
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

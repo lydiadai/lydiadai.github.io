@@ -284,6 +284,647 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-文件下载与分享</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-22T09:50:00+08:00">
+                2017-12-22 09:50
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>-(void)download {<br>        [SVProgressHUD showWithStatus:@”正在下载文件”];</p>
+<pre><code>    NSURL *url = [NSURL URLWithString:self.currentRoute];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    //将下载后的数据存入文件(lastObject 无数据返回nil，不会导致程序崩溃)
+    _filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString* name = [_fileName stringByAppendingString:@&quot;.pdf&quot;];
+    _filePath = [_filePath stringByAppendingPathComponent:name];
+    NSLog(@&quot;%@&quot;,_filePath);
+
+    //将下载的二进制文件转成入文件
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL isDownLoad =  [manager createFileAtPath:_filePath contents:data attributes:nil];
+      [Loading hide];
+    if (isDownLoad) {
+        [SVProgressHUD  showSuccessWithStatus:@&quot;下载完成&quot;];
+    }else{
+        [SVProgressHUD  showErrorWithStatus:@&quot;下载失败，请重试&quot;];
+    }
+      [SVProgressHUD dismissWithDelay:1];
+}];
+//开始下载 否则不会开始
+[task resume];</code></pre><p>}</p>
+<p>-(void)sharePDF{<br>    //创建实例(写成成员变量，不然可能导致分享出去被释放崩溃问题)<br>    _documentController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:_filePath]];<br>    //设置代理<br>    _documentController.delegate = self;<br>    BOOL canOpen = [_documentController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];<br>    if (!canOpen) {<br>        NSLog(@”沒有程序可以打開要分享的文件”);<br>        [Loading showLoginFail:_webview for:@”沒有程序可以打開要分享的文件”];<br>         [SVProgressHUD dismissWithDelay:1];<br>    }<br>}</p>
+<p>ps:如果只想分享url这样的 用这个就可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//ios系统分享</span><br><span class="line">-(void)SystemShareWithTitle:(NSString*)title withText:(NSString*)text withImageUrl:(NSString*)url withSiteUrl:(NSString*)siteurl withVC:(UIViewController*)VC</span><br><span class="line">&#123;</span><br><span class="line">    NSString *titleText = title;</span><br><span class="line">    NSString *shareText = text;</span><br><span class="line">    NSURL *URL = [NSURL URLWithString:siteurl];</span><br><span class="line">    UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];</span><br><span class="line">    UIActivityViewController *a = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:titleText,shareText,URL,image, nil] applicationActivities:nil];</span><br><span class="line">    [VC presentViewController:a animated:true completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-支付集成的巨坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T19:28:00+08:00">
+                2017-12-11 19:28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、支付宝 url type 中的url scheme自定义<br>   在alipaymanager 中调用自定义的url scheme 即可实现跳转</p>
+<p>2.微信统一下单接口返回签名错误 如确定参数无误 重新设置商户key(一样的也可以)</p>
+<p>3.app跟网站上的微信支付的账户不是一个 都要设置好才能用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios11- wkweview获取的内容向下偏离</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T09:40:00+08:00">
+                2017-11-25 09:40
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>if (@available(iOS 11.0, *)) {
+    _webview.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    _webview.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    _webview.scrollView.scrollIndicatorInsets = _webview.scrollView.contentInset;
+}
+
+也可以解决ipone x底部留白问题</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-wkwebview cookie</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T17:47:00+08:00">
+                2017-11-23 17:47
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.存储<br> 1）使用- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{方法<br> 2）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NSHTTPURLResponse *response = (NSHTTPURLResponse *)navigationResponse.response;</span><br><span class="line">           //读取wkwebview中的cookie 方法</span><br><span class="line">           NSArray *cookies =[NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:response.URL];</span><br><span class="line">           for (NSHTTPCookie *cookie in cookies) &#123;</span><br><span class="line">               [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];</span><br><span class="line">           &#125;</span><br><span class="line">           //看看存入到了NSHTTPCookieStorage了没有</span><br><span class="line">           NSHTTPCookieStorage *cookieJar2 = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">           for (NSHTTPCookie *cookie in cookieJar2.cookies) &#123;</span><br><span class="line">               NSLog(@&quot;NSHTTPCookieStorage中的cookie%@&quot;, cookie);</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.读取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 在此处获取返回的cookie</span><br><span class="line">    NSMutableDictionary *cookieDic = [NSMutableDictionary dictionary];</span><br><span class="line">    NSMutableString *cookieValue = [NSMutableString stringWithFormat:@&quot;&quot;];</span><br><span class="line">    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">    for (NSHTTPCookie *cookie in [cookieJar cookies]) &#123;</span><br><span class="line">        [cookieDic setObject:cookie.value forKey:cookie.name];</span><br><span class="line">        NSLog(@&quot;传递的cookie%@&quot;, cookieDic);</span><br><span class="line">    &#125;</span><br><span class="line">    // cookie重复，先放到字典进行去重，再进行拼接</span><br><span class="line">    for (NSString *key in cookieDic) &#123;</span><br><span class="line">        NSString *appendString = [NSString stringWithFormat:@&quot;%@=%@;&quot;, key, [cookieDic valueForKey:key]];</span><br><span class="line">        [cookieValue appendString:appendString];</span><br><span class="line">    &#125;</span><br><span class="line">   NSMutableURLRequest *requestCookie = [NSMutableURLRequest requestWithURL:url];</span><br><span class="line">    [requestCookie addValue:cookieValue forHTTPHeaderField:@&quot;Cookie&quot;];</span><br><span class="line">    NSLog(@&quot;传递的最终cookie%@&quot;, requestCookie);</span><br></pre></td></tr></table></figure>
+
+<p>3.清除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">   NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];</span><br><span class="line">   for (id obj in _tmpArray) &#123;</span><br><span class="line">       [cookieJar deleteCookie:obj];</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>ps:如果想再次进入免登陆 需要在app端存储一下<br>app端手动存储Cookie</p>
+<p>如果没设置Cookie失效时间expiresDate:(null)，sessionOnly:true,kill掉后系统不会自动保存Cookie，如果想持久化Cookie 模仿浏览器存住Cookie，使用NSUserDefaults存下即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//合适的时机保存Cookie</span><br><span class="line">- (void)saveCookies&#123;</span><br><span class="line">    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];</span><br><span class="line">    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">    [defaults setObject: cookiesData forKey: @&quot;org.skyfox.cookie&quot;];</span><br><span class="line">    [defaults synchronize];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//合适的时机加载Cookie 一般都是app刚刚启动的时候</span><br><span class="line">- (void)loadCookies&#123;</span><br><span class="line">    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData: [[NSUserDefaults standardUserDefaults] objectForKey: @&quot;org.skyfox.cookie&quot;]];</span><br><span class="line">    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">    for (NSHTTPCookie *cookie in cookies)&#123;</span><br><span class="line">        [cookieStorage setCookie: cookie];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-oc和js的交互（数据传值）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T14:10:00+08:00">
+                2017-11-22 14:10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">https://github.com/marcuswestin/WebViewJavascriptBridge</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-url中有中文</a></h1>
         
 
@@ -863,625 +1504,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails- redis</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-01T09:44:00+08:00">
-                2017-11-01 09:44
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://blog.csdn.net/pingpangbing0902/article/details/47104545" target="_blank" rel="noopener">http://blog.csdn.net/pingpangbing0902/article/details/47104545</a></p>
-<p>先运行redis-server /usr/local/etc/redis.conf</p>
-<p>安装完之后新开一个窗口运行<br>bundle exec sidekiq</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails- 上传图片剪裁</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-27T18:44:00+08:00">
-                2017-10-27 18:44
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://github.com/kirtithorat/carrierwave-crop" target="_blank" rel="noopener">https://github.com/kirtithorat/carrierwave-crop</a><br>api说明 <a href="http://www.cnblogs.com/MirageFox/p/4941967.html" target="_blank" rel="noopener">http://www.cnblogs.com/MirageFox/p/4941967.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">vue js - 封装component</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-18T14:38:00+08:00">
-                2017-10-18 14:38
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.slot 可以直接引用代码放进component中<br>  有名字的要在父层代码中的标签上加上    slot =“”<br>   没有名字的直接引了<br>2.要想从父层代码向component中传不改变的值，在component中声明一个props 然后在父层中绑定（:name=“”）就传进去了<br>3.如果要双向绑定的话，参考<a href="http://duxiao.sweetysoft.com/blog/posts/vuejs-v-model" target="_blank" rel="noopener">http://duxiao.sweetysoft.com/blog/posts/vuejs-v-model</a><br>如果是object的话一定要传value 接口中的值定义也要给一个”value”作为名称<br>4.在组件中要是想调用父层代码中方法的话<br>先定义@click=”onClickItem()”<br>然后 组件中的methods中加上<br>onClickItem () {<br>      this.$emit(‘on-click-item’)<br>    }<br>最后在父层需要调用方法的地方<br>@on_click_item=“xxx”<br>Xxx是在父层代码中定义的方法gg</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">解决js跨域问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-18T09:36:00+08:00">
-                2017-10-18 09:36
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.在代码端, 处理方式不变, 访问 /api + 原接口url:</p>
-<p>this.$http.get(‘/api/interface/blogs/all’)…<br>2.在开发的时候, 继续保持vuejs 的代理存在. 配置代码如下:</p>
-<p>proxyTable: {<br>  ‘/api’: {<br>    target: ‘<a href="http://siwei.me&#39;" target="_blank" rel="noopener">http://siwei.me&#39;</a>,<br>    changeOrigin: true,<br>    pathRewrite: {<br>      ‘^/api’: ‘’<br>    }<br>  }<br>},<br>3.在nginx的配置文件中,加入代理:(详细说明见代码中的注释)</p>
-<p>  server {<br>    listen       80;<br>    server_name  vue_demo.siwei.me;<br>    client_max_body_size       500m;<br>    charset utf-8;<br>    root /opt/app/vue_demo;</p>
-<pre><code># 第一步,把所有的 mysite.com/api/interface  转换成:   mysite.com/interface
-location /api {
-  rewrite    ^(.*)\/api(.*)$    $1$2;
-}
-
-# 第二步，　把所有的 mysite.com/interface 的请求，转发到 siwei.me/interface
-location /interface {
-  proxy_pass          http://siwei.me;
-}</code></pre><p>  }<br>就可以了．</p>
-<p>也就是说，　上面的配置，把　</p>
-<p><a href="http://vue_demo.siwei.me/api/interface/blogs/all" target="_blank" rel="noopener">http://vue_demo.siwei.me/api/interface/blogs/all</a><br>在服务器端做了个变换，相当于访问了：</p>
-<p><a href="http://siwei.me/interface/blogs/all" target="_blank" rel="noopener">http://siwei.me/interface/blogs/all</a><br>重启nginx ,　就会发现生效了．</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails - 省市县三级联动数据脚本</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-25T14:30:00+08:00">
-                2017-09-25 14:30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">require &apos;httparty&apos;</span><br><span class="line">require File.expand_path(File.dirname(__FILE__) + &quot;/../config/environment&quot;)</span><br><span class="line">require &apos;rails&apos;</span><br><span class="line"></span><br><span class="line"># 定义URL</span><br><span class="line">url = &quot;http://www.helloweba.com/demo/cityselect/js/city.js&quot;</span><br><span class="line">response = HTTParty.get  url </span><br><span class="line"></span><br><span class="line"># 获取 到结果</span><br><span class="line">Province.transaction do</span><br><span class="line">  items = JSON.parse(response.body) rescue []</span><br><span class="line">  return if items.blank?</span><br><span class="line">  items[&apos;citylist&apos;].each do |province|</span><br><span class="line">    province_name = province[&apos;p&apos;]</span><br><span class="line">    @province = Province.create :name =&gt; province_name</span><br><span class="line">    Rails.logger.info &quot;province ==!!!!!==!!!!!== #&#123;province_name&#125;&quot;</span><br><span class="line"></span><br><span class="line">    next if province[&apos;c&apos;].blank?</span><br><span class="line">    province[&apos;c&apos;].each do |city|</span><br><span class="line">      city_name = city[&apos;n&apos;]</span><br><span class="line">      @city = City.create :name =&gt; city_name, :province_id =&gt; @province.id</span><br><span class="line">      Rails.logger.info &quot;city ======== #&#123;city_name&#125;&quot;</span><br><span class="line"></span><br><span class="line">      next if city[&apos;a&apos;].blank?</span><br><span class="line">      city[&apos;a&apos;].each do |town|</span><br><span class="line">        town_name = town[&apos;s&apos;]</span><br><span class="line">        @town = Town.create :name =&gt; town_name, :city_id =&gt; @city.id</span><br><span class="line">        Rails.logger.info &quot;town ======== #&#123;town_name&#125;&quot;</span><br><span class="line">      end </span><br><span class="line">    end </span><br><span class="line">  end </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>将直辖市放到城市表中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># -*- encoding : utf-8 -*-     </span><br><span class="line">require File.expand_path(File.dirname(__FILE__) + &quot;/../config/environment&quot;)</span><br><span class="line">require &apos;rails&apos;</span><br><span class="line">Rails.logger.info &quot;=== before &quot;</span><br><span class="line">zhi_xia_shi_ids = [1, 2, 9, 22]</span><br><span class="line">max_city_id = 488              </span><br><span class="line">zhi_xia_shi_ids.each do |province_id|</span><br><span class="line">  zhi_xia_shi_province = Province.find province_id</span><br><span class="line">  # 1. 把直辖市的名字，写入到 cities</span><br><span class="line">  city = City.create :name =&gt; zhi_xia_shi_province.name,</span><br><span class="line">    :province_id =&gt; province_id</span><br><span class="line">  # 2. 在cities中的直辖市的各个区，写入到 town 中。</span><br><span class="line">  towns = City.where(&apos;province_id = ? and id &lt; ?&apos;, province_id, max_city_id)</span><br><span class="line">  towns.each do |town|</span><br><span class="line">    Town.create :name =&gt; town.name, </span><br><span class="line">      :city_id =&gt; city.id</span><br><span class="line">    # 3. 把 cities 中的直辖市的各个区，都删掉。</span><br><span class="line">    town.delete                </span><br><span class="line">  end</span><br><span class="line">end </span><br><span class="line">Rails.logger.info &quot;=== done&quot;   </span><br><span class="line">puts &quot;done&quot;</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1532,12 +1554,21 @@ location /interface {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">237</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
@@ -1545,7 +1576,7 @@ location /interface {
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

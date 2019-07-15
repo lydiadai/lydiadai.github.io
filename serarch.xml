@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微信小程序-客服消息配置（自动回复）]]></title>
+    <url>%2Fposts%2Fminiprogram-custom-service-auto-reply.html</url>
+    <content type="text"><![CDATA[微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置 另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑 1234567891011def check_miniprogram_msg_signature(token, signature, timestamp, nonce) arr = [token, timestamp, nonce] arr = arr.sort text = &apos;&apos; arr.each &#123;|element| text += element&#125; (Digest::SHA1.hexdigest(text)==signature) ? true : false # 验证消息end def recieve_miniprogram_msg render :text =&gt; params[:echostr] if check_miniprogram_msg_signature(ENV[&apos;NAME_CARD_WECHAT_TOKEN&apos;],params[:signature], params[:timestamp], params[:nonce]) end 读取消息内容： 12content = Nokogiri::XML(request.body.read)username = content.at_css(&apos;FromUserName&apos;)&amp;.children&amp;.text 自动回复：如果是图片 需要mediaid 12res = RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/media/upload?access_token=&apos; + access_token + &apos;&amp;type=image&apos;, &#123;media: file &#125;, &#123;&apos;Content-Type&apos;: &apos;application/octet-stream&apos;&#125;media_id = JSON.parse(res)[&apos;media_id&apos;] 12345678temp = &#123; &quot;touser&quot;: username, &quot;msgtype&quot;:&quot;image&quot;, &quot;image&quot;: &#123; &quot;media_id&quot;: media_id &#125;&#125;msg = RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=&apos; + a ccess_token, temp.to_json, &#123;content_type: :json, accept: :json&#125; 最后在小程序后台 – 开发 -开发设置-消息推送中配置启用并设置服务器配置后，用户发送的消息以及开发者需要的事件推送，都将被微信转发至开发者URL中。]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2Fposts%2Fhello-world.html</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
@@ -9,64 +17,137 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[电脑配置]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.安装homebrew https://brew.sh/2.安装pgsql $ brew install postgresql3.安装bundle $ gem install bundler4.安装rbenv $ brew install rbenv5.安装rails $ sudo gem install rails6.生成ssh key $ ssh-keygen 查看ssh key $ cat ~/.ssh/id_rsa.pub7.配置bash profile $ sudo vim .bash_profile 使其生效 $ source .bash_profile export PATH=/usr/local/bin:$PATH 8.安装redis 在这下载 https://redis.io/ 将下载下来的包解压后放到/usr/local 进到对应文件夹 $ make install 参考9.配置 vim $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 配置 .vimrc 下载vimrc :PlunginInstall ps:vimrc 参考filetype onset langmenu=noneset fileencodings=utf-8set fileencoding=utf-8set encoding=utf8 set expandtabset shiftwidth=2set softtabstop=2set tabstop=2set numberset autoindentset hlsearchset incsearchset encoding=utf-8“ highlight Normal ctermfg=white ctermbg=cyanset nowrapsyntax enable let g:proj_window_width=5set laststatus=2 map :FufFilemap :MRUmap :Rmodelmap :Rcontrollermap :Runitmap :Rfunctionalmap :Rhelpermap :Rviewmap :ZoomWin “ Strip trailing whitespacefunction! StripTrailingWhitespaces() “ Preparation: save last search, and cursor position. let _s=@/ let l = line(“.”) let c = col(“.”) “ Do the business: %s/\s+$//e “ Clean up: restore previous search history, and cursor position let @/=_s call cursor(l, c)endfunctionautocmd BufWritePre * :call StripTrailingWhitespaces() “ match Todo /\s+$/filetype plugin onlet mapleader = “,” “ THE VIM OUTLINER (TVO)“ defaults:let otl_install_menu=1let no_otl_maps=0let no_otl_insert_maps=0 “ overrides:let otl_bold_headers=0let otl_use_thlnk=0 “ au BufWinLeave *.otl mkview“ au BufWinEnter *.otl silent loadviewlet maplocalleader = “,” “”Only do this part when compiled with support for autocommands.“if has(“autocmd”)“ autocmd Filetype java setlocal omnifunc=javacomplete#Complete“endif set nocompatible “ be iMprovedfiletype off “ required! “ ============== Vundle part =================set rtp+=~/.vim/bundle/Vundle.vim/call vundle#begin() “ let Vundle manage Vundle“ required!Plugin ‘gmarik/vundle’ “ My Bundles here:““ original repos on githubPlugin ‘tpope/vim-fugitive’Plugin ‘Lokaltog/vim-easymotion’“Plugin ‘rstacruz/sparkup’, {‘rtp’: ‘vim/‘}Plugin ‘tpope/vim-rails.git’Plugin ‘bumaociyuan/vim-matchit.git’Plugin ‘ecomba/vim-ruby-refactoring.git’ “ vim-scripts reposPlugin ‘L9’Plugin ‘FuzzyFinder’ Plugin ‘git://git.wincent.com/command-t.git’“Plugin ‘snipMate’“Plugin ‘snipmate-snippets’“Plugin ‘Jasmine-snippets-for-snipMate’Plugin ‘YankRing.vim’Plugin ‘The-NERD-Commenter’Plugin ‘The-NERD-tree’Plugin ‘kchmck/vim-coffee-script’ colorscheme monokaiset background=lightset background=darkPlugin ‘mru.vim’Plugin ‘greplace.vim’call vundle#end() filetype plugin indent on “ required!““ Brief help“ :PluginList - list configured bundles“ :PluginInstall(!) - install(update) bundles“ :PluginSearch(!) foo - search(or refresh cache first) for foo“ :PluginClean(!) - confirm(or auto-approve) removal of unused bundles““ see :h vundle for more details or wiki for FAQ“ NOTE: comments after Plugin command are not allowed.. map fmap a :YRShowmap t :NERDTreemap q :qmap f :Rfixturemap rj :Rjavascript “autocmd BufWritePost,FileWritePost .coffee :silent !coffee –compile –join appstore/static/javascripts/angular/controllers.js appstore/static/javascripts/angular/controllers.coffee appstore/static/javascripts/angular/tabs/coffee appstore/static/javascripts/angular/applications/coffee appstore/static/javascripts/angular/users/coffee appstore/static/javascripts/angular/commons/*coffee“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile appstore/static/javascripts/angular/app.coffee appstore/static/javascripts/angular/directives.coffee appstore/static/javascripts/angular/filters.coffee appstore/static/javascripts/angular/services.coffee “autocmd BufWritePost,FileWritePost .coffee :silent !coffee –compile –join tvboxcms/static/javascripts/angular/controllers.js tvboxcms/static/javascripts/angular/controllers.coffee tvboxcms/static/javascripts/angular/tabs/coffee tvboxcms/static/javascripts/angular/applications/coffee tvboxcms/static/javascripts/angular/users/coffee tvboxcms/static/javascripts/angular/commons/*coffee“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile tvboxcms/static/javascripts/angular/app.coffee tvboxcms/static/javascripts/angular/directives.coffee tvboxcms/static/javascripts/angular/filters.coffee tvboxcms/static/javascripts/angular/services.coffee “autocmd BufWritePost,FileWritePost .coffee :silent !coffee –compile –join m-cms-preview/static/javascripts/angular/controllers.js m-cms-preview/static/javascripts/angular/controllers.coffee m-cms-preview/static/javascripts/angular/tabs/coffee m-cms-preview/static/javascripts/angular/applications/coffee m-cms-preview/static/javascripts/angular/users/coffee m-cms-preview/static/javascripts/angular/commons/*coffee“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile m-cms-preview/static/javascripts/angular/app.coffee m-cms-preview/static/javascripts/angular/directives.coffee m-cms-preview/static/javascripts/angular/filters.coffee m-cms-preview/static/javascripts/angular/services.coffee]]></content>
+    <title><![CDATA[直接展示爬来数据的html]]></title>
+    <url>%2Fposts%2Fshow-spider-html.html</url>
+    <content type="text"><![CDATA[我们爬来的数据有的时候可能是html 用简单的simple_format会将所有的inline style清掉所以这个时候我们要用sanitized后面可以配置 白名单的tag 跟attribute&lt;%= sanitize @comment.body, tags: %w(strong em a), attributes: %w(href) %&gt; 参考]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[pgsql-查询命令]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[进入本地数据库 psql resumehack_development 进入服务器数据库(导到本地查)1.console 直接连数据库 bin/rails dbconsole production 查看数据库大小 SELECT pg_size_pretty(pg_database_size(‘database name’));查询所有表并按照大小排列select table_name, pg_relation_size(quote_ident(table_name))from information_schema.tableswhere table_schema = ‘public’order by 2;]]></content>
+    <title><![CDATA[服务器搭建]]></title>
+    <url>%2Fposts%2Fbuild-server.html</url>
+    <content type="text"><![CDATA[购买服务器， 这次买的是阿里云的 根据配置买就可以了 ssh 根据设置的用户名 密码登陆 根据使用的是什么数据库 安装数据库 123$ apt-get update（自带mysql）$ apt-get install libapr1-dev libxml2-dev libxslt-dev mysql-server libmysqlclient-dev git curl build-essential libssl-dev libreadline-dev build-essential libssl-dev libreadline-dev vim libcurl3 ruby-dev zlib1g-dev liblzma-dev ruby-all-dev$ apt-get install postgresql libpq-dev (安装pgsql) 安装对应的ruby raiils 版本$ apt-get install rbenv（绝对不行！！！！)$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv (用这个)然后根据rbenv 安装 具体可见本地环境配置注： 一定要安装ruby-build$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build 正常可以用capstrino可以直接部署 不能直接部署的时候 在/opt/app 目录下git clone 代码库 然后bundle 手动创建shared,releases目录 还有shared里的tmp,public,log等子目录 创建数据库 导入数据（正常使用rake db:create，但是我安装的时候 一直报没有rake gem的问题 ，所以就手动在数据库里创建了 create tablexxxxx，这个是由于bundle install 没有指定目录 他使用不到 对应的gembundle install –path /root/.rbenv/versions/2.3.8/lib/ruby/gems/2.3.0/) 安装并配置nginx$ apt-get install nginx配置文件在/etc/nginx 下 bundle exec rails s -p 6661 测试能不能启动(跑步起来 一直报NameError: uninitialized constant ActiveModel::Serializers::Xml 还未找到原因， rbenv版本问题应该是 重装了rbenv之后用capstrano 装就没有这个问题了） ps: 所有配置项文件都要放到shared/config 目录下]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[html-多行...]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[&lt;%= truncate(page.description, length: 70, omission: ‘…’) %&gt;]]></content>
+    <title><![CDATA[Linux命令合集]]></title>
+    <url>%2Fposts%2Flinux-order-summary.html</url>
+    <content type="text"><![CDATA[根据内存使用由低到高展示进程（Sorting down processes by memory usage）ps aux –sort rss 查看CPU使用情况top —&gt; c —&gt; 1 按照由低到高排序space刷新 压缩文件zip 要生成文件名 xxx xxx(后面跟的都是要压缩的文件)解压文件unzip 文件名 du -a . | sort -n -r | head -n 10disk usage 列出全部文件 | 排序（从大到小） | 看最大的前十个 5.更改文件权限sudo chown -R apps.apps wechaty-file-pro1]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[js-魔法方法汇总]]></title>
+    <url>%2Fposts%2Fjs-magic-function-summary.html</url>
+    <content type="text"><![CDATA[js直接修改url=window.history.pushState(‘’,’’,’/blog/&lt;%= params[:tag]%&gt;’);最后一个参数是url 相对路径 alert出所有的js error=window.onerror = function myErrorHandler(errorMsg, url, lineNumber) { alert(“Error occured: “ + errorMsg);//or any message return false;}]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Capistrano 基本用法]]></title>
+    <url>%2Fposts%2Fcapistrano-useage.html</url>
+    <content type="text"><![CDATA[安装gemgem ‘capistrano’, ‘2.12.0’gem ‘capistrano-rbenv’, ‘1.0.1’bundle capify . 会生成两个文件： Capfile , config/deploy.rb cap deploy:setup 会建立必须的 文件夹 （眼疾手快 及时停止executing “if test -f /etc/debian_version; then echo debian; elif test -f /etc/redhat-release; then echo redhat; elif test -f /etc/system-release; then echo redhat; else echo unknown; fi;”） 到服务器上 shared目录下创建config 文件夹 里面创建secrets.yml database.yml. application.yml 文件并配置 执行bundle exec cap deploy 一个deploy.rb 部署多个服务器1234567891011121314151617181920212223242526272829303132SERVER_TEST_32 = &quot;10.103.23.32&quot;SERVER_TEST_103 = &quot;10.103.23.103&quot;SERVER_PRODUCTION_121 = &quot;10.103.23.121&quot;SERVER_PRODUCTION_11 = &quot;10.103.23.11&quot;SERVER_PRODUCTION_73 = &quot;10.103.23.73&quot;SERVER_PRODUCTION_74 = &quot;10.103.23.74&quot;set(:server_type) &#123; puts &quot;== 测试服务器是： test103 (.32 已经废弃，不过有需要的话仍然可以上去)&quot; puts &quot;== 正式服务器是： 73, 74 &quot; Capistrano::CLI.ui.ask(&quot;== which server do you want to deploy to? (test103/test32/73/74)? &quot;)&#125;case server_type.chomp when &apos;test32&apos; server = SERVER_TEST_32 password = &apos;Q7sKxQoM8&apos; when &apos;test103&apos; server = SERVER_TEST_103 password = &apos;v6piiz9cx&apos; when &apos;11&apos; server = SERVER_PRODUCTION_11 password = &apos;no need for password&apos; when &apos;121&apos; server = SERVER_PRODUCTION_121 password = &apos;YopmwECgn&apos; when &apos;73&apos; server = SERVER_PRODUCTION_73 password = &apos;avCNz7gv6&apos; when &apos;74&apos; server = SERVER_PRODUCTION_74 password = &apos;N0NYxtZCo&apos;end 注：deploy.rb examle:role :db, server, :primary =&gt; truerole :db, server set :deploy_to, “/opt/app/test.wondercv.com”default_run_options[:pty] = true #change to your usernameset :user, SSH_USER namespace :deploy do task :start do run “cd #{release_path} &amp;&amp; bundle exec thin start -C config/thin.yml” end task :stop do run “cd #{release_path} &amp;&amp; bundle exec thin stop -C config/thin.yml” end task :restart, :roles =&gt; :app, :except =&gt; { :no_release =&gt; true } do db_migrate stop sleep 2 start end task :db_migrate do run “cd #{release_path} &amp;&amp; bundle install” run “cd #{release_path} &amp;&amp; RAILS_ENV=test bundle exec rake db:migrate” end namespace :assets do task :precompile do #puts “======= should run precompile” #command = “cd #{release_path} &amp;&amp; bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile “ #puts “== please run == \n #{command} \n == manually after deploy is done” #run “bundle install” #run “cd #{release_path} &amp;&amp; bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile “ end endend desc “Copy database.yml to release_path”task :cp_database_yml do puts “=== executing my customized command: “ run “cp -r #{shared_path}/config/* #{release_path}/config/“ run “ln -s #{shared_path}/files #{release_path}/public/files” puts “=== done (executing my customized command)”end before “deploy:assets:precompile”, :cp_database_yml #after “deploy”, “deploy:restart”]]></content>
+      <tags>
+        <tag>deploy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[灵异现象汇总]]></title>
+    <url>%2Fposts%2Fstrange-events-summary.html</url>
+    <content type="text"><![CDATA[在服务器上怎么precompile都不会生成新的assets 文件解决：RAILS_ENV=production放在命令后面https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required js click事件只监听一次就不再触发了解决： 因为使用的是封装好的dropdown 将他换成普通的隐藏/出现 就不会有问题了]]></content>
+      <tags>
+        <tag>other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信打开网页 提示防诈骗]]></title>
+    <url>%2Fposts%2Fwechat-alert-avoid-cons.html</url>
+    <content type="text"><![CDATA[之前我们的网站一在微信里打开 输入的时候就会提示防诈骗 对用户来说体验很不好 找了很久配置的地方也没有找到 终于找到了 特此记录]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[服务器调优-log分析工具]]></title>
+    <url>%2Fposts%2Flog-analyzer.html</url>
+    <content type="text"><![CDATA[rails log(passenger log)1$ gem install request-log-analyzer 简单用法： 分析一个文件，并且把它输出到 report-for-logs.html 中： 1$ request-log-analyzer cms_production_2013-02-17.log --format rails3 --output HTML --file report-for-cms-logs.html nginx log1$ brew install goaccess cd usr/local/Cellar/goaccess进去找到etc/goaccess.conf 就是依次根据 nginx 的格式，打开下面的注释： 123time-format %H:%M:%Sdate-format %d/%b/%Ylog-format %h %^[%d:%t %^] &quot;%r&quot; %s %b &quot;%R&quot; &quot;%u&quot; 1$ goaccess -f &lt;your_log_file&gt; -a &gt; result.html 就可以看到对应的日志的细节了． ps :要确保你的电脑内存大小大于日志：分析大日志时，如果你的机器内存太小，就会报错退出。例如，你的机器是4G内存，但是要分析的内容是7G大小，这时候就会 在机器运行2，3分钟，接近死机是，出现 Killed 的结果（还好GoAccess会自动 干掉这个进程 ) ( but it’s a weakpoint that goaccess can’t analyze big file, e.g. 7G size. ) 所以解决办法是： 1. 把大日志切成小文件。 2. 分析小文件。 $ split -b 2G $ goaccess… 略]]></content>
+      <tags>
+        <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac ROR开发环境配置]]></title>
+    <url>%2Fposts%2F2019-04-05-computer-configuration.html</url>
+    <content type="text"><![CDATA[为了导入数据库 调整了一个底层参数 给电脑调崩了 又要重新配置特此记录配置文档 1.安装homebrew https://brew.sh/2.安装pgsql 1$ brew install postgresql 3.安装bundle 1$ gem install bundler 4.安装rbenv 1$ brew install rbenv 5.安装rails 1$ sudo gem install rails 6.生成ssh key 1$ ssh-keygen 查看ssh key 1$ cat ~/.ssh/id_rsa.pub 应用ssh key 1ssh-add ~/.ssh/id_rsa 7.配置bash profile 1$ sudo vim .bash_profile 文件内容： export PATH=/usr/local/bin:$PATH使其生效 1$ source .bash_profile 8.安装redis在这下载 https://redis.io/将下载下来的包解压后放到/usr/local进到对应文件夹 1$ make install 参考9.配置 vim$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim配置 .vimrc 下载vimrc:PlunginInstall 用了一段时间发现 console 跟irb 里不能输入中文又折腾了好久 其实就是没有安装readline 123$ brew install readline $ rbenv uninstall 2.3.7$ CONFIGURE_OPTS=&quot;--with-readline-dir=/usr/local/Cellar/readline/8.0.0&quot; rbenv install 2.3.7 .bash_profile 里要配置eval “$(rbenv init -)”$ rbenv shell 2.3.7 ps:vimrc 参考filetype onset langmenu=noneset fileencodings=utf-8set fileencoding=utf-8set encoding=utf8 set expandtabset shiftwidth=2set softtabstop=2set tabstop=2set numberset autoindentset hlsearchset incsearchset encoding=utf-8“ highlight Normal ctermfg=white ctermbg=cyanset nowrapsyntax enable let g:proj_window_width=5set laststatus=2 map :FufFilemap :MRUmap :Rmodelmap :Rcontrollermap :Runitmap :Rfunctionalmap :Rhelpermap :Rviewmap :ZoomWin “ Strip trailing whitespacefunction! StripTrailingWhitespaces()“ Preparation: save last search, and cursor position.let _s=@/let l = line(“.”)let c = col(“.”)“ Do the business:%s/\s+$//e“ Clean up: restore previous search history, and cursor positionlet @/=_scall cursor(l, c)endfunctionautocmd BufWritePre * :call StripTrailingWhitespaces() “ match Todo /\s+$/filetype plugin onlet mapleader = “,” “ THE VIM OUTLINER (TVO)“ defaults:let otl_install_menu=1let no_otl_maps=0let no_otl_insert_maps=0 “ overrides:let otl_bold_headers=0let otl_use_thlnk=0 “ au BufWinLeave *.otl mkview“ au BufWinEnter *.otl silent loadviewlet maplocalleader = “,” “”Only do this part when compiled with support for autocommands.“if has(“autocmd”)“ autocmd Filetype java setlocal omnifunc=javacomplete#Complete“endif set nocompatible “ be iMprovedfiletype off “ required! “ ============== Vundle part =================set rtp+=~/.vim/bundle/Vundle.vim/call vundle#begin() “ let Vundle manage Vundle“ required!Plugin ‘gmarik/vundle’ “ My Bundles here:““ original repos on githubPlugin ‘tpope/vim-fugitive’Plugin ‘Lokaltog/vim-easymotion’“Plugin ‘rstacruz/sparkup’, {‘rtp’: ‘vim/‘}Plugin ‘tpope/vim-rails.git’Plugin ‘bumaociyuan/vim-matchit.git’Plugin ‘ecomba/vim-ruby-refactoring.git’ “ vim-scripts reposPlugin ‘L9’Plugin ‘FuzzyFinder’ Plugin ‘git://git.wincent.com/command-t.git’“Plugin ‘snipMate’“Plugin ‘snipmate-snippets’“Plugin ‘Jasmine-snippets-for-snipMate’Plugin ‘YankRing.vim’Plugin ‘The-NERD-Commenter’Plugin ‘The-NERD-tree’Plugin ‘kchmck/vim-coffee-script’ colorscheme monokaiset background=lightset background=darkPlugin ‘mru.vim’Plugin ‘greplace.vim’call vundle#end() filetype plugin indent on “ required!““ Brief help“ :PluginList - list configured bundles“ :PluginInstall(!) - install(update) bundles“ :PluginSearch(!) foo - search(or refresh cache first) for foo“ :PluginClean(!) - confirm(or auto-approve) removal of unused bundles““ see :h vundle for more details or wiki for FAQ“ NOTE: comments after Plugin command are not allowed.. map fmap a :YRShowmap t :NERDTreemap q :qmap f :Rfixturemap rj :Rjavascript “autocmd BufWritePost,FileWritePost .coffee :silent !coffee –compile –join appstore/static/javascripts/angular/controllers.js appstore/static/javascripts/angular/controllers.coffee appstore/static/javascripts/angular/tabs/coffee appstore/static/javascripts/angular/applications/coffee appstore/static/javascripts/angular/users/coffee appstore/static/javascripts/angular/commons/*coffee“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile appstore/static/javascripts/angular/app.coffee appstore/static/javascripts/angular/directives.coffee appstore/static/javascripts/angular/filters.coffee appstore/static/javascripts/angular/services.coffee “autocmd BufWritePost,FileWritePost .coffee :silent !coffee –compile –join tvboxcms/static/javascripts/angular/controllers.js tvboxcms/static/javascripts/angular/controllers.coffee tvboxcms/static/javascripts/angular/tabs/coffee tvboxcms/static/javascripts/angular/applications/coffee tvboxcms/static/javascripts/angular/users/coffee tvboxcms/static/javascripts/angular/commons/*coffee“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile tvboxcms/static/javascripts/angular/app.coffee tvboxcms/static/javascripts/angular/directives.coffee tvboxcms/static/javascripts/angular/filters.coffee tvboxcms/static/javascripts/angular/services.coffee “autocmd BufWritePost,FileWritePost .coffee :silent !coffee –compile –join m-cms-preview/static/javascripts/angular/controllers.js m-cms-preview/static/javascripts/angular/controllers.coffee m-cms-preview/static/javascripts/angular/tabs/coffee m-cms-preview/static/javascripts/angular/applications/coffee m-cms-preview/static/javascripts/angular/users/coffee m-cms-preview/static/javascripts/angular/commons/*coffee“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile m-cms-preview/static/javascripts/angular/app.coffee m-cms-preview/static/javascripts/angular/directives.coffee m-cms-preview/static/javascripts/angular/filters.coffee m-cms-preview/static/javascripts/angular/services.coffee]]></content>
+      <tags>
+        <tag>environment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[html-多行... 按照字数]]></title>
+    <url>%2Fposts%2F2019-03-30-html-many-lines.html</url>
+    <content type="text"><![CDATA[1&lt;%= truncate(page.description, length: 70, omission: '...') %&gt;]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[gem - imgkit 的坑]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2019-03-25-the-pit-of-gem-imgkit.html</url>
     <content type="text"><![CDATA[1.css js 文件都可以写在页面里但是必须配置config.asset_host = ENV[‘HOST’]否则会找不到文件如果不能配置就只能将文件传到服务器然后指定全路径2.有部分jquery方法不能用需要找到js方法代替3.css filter 不可用]]></content>
+      <tags>
+        <tag>ruby css</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[jquery-select2 highlight dropdown keywords]]></title>
     <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[基本逻辑是在搜索的时候将query 存起来 然后用query.term在templateResult方法中拼接显示matcher只能用于拼接文字什么的 html不行 var query = {}; function markMatch (text, term) { // Find where the match is var match = text.toUpperCase().indexOf(term.toUpperCase()); var $result = $(&apos;&lt;span&gt;&lt;/span&gt;&apos;); // If there is no match, move on if (match &lt; 0) { return $result.text(text); } // Put in whatever text is before the match $result.text(text.substring(0, match)); // Mark the match var $match = $(&apos;&lt;span style=&quot;color: #ff4f4c&quot;&gt;&lt;/span&gt;&apos;); $match.text(text.substring(match, match + term.length)); // Append the matching text $result.append($match); // Put in whatever is after the match $result.append(text.substring(match + term.length)); return $result; } function formatState (state) { if (!state.id) { return state.text; } var term = query.term || &apos;&apos;; var $result = markMatch(state.text, term); return $result; }; $(&apos;#intentions_profession&apos;).select2({ templateSelection: formatSelectedProfession,//改变选中的条目显示 templateResult: formatState,//改变下拉单里条目显示 language: { searching: function (params) { // Intercept the query as it is happening query = params; // Change this to be appropriate for your application return &apos;Searching…&apos;; } } }); [参考](https://stackoverflow.com/questions/28958620/using-select2-4-0-0-with-infinite-data-and-filter/29018243#29018243) backspace删除一整个tag $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(event) { $el = $(this) setTimeout(function() { $el.closest(&apos;.intention-input&apos;).find(&apos;.select2-search__field&apos;).val(&apos;&apos;) }, 0) })]]></content>
+    <content type="text"><![CDATA[基本逻辑是在搜索的时候将query 存起来 然后用query.term在templateResult方法中拼接显示matcher只能用于拼接文字什么的 html不行 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253var query = &#123;&#125;; function markMatch (text, term) &#123; // Find where the match is var match = text.toUpperCase().indexOf(term.toUpperCase()); var $result = $('&lt;span&gt;&lt;/span&gt;'); // If there is no match, move on if (match &lt; 0) &#123; return $result.text(text); &#125; // Put in whatever text is before the match $result.text(text.substring(0, match)); // Mark the match var $match = $('&lt;span style="color: #ff4f4c"&gt;&lt;/span&gt;'); $match.text(text.substring(match, match + term.length)); // Append the matching text $result.append($match); // Put in whatever is after the match $result.append(text.substring(match + term.length)); return $result; &#125; function formatState (state) &#123; if (!state.id) &#123; return state.text; &#125; var term = query.term || ''; var $result = markMatch(state.text, term); return $result; &#125;; $('#intentions_profession').select2(&#123; templateSelection: formatSelectedProfession,//改变选中的条目显示 templateResult: formatState,//改变下拉单里条目显示 language: &#123; searching: function (params) &#123; // Intercept the query as it is happening query = params; // Change this to be appropriate for your application return 'Searching…'; &#125; &#125; &#125;); 参考 backspace删除一整个tag 123456$('#intentions_profession').on('select2:unselect', function(event) &#123; $el = $(this) setTimeout(function() &#123; $el.closest('.intention-input').find('.select2-search__field').val('') &#125;, 0) &#125;)]]></content>
   </entry>
   <entry>
     <title><![CDATA[ios-notification]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2019-02-27-ios-notification.html</url>
     <content type="text"><![CDATA[要先addObserver 然后postNotificationName]]></content>
+      <tags>
+        <tag>ios</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails - cache]]></title>
     <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[View:&lt;% cache current_user.active_cvs.order(‘updated_at desc’).first.updated_at do %&gt; xxxxx&lt;% end %&gt; 当cache后面的key变了的时候 页面中的内容才会重新加载 Controller: Model: Rails.cache.fetch() ps: 开启development cache mode rails dev:cache 参考]]></content>
+    <content type="text"><![CDATA[View: 123&lt;% cache current_user.active_cvs.order('updated_at desc').first.updated_at do%&gt; xxxxx&lt;% end %&gt; 当cache后面的key变了的时候 页面中的内容才会重新加载 Controller: Model: 1Rails.cache.fetch() ps: 开启development cache mode rails dev:cache 参考]]></content>
+      <tags>
+        <tag>rails</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux-更改文件权限]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[sudo chown -R apps.apps wechaty-file-pro1]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[psql-dump single table]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[pg_dump -U postgres –table jd_temps -Fc test_production &gt; /home/apps/jd_temps.sql scp apps@wondermail.club:/home/apps/jd_temps.sql /Users/dailanyi/Downloads/ psql resumehack_developmentDROP TABLE jd_temps; pg_restore -U dailanyi –dbname resumehack_development –table=jd_temps /Users/dailanyi/Downloads/jd_temps.sql psql resumehack_developmentALTER TABLE jd_temps ADD PRIMARY KEY (id);]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[替换公众号回复图片]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.图片上传到服务器 /home/apps/Files2.登录到服务器 cd Resume/cu export RAILS_ENV=production wechat material_add image,’/home/apps。。。。’3.取media id 替换 测试 send_image_message(media_id, openid)send_image_message 这个方法没有需要站进去]]></content>
+    <title><![CDATA[sql 基础(pgsql & mysql)]]></title>
+    <url>%2Fposts%2F2019-01-15-sql-base.html</url>
+    <content type="text"><![CDATA[pgsql 进入本地数据库 1psql resumehack_development 进入服务器数据库console 直接连数据库 bin/rails dbconsole production 修改数据库密码\password 查看数据库大小 命令： 1SELECT pg_size_pretty(pg_database_size(&apos;database name&apos;)); 查询所有表并按照大小排列 1select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = &apos;public&apos; order by 2; 复制单张表数据pg_dump -U postgres –table jd_temps -Fc test_production &gt; /home/apps/jd_temps.sql scp apps@wondermail.club:/home/apps/jd_temps.sql /Users/dailanyi/Downloads/ psql resumehack_developmentDROP TABLE jd_temps; pg_restore -U dailanyi –dbname resumehack_development –table=jd_temps /Users/dailanyi/Downloads/jd_temps.sql psql resumehack_developmentALTER TABLE jd_temps ADD PRIMARY KEY (id); 导入数据库到本地 1psql resumehack_development &lt; /Users/dailanyi/Desktop/PostgreSQL.sql restore db 12psql -U postgres -d wondercv_test -c &quot;drop schema public cascade; create schema public;&quot;psql --set ON_ERROR_STOP=on -U postgres wondercv_test &lt; #&#123;db_unzip_file&#125; mysql从远程拷贝数据库到本地 1.先上远程查看是否有备份文件没有就创建一个：mysqldump -uroot -p密码 数据库名称 &gt; 导出来的数据库文件名称.sql 2.在本地运行scp -P 端口号 root@服务器名称:/opt/app/程序名称/current/导出来的数据库文件名称.sql . 3.将远程拷下来的数据库库备份文件倒入本地数据库mysql -uroot -p本地数据库密码 本地数据库名称 &lt; 导出来的数据库文件名称.sql ps: 远程文件下载： 1scp -r apps@staging.wondercv.com:/home/apps/main-backup/resumehack_pg/2018.12.02.15.30.02 /Users/dailanyi/Downloads/ 上传本地文件到服务器 1scp /path/local_filename username@servername:/path 在文件目录下跑 不在console里面export RAILS_ENV=productionrails runner /home/apps/download_interview_data.rb]]></content>
+      <tags>
+        <tag>sql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-在数组中固定位置插值]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[// 原来的数组var array = [“one”, “two”, “four”];// splice(position, numberOfItemsToRemove, item)// 拼接函数(索引位置, 要删除元素的数量, 元素)array.splice(2, 0, “three”); array; // 现在数组是这个样子 [“one”, “two”, “three”, “four”]]]></content>
+    <url>%2Fposts%2F2019-01-07-js-fixed-position-interpolation-in-arrays.html</url>
+    <content type="text"><![CDATA[1234567// 原来的数组var array = ["one", "two", "four"];// splice(position, numberOfItemsToRemove, item)// 拼接函数(索引位置, 要删除元素的数量, 元素)array.splice(2, 0, "three"); array; // 现在数组是这个样子 ["one", "two", "three", "four"]]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[rails - js render \r\n]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[$(‘#recruit_info_customize_company_intro’).val(‘&lt;%=j @company.intro%&gt;’)]]></content>
+    <title><![CDATA[rails - js rendern]]></title>
+    <url>%2Fposts%2F2018-12-26-rails-js-render-rn.html</url>
+    <content type="text"><![CDATA[1$(&apos;#recruit_info_customize_company_intro&apos;).val(&apos;&lt;%=j @company.intro%&gt;&apos;)]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ruby-match]]></title>
@@ -220,8 +301,11 @@
   </entry>
   <entry>
     <title><![CDATA[ios-微信分享的坑]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.微信小程序分享图片不能超过32k 否则分享不出去2.微信小程序分享图片必须是nsdata格式 12NSString *filePath = [[NSBundle mainBundle] pathForResource:@&quot;shareMiniprogram&quot; ofType:@&quot;png&quot;]; NSData *image = [NSData dataWithContentsOfFile:filePath]; 所以一定要这么取 ps：有时候图片拖进项目里会找不到图片这个时候需要选中图片之后选择菜单中的Source Control —&gt; add selected files 就加进去了]]></content>
+    <url>%2Fposts%2F2018-08-24-ios-the-pit-of-the-micro-letter-sharing.html</url>
+    <content type="text"><![CDATA[1.微信小程序分享图片不能超过32k 否则分享不出去2.微信小程序分享图片必须是nsdata格式 12NSString *filePath = [[NSBundle mainBundle] pathForResource:@&quot;shareMiniprogram&quot; ofType:@&quot;png&quot;];NSData *image = [NSData dataWithContentsOfFile:filePath]; 所以一定要这么取 ps：有时候图片拖进项目里会找不到图片这个时候需要选中图片之后选择菜单中的Source Control —&gt; add selected files 就加进去了]]></content>
+      <tags>
+        <tag>wecaht</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails - 单表继承（STI）]]></title>
@@ -349,11 +433,6 @@
     <content type="text"><![CDATA[小程序在webview里面只能调起网页支付 但是小程序又不允许这种支付方式 所以就坑爹了我们只能用点击webview里面按钮跳转到原生小程序页面调起支付小程序js 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273Page(&#123; data: &#123; openid: &apos;&apos;, order_id: &apos;&apos; &#125;, onLoad: function (options) &#123; console.log(&apos;pay&apos;) this.setData(&#123; order_id: options.order_id &#125;) this.getOpenId() &#125;, getOpenId: function () &#123; var that = this; wx.login(&#123; success: function (res) &#123; if (res.code) &#123; //发起网络请求 wx.request(&#123; url: &apos;https://www.wondercv.com/zh-CN/interface/pages/get_wx_mini_open_id&apos;, // url: &apos;http://localhost:3000/zh-CN/interface/pages/get_wx_mini_open_id&apos;, method: &apos;GET&apos;, data: &#123; code: res.code &#125;, success: function (response) &#123; console.log(&apos;get open id =====================&apos; + response.data.open_id) that.setData(&#123; openid: response.data.open_id &#125;); that.getPaymentParams(); &#125;, &#125;) &#125; else &#123; console.log(&apos;获取用户登录态失败！&apos; + res.errMsg) &#125; &#125; &#125;); &#125;, getPaymentParams: function(openId)&#123; wx.request(&#123; url: &apos;https://www.wondercv.com/zh-CN/interface/pages/wechat_mini_information&apos;, // url: &apos;http://localhost:3000/zh-CN/interface/pages/wechat_mini_information&apos;, method: &apos;GET&apos;, data: &#123; open_id: this.data.openid, order_id: this.data.order_id &#125;, success: function (response) &#123; console.log(&apos;get payment params=========================&apos;) console.log(response) wx.requestPayment(&#123; //相关支付参数 &apos;timeStamp&apos;: response.data.timeStamp, &apos;nonceStr&apos;: response.data.nonceStr, &apos;package&apos;: response.data.pre_package, &apos;signType&apos;: response.data.signType, &apos;paySign&apos;: response.data.sign, //小程序微信支付成功的回调通知 &apos;success&apos;: function (res) &#123; console.log(&quot;支付成功&quot;); &#125;, //小程序支付失败的回调通知 &apos;fail&apos;: function (res) &#123; console.log(&quot;支付失败&quot;); console.log(res); &#125; &#125;) &#125;, &#125;) &#125;,&#125;) 获取小程序openid 123456789res = RestClient.get &apos;https://api.weixin.qq.com/sns/jscode2session?appid=&apos; + ENV[&apos;WECHAT_MINIPROGRAM_APP_ID&apos;] + &apos;&amp;secret=&apos; + ENV[&apos;WECHAT_MINIPROGRAM_APP_SECRECT&apos;] + &apos;&amp;js_code=&apos; + params[:code] + &apos;&amp;grant_type=authorization_code&apos; Rails.logger.info(&quot;code=======================#&#123;params[:code]&#125;&quot;) open_id = JSON.parse(res.body)[&apos;openid&apos;] Rails.logger.info(&quot;=======================#&#123;JSON.parse(res.body)&#125;&quot;) render json: &#123; open_id: open_id &#125; 获取小程序需要的支付参数 用wx_pay 就可以，使用方式JSAPIsignType: MD5注意：第二次签名的方法选择的方式不一样 方法也就不一样 r = WxPay::Service.generate_js_pay_req params_for_program]]></content>
   </entry>
   <entry>
-    <title><![CDATA[git-cherry-pick]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 就是对已经存在的commit 进行 再次提交； 简单用法： git cherry-pick 注意：当执行完 cherry-pick 以后，将会 生成一个新的提交；这个新的提交的哈希值和原来的不同，但标识名 一样； 例如：$ git checkout old_cc$ git cherry-pick 38361a68 # 这个 38361a68 号码，位于： $ git logcommit 38361a68138140827b31b72f8bbfd88b3705d77a 如果顺利，就会正常提交。结果： Finished one cherry-pick. On branch old_ccYour branch is ahead of ‘origin/old_cc’ by 3 commits. 如果在cherry-pick 的过程中出现了冲突 Automatic cherry-pick failed. After resolving the conflicts,mark the corrected paths with ‘git add ‘ or ‘git rm ‘and commit the result with: git commit -c 15a2b6c61927e5aed6718de89ad9dafba939a90b就跟普通的冲突一样，手工解决：2.1 $ git status # 看哪些文件出现冲突 both modified: app/models/user.rb 2.2 $ vim app/models/user.rb # 手动解决它。2.3 $ git add app/models/user.rb2.4 git commit -c &lt;新的commit号码&gt;]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[js-touchmove之后不触发touchend]]></title>
     <url>%2Fposts%2Fundefined.html</url>
     <content type="text"><![CDATA[var UL = document.getElementById(‘Ul’);var moves = true;function Alert(ev){ if(moves) alert(ev.target.innerHTML)}UL.addEventListener(‘touchmove’,function(){ moves = false; UL.addEventListener(‘touchend’,function(){ moves = true; })})UL.addEventListener(‘touchend’, Alert) 原理： 设置一个变量moved来标识是否有移动过，初始值为false； 绑定touchend事件，将moved置为true； 绑定touchmove事件，将moved置为false； 在touchmove事件函数中继续绑定touchend事件，再将moved置为true]]></content>
@@ -375,13 +454,19 @@
   </entry>
   <entry>
     <title><![CDATA[css-bootstrap table-stripe reverse]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-05-27-7774375.html</url>
     <content type="text"><![CDATA[.table-striped &gt; tbody &gt; tr:nth-of-type(odd) {background: #fff !important;}.table-striped &gt; tbody &gt; tr:nth-of-type(even) {background: #f9f9f9 !important;}]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ruby-position 排序]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-05-27-7774375.html</url>
     <content type="text"><![CDATA[1.gem ‘acts_as_list’ 2.model 1acts_as_list 3.controller 1234567891011up@recruit_info.move_higherdown@recruit_info.move_lower top@recruit_info.move_to_topbottom@recruit_info.move_to_bottom 4.view一般置顶 最末会刷新页面上移 下移用js 12345678910&lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-up&quot;), &quot;javascript:;&quot;, method: :post, class: &quot;info-up&quot;, data: &#123; id: recruit_info.id, url: up_comp_recruit_info_path(recruit_info), toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;上移&quot; &#125; %&gt; &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-down&quot;), &quot;javascript:;&quot;, method: :post, class: &quot;info-down&quot;, data: &#123; id: recruit_info.id, url: down_comp_recruit_info_path(recruit_info), toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;下移&quot; &#125; %&gt; &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-circle-up&quot;), top_comp_recruit_info_path(recruit_info), method: :post, class: &quot;info-top&quot;, data: &#123; toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;置顶&quot; &#125; %&gt; &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-circle-down&quot;), bottom_comp_recruit_info_path(recruit_info), method: :post, class: &quot;info-bottom&quot;, data: &#123; toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;最末&quot; &#125; %&gt; | 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&lt;script type=&quot;text/javascript&quot;&gt; $prevLink = $(&apos;.pagination&apos;).find(&apos;.active&apos;).prev().find(&apos;a&apos;).attr(&apos;href&apos;); $nextLink = $(&apos;.pagination&apos;).find(&apos;.active&apos;).next().find(&apos;a&apos;).attr(&apos;href&apos;); $(&apos;.info-up&apos;).on(&apos;click&apos;, function()&#123; const pageFirst = $(&apos;.recruit-info-item&apos;).first(); $page = $(this).closest(&apos;.recruit-info-item&apos;); $.ajax(&#123; url: $(this).data(&apos;url&apos;), type: &apos;POST&apos;, data: &#123; id: $(this).data(&apos;id&apos;) &#125;, success: function() &#123; if ($page.is(pageFirst)) &#123; if (&lt;%= @recruit_infos.current_page %&gt; === 1) &#123; $.notify(&apos;不可上移！！&apos;,&apos;error&apos;) &#125; else &#123; window.location.href = $prevLink &#125; &#125; else &#123; $page.prev().before($page); &#125; &#125; &#125;); &#125;); $(&apos;.info-down&apos;).on(&apos;click&apos;, function()&#123; const pageLast = $(&apos;.recruit-info-item&apos;).last(); $page = $(this).closest(&apos;.recruit-info-item&apos;); $.ajax(&#123; url: $(this).data(&apos;url&apos;), type: &apos;POST&apos;, data: &#123; id: $(this).data(&apos;id&apos;) &#125;, success: function() &#123; if ($page.is(pageLast)) &#123; if (&lt;%= @recruit_infos.total_pages == @recruit_infos.current_page %&gt;) &#123; $.notify(&apos;不可下移！！&apos;,&apos;error&apos;) &#125; else &#123; window.location.href = $nextLink &#125; &#125; else &#123; $page.next().after($page); &#125; &#125; &#125;); &#125;);&lt;/script&gt; ps: 必须有position字段如果是后加的 在migration文件中需要 123ExampleCv.order(updated_at: :desc).each.with_index(1) do |todo_item, index| todo_item.update_column :position, indexend]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-获取小程序二维码]]></title>
@@ -395,13 +480,19 @@
   </entry>
   <entry>
     <title><![CDATA[js-data传参键名是变量不能识别]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-05-23-js-data-pass-value.html</url>
     <content type="text"><![CDATA[const fileData= {};fileData[fileType] = data; ps: 一定要注意 在里面写的时候data: fileData 这么传值！]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-判断页面是否加载完成]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[对于页面来说，dom结构，样式,脚本也属于内容，页面内的图片文字视频音频也是内容。 那么我们常用的 window.onload和 jquery 中的 ready 函数就能判断内容是否全部加载完成吗？答案是否定的。以上两个只能判定页面骨架加载完成了，但是不能判定页面资源是否加载完成，比如页面的超大图片，视频等。还有如果是有异步请求的资源等都无法检测到的，尤其是在 onload 之后发生的请求。 onreadystatechange回调不行，原因：每当有请求发生时 readyState 都会改变并触发 onreadystatechange 如果需要动态处理 dom 那么在 onload|ready 中就可以了，因为此时页面 dom 已经加载完成了。如果你需要对某些异步的请求做监控，则只需要在对应的异步中添加上回调即可。 if(document.readyState == “complete”) //当页面加载状态 window.onload页面(包括资源)准备就绪 document.onloadDOM加载完毕]]></content>
+    <url>%2Fposts%2F2018-05-22-7737697.html</url>
+    <content type="text"><![CDATA[对于页面来说，dom结构，样式,脚本也属于内容，页面内的图片文字视频音频也是内容。 那么我们常用的 window.onload和 jquery 中的 ready 函数就能判断内容是否全部加载完成吗？答案是否定的。以上两个只能判定页面骨架加载完成了，但是不能判定页面资源是否加载完成，比如页面的超大图片，视频等。还有如果是有异步请求的资源等都无法检测到的，尤其是在 onload 之后发生的请求。 onreadystatechange回调不行，原因：每当有请求发生时 readyState 都会改变并触发 onreadystatechange 如果需要动态处理 dom 那么在 onload|ready 中就可以了，因为此时页面 dom 已经加载完成了。如果你需要对某些异步的请求做监控，则只需要在对应的异步中添加上回调即可。 1234567if(document.readyState == “complete”) //当页面加载状态 window.onload页面(包括资源)准备就绪document.onloadDOM加载完毕]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-iphonx适配]]></title>
@@ -694,6 +785,14 @@
     <content type="text"><![CDATA[1.slot 可以直接引用代码放进component中 有名字的要在父层代码中的标签上加上 slot =“” 没有名字的直接引了2.要想从父层代码向component中传不改变的值，在component中声明一个props 然后在父层中绑定（:name=“”）就传进去了3.如果要双向绑定的话，参考http://duxiao.sweetysoft.com/blog/posts/vuejs-v-model如果是object的话一定要传value 接口中的值定义也要给一个”value”作为名称4.在组件中要是想调用父层代码中方法的话先定义@click=”onClickItem()”然后 组件中的methods中加上onClickItem () { this.$emit(‘on-click-item’) }最后在父层需要调用方法的地方@on_click_item=“xxx”Xxx是在父层代码中定义的方法gg]]></content>
   </entry>
   <entry>
+    <title><![CDATA[error-There was a problem with the editor vi]]></title>
+    <url>%2Fposts%2F2017-10-18-error-there-was-a-problem-with-the-editor-vi.html</url>
+    <content type="text"><![CDATA[1git config --global core.editor /usr/bin/vim]]></content>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决js跨域问题]]></title>
     <url>%2Fposts%2Fundefined.html</url>
     <content type="text"><![CDATA[1.在代码端, 处理方式不变, 访问 /api + 原接口url: this.$http.get(‘/api/interface/blogs/all’)…2.在开发的时候, 继续保持vuejs 的代理存在. 配置代码如下: proxyTable: { ‘/api’: { target: ‘http://siwei.me&#39;, changeOrigin: true, pathRewrite: { ‘^/api’: ‘’ } }},3.在nginx的配置文件中,加入代理:(详细说明见代码中的注释) server { listen 80; server_name vue_demo.siwei.me; client_max_body_size 500m; charset utf-8; root /opt/app/vue_demo; # 第一步,把所有的 mysite.com/api/interface 转换成: mysite.com/interface location /api { rewrite ^(.*)\/api(.*)$ $1$2; } # 第二步， 把所有的 mysite.com/interface 的请求，转发到 siwei.me/interface location /interface { proxy_pass http://siwei.me; } }就可以了． 也就是说， 上面的配置，把 http://vue_demo.siwei.me/api/interface/blogs/all在服务器端做了个变换，相当于访问了： http://siwei.me/interface/blogs/all重启nginx , 就会发现生效了．]]></content>
@@ -914,16 +1013,11 @@
     <content type="text"><![CDATA[self.navigation = (CustomNavigationController*) self.navigationController; 查看navigation是否为空po self.navigation ps:一般在ios webview中没有特殊报错，但是又无法实现功能时 经常是navigation为空，在(void)viewDidLoad中声明一下就好了]]></content>
   </entry>
   <entry>
-    <title><![CDATA[从远程拷贝数据库]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[mysql1.先上远程查看是否有备份文件 没有就创建一个： mysqldump -uroot -p密码 数据库名称 &gt; 导出来的数据库文件名称.sql 2.在本地运行scp -P 端口号 root@服务器名称:/opt/app/程序名称/current/导出来的数据库文件名称.sql . 3.将远程拷下来的数据库库备份文件倒入本地数据库 mysql -uroot -p本地数据库密码 本地数据库名称 &lt; 导出来的数据库文件名称.sql pg: psql resumehack_development &lt; /Users/dailanyi/Desktop/PostgreSQL.sql scp /path/local_filename username@servername:/path]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[markdown简明教程]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2Fmarkdown%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.html</url>
     <content type="text"><![CDATA[Markdown 学习Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。 MarkdownPad2.5 注册码邮箱：Soar360@live.com 授权秘钥：GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ== 使用 Markdown 的优点 专注你的文字内容而不是排版样式。 轻松的导出 HTML、PDF 和本身的 .md 文件。 纯文本内容，兼容所有的文本编辑器与字处理软件。 可读，直观。适合所有人的写作语言。 工具工具茫茫多 windows 下 markdownPad2 在线 http://md.birdteam.net/ 语法标题标题有六级由 # 组成类比于 h1 ~ h6 123456# 这是一级标题（H1，通常用于文档标题） ## 这是二级标题（H2，有些渲染器会为二级标题添加 hr 底线） ### 这是三级标题（H3） #### 这是四级标题（H4） ##### 这是五级标题（H5） ###### 这是六级标题（H6） 注：在#后加一个空格再跟标题 首行缩进&emsp;&emsp;写文章时，我们常常希望能够首行缩进，这时可以在段首加入&amp;ensp;或&amp;nbsp来输入一个空格.加入&amp;emsp;来输入两个空格。这里的空格是英文状态的空格，英文状态的两个空格相当于中文状态的一个空格 添加空行添加空行可以结束先前的格式状态。个人建议在改变格式时，均添加一个空行 文本 123456789&gt;引用状态[空行]### 标题状态[空行]------[空行]- 列表状态- 列表状态[空行] 效果 引用状态 标题状态 列表状态 列表状态 换行换行的时候 结尾要加上 两个空格。 斜体与粗体斜体：使用 两个星号 ** 中间夹杂的就是 斜体, 例如：斜体粗体： 使用 四个星号 **** 中间夹杂的就是 粗体, 例如：粗体 无序列表使用 + - * 都表示无序列表注：后面也需要跟一个空格 例如： 使用 - 号 吃饭 睡觉 打豆豆 再打豆豆 接着打豆豆 使用 + 号 吃饭 睡觉 打豆豆 使用 * 号 吃饭 睡觉 打豆豆 有序列表使用 1. 2. 3. 可以表示有序列表注：后面也需要跟一个空格例如： 买菜 洗菜 切菜 炒菜 吃菜 洗碗 引用使用 &gt; 表示引用 海明威曾经写过：我可以被杀死，但是不可以被打败 表格 默认对齐 居左对齐 居中对齐 居右对齐 窗前 明月 光 ， 疑是 地上 霜 ， 姓名 性别 年纪 班级 张三 男 29 0830 李四 女 28 0830 时间 地点 人物 事件事件事件事件事件事件事件 上午 北京 我 吃面 注：表格开始与结尾都需要一行空行 插入代码插入代码的方式有两种 在每行代码前加入4个空格或者添加一个制表符（TAB键） 在代码两侧添加三个反引号‘123456789101112131415161718192021#### 方式一其缩进是相对于当前格式状态下的。文本- 列表项- 列表项 [TAB][TAB]printf(&quot;hello world!&quot;);效果- 列表项- 列表项 printf(&quot;hello world!&quot;);在列表项状态下，需要输入两次TAB键(制表符)才能以代码格式插入。#### 方式2反引号最好在代码的前后行添加，而不是直接加在代码两边。- 使用这个符号 ` `` ` 中间夹`&lt;br&gt;`着代码 - `&lt;br&gt;`- 使用 三个 ` 符号成对夹代码 好好学习 天天向上 锻炼身体 ``` 连接百度http://www.baidu.com 图片 限制图片大小并居中许多 MarkDown 编辑器中直接按原图大小显示图片，造成版面凌乱。使用该命令&lt;img src=&quot;图片地址&quot; width=&quot;图片显示宽度&quot; height=&quot;显示高度&quot; alt=&quot;图片名称&quot;/&gt;设置图片大小，再用&lt;div style=&quot;text-align:center&quot;&gt;&lt;/div&gt;命令包裹达到居中效果。 实践简书 http://www.jianshu.com/github https://github.com/ 参考资料官网地址： http://wowubuntu.com/markdown/basic.html]]></content>
       <tags>
-        <tag>--markdown</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -1118,43 +1212,58 @@
   </entry>
   <entry>
     <title><![CDATA[order顺序]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-11-1198205.html</url>
     <content type="text"><![CDATA[ASC 由小至大排列DESC 由大至小排列一般默认为ASC，需要倒序排列时标注]]></content>
+      <tags>
+        <tag>easy</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[scaffold]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-10-1193045.html</url>
     <content type="text"><![CDATA[scaffold是一个具有完整CRUD的modelrails g scaffold之后无需再次手动建立controller在rails g scaffold的时候他就已经内建好controller并且写好了CRUD scaffold]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[devise－strong params]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-07-1179820.html</url>
     <content type="text"><![CDATA[教程1.简单参数增加方法： 在application／controller中加入（username 是你想加的参数） class ApplicationController &lt; ActionController::Base before_action :configure_permitted_parameters, if: :devise_controller? protected def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_up, keys: [:username]) end end 2.如果你要增加的是nested attributes（与其他model有关联的参数？）[nested attributes](http://api.rubyonra ils.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)，也就是说用accepts_nested_attri butes_for 时，你就要告诉devise所有的关联和类型。devise才会同意你改掉devise的默认值或者进行一些用户操作。 （1）simple scalar values（简单标量值）：eg def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_in) do |user_params| user_params.permit(:username, :email) end （2）array：eg def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_up) do |user_params| user_params.permit({ roles: [] }, :email, :password, :password_confirmation) endend For the list of permitted scalars, and how to declare permitted keys in nested hashes and arrays, see （3） 如果你有好几个 Devise models, 你想在每个model中设置不同的参数（parameter sanitizer）。 我们就需要从 Devise::ParameterSanitizer继承并且添加你自己的逻辑: class User::ParameterSanitizer &lt; Devise::ParameterSanitizer def initialize(*) super permit(:sign_up, keys: [:username, :email]) endend然后让你的controller调用它: class ApplicationController &lt; ActionController::Base protected def devise_parameter_sanitizer if resource_class == User User::ParameterSanitizer.new(User, :user, params) else super # Use the default one end endend]]></content>
+      <categories>
+        <category>ruby</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[Multi Role]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-07-1179407.html</url>
     <content type="text"><![CDATA[第一种方式：gem rolify rolify 第二种方式：1.在model中定义角色，批准方式等 user.rb123456789101112131415161718192021222324252627282930313233enum role: &#123; :user, :vip, :admin &#125;after_initialize :set_default_role, if: :new_record?def set_default_role self.role ||= :userenddef admin? self.role == 'admin' is_admin == trueenddef is_user? self.role = 'user'enddef vip? self.role = 'vip' is_vip == trueenddef qunlified_vip? role == 'vip' &amp;&amp; is_adminenddef unqunlified_vip? role == 'vip' &amp;&amp; !is_adminenddef approve! self.is_admin = true saveendend 2.在注册界面加上角色选择按钮 devise/registration/new.rb1234&lt;%= f.radio_button(:role, "user") %&gt;&lt;%= label(:role, "用户注册") %&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;%= f.radio_button(:role, "vip") %&gt;&lt;%= label(:role, "商家注册") %&gt; 3.在model中加上role，is_vip的栏位rails g migration add_role_to_users 123def change add_column :users, :role, :string end rails g migration add_is_vip_to_user 123def change add_column :users, :is_vip, :boolean, default: false end 4.新建一个controller定义index，批准，取消等方法 controller/admin/users_controller.rb12345678910111213141516171819 class Admin::UsersController &lt; ApplicationController before_action :authenticate_user! before_action :require_is_admin layout 'admin' def index @users = User.where(role:'vip').order('is_vip ASC') end def approve_vip @user = User.find(params[:user_id]) @user.approve! redirect_to :back end def cancel_vip @user = User.find(params[:user_id]) @user.cancel! redirect_to :back endend 5.在route中添加路径 config/routes.rb123456namespace :admin do resources :users do post :approve_vip post :cancel_vip endend 6.建立view页面，显示需要的界面 views/admin/user/index.html.erb123456789101112131415161718192021222324252627282930313233343536373839&lt;div class="container body well"&gt; &lt;h3 class="text-center"&gt;会员管理&lt;/h3&gt; &lt;br&gt; &lt;br&gt; &lt;table class="table table-responsive"&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;用户id&lt;/th&gt; &lt;th&gt;用户邮箱&lt;/th&gt; &lt;th&gt;用户角色&lt;/th&gt; &lt;th&gt;状态&lt;/th&gt; &lt;th&gt;审批&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;% @users.each do |user| %&gt; &lt;tr&gt; &lt;td&gt;&lt;%= user.id %&gt;&lt;/td&gt; &lt;td&gt;&lt;%= user.email %&gt;&lt;/td&gt; &lt;td&gt;&lt;%= user.role %&gt;&lt;/td&gt; &lt;td&gt; &lt;% if user.qunlified_vip? %&gt; 已通过审核 &lt;% else %&gt; 未通过审核 &lt;% end %&gt; &lt;/td&gt; &lt;td&gt; &lt;% if user.unqunlified_vip? %&gt; &lt;%= link_to("批准成为会员", admin_user_approve_vip_path(user),:method =&gt; :post)%&gt; &lt;% else %&gt; &lt;%= link_to("取消会员身份", admin_user_cancel_vip_path(user),:method =&gt; :post)%&gt; &lt;% end %&gt; &lt;/td&gt; &lt;/tr&gt; &lt;% end %&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;/div&gt; PS: 同一页面两个表格中显示两个不同的role]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[gem-carriewave]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-06-1176390.html</url>
     <content type="text"><![CDATA[carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。1.上传文档（1）在gemfile中添加 gem “carriewave” bundle install 重开sever：ctrl＋c =&gt; rails s（2）加入uploader机制 rails g uploader xxx eg：rails g uploader attachment（3）在上传的Model中 mount_uploader :xxx,XxxUploader eg：mount_uploader :attachment,AttachmentUploader（4）在需要的view（new）页面中添加 &lt;%= f.input :xxx %&gt;（5）修改.gitignore，加入public/uploads（6）在关联的model中加上栏位 =&gt; rake db:migrate eg：attatchment:string（7）新建一个controller eg: class ResumesController &lt; ApplicationController before_action :authenticate_user! def new @job = Job.find(params[:job_id]) @resume = Resume.new end def create @job = Job.find(params[:job_id]) @resume = Resume.new(resume_params) @resume.job = @job @resume.user = current_user if @resume.save flash[:notice]=&quot;Upload Success&quot; redirect_to job_path(@job) else render :new end end private def resume_params params.require(:resume).permit(:content,:attachment) end end（8）在routes里加上 resources :xxx 2.添加图片（一张）（1）在gemfile中添加 gem “carriewave” gem “mini_magick” 然后 bundle install rails g uploader image 重开sever（2）在相关model中添加栏位 image :string =&gt; rake db:migrate（3）在 Model 中添加 mount_uploader :image,ImageUploder（4）在image_uploader中 ”include Carriewave::Minigack“ 前面的＃删掉 在Store_dir end下加 process resize_to_fit:[800,800] version :thumb do process resize_to_fit:[200,200] end version :medium do process resize_to_fit:[400,400] end（5）View: new &lt;%= f.input :image,as::file %&gt; edit &lt;% if @xxx.image.present? %&gt; &lt;span&gt;目前商品图片&lt;/span&gt; &lt;%= image_tag (@xxx.image.thumb.url) %&gt; &lt;% end %&gt; show index &lt;% @products.each do |product| %&gt; &lt;div class=&quot;col-xs-6 col-md-3&quot;&gt; &lt;%= link_to product_path(product) do%&gt; &lt;% if product.image.present? %&gt; &lt;%= image_tag(product.image.thumb.url, class:&quot;thumbnail&quot;)%&gt; &lt;% else %&gt; &lt;%= image_tag(&quot;http://placehold.it/200x200&amp;text=No pic&quot;,class:&quot;thumbnail&quot;)%&gt; &lt;% end %&gt; &lt;% end %&gt; show页面在循环中的product前面加上@3.上传多张图片 教程1教程2中文]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[使devise可见]]></title>
     <url>%2Fposts%2F2016-12-05-make-the-devise-visible.html</url>
     <content type="text"><![CDATA[1.使devise下页面可见 rails generate devise:views 2-1.使devise下controller 可见（1) rails generate devise:controllers [scope] eg: rails g devise:controllers users 你将会看到controller被创建在app/controllers/users/文件夹下。而且session controller会如下显示 ： 123456class Users::SessionsController &lt; Devise::SessionsController# GET /resource/sign_in# def new# super# endend （2） 在路径中将devise_for :users替换成 1devise_for :users, controllers: &#123; sessions: 'users/sessions' &#125; （3） 将 devise／session下的 view 文件复制进 user／session 下。 因为controller被改变了，他就不能用原来默认咋在 devise／session 文件夹下的view了（4）改你想要的controller的actions 第一种： 12345class Users::SessionsController &lt; Devise::SessionsController def create # custom sign-in code endend 或者就简单添加你想要做的操作 第二种：1234567class Users::SessionsController &lt; Devise::SessionsController def create super do |resource| BackgroundWorker.trigger(resource) end endend 2-2.gem env–查看gem安装路径之后cp 复制出来]]></content>
       <tags>
-        <tag>-ruby</tag>
+        <tag>ruby</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[terminal新建atom]]></title>
+    <title><![CDATA[terminal 新建文件]]></title>
     <url>%2Fposts%2F2016-12-05-page-design.html</url>
     <content type="text"><![CDATA[1.新建页面 touch 2.新建文件夹 mkdir eg:mkdir app/views/common 3.新建model rails g model xxx xx:xx 删除model rails d model xxx 4.新建controllerrails g controller xxx]]></content>
       <tags>
-        <tag>-ruby</tag>
+        <tag>ruby</tag>
       </tags>
   </entry>
   <entry>
@@ -1162,20 +1271,20 @@
     <url>%2Fposts%2F2016-12-04-1170928.html</url>
     <content type="text"><![CDATA[基础命令Push:1.在github上新建一个repo。2.将网页上提供的代码粘贴到terminal中3.git push origin master(只有一个branch)git push –all origin (有很多branch) Pull:1.进入要克隆的专案网址2.点击clone／download，复制githu提供的网址3.终端输入git clone 上一步复制的网址 ps：1.添加上游专案1）git remote remove origin ：删掉远程的分支2）git remote：查看远程文件3）git remote -v ：查看远程网址4）git remote add xxxx(写自己改的名字) + git网址 ：添加分支5）ls -al：查看本地所有文件夹然后在拉最新的develop分支的指令如下：4）git fetch xxxx（就是上一步自己改过的名字）git fetch origin 远程分支名x:本地分支名x5）git checkout 自己分支的名字（不能在develop这个分支上写代码）每一次建立新功能时，都先建立一个分支，命名规则如下：ID-简易功能描述 eg：git checkout -b shin-devise 从github上 pull下来某个专案的代码1）先回到柱分支 ： ~/DesignDeck/develop2）在分支上操作 git pull project develop 这样就把最新的专案代码copy到本地电脑中了 这里的project指的是远程网址上的：“project” https://github.com/DesignDeckTeam/DesignDeck.git这里的project下的分支中名为develop的代码 stash git stash save git stash show git stash drop git stash pop git stash apply git stash list –date=short cherry-pickgit cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 就是对已经存在的commit 进行 再次提交； 简单用法： 1git cherry-pick &lt;commit id&gt; 注意：当执行完 cherry-pick 以后，将会 生成一个新的提交；这个新的提交的哈希值和原来的不同，但标识名 一样； 例如：$ git checkout old_cc$ git cherry-pick 38361a68 # 这个 38361a68 号码，位于： $ git logcommit 38361a68138140827b31b72f8bbfd88b3705d77a 如果顺利，就会正常提交。结果： Finished one cherry-pick.On branch old_ccYour branch is ahead of ‘origin/old_cc’ by 3 commits. 如果在cherry-pick 的过程中出现了冲突 Automatic cherry-pick failed. After resolving the conflicts,mark the corrected paths with ‘git add ‘ or ‘git rm ‘and commit the result with: 1$ git commit -c 15a2b6c61927e5aed6718de89ad9dafba939a90b 就跟普通的冲突一样，手工解决：2.1 1$ git status # 看哪些文件出现冲突 both modified: app/models/user.rb2.2 1$ vim app/models/user.rb # 手动解决它。 2.3 1$ git add app/models/user.rb 2.4 1$ git commit -c &lt;新的commit号码&gt; 更多命令1.查看已提交commit改动： 1$ git diff COMMIT^! 2.在branchA上merge branchB 1$ git merge branch-B 3.为某个commit 创建patch 文件 1$ git format-patch -1 &lt;sha&gt; 4.应用patch文件（必须除了改动以外其他都一样才能应用成功） 1$ git apply &lt;path_file&gt;]]></content>
       <tags>
-        <tag>-git</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[1.submit按钮没反应 2.显示多张图片问题 等其他问题及其解决方法]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-10-26-1041499.html</url>
     <content type="text"><![CDATA[1.设置完页面基本需求后，点击submit属性按钮没有任何反应解答：在controller，submit要完成的action后加上！。 如：new界面的submit点击完没有反应的话，就在controller中def create下的if @xxx.save后面加上一个！变成 if @xxx.save！，这样运行网站时就会提示存在何种错误。 2.（最最重要！！！！）上传图片时，相关代码完成后。就是没有图片在页面上显示，一直显示no pic。解答：在index页面显示图片的区域不可有@，应为xxx.image 而在show页面则必须要有@，应该是@xxx.image ps.不只是图片需要这样，显示状态等，需要引用model中栏位的地方，都要注意此问题！！！！！！！ 3.bfore_action :authenticate_user!必须要在before_action :require_is_admin前面 4.在设定多个角色时，要将role和栏位（如:is_admin）联系在一起这样才能变换一个role或者栏位时，使得另一个跟着一起变 化。判断条件也应该是两个一起判断的。 5.rake db seed的用法：在seed.rb中写入需要的数据 rake db:drop rake db:create rake db:schema:load rake db:seed]]></content>
       <tags>
-        <tag>-easy</tag>
+        <tag>easy</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[heroku上传]]></title>
-    <url>%2Fposts%2Fhello-world.html</url>
+    <url>%2Fposts%2Fheroku-upload.html</url>
     <content type="text"><![CDATA[1.先登录：heroku login 输入帐号和密码2.上传key：heroku keys:add3.在heroku注册新的应用程式，给你新应用程式的 URL（网址）：运行heroku create后 会给你新的网址4.进入atom：atom . 5.找到atom里的gemfile 改gemfile 1.＃7:将gem ‘sqlite3’剪下 2.粘到＃35（＃30的group中） 3.在＃47上添加:group :production do gem “pg” end 4.保存（command＋s）6.在atom中找到git/config，在[remote “heroku”]:URL上更新最新的网址。7.在config/routes.rb设定首页：root “topics#index”8.最最重要 改完后一定存档（command＋s）每一页都要单独保存！9.bundle install（如果有gemfile修改 改完为了后为了让异动被套用b）10.把 Gemfile 的异动 commit 进 git： git add Gemfile git add Gemfile.lock git commit -m “move sqlite3 to dev group &amp; add pg to production group “11.git push heroku master/git push heroku ch08:master（把本地所有已经存好的异动都push到Heroku）12.heroku run rake db:migrate（在heroku中执行）13.heroku open （打开网页） ps：有时候上传错了之后删除可是再次上传还是显示错误的app]]></content>
       <tags>
         <tag>heroku</tag>

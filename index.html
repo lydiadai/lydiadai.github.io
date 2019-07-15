@@ -265,6 +265,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/miniprogram-custom-service-auto-reply.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/miniprogram-custom-service-auto-reply.html" itemprop="url">微信小程序-客服消息配置（自动回复）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T19:40:33+08:00">
+                2019-07-15 19:40
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置<br>                      另一种是人工回复 只要我们在小程序后台配置就可以了<br>今天主要写的是自动回复在小程序后台配置的坑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def check_miniprogram_msg_signature(token, signature, timestamp, nonce)</span><br><span class="line">  arr = [token, timestamp, nonce]</span><br><span class="line">  arr = arr.sort</span><br><span class="line">  text = &apos;&apos;</span><br><span class="line">  arr.each &#123;|element| text += element&#125;</span><br><span class="line">  (Digest::SHA1.hexdigest(text)==signature) ? true : false # 验证消息</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"> def recieve_miniprogram_msg</span><br><span class="line">     render :text =&gt; params[:echostr] if check_miniprogram_msg_signature(ENV[&apos;NAME_CARD_WECHAT_TOKEN&apos;],params[:signature], params[:timestamp], params[:nonce])</span><br><span class="line"> end</span><br></pre></td></tr></table></figure>
+
+<p>读取消息内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">content = Nokogiri::XML(request.body.read)</span><br><span class="line">username = content.at_css(&apos;FromUserName&apos;)&amp;.children&amp;.text</span><br></pre></td></tr></table></figure>
+
+<p>自动回复：<br>如果是图片 需要mediaid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res = RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/media/upload?access_token=&apos; + access_token + &apos;&amp;type=image&apos;, &#123;media: file &#125;, &#123;&apos;Content-Type&apos;: &apos;application/octet-stream&apos;&#125;</span><br><span class="line">media_id = JSON.parse(res)[&apos;media_id&apos;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">temp = &#123;</span><br><span class="line">  &quot;touser&quot;: username,</span><br><span class="line">  &quot;msgtype&quot;:&quot;image&quot;,</span><br><span class="line">  &quot;image&quot;: &#123;</span><br><span class="line">    &quot;media_id&quot;: media_id</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">msg = RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=&apos; + a ccess_token, temp.to_json, &#123;content_type: :json, accept: :json&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后在小程序后台 – 开发 -开发设置-消息推送中配置<br>启用并设置服务器配置后，用户发送的消息以及开发者需要的事件推送，都将被微信转发至开发者URL中。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/hello-world.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -392,7 +523,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/show-spider-html.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -411,7 +542,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">电脑配置</a></h1>
+                <a class="post-title-link" href="/posts/show-spider-html.html" itemprop="url">直接展示爬来数据的html</a></h1>
         
 
         <div class="post-meta">
@@ -423,8 +554,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-05T22:32:00+08:00">
-                2019-04-05 22:32
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-08T14:47:12+08:00">
+                2019-07-08 14:47
               </time>
             
 
@@ -463,30 +594,8 @@
       
         
           
-            <p>1.安装homebrew  <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a><br>2.安装pgsql $ brew install  postgresql<br>3.安装bundle $ gem install bundler<br>4.安装rbenv $ brew install rbenv<br>5.安装rails $ sudo gem install rails<br>6.生成ssh key $ ssh-keygen<br>  查看ssh key $ cat ~/.ssh/id_rsa.pub<br>7.配置bash profile $ sudo vim .bash_profile<br>  使其生效 $ source .bash_profile<br>  export PATH=/usr/local/bin:$PATH</p>
-<p>8.安装redis<br>  在这下载 <a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a><br>  将下载下来的包解压后放到/usr/local<br>  进到对应文件夹 $ make install<br>  <a href="https://www.cnblogs.com/feijl/p/6879929.html" target="_blank" rel="noopener">参考</a><br>9.配置 vim<br>  $ git clone <a href="https://github.com/VundleVim/Vundle.vim.git" target="_blank" rel="noopener">https://github.com/VundleVim/Vundle.vim.git</a> ~/.vim/bundle/Vundle.vim<br>  配置 .vimrc 下载vimrc<br>  :PlunginInstall</p>
-<p>ps:vimrc 参考<br>filetype on<br>set langmenu=none<br>set fileencodings=utf-8<br>set fileencoding=utf-8<br>set encoding=utf8</p>
-<p>set expandtab<br>set shiftwidth=2<br>set softtabstop=2<br>set tabstop=2<br>set number<br>set autoindent<br>set hlsearch<br>set incsearch<br>set encoding=utf-8<br>“ highlight Normal ctermfg=white ctermbg=cyan<br>set nowrap<br>syntax enable</p>
-<p>let g:proj_window_width=5<br>set laststatus=2</p>
-<p>map <c-t> :FufFile<cr><br>map <c-e> :MRU<cr><br>map <c-s-m> :Rmodel<cr><br>map <c-s-c> :Rcontroller<cr><br>map <c-s-u> :Runit<cr><br>map <c-s-l> :Rfunctional<cr><br>map <c-h> :Rhelper<cr><br>map <c-v> :Rview<cr><br>map <c-j> :ZoomWin<cr></cr></c-j></cr></c-v></cr></c-h></cr></c-s-l></cr></c-s-u></cr></c-s-c></cr></c-s-m></cr></c-e></cr></c-t></p>
-<p>“ Strip trailing whitespace<br>function! <sid>StripTrailingWhitespaces()<br>    “ Preparation: save last search, and cursor position.<br>    let _s=@/<br>    let l = line(“.”)<br>    let c = col(“.”)<br>    “ Do the business:<br>    %s/\s+$//e<br>    “ Clean up: restore previous search history, and cursor position<br>    let @/=_s<br>    call cursor(l, c)<br>endfunction<br>autocmd BufWritePre * :call <sid>StripTrailingWhitespaces()</sid></sid></p>
-<p>“ match Todo /\s+$/<br>filetype plugin on<br>let mapleader = “,”</p>
-<p>“ THE VIM OUTLINER (TVO)<br>“ defaults:<br>let otl_install_menu=1<br>let no_otl_maps=0<br>let no_otl_insert_maps=0</p>
-<p>“ overrides:<br>let otl_bold_headers=0<br>let otl_use_thlnk=0</p>
-<p>“ au BufWinLeave *.otl mkview<br>“ au BufWinEnter *.otl silent loadview<br>let maplocalleader = “,”</p>
-<p>“”Only do this part when compiled with support for autocommands.<br>“if has(“autocmd”)<br>“  autocmd Filetype java setlocal omnifunc=javacomplete#Complete<br>“endif</p>
-<p>set nocompatible               “ be iMproved<br>filetype off                   “ required!</p>
-<p>“ ============== Vundle part =================<br>set rtp+=~/.vim/bundle/Vundle.vim/<br>call vundle#begin()</p>
-<p>“ let Vundle manage Vundle<br>“ required!<br>Plugin ‘gmarik/vundle’</p>
-<p>“ My Bundles here:<br>“<br>“ original repos on github<br>Plugin ‘tpope/vim-fugitive’<br>Plugin ‘Lokaltog/vim-easymotion’<br>“Plugin ‘rstacruz/sparkup’, {‘rtp’: ‘vim/‘}<br>Plugin ‘tpope/vim-rails.git’<br>Plugin ‘bumaociyuan/vim-matchit.git’<br>Plugin ‘ecomba/vim-ruby-refactoring.git’</p>
-<p>“ vim-scripts repos<br>Plugin ‘L9’<br>Plugin ‘FuzzyFinder’</p>
-<p>Plugin ‘git://git.wincent.com/command-t.git’<br>“Plugin ‘snipMate’<br>“Plugin ‘snipmate-snippets’<br>“Plugin ‘Jasmine-snippets-for-snipMate’<br>Plugin ‘YankRing.vim’<br>Plugin ‘The-NERD-Commenter’<br>Plugin ‘The-NERD-tree’<br>Plugin ‘kchmck/vim-coffee-script’</p>
-<p>colorscheme monokai<br>set background=light<br>set background=dark<br>Plugin ‘mru.vim’<br>Plugin ‘greplace.vim’<br>call vundle#end()</p>
-<p>filetype plugin indent on     “ required!<br>“<br>“ Brief help<br>“ :PluginList          - list configured bundles<br>“ :PluginInstall(!)    - install(update) bundles<br>“ :PluginSearch(!) foo - search(or refresh cache first) for foo<br>“ :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles<br>“<br>“ see :h vundle for more details or wiki for FAQ<br>“ NOTE: comments after Plugin command are not allowed..</p>
-<p>map <s-f> <leader><leader>f<br>map <leader>a :YRShow<cr><br>map <leader>t :NERDTree<cr><br>map <leader>q :q<cr><br>map <leader>f :Rfixture<cr><br>map <leader>rj :Rjavascript<cr></cr></leader></cr></leader></cr></leader></cr></leader></cr></leader></leader></leader></s-f></p>
-<p>“autocmd BufWritePost,FileWritePost <em>.coffee :silent !coffee –compile –join appstore/static/javascripts/angular/controllers.js appstore/static/javascripts/angular/controllers.coffee appstore/static/javascripts/angular/tabs/</em>coffee appstore/static/javascripts/angular/applications/<em>coffee appstore/static/javascripts/angular/users/</em>coffee appstore/static/javascripts/angular/commons/*coffee<br>“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile appstore/static/javascripts/angular/app.coffee appstore/static/javascripts/angular/directives.coffee appstore/static/javascripts/angular/filters.coffee appstore/static/javascripts/angular/services.coffee</p>
-<p>“autocmd BufWritePost,FileWritePost <em>.coffee :silent !coffee –compile –join tvboxcms/static/javascripts/angular/controllers.js tvboxcms/static/javascripts/angular/controllers.coffee tvboxcms/static/javascripts/angular/tabs/</em>coffee tvboxcms/static/javascripts/angular/applications/<em>coffee tvboxcms/static/javascripts/angular/users/</em>coffee tvboxcms/static/javascripts/angular/commons/*coffee<br>“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile tvboxcms/static/javascripts/angular/app.coffee tvboxcms/static/javascripts/angular/directives.coffee tvboxcms/static/javascripts/angular/filters.coffee tvboxcms/static/javascripts/angular/services.coffee</p>
-<p>“autocmd BufWritePost,FileWritePost <em>.coffee :silent !coffee –compile –join m-cms-preview/static/javascripts/angular/controllers.js m-cms-preview/static/javascripts/angular/controllers.coffee m-cms-preview/static/javascripts/angular/tabs/</em>coffee m-cms-preview/static/javascripts/angular/applications/<em>coffee m-cms-preview/static/javascripts/angular/users/</em>coffee m-cms-preview/static/javascripts/angular/commons/*coffee<br>“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile m-cms-preview/static/javascripts/angular/app.coffee m-cms-preview/static/javascripts/angular/directives.coffee m-cms-preview/static/javascripts/angular/filters.coffee m-cms-preview/static/javascripts/angular/services.coffee</p>
+            <p>我们爬来的数据有的时候可能是html 用简单的simple_format会将所有的inline style清掉<br>所以这个时候我们要用sanitized<br>后面可以配置 白名单的tag 跟attribute<br>&lt;%= sanitize @comment.body, tags: %w(strong em a), attributes: %w(href) %&gt;</p>
+<p><a href="https://ruby-china.org/topics/16633" target="_blank" rel="noopener">参考</a></p>
 
           
         
@@ -535,7 +644,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/build-server.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -554,7 +663,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">pgsql-查询命令</a></h1>
+                <a class="post-title-link" href="/posts/build-server.html" itemprop="url">服务器搭建</a></h1>
         
 
         <div class="post-meta">
@@ -566,8 +675,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-31T19:16:00+08:00">
-                2019-03-31 19:16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-15T16:36:41+08:00">
+                2019-06-15 16:36
               </time>
             
 
@@ -606,9 +715,26 @@
       
         
           
-            <p>进入本地数据库<br> psql resumehack_development</p>
-<p>进入服务器数据库(导到本地查)<br>1.console 直接连数据库 bin/rails dbconsole production   </p>
-<p>查看数据库大小 SELECT pg_size_pretty(pg_database_size(‘database name’));<br>查询所有表并按照大小排列<br>select table_name, pg_relation_size(quote_ident(table_name))<br>from information_schema.tables<br>where table_schema = ‘public’<br>order by 2;</p>
+            <ol>
+<li><p>购买服务器， 这次买的是阿里云的 根据配置买就可以了</p>
+</li>
+<li><p>ssh 根据设置的用户名 密码登陆</p>
+</li>
+<li><p>根据使用的是什么数据库 安装数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get update（自带mysql）</span><br><span class="line">$ apt-get install libapr1-dev libxml2-dev  libxslt-dev mysql-server libmysqlclient-dev  git curl build-essential libssl-dev libreadline-dev build-essential libssl-dev libreadline-dev vim libcurl3 ruby-dev zlib1g-dev liblzma-dev ruby-all-dev</span><br><span class="line">$ apt-get install postgresql libpq-dev    (安装pgsql)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装对应的ruby raiils 版本<br>$ apt-get install rbenv（绝对不行！！！！)<br>$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv (用这个)<br>然后根据rbenv 安装 具体可见本地环境配置<br>注： 一定要安装ruby-build<br>$ git clone <a href="https://github.com/rbenv/ruby-build.git" target="_blank" rel="noopener">https://github.com/rbenv/ruby-build.git</a> ~/.rbenv/plugins/ruby-build</p>
+</li>
+<li><p><a href="https://blog.csdn.net/Lydiadai/article/details/89419410" target="_blank" rel="noopener">正常可以用capstrino可以直接部署</a><br> 不能直接部署的时候<br> 在/opt/app 目录下git clone 代码库 然后bundle<br>  手动创建shared,releases目录 还有shared里的tmp,public,log等子目录</p>
+</li>
+<li><p>创建数据库 导入数据（正常使用rake db:create，但是我安装的时候 一直报没有rake gem的问题 ，所以就手动在数据库里创建了 create tablexxxxx，这个是由于bundle install 没有指定目录 他使用不到 对应的gem<br>bundle install –path /root/.rbenv/versions/2.3.8/lib/ruby/gems/2.3.0/)</p>
+</li>
+<li><p>安装并配置nginx<br>$ apt-get install nginx<br>配置文件在/etc/nginx 下</p>
+</li>
+<li><p>bundle exec rails s -p 6661 测试能不能启动<br>(跑步起来 一直报NameError: uninitialized constant ActiveModel::Serializers::Xml 还未找到原因， rbenv版本问题应该是 重装了rbenv之后用capstrano 装就没有这个问题了）</p>
+</li>
+</ol>
+<p>ps: 所有配置项文件都要放到shared/config 目录下</p>
 
           
         
@@ -657,7 +783,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/linux-order-summary.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -676,7 +802,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">html-多行...</a></h1>
+                <a class="post-title-link" href="/posts/linux-order-summary.html" itemprop="url">Linux命令合集</a></h1>
         
 
         <div class="post-meta">
@@ -688,8 +814,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T13:22:00+08:00">
-                2019-03-30 13:22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T18:16:36+08:00">
+                2019-04-29 18:16
               </time>
             
 
@@ -728,7 +854,17 @@
       
         
           
-            <p>&lt;%= truncate(page.description, length: 70, omission: ‘…’) %&gt; </p>
+            <ol>
+<li><p>根据内存使用由低到高展示进程（Sorting down processes by memory usage）<br>ps aux –sort rss</p>
+</li>
+<li><p>查看CPU使用情况<br>top  —&gt; c —&gt; 1 按照由低到高排序<br>space刷新</p>
+</li>
+<li><p>压缩文件<br>zip 要生成文件名  xxx xxx(后面跟的都是要压缩的文件)<br>解压文件<br>unzip 文件名</p>
+</li>
+<li><p>du -a . | sort -n -r | head -n 10<br>disk usage 列出全部文件 |  排序（从大到小） | 看最大的前十个</p>
+</li>
+</ol>
+<p>5.更改文件权限<br>sudo chown -R apps.apps wechaty-file-pro1</p>
 
           
         
@@ -777,7 +913,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/js-magic-function-summary.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -796,7 +932,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">gem - imgkit 的坑</a></h1>
+                <a class="post-title-link" href="/posts/js-magic-function-summary.html" itemprop="url">js-魔法方法汇总</a></h1>
         
 
         <div class="post-meta">
@@ -808,8 +944,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T11:38:00+08:00">
-                2019-03-25 11:38
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-25T11:58:44+08:00">
+                2019-04-25 11:58
               </time>
             
 
@@ -848,7 +984,8 @@
       
         
           
-            <p>1.css js 文件都可以写在页面里但是必须配置config.asset_host = ENV[‘HOST’]否则会找不到文件<br>如果不能配置就只能将文件传到服务器然后指定全路径<br>2.有部分jquery方法不能用需要找到js方法代替<br>3.css filter 不可用</p>
+            <p>js直接修改url<br>=<br>window.history.pushState(‘’,’’,’/blog/&lt;%= params[:tag]%&gt;’);<br>最后一个参数是url 相对路径</p>
+<p>alert出所有的js error<br>=<br>window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {<br>    alert(“Error occured: “ + errorMsg);//or any message<br>     return false;<br>}</p>
 
           
         
@@ -897,7 +1034,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/capistrano-useage.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -916,7 +1053,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">jquery-select2 highlight dropdown keywords</a></h1>
+                <a class="post-title-link" href="/posts/capistrano-useage.html" itemprop="url">Capistrano 基本用法</a></h1>
         
 
         <div class="post-meta">
@@ -928,8 +1065,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:15:00+08:00">
-                2019-03-12 11:15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-20T16:35:59+08:00">
+                2019-04-20 16:35
               </time>
             
 
@@ -967,71 +1104,22 @@
 
       
         
-          
-            <p>基本逻辑是在搜索的时候将query 存起来 然后用query.term在templateResult方法中拼接显示<br>matcher只能用于拼接文字什么的 html不行</p>
-<p>var query = {};<br>    function markMatch (text, term) {<br>      // Find where the match is<br>      var match = text.toUpperCase().indexOf(term.toUpperCase());</p>
-<pre><code>  var $result = $(&apos;&lt;span&gt;&lt;/span&gt;&apos;);
-
-  // If there is no match, move on
-  if (match &lt; 0) {
-    return $result.text(text);
-  }
-
-  // Put in whatever text is before the match
-  $result.text(text.substring(0, match));
-
-  // Mark the match
-  var $match = $(&apos;&lt;span style=&quot;color: #ff4f4c&quot;&gt;&lt;/span&gt;&apos;);
-  $match.text(text.substring(match, match + term.length));
-
-  // Append the matching text
-  $result.append($match);
-
-  // Put in whatever is after the match
-  $result.append(text.substring(match + term.length));
-
-  return $result;
-}
-
-function formatState (state) {
-  if (!state.id) {
-    return state.text;
-  }
-
-  var term = query.term || &apos;&apos;;
-  var $result = markMatch(state.text, term);
-
-  return $result;
-};
-
-
-$(&apos;#intentions_profession&apos;).select2({
-  templateSelection: formatSelectedProfession,//改变选中的条目显示
-  templateResult: formatState,//改变下拉单里条目显示
-  language: {
-    searching: function (params) {
-      // Intercept the query as it is happening
-      query = params;
-
-      // Change this to be appropriate for your application
-      return &apos;Searching…&apos;;
-    }
-  }
-});
-[参考](https://stackoverflow.com/questions/28958620/using-select2-4-0-0-with-infinite-data-and-filter/29018243#29018243)
-
-
-backspace删除一整个tag  
-$(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(event) {
-   $el = $(this)
-   setTimeout(function() {
-    $el.closest(&apos;.intention-input&apos;).find(&apos;.select2-search__field&apos;).val(&apos;&apos;)
-   }, 0)
- })</code></pre>
-          
+          <ol>
+<li>安装gem<br>gem ‘capistrano’, ‘2.12.0’<br>gem ‘capistrano-rbenv’, ‘1.0.1’<br>bundle</li>
+<li>capify .<br> 会生成两个文件： Capfile ,  config/deploy.rb</li>
+<li>cap deploy:setup 会建立必须的 文件夹 （眼疾手快 及时停止executing “if test -f /etc/debian_version; then echo debian; elif test -f /etc/redhat-release; then echo redhat; elif test -f /etc/system-release; then echo redhat; else echo unknown; fi;”）</li>
+<li>到服务器上 shared目录下创建config 文件夹 里面创建secrets.yml database.yml. application.yml 文件并配置</li>
+<li>执行bundle exec cap deploy
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/capistrano-useage.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
     
     
     
@@ -1075,7 +1163,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/strange-events-summary.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1094,7 +1182,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-notification</a></h1>
+                <a class="post-title-link" href="/posts/strange-events-summary.html" itemprop="url">灵异现象汇总</a></h1>
         
 
         <div class="post-meta">
@@ -1106,8 +1194,8 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T18:33:00+08:00">
-                2019-02-27 18:33
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T17:19:25+08:00">
+                2019-04-19 17:19
               </time>
             
 
@@ -1146,132 +1234,12 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
       
         
           
-            <p>要先addObserver  然后postNotificationName</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails - cache</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T16:26:00+08:00">
-                2019-02-25 16:26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>View:<br>&lt;% cache current_user.active_cvs.order(‘updated_at desc’).first.updated_at do %&gt;<br>  xxxxx<br>&lt;% end %&gt;</p>
-<p>当cache后面的key变了的时候 页面中的内容才会重新加载</p>
-<p>Controller:</p>
-<p>Model:<br> Rails.cache.fetch()</p>
-<p>ps: 开启development cache mode<br>                   rails dev:cache</p>
-<p><a href="https://doc.bccnsoft.com/docs/rails-guides-4.1-cn/caching_with_rails.html" target="_blank" rel="noopener">参考</a></p>
+            <ol>
+<li><p>在服务器上怎么precompile都不会生成新的assets 文件<br>解决：RAILS_ENV=production放在命令后面<br><a href="https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required" target="_blank" rel="noopener">https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required</a></p>
+</li>
+<li><p>js click事件只监听一次就不再触发了<br>解决： 因为使用的是封装好的dropdown 将他换成普通的隐藏/出现 就不会有问题了</p>
+</li>
+</ol>
 
           
         
@@ -1320,7 +1288,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/wechat-alert-avoid-cons.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1339,7 +1307,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">linux-更改文件权限</a></h1>
+                <a class="post-title-link" href="/posts/wechat-alert-avoid-cons.html" itemprop="url">微信打开网页 提示防诈骗</a></h1>
         
 
         <div class="post-meta">
@@ -1351,8 +1319,8 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T18:26:00+08:00">
-                2019-01-28 18:26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T16:00:37+08:00">
+                2019-04-16 16:00
               </time>
             
 
@@ -1391,7 +1359,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
       
         
           
-            <p>sudo chown -R apps.apps wechaty-file-pro1</p>
+            <p>之前我们的网站一在微信里打开 输入的时候就会提示防诈骗 对用户来说体验很不好 找了很久配置的地方也没有找到 终于找到了 特此记录<br><img src="https://img-blog.csdnimg.cn/20190416155836195.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0x5ZGlhZGFp,size_16,color_FFFFFF,t_70" alt="设置位置"></p>
 
           
         
@@ -1440,7 +1408,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/log-analyzer.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1459,7 +1427,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">psql-dump single table</a></h1>
+                <a class="post-title-link" href="/posts/log-analyzer.html" itemprop="url">服务器调优-log分析工具</a></h1>
         
 
         <div class="post-meta">
@@ -1471,8 +1439,8 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T14:45:00+08:00">
-                2019-01-15 14:45
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T11:25:49+08:00">
+                2019-04-15 11:25
               </time>
             
 
@@ -1510,14 +1478,17 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
 
       
         
-          
-            <p>pg_dump -U postgres –table jd_temps -Fc test_production &gt; /home/apps/jd_temps.sql</p>
-<p>scp <a href="mailto:apps@wondermail.club" target="_blank" rel="noopener">apps@wondermail.club</a>:/home/apps/jd_temps.sql /Users/dailanyi/Downloads/</p>
-<p>psql resumehack_development<br>DROP TABLE jd_temps;</p>
-<p>pg_restore -U dailanyi –dbname resumehack_development  –table=jd_temps /Users/dailanyi/Downloads/jd_temps.sql</p>
-<p>psql resumehack_development<br>ALTER TABLE jd_temps ADD PRIMARY KEY (id);</p>
+          <h1 id="rails-log-passenger-log"><a href="#rails-log-passenger-log" class="headerlink" title="rails log(passenger log)"></a>rails log(passenger log)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install request-log-analyzer</span><br></pre></td></tr></table></figure>
 
-          
+<p>简单用法： 分析一个文件，并且把它输出到 report-for-logs.html 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ request-log-analyzer cms_production_2013-02-17.log --format rails3 --output HTML --file report-for-cms-logs.html</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/log-analyzer.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1601,12 +1572,21 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">237</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
@@ -1614,7 +1594,7 @@ $(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

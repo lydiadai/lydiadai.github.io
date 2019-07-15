@@ -286,6 +286,736 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-拖拽排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-06T12:46:00+08:00">
+                2017-09-06 12:46
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.Gemfile 中添加<br>  gem ‘sortable-rails’<br>  $ bundle<br>2.app/assets/javascripts/application.js 中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//= require sortable-rails-jquery</span><br><span class="line">//= require_tree .</span><br></pre></td></tr></table></figure>
+
+<p>3.确认需要拖拽排序的表中有position字段<br>4.view</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;tbody id=&quot;steps_sortable_table&quot;&gt;</span><br><span class="line">    &lt;% @steps.each do |step| %&gt;</span><br><span class="line">      &lt;tr data-id = &apos;&lt;%= step.id%&gt;&apos;&gt;</span><br><span class="line">      .......</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(&apos; #steps_sortable_table&apos; ).sortable(&#123;</span><br><span class="line">        opacity: 0.6,</span><br><span class="line">        revert: true,</span><br><span class="line">        cursor: &apos;move&apos;,</span><br><span class="line">        onUpdate: function(evt) &#123;</span><br><span class="line">            neworder = new Array();</span><br><span class="line">            $(&apos;#steps_sortable_table&apos;).children().each(function() &#123;</span><br><span class="line">                id = $(this).attr(&quot;data-id&quot;);</span><br><span class="line">                neworder.push(&#123;</span><br><span class="line">                    id: id</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: &quot;/steps/sort&quot;,</span><br><span class="line">                type: &quot;POST&quot;,</span><br><span class="line">                data: &#123;</span><br><span class="line">                    steps: JSON.stringify(neworder)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            console.log(neworder);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>controller</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def sort</span><br><span class="line">  if params[:steps].present?</span><br><span class="line">    JSON.parse(params[:steps]).each_with_index do |x, index|</span><br><span class="line">      idx = x[&quot;id&quot;]</span><br><span class="line">      position = index+1</span><br><span class="line">      step = Step.find(idx)</span><br><span class="line">      step.update_attribute(&quot;position&quot;, position)</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">  render nothing: true</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">三元表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-05T18:11:00+08:00">
+                2017-09-05 18:11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>条件 ? 如果是true : 如果是false<br>例子：<br>if @good.present?<br>   name = @good.name<br>else<br>   name= ‘没有物品’<br>end<br>可以写成<br>@good.present? @good.name:’没有物品’</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">devise--用户名登录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T09:59:00+08:00">
+                2017-08-30 09:59
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.给user表添加user_name字段<br> $ rails g migration add_user_name_to_user<br>2.config/initializers/devise.rb中<br>  config.authetication_keys=[:email]改成config.authetication_keys=[:user_name]<br>3.使devise的登录页面可见（<a href="http://lydia-blog.logdown.com/posts/1173714-make-the-devise-visible" target="_blank" rel="noopener">具体参考</a>）<br>修改登录页面<br>4.给config/routes.rb中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resources :users</span><br></pre></td></tr></table></figure>
+
+<p>注意: devise_for :users 一定要在resources :users上面</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rbenv</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-28T18:04:00+08:00">
+                2017-08-28 18:04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://gist.github.com/sandyxu/8aceec7e436a6ab9621f" target="_blank" rel="noopener">https://gist.github.com/sandyxu/8aceec7e436a6ab9621f</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-windows下安装 gem mysql2的大坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-24T15:17:00+08:00">
+                2017-08-24 15:17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.在本地安装好mysql之后<br>  将mysql\lib\libmysql.dll复制到railsInstall中ruby\bin下面<br>2.gem install mysql2 -v ‘0.3.17’ - - ‘- - with -mysql-dir:”MySQL文件路径 （要到最后一个文件夹 文件夹下直接就是bind这样的文件夹的才行）”‘</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails 事件回滚</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T10:16:00+08:00">
+                2017-08-22 10:16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.在有很多存储操作时，<br>Model.transaction do<br>end<br>这样一报错在这个里面的所有存储事件就都会回滚。可以避免存储很多脏数据</p>
+<p>2.如果你想判断什么时候回滚的话<br>Model.transaction do<br>  if …<br>  else<br>    raise ActiveRecord::Rollback<br>  end<br>end<br>redirect_to …<br>注意：返回路径一定要写在transaction外面 要不然会报missing template的错误</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails create&update action 取某一个params值</a></h1>
         
 
@@ -763,769 +1493,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">二代身份证识别仪</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T14:57:00+08:00">
-                2017-08-16 14:57
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我用的是华旭金卡HX-FDX35，这个是基于WindowsIE浏览器开发的<br>1.将驱动安上（光盘中的自动安装 双击就安上了）<br>2.安装测试软件看能不能正常读取<br>3.布置软件<br>   本地：双击运行active_reg.bat<br>   服务器：将CBA文件夹拷贝到与页面相同的文件夹下面<br>4.点击JsDemo.html 文件打开测试页面 测试一下<br>  如果好用的话，就将测试页面的代码集成到程序需要的页面上<br>注意：<br>1.不要写在form里面<br>2..<object>标签和<button>标签不可更改</button></object></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">mysql重置密码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-08T10:22:00+08:00">
-                2017-08-08 10:22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.停止 MySQL 服务</p>
-<p>$ sudo /usr/local/mysql/support-files/mysql.server stop<br>要是不行的话 就ps -ef | grep mysqld<br>将进程杀掉就可以了</p>
-<p>2.进入安全模式<br>sudo mysqld_safe –skip-grant-tables<br>sudo /usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe –skip-grant-tables</p>
-<p>这个地方，如果你 alias 了 mysqlld_safe 这个命令，那么可以直接复制粘贴；如果没有，则需要加上正确的路径。在 Linux/OS X 系统下，默认路径是 /usr/local/mysql/bin/mysqld/usafe。（/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe）–我的路径</p>
-<p>3.启动MySQL服务<br>$ mysql.server start</p>
-<p>4.修改密码<br>进入了之后先不要急着使用 update 命令修改密码，先看看表中的字段名。不同版本密码的字段名可能不一样。</p>
-<p>MySQL 的用户信息是存在 mysql.user 这个表里面的。于是可以先选择 mysql 这个数据库，再看数据库中 user 表中的字段名称。<br>use mysql; //切换数据库<br>describe user; //查看user表的字段<br>然后确定密码字段的名称，一般可能是 Password。然而在 OS X 的 MySQL 5.7 这个版本中，密码字段名称是 authentication_string 。记住这个字段名。</p>
-<p>然后修改密码啊：UPDATE mysql.user SET authentication_string=PASSWORD(‘123456’) where User=’root’; //将root用户密码改成 123456</p>
-<p>5.刷新权限，使配置生效</p>
-<p>flush privileges;<br>最后再启动 MySQL</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">x-code ios一些基本配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-03T15:18:00+08:00">
-                2017-08-03 15:18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.配置http请求（可以通过http请求页面）：<br>  在info.plist里面加上 App Transport Security Settings<br>                     Allow Arbitrary Loads        Yes<br>2.配置最低适配版本：<br>  General –&gt; Development Info –&gt; Development Target<br>  在这个development info 里面可以配置app的基本信息<br>3.配置app图表和开机画面：<br>  General –&gt; AA Icons and Launch images<br>  只配上面两个source就可以<br>  在Assets.xcassets 里面添加图片<br>  ps:要migrate<br>4.打包发到蒲公英：<br>  Prduct –&gt; Archive</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">新建一个ios项目 用x-code</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-02T14:21:00+08:00">
-                2017-08-02 14:21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.搭建ios项目 create a new project<br> 选择 single view application<br> 然后填写<br> 将项目中的storyboard文件删掉（两个）<br> 将General –&gt; Development Info –&gt; Main Interface中的值删掉<br> （如果删不掉就将info.plist 文件中的Main Story base name 删掉）<br>2.在supporting files里面新建一个pch文件<br>点击最上方那个蓝色的项目图标（xcodeproj）<br>build settings 里面选择 Prefix Header 配置路径（<a href="http://www.jianshu.com/p/b9a831aedde8" target="_blank" rel="noopener">参考</a>）<br>3.填写pch文件中应该有的颜色 适配等信息<br>4.$ pod init —–新建Podfile<br>  $ pod install ———-安装插件<br>5.新建.gitignore文件 将不要上传的文件写进去<br>6.之后就用以xcworkspace为后缀的文件打开项目(白的！！！！)<br>7.在Appdelegate.m里面写进入ipad的默认路径<br> 想要嵌套webview要配置info.plist 详情见x-code的一些基本配置</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-将数据库中user的password跟h5输入的匹配</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-31T10:51:00+08:00">
-                2017-07-31 10:51
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> user.valid_password?(params[:password])</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails -- modal</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-28T10:16:00+08:00">
-                2017-07-28 10:16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第一种方法：用gem ‘bootstrap-modal-rails’使用插件<br>1.首先在index页面中添加按钮（冻结，解冻）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">&lt;% if user.is_enabled.blank? or user.is_enabled == &quot;ture&quot; %&gt;</span><br><span class="line">  &lt;%= link_to_modal freeze_users_path(:id =&gt; user.id), id: &quot;freeze&quot;, class: &apos;btn btn-danger&apos;, title: &quot;冻结&quot; do %&gt;</span><br><span class="line">    &lt;%= t(&apos;freeze&apos;) %&gt;</span><br><span class="line">  &lt;% end %&gt;</span><br><span class="line">&lt;% else%&gt;</span><br><span class="line">  &lt;%= link_to t(&apos;defreeze&apos;), defreeze_users_path(:id =&gt; user.id), method: :post,  class: &apos;btn btn-primary&apos;,</span><br><span class="line">    data: &#123; confirm: &quot;确定要解冻该用户么?&quot;&#125; %&gt;</span><br><span class="line">&lt;% end %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>2.controller的对应的action<br>3.设置对应的route路由中。<br>4.1 重点来了 ，需要调用modal了.首先在gemfile 中添加gem : </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem &apos;bootstrap-modal-rails&apos;, &apos;2.2.5&apos;</span><br></pre></td></tr></table></figure>
-
-<p>4.2 在application.js 中添加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//= require bootstrap-modal    </span><br><span class="line">//= require bootstrap-modalmanager</span><br><span class="line"></span><br><span class="line">$(document).on(&apos;click&apos;, &apos;[data-toggle=modal-ajax]&apos;, function(e) &#123;</span><br><span class="line">    e.preventDefault();        </span><br><span class="line">    e.stopPropagation();       </span><br><span class="line">    console.info();            </span><br><span class="line">    $(&apos;#modal-ajax&apos;).empty().modal().modal(&apos;loading&apos;);</span><br><span class="line">    $.rails.handleRemote($(this));  </span><br><span class="line">    return false;              </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(document).on(&apos;ajax:beforeSend&apos;, &apos;.modal form[data-remote]&apos;, function(e) &#123;</span><br><span class="line">    return $(this).parents(&apos;.modal&apos;).modal(&apos;loading&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>4.3 application.css中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*= require bootstrap-modal    </span><br><span class="line">*= require bootstrap-modal-bs3patch</span><br></pre></td></tr></table></figure>
-
-<p>4.4 helpers/application_helper.rb中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def link_to_modal(name, options = nil, html_options = nil, &amp;block)</span><br><span class="line">  default_options = &#123; data: &#123; toggle: &apos;modal-ajax&apos;, target: &apos;#modal-ajax&apos; &#125; &#125;</span><br><span class="line">  if block_given?            </span><br><span class="line">    link_to(name, default_options.update(options), html_options, &amp;block)</span><br><span class="line">  else</span><br><span class="line">    link_to(name, options, default_options.update(html_options))</span><br><span class="line">  end</span><br><span class="line">end</span><br><span class="line">def modal_header(title)      </span><br><span class="line">  %(&lt;div class=&quot;modal-header&quot;&gt;    </span><br><span class="line">  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;</span><br><span class="line">  &lt;h3&gt;#&#123;title&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;).html_safe</span><br><span class="line">end    </span><br><span class="line">def modal_footer(&amp;block)     </span><br><span class="line">  %(&lt;div class=&quot;modal-footer&quot;&gt;    </span><br><span class="line">    #&#123;capture(&amp;block)&#125;       </span><br><span class="line">    &lt;button type=&quot;button&quot; data-dismiss=&quot;modal&quot; class=&quot;btn&quot;&gt;#&#123;t(&quot;cancel&quot;)&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;).html_safe          </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>4.5 layouts/application.html.rb中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 全局弹出层 --&gt;</span><br><span class="line">&lt;div id=&quot;modal-ajax&quot; class=&quot;modal hide fade&quot; tabindex=&quot;-1&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>4.6 在视图层添加 view/users/freeze.js.erb:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#modal-ajax&apos;).html(&apos;&lt;%= j(render &apos;freeze&apos;) %&gt;&apos;);</span><br><span class="line">$(&apos;#modal-ajax&apos;).modal();</span><br><span class="line">$(&quot;#modal-ajax&quot;).removeClass(&quot;hide&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>4.7 在视图层添加 view/users/_freeze.html.erb, 在freeze.js.erb中render会渲染这个视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= modal_header t(&quot;freeze_user&quot;) %&gt; &lt;%= form_for @user, url: freeze_reason_users_path, :html =&gt; &#123; method: &apos;post&apos;&#125; do |f| %&gt;</span><br><span class="line">&lt;%#= f.radio_button :is_enabled, &apos;false&apos;, :id =&gt; &apos;user_reason&apos;, :style =&gt; &apos;margin: 0; margin-top: -22px; margin-left: 20px;&apos;, :class=&gt;&quot;stat &lt;%#= f.label :reason, &apos;冻结&apos;, :style =&gt; &apos;margin-top: -25px; margin-left: 10px;&apos; %&gt;</span><br><span class="line">&lt;%= f.label t(&quot;freeze_reason&quot;) %&gt;</span><br><span class="line">&lt;%= f.text_area :reason_of_freeze, :name =&gt; &quot;reason&quot;, :placeholder =&gt; t(&apos;freeze_placeholder&apos;), style: &quot;width: 100%; height: 80px; margi</span><br><span class="line">&lt;%= modal_footer do %&gt; &lt;%= f.submit t(&apos;global.submit&apos;), class: &apos;btn btn-primary&apos;%&gt; &lt;% end %&gt; &lt;% end %&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://wenyc.cn/articles/55" target="_blank" rel="noopener">参考原文</a></p>
-<p>第二种方法： gem：jquery-ui-rails 自己写modal<br><a href="https://github.com/jquery-ui-rails/jquery-ui-rails" target="_blank" rel="noopener">jquery-ui</a><br><a href="http://js.siwei.me/web_front_end/js_components/dialog.html" target="_blank" rel="noopener">参考原文</a><br>1.安装上jquery-ui之后<br>2.页面上js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(function() &#123;</span><br><span class="line">  dialog = $( &quot;#dialog&quot; ).dialog(&#123;</span><br><span class="line">    autoOpen:false,</span><br><span class="line">    modal: true,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">//打开弹窗</span><br><span class="line">function open_dialog(url)&#123;</span><br><span class="line">  dialog.dialog(&apos;open&apos;);</span><br><span class="line">  $.get(url,function(data)&#123;</span><br><span class="line">    $(&apos;#dialog&apos;).html(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">//关闭弹窗</span><br><span class="line">function close_dialog()&#123;</span><br><span class="line">  $(&apos;#dialog&apos;).dialog(&apos;close&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>html:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id=&quot;dialog&quot; title=&quot;新建工序&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%= link_to_function &apos;新增&apos;, &quot;open_dialog(&apos;/steps/ajax_new_form?craft_id=#&#123;params[:craft_id]&#125;&apos;)&quot;, id: &quot;opener&quot;, class: &apos;btn btn-primary&apos; %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>关闭按钮：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to_function &apos;返回&apos;, &apos;close_dialog()&apos;, class: &quot;btn btn-default btn-small&quot; %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意： rails及以后是不可以直接使用link_to_function的<br>要在application helper里面 加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def link_to_function(name, *args, &amp;block)</span><br><span class="line">    html_options = args.extract_options!.symbolize_keys</span><br><span class="line"></span><br><span class="line">    function = block_given?? update_page(&amp;block) : args[0] || &apos;&apos;</span><br><span class="line">    onclick =&quot;#&#123;&quot;#&#123;html_options[:onclick]&#125;;&quot; if html_options[:onclick]&#125;#&#123;function&#125;; return false;&quot;</span><br><span class="line">    href = html_options[:href] || &apos;#&apos; </span><br><span class="line"></span><br><span class="line">    content_tag(:a, name, html_options.merge(:href =&gt; href, :onclick =&gt; onclick))</span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1576,12 +1543,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">237</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
@@ -1589,7 +1565,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

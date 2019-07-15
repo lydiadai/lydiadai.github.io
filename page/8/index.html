@@ -284,6 +284,629 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">安卓- android studio 配置真机调试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-11T15:49:00+08:00">
+                2018-06-11 15:49
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于Android studio而言，默认的adb路径为：<br>~/Library/Android/sdk/platform-tools </p>
+<p>vim <del>/.bash_profile<br>export PATH=</del>/Library/Android/sdk/platform-tools/:$PATH</p>
+<p>在终端输入<br>source .bash_profile<br>然后输入<br>adb<br>不提示“command not found”，而是出现一长串帮助说明，那就证明adb已经配置好了。</p>
+<p>1、确保连接线没问题，连接好后。查看usb设备信息，终端输入命令</p>
+<p>system_profiler SPUSBDataType</p>
+<p>Vendor ID需要记下来一会用</p>
+<p>2、终端输入以下命令，打开 adb_usb.ini 文件</p>
+<p>vim ~/.android/adb_usb.ini<br>将vendor id 写进去</p>
+<p>4、保存修改并退出。</p>
+<p>5、重启adb，输入以下命令</p>
+<p>adb kill-server<br>adb start-server</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-修改userAgent</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-09T16:36:00+08:00">
+                2018-06-09 16:36
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>方案一，修改全局UserAgent值（这里是在原有基础上拼接自定义的字符串）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];</span><br><span class="line">    NSString *userAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br><span class="line">    NSString *newUserAgent = [userAgent stringByAppendingString:@&quot; native_iOS&quot;];//自定义需要拼接的字符串</span><br><span class="line">    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @&quot;UserAgent&quot;, nil];</span><br><span class="line">    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方案二，自定义UserAgent值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];</span><br><span class="line">[self.view addSubview: wkWebView];</span><br><span class="line">NSString *customUserAgent = @&quot;native_iOS&quot;;</span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:@&#123;@&quot;UserAgent&quot;:customUserAgent&#125;];</span><br><span class="line">NSURL *url = [NSURL URLWithString:self.strUrl];</span><br><span class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url</span><br><span class="line">                                             cachePolicy:NSURLRequestUseProtocolCachePolicy</span><br><span class="line">                                         timeoutInterval:10.f];</span><br><span class="line">[self.wkWebView loadRequest:request];</span><br></pre></td></tr></table></figure>
+
+<p>方案三</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];</span><br><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line">[self.wkWebView evaluateJavaScript:@&quot;navigator.userAgent&quot; completionHandler:^(id result, NSError *error) &#123;</span><br><span class="line">       __strong typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">       NSString *userAgent = result;</span><br><span class="line">       NSString *newUserAgent = [userAgent stringByAppendingString:@&quot; native_iOS&quot;];</span><br><span class="line">       NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @&quot;UserAgent&quot;, nil];</span><br><span class="line">       [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br><span class="line">       // needs retain because `evaluateJavaScript:` is asynchronous</span><br><span class="line">       strongSelf.wkWebView = [[WKWebView alloc] initWithFrame:strongSelf.view.bounds];</span><br><span class="line"> &#125;];</span><br><span class="line"> [self.wkWebView loadRequest:request];</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">mac-安装安卓环境</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-07T15:03:00+08:00">
+                2018-06-07 15:03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>下载的文件包括Java、Android Studio。Java下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html，Android" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html，Android</a> studio的下载可以到google官网下载，也可以到中文社区下载（<a href="http://www.android-studio.org/）" target="_blank" rel="noopener">http://www.android-studio.org/）</a></p>
+<p>要先连vpn</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">小程序-this.setData undefined</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T18:06:00+08:00">
+                2018-06-06 18:06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这个是由于this的作用域问题 一般来说 确认存在的方法什么的掉不起来都是因为这个<br>var that=this;<br>用that来调就可以了<br>但是一定要记住！！！<br>这个变量声明一定要写在方法开始，写在任何一个回调里面都不生效</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">小程序-webview 支付</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T18:00:00+08:00">
+                2018-06-06 18:00
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>小程序在webview里面只能调起网页支付 但是小程序又不允许这种支付方式 所以就坑爹了<br>我们只能用点击webview里面按钮跳转到原生小程序页面调起支付<br>小程序js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    openid: &apos;&apos;,</span><br><span class="line">    order_id: &apos;&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: function (options) &#123;</span><br><span class="line">    console.log(&apos;pay&apos;)</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      order_id: options.order_id</span><br><span class="line">    &#125;)</span><br><span class="line">    this.getOpenId()</span><br><span class="line">  &#125;,</span><br><span class="line">  getOpenId: function () &#123;</span><br><span class="line">    var that = this;</span><br><span class="line">    wx.login(&#123;</span><br><span class="line">      success: function (res) &#123;</span><br><span class="line">        if (res.code) &#123;</span><br><span class="line">          //发起网络请求  </span><br><span class="line">          wx.request(&#123;</span><br><span class="line">            url: &apos;https://www.wondercv.com/zh-CN/interface/pages/get_wx_mini_open_id&apos;,</span><br><span class="line">            // url: &apos;http://localhost:3000/zh-CN/interface/pages/get_wx_mini_open_id&apos;,</span><br><span class="line">            method: &apos;GET&apos;,</span><br><span class="line">            data: &#123;</span><br><span class="line">              code: res.code</span><br><span class="line">            &#125;,</span><br><span class="line">            success: function (response) &#123;</span><br><span class="line">              console.log(&apos;get open id =====================&apos; + response.data.open_id)  </span><br><span class="line">              that.setData(&#123;</span><br><span class="line">                openid: response.data.open_id</span><br><span class="line">              &#125;);</span><br><span class="line">              that.getPaymentParams();</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          console.log(&apos;获取用户登录态失败！&apos; + res.errMsg)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);  </span><br><span class="line">  &#125;,</span><br><span class="line">  getPaymentParams: function(openId)&#123;</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: &apos;https://www.wondercv.com/zh-CN/interface/pages/wechat_mini_information&apos;,</span><br><span class="line">      // url: &apos;http://localhost:3000/zh-CN/interface/pages/wechat_mini_information&apos;,</span><br><span class="line">      method: &apos;GET&apos;,</span><br><span class="line">      data: &#123;</span><br><span class="line">        open_id: this.data.openid,</span><br><span class="line">        order_id: this.data.order_id</span><br><span class="line">      &#125;,</span><br><span class="line">      success: function (response) &#123;</span><br><span class="line">        console.log(&apos;get payment params=========================&apos;)</span><br><span class="line">        console.log(response)</span><br><span class="line">        wx.requestPayment(&#123;</span><br><span class="line">          //相关支付参数</span><br><span class="line">          &apos;timeStamp&apos;: response.data.timeStamp,</span><br><span class="line">          &apos;nonceStr&apos;: response.data.nonceStr,</span><br><span class="line">          &apos;package&apos;: response.data.pre_package,</span><br><span class="line">          &apos;signType&apos;: response.data.signType,</span><br><span class="line">          &apos;paySign&apos;: response.data.sign,</span><br><span class="line">          //小程序微信支付成功的回调通知</span><br><span class="line">          &apos;success&apos;: function (res) &#123;</span><br><span class="line">            console.log(&quot;支付成功&quot;);</span><br><span class="line">          &#125;,</span><br><span class="line">          //小程序支付失败的回调通知</span><br><span class="line">          &apos;fail&apos;: function (res) &#123;</span><br><span class="line">            console.log(&quot;支付失败&quot;);</span><br><span class="line">            console.log(res);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>获取小程序openid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">res = RestClient.get &apos;https://api.weixin.qq.com/sns/jscode2session?appid=&apos; +</span><br><span class="line">                        ENV[&apos;WECHAT_MINIPROGRAM_APP_ID&apos;] + &apos;&amp;secret=&apos; + ENV[&apos;WECHAT_MINIPROGRAM_APP_SECRECT&apos;] + &apos;&amp;js_code=&apos; + params[:code] +</span><br><span class="line">                        &apos;&amp;grant_type=authorization_code&apos;</span><br><span class="line">  Rails.logger.info(&quot;code=======================#&#123;params[:code]&#125;&quot;)</span><br><span class="line">  open_id = JSON.parse(res.body)[&apos;openid&apos;]</span><br><span class="line">  Rails.logger.info(&quot;=======================#&#123;JSON.parse(res.body)&#125;&quot;)</span><br><span class="line">  render json: &#123;</span><br><span class="line">    open_id: open_id</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取小程序需要的支付参数 用wx_pay 就可以，使用方式JSAPI<br>signType: MD5<br>注意：第二次签名的方法选择的方式不一样 方法也就不一样<br>        r = WxPay::Service.generate_js_pay_req params_for_program  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-touchmove之后不触发touchend</a></h1>
         
 
@@ -752,7 +1375,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-27-7774375.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -771,7 +1394,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-bootstrap table-stripe reverse</a></h1>
+                <a class="post-title-link" href="/posts/2018-05-27-7774375.html" itemprop="url">css-bootstrap table-stripe reverse</a></h1>
         
 
         <div class="post-meta">
@@ -859,638 +1482,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ruby-position 排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T14:19:00+08:00">
-                2018-05-27 14:19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.gem ‘acts_as_list’</p>
-<p>2.model</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acts_as_list</span><br></pre></td></tr></table></figure>
-
-<p>3.controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">up</span><br><span class="line">@recruit_info.move_higher</span><br><span class="line"></span><br><span class="line">down</span><br><span class="line">@recruit_info.move_lower  </span><br><span class="line"></span><br><span class="line">top</span><br><span class="line">@recruit_info.move_to_top</span><br><span class="line"></span><br><span class="line">bottom</span><br><span class="line">@recruit_info.move_to_bottom</span><br></pre></td></tr></table></figure>
-
-<p>4.view<br>一般置顶 最末会刷新页面<br>上移 下移用js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-up&quot;), &quot;javascript:;&quot;, method: :post,</span><br><span class="line">                     class: &quot;info-up&quot;, data: &#123; id: recruit_info.id, url: up_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;上移&quot; &#125; %&gt;</span><br><span class="line">         &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-down&quot;), &quot;javascript:;&quot;, method: :post,</span><br><span class="line">                     class: &quot;info-down&quot;, data: &#123; id: recruit_info.id, url: down_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;下移&quot; &#125; %&gt;</span><br><span class="line">         &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-circle-up&quot;), top_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     method: :post, class: &quot;info-top&quot;, data: &#123; toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;置顶&quot; &#125; %&gt;</span><br><span class="line">         &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-circle-down&quot;), bottom_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     method: :post, class: &quot;info-bottom&quot;, data: &#123; toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;最末&quot; &#125; %&gt; |</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"></span><br><span class="line">  $prevLink = $(&apos;.pagination&apos;).find(&apos;.active&apos;).prev().find(&apos;a&apos;).attr(&apos;href&apos;);</span><br><span class="line">  $nextLink = $(&apos;.pagination&apos;).find(&apos;.active&apos;).next().find(&apos;a&apos;).attr(&apos;href&apos;);</span><br><span class="line"></span><br><span class="line">  $(&apos;.info-up&apos;).on(&apos;click&apos;, function()&#123;</span><br><span class="line">      const pageFirst = $(&apos;.recruit-info-item&apos;).first();</span><br><span class="line">      $page = $(this).closest(&apos;.recruit-info-item&apos;);</span><br><span class="line">      $.ajax(&#123;</span><br><span class="line">          url: $(this).data(&apos;url&apos;),</span><br><span class="line">          type: &apos;POST&apos;,</span><br><span class="line">          data: &#123;</span><br><span class="line">            id: $(this).data(&apos;id&apos;)</span><br><span class="line">          &#125;,</span><br><span class="line">          success: function() &#123;</span><br><span class="line">              if ($page.is(pageFirst)) &#123;</span><br><span class="line">                if (&lt;%= @recruit_infos.current_page %&gt; === 1) &#123;</span><br><span class="line">                  $.notify(&apos;不可上移！！&apos;,&apos;error&apos;)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                  window.location.href = $prevLink</span><br><span class="line">                &#125;</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                  $page.prev().before($page);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  $(&apos;.info-down&apos;).on(&apos;click&apos;, function()&#123;</span><br><span class="line">      const pageLast = $(&apos;.recruit-info-item&apos;).last();</span><br><span class="line">      $page = $(this).closest(&apos;.recruit-info-item&apos;);</span><br><span class="line">      $.ajax(&#123;</span><br><span class="line">          url: $(this).data(&apos;url&apos;),</span><br><span class="line">          type: &apos;POST&apos;,</span><br><span class="line">          data: &#123;</span><br><span class="line">            id: $(this).data(&apos;id&apos;)</span><br><span class="line">          &#125;,</span><br><span class="line">          success: function() &#123;</span><br><span class="line">              if ($page.is(pageLast)) &#123;</span><br><span class="line">                  if (&lt;%= @recruit_infos.total_pages == @recruit_infos.current_page %&gt;) &#123;</span><br><span class="line">                    $.notify(&apos;不可下移！！&apos;,&apos;error&apos;)</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                    window.location.href = $nextLink</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                  $page.next().after($page);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>ps: 必须有position字段如果是后加的 在migration文件中需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ExampleCv.order(updated_at: :desc).each.with_index(1) do |todo_item, index|</span><br><span class="line">  todo_item.update_column :position, index</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-获取小程序二维码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T17:34:00+08:00">
-                2018-05-25 17:34
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>def miniProgramQR
- res = RestClient.get &apos;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&apos;+ ENV[&apos;WECHAT_MINIPROGRAM_APP_ID&apos;] + &apos;&amp;secret=&apos; + ENV[&apos;WECHAT_MINIPROGRAM_APP_SECRECT&apos;]
-  json = JSON.parse res.body
-  access_token = json[&apos;access_token&apos;]
-  miniProgram_image = RestClient.post &apos;https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=&apos; + access_token, {&apos;page&apos;: &apos;pages/cvShare/cvShare&apos;, &apos;scene&apos;: @cv.token}.to_json, {content_type: :json, accept: :json}
-  image = Base64.encode64 miniProgram_image
- render json: {
-    image: image
-  }
-end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_type] +’,id:’ + params[:token]这种字符串 然后在小程序中用js分割，不可以用json格式、也不可以用to_s</p>
-<p>  显示用$(‘.qr-code’).attr(‘src’, “data:image/jpeg;base64,” +  data[‘image’])</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ruby-ascii-8bit 转image</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T11:33:00+08:00">
-                2018-05-25 11:33
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.将data转成base64编码 用Base64.encode64 data </p>
-<p>2.用data_uri的方法 将base64编码展示出来</p>
-<p>“data:image/jpeg;base64,data”</p>
-<p><a href="https://en.wikipedia.org/wiki/Data_URI_scheme" target="_blank" rel="noopener">data uri scheme</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-data传参键名是变量不能识别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T16:16:00+08:00">
-                2018-05-23 16:16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>const fileData= {};<br>fileData[fileType] = data;</p>
-<p>ps: 一定要注意 在里面写的时候data: fileData 这么传值！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-判断页面是否加载完成</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T17:12:00+08:00">
-                2018-05-22 17:12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对于页面来说，dom结构，样式,脚本也属于内容，页面内的图片文字视频音频也是内容。</p>
-<p>那么我们常用的 window.onload和 jquery 中的 ready 函数就能判断内容是否全部加载完成吗？答案是否定的。以上两个只能判定页面骨架加载完成了，但是不能判定页面资源是否加载完成，比如页面的超大图片，视频等。还有如果是有异步请求的资源等都无法检测到的，尤其是在 onload 之后发生的请求。</p>
-<p>onreadystatechange回调不行，原因：每当有请求发生时 readyState 都会改变并触发 onreadystatechange </p>
-<p>如果需要动态处理 dom 那么在 onload|ready 中就可以了，因为此时页面 dom 已经加载完成了。如果你需要对某些异步的请求做监控，则只需要在对应的异步中添加上回调即可。</p>
-<p>if(document.readyState == “complete”) //当页面加载状态 </p>
-<p>window.onload页面(包括资源)准备就绪</p>
-<p>document.onloadDOM加载完毕</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1541,12 +1532,21 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">237</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
@@ -1554,7 +1554,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
