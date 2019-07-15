@@ -379,9 +379,1185 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">电脑配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-05T22:32:00+08:00">
+                2019-04-05 22:32
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.安装homebrew  <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a><br>2.安装pgsql $ brew install  postgresql<br>3.安装bundle $ gem install bundler<br>4.安装rbenv $ brew install rbenv<br>5.安装rails $ sudo gem install rails<br>6.生成ssh key $ ssh-keygen<br>  查看ssh key $ cat ~/.ssh/id_rsa.pub<br>7.配置bash profile $ sudo vim .bash_profile<br>  使其生效 $ source .bash_profile<br>  export PATH=/usr/local/bin:$PATH</p>
+<p>8.安装redis<br>  在这下载 <a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a><br>  将下载下来的包解压后放到/usr/local<br>  进到对应文件夹 $ make install<br>  <a href="https://www.cnblogs.com/feijl/p/6879929.html" target="_blank" rel="noopener">参考</a><br>9.配置 vim<br>  $ git clone <a href="https://github.com/VundleVim/Vundle.vim.git" target="_blank" rel="noopener">https://github.com/VundleVim/Vundle.vim.git</a> ~/.vim/bundle/Vundle.vim<br>  配置 .vimrc 下载vimrc<br>  :PlunginInstall</p>
+<p>ps:vimrc 参考<br>filetype on<br>set langmenu=none<br>set fileencodings=utf-8<br>set fileencoding=utf-8<br>set encoding=utf8</p>
+<p>set expandtab<br>set shiftwidth=2<br>set softtabstop=2<br>set tabstop=2<br>set number<br>set autoindent<br>set hlsearch<br>set incsearch<br>set encoding=utf-8<br>“ highlight Normal ctermfg=white ctermbg=cyan<br>set nowrap<br>syntax enable</p>
+<p>let g:proj_window_width=5<br>set laststatus=2</p>
+<p>map <c-t> :FufFile<cr><br>map <c-e> :MRU<cr><br>map <c-s-m> :Rmodel<cr><br>map <c-s-c> :Rcontroller<cr><br>map <c-s-u> :Runit<cr><br>map <c-s-l> :Rfunctional<cr><br>map <c-h> :Rhelper<cr><br>map <c-v> :Rview<cr><br>map <c-j> :ZoomWin<cr></cr></c-j></cr></c-v></cr></c-h></cr></c-s-l></cr></c-s-u></cr></c-s-c></cr></c-s-m></cr></c-e></cr></c-t></p>
+<p>“ Strip trailing whitespace<br>function! <sid>StripTrailingWhitespaces()<br>    “ Preparation: save last search, and cursor position.<br>    let _s=@/<br>    let l = line(“.”)<br>    let c = col(“.”)<br>    “ Do the business:<br>    %s/\s+$//e<br>    “ Clean up: restore previous search history, and cursor position<br>    let @/=_s<br>    call cursor(l, c)<br>endfunction<br>autocmd BufWritePre * :call <sid>StripTrailingWhitespaces()</sid></sid></p>
+<p>“ match Todo /\s+$/<br>filetype plugin on<br>let mapleader = “,”</p>
+<p>“ THE VIM OUTLINER (TVO)<br>“ defaults:<br>let otl_install_menu=1<br>let no_otl_maps=0<br>let no_otl_insert_maps=0</p>
+<p>“ overrides:<br>let otl_bold_headers=0<br>let otl_use_thlnk=0</p>
+<p>“ au BufWinLeave *.otl mkview<br>“ au BufWinEnter *.otl silent loadview<br>let maplocalleader = “,”</p>
+<p>“”Only do this part when compiled with support for autocommands.<br>“if has(“autocmd”)<br>“  autocmd Filetype java setlocal omnifunc=javacomplete#Complete<br>“endif</p>
+<p>set nocompatible               “ be iMproved<br>filetype off                   “ required!</p>
+<p>“ ============== Vundle part =================<br>set rtp+=~/.vim/bundle/Vundle.vim/<br>call vundle#begin()</p>
+<p>“ let Vundle manage Vundle<br>“ required!<br>Plugin ‘gmarik/vundle’</p>
+<p>“ My Bundles here:<br>“<br>“ original repos on github<br>Plugin ‘tpope/vim-fugitive’<br>Plugin ‘Lokaltog/vim-easymotion’<br>“Plugin ‘rstacruz/sparkup’, {‘rtp’: ‘vim/‘}<br>Plugin ‘tpope/vim-rails.git’<br>Plugin ‘bumaociyuan/vim-matchit.git’<br>Plugin ‘ecomba/vim-ruby-refactoring.git’</p>
+<p>“ vim-scripts repos<br>Plugin ‘L9’<br>Plugin ‘FuzzyFinder’</p>
+<p>Plugin ‘git://git.wincent.com/command-t.git’<br>“Plugin ‘snipMate’<br>“Plugin ‘snipmate-snippets’<br>“Plugin ‘Jasmine-snippets-for-snipMate’<br>Plugin ‘YankRing.vim’<br>Plugin ‘The-NERD-Commenter’<br>Plugin ‘The-NERD-tree’<br>Plugin ‘kchmck/vim-coffee-script’</p>
+<p>colorscheme monokai<br>set background=light<br>set background=dark<br>Plugin ‘mru.vim’<br>Plugin ‘greplace.vim’<br>call vundle#end()</p>
+<p>filetype plugin indent on     “ required!<br>“<br>“ Brief help<br>“ :PluginList          - list configured bundles<br>“ :PluginInstall(!)    - install(update) bundles<br>“ :PluginSearch(!) foo - search(or refresh cache first) for foo<br>“ :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles<br>“<br>“ see :h vundle for more details or wiki for FAQ<br>“ NOTE: comments after Plugin command are not allowed..</p>
+<p>map <s-f> <leader><leader>f<br>map <leader>a :YRShow<cr><br>map <leader>t :NERDTree<cr><br>map <leader>q :q<cr><br>map <leader>f :Rfixture<cr><br>map <leader>rj :Rjavascript<cr></cr></leader></cr></leader></cr></leader></cr></leader></cr></leader></leader></leader></s-f></p>
+<p>“autocmd BufWritePost,FileWritePost <em>.coffee :silent !coffee –compile –join appstore/static/javascripts/angular/controllers.js appstore/static/javascripts/angular/controllers.coffee appstore/static/javascripts/angular/tabs/</em>coffee appstore/static/javascripts/angular/applications/<em>coffee appstore/static/javascripts/angular/users/</em>coffee appstore/static/javascripts/angular/commons/*coffee<br>“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile appstore/static/javascripts/angular/app.coffee appstore/static/javascripts/angular/directives.coffee appstore/static/javascripts/angular/filters.coffee appstore/static/javascripts/angular/services.coffee</p>
+<p>“autocmd BufWritePost,FileWritePost <em>.coffee :silent !coffee –compile –join tvboxcms/static/javascripts/angular/controllers.js tvboxcms/static/javascripts/angular/controllers.coffee tvboxcms/static/javascripts/angular/tabs/</em>coffee tvboxcms/static/javascripts/angular/applications/<em>coffee tvboxcms/static/javascripts/angular/users/</em>coffee tvboxcms/static/javascripts/angular/commons/*coffee<br>“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile tvboxcms/static/javascripts/angular/app.coffee tvboxcms/static/javascripts/angular/directives.coffee tvboxcms/static/javascripts/angular/filters.coffee tvboxcms/static/javascripts/angular/services.coffee</p>
+<p>“autocmd BufWritePost,FileWritePost <em>.coffee :silent !coffee –compile –join m-cms-preview/static/javascripts/angular/controllers.js m-cms-preview/static/javascripts/angular/controllers.coffee m-cms-preview/static/javascripts/angular/tabs/</em>coffee m-cms-preview/static/javascripts/angular/applications/<em>coffee m-cms-preview/static/javascripts/angular/users/</em>coffee m-cms-preview/static/javascripts/angular/commons/*coffee<br>“autocmd BufWritePost,FileWritePost *.coffee :silent !coffee –compile m-cms-preview/static/javascripts/angular/app.coffee m-cms-preview/static/javascripts/angular/directives.coffee m-cms-preview/static/javascripts/angular/filters.coffee m-cms-preview/static/javascripts/angular/services.coffee</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">pgsql-查询命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-31T19:16:00+08:00">
+                2019-03-31 19:16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>进入本地数据库<br> psql resumehack_development</p>
+<p>进入服务器数据库(导到本地查)<br>1.console 直接连数据库 bin/rails dbconsole production   </p>
+<p>查看数据库大小 SELECT pg_size_pretty(pg_database_size(‘database name’));<br>查询所有表并按照大小排列<br>select table_name, pg_relation_size(quote_ident(table_name))<br>from information_schema.tables<br>where table_schema = ‘public’<br>order by 2;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">html-多行...</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T13:22:00+08:00">
+                2019-03-30 13:22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&lt;%= truncate(page.description, length: 70, omission: ‘…’) %&gt; </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">gem - imgkit 的坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T11:38:00+08:00">
+                2019-03-25 11:38
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.css js 文件都可以写在页面里但是必须配置config.asset_host = ENV[‘HOST’]否则会找不到文件<br>如果不能配置就只能将文件传到服务器然后指定全路径<br>2.有部分jquery方法不能用需要找到js方法代替<br>3.css filter 不可用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">jquery-select2 highlight dropdown keywords</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:15:00+08:00">
+                2019-03-12 11:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>基本逻辑是在搜索的时候将query 存起来 然后用query.term在templateResult方法中拼接显示<br>matcher只能用于拼接文字什么的 html不行</p>
+<p>var query = {};<br>    function markMatch (text, term) {<br>      // Find where the match is<br>      var match = text.toUpperCase().indexOf(term.toUpperCase());</p>
+<pre><code>  var $result = $(&apos;&lt;span&gt;&lt;/span&gt;&apos;);
+
+  // If there is no match, move on
+  if (match &lt; 0) {
+    return $result.text(text);
+  }
+
+  // Put in whatever text is before the match
+  $result.text(text.substring(0, match));
+
+  // Mark the match
+  var $match = $(&apos;&lt;span style=&quot;color: #ff4f4c&quot;&gt;&lt;/span&gt;&apos;);
+  $match.text(text.substring(match, match + term.length));
+
+  // Append the matching text
+  $result.append($match);
+
+  // Put in whatever is after the match
+  $result.append(text.substring(match + term.length));
+
+  return $result;
+}
+
+function formatState (state) {
+  if (!state.id) {
+    return state.text;
+  }
+
+  var term = query.term || &apos;&apos;;
+  var $result = markMatch(state.text, term);
+
+  return $result;
+};
+
+
+$(&apos;#intentions_profession&apos;).select2({
+  templateSelection: formatSelectedProfession,//改变选中的条目显示
+  templateResult: formatState,//改变下拉单里条目显示
+  language: {
+    searching: function (params) {
+      // Intercept the query as it is happening
+      query = params;
+
+      // Change this to be appropriate for your application
+      return &apos;Searching…&apos;;
+    }
+  }
+});
+[参考](https://stackoverflow.com/questions/28958620/using-select2-4-0-0-with-infinite-data-and-filter/29018243#29018243)
+
+
+backspace删除一整个tag  
+$(&apos;#intentions_profession&apos;).on(&apos;select2:unselect&apos;, function(event) {
+   $el = $(this)
+   setTimeout(function() {
+    $el.closest(&apos;.intention-input&apos;).find(&apos;.select2-search__field&apos;).val(&apos;&apos;)
+   }, 0)
+ })</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-notification</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T18:33:00+08:00">
+                2019-02-27 18:33
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>要先addObserver  然后postNotificationName</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails - cache</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T16:26:00+08:00">
+                2019-02-25 16:26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>View:<br>&lt;% cache current_user.active_cvs.order(‘updated_at desc’).first.updated_at do %&gt;<br>  xxxxx<br>&lt;% end %&gt;</p>
+<p>当cache后面的key变了的时候 页面中的内容才会重新加载</p>
+<p>Controller:</p>
+<p>Model:<br> Rails.cache.fetch()</p>
+<p>ps: 开启development cache mode<br>                   rails dev:cache</p>
+<p><a href="https://doc.bccnsoft.com/docs/rails-guides-4.1-cn/caching_with_rails.html" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">linux-更改文件权限</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T18:26:00+08:00">
+                2019-01-28 18:26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>sudo chown -R apps.apps wechaty-file-pro1</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">psql-dump single table</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T14:45:00+08:00">
+                2019-01-15 14:45
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>pg_dump -U postgres –table jd_temps -Fc test_production &gt; /home/apps/jd_temps.sql</p>
+<p>scp <a href="mailto:apps@wondermail.club" target="_blank" rel="noopener">apps@wondermail.club</a>:/home/apps/jd_temps.sql /Users/dailanyi/Downloads/</p>
+<p>psql resumehack_development<br>DROP TABLE jd_temps;</p>
+<p>pg_restore -U dailanyi –dbname resumehack_development  –table=jd_temps /Users/dailanyi/Downloads/jd_temps.sql</p>
+<p>psql resumehack_development<br>ALTER TABLE jd_temps ADD PRIMARY KEY (id);</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -425,7 +1601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -438,7 +1614,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
