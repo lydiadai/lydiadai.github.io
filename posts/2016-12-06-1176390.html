@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lydia&#39;s blog">
 <meta property="og:description" content="carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。1.上传文档（1）在gemfile中添加 gem “carriewave”     bundle install     重开sever：ctrl＋c  =&amp;gt;   rails s（2）加入uploader机制     rails g uploader xxx     eg：rails">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T04:08:15.086Z">
+<meta property="og:updated_time" content="2019-07-16T09:46:25.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gem-carriewave">
 <meta name="twitter:description" content="carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。1.上传文档（1）在gemfile中添加 gem “carriewave”     bundle install     重开sever：ctrl＋c  =&amp;gt;   rails s（2）加入uploader机制     rails g uploader xxx     eg：rails">
@@ -332,7 +332,9 @@
       
 
       
-        <p>carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。<br>1.上传文档<br>（1）在gemfile中添加 gem “carriewave”<br>     bundle install<br>     重开sever：ctrl＋c  =&gt;   rails s<br>（2）加入uploader机制<br>     rails g uploader xxx<br>     eg：rails g uploader attachment<br>（3）在上传的Model中<br>     mount_uploader :xxx,XxxUploader<br>     eg：mount_uploader :attachment,AttachmentUploader<br>（4）在需要的view（new）页面中添加 &lt;%= f.input :xxx %&gt;<br>（5）修改.gitignore，加入public/uploads<br>（6）在关联的model中加上栏位 =&gt; rake db:migrate<br>     eg：attatchment:string<br>（7）新建一个controller<br>    eg:</p>
+        <p>carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。<br>1.上传文档<br>（1）在gemfile中添加 gem “carriewave”<br>     bundle install<br>     重开sever：ctrl＋c  =&gt;   rails s<br>（2）加入uploader机制<br>     rails g uploader xxx<br>     eg：rails g uploader attachment</p>
+<a id="more"></a>
+<p>（3）在上传的Model中<br>     mount_uploader :xxx,XxxUploader<br>     eg：mount_uploader :attachment,AttachmentUploader<br>（4）在需要的view（new）页面中添加 &lt;%= f.input :xxx %&gt;<br>（5）修改.gitignore，加入public/uploads<br>（6）在关联的model中加上栏位 =&gt; rake db:migrate<br>     eg：attatchment:string<br>（7）新建一个controller<br>    eg:</p>
 <pre><code>class ResumesController &lt; ApplicationController
 before_action :authenticate_user!
 
@@ -502,7 +504,7 @@ show页面在循环中的product前面加上@</code></pre><p>3.上传多张图�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -524,7 +526,7 @@ show页面在循环中的product前面加上@</code></pre><p>3.上传多张图�
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

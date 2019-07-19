@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.mkdir 文件夹名称             －－－－新建一个你需要放专案的文件夹（可省略）2.rails new 专案名称           －－－－新建一个专案3.cd 专案名称                 －－－－进入你的专案">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专案起始流程">
+<meta property="og:url" content="https://lydiadai.github.io/posts/2016-12-18-new-ad-hoc-processes.html">
+<meta property="og:site_name" content="Lydia&#39;s blog">
+<meta property="og:description" content="1.mkdir 文件夹名称             －－－－新建一个你需要放专案的文件夹（可省略）2.rails new 专案名称           －－－－新建一个专案3.cd 专案名称                 －－－－进入你的专案">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-16T10:34:58.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="专案起始流程">
+<meta name="twitter:description" content="1.mkdir 文件夹名称             －－－－新建一个你需要放专案的文件夹（可省略）2.rails new 专案名称           －－－－新建一个专案3.cd 专案名称                 －－－－进入你的专案">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lydiadai.github.io/posts/2016-12-18-new-ad-hoc-processes.html">
+
+
+
+
+
+  <title>专案起始流程 | Lydia's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lydia's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2016-12-18-new-ad-hoc-processes.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">专案起始流程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-18T19:08:00+08:00">
+                2016-12-18 19:08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.mkdir 文件夹名称             －－－－新建一个你需要放专案的文件夹（可省略）<br>2.rails new 专案名称           －－－－新建一个专案<br>3.cd 专案名称                 －－－－进入你的专案</p>
+<a id="more"></a>
+<p>4.atom ./打开atom，选择 File &gt; Add Project Folder…<br>                              －－－－在你的atom中打开专案<br>5-1.git init                  －－－－把repository（repo）初始化到一个叫做 .git 的资料夹<br>    git add .                 －－－－告诉 git 你想要把目前资料夹（即 .）还有它底下的所有东西加进repo<br>    git commit -m “xxx”       －－－－告诉 git 真的要执行你叫它做的事<br>5-2.prepare work<br> (1).install bootstrap:<br>        在atom修改 Gemfile，在 group :development, :test do前一行加入 gem ‘bootstrap-sass’（＃32）<br>        bundle install<br>        mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss<br>        将 application.css 更名为 application.scss </p>
+<figure class="highlight ruby"><figcaption><span>app/assets/stylesheets/application.scss</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">       @import <span class="string">"bootstrap-sprockets"</span>;</span><br><span class="line">       @import <span class="string">"bootstrap"</span>;</span><br><span class="line"><span class="string">``</span><span class="string">`          </span></span><br><span class="line"><span class="string"> (2).应用bootstrap到全栈（navbar &amp; footer）</span></span><br><span class="line"><span class="string">        mkdir app/views/common</span></span><br><span class="line"><span class="string">        touch app/views/common/_navbar.html.erb</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>ruby app/views/common/_navbar.html.erb</span><br><span class="line">         &lt;nav class="navbar navbar-default" role="navigation"&gt;</span><br><span class="line">            &lt;div class="container-fluid"&gt;</span><br><span class="line">           </span><br><span class="line">            &lt;div class="navbar-header"&gt;</span><br><span class="line">             &lt;a class="navbar-brand" href="/"&gt;Rails 101&lt;/a&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">         </span></span><br><span class="line"><span class="regexp">           &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;</span></span><br><span class="line"><span class="regexp">             &lt;ul class="nav navbar-nav navbar-right"&gt;</span></span><br><span class="line"><span class="regexp">                 &lt;li&gt;</span></span><br><span class="line"><span class="regexp">                     &lt;%= link_to("登入", '#') %&gt;</span></span><br><span class="line"><span class="regexp">                 &lt;/li</span>&gt;</span><br><span class="line">             &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">         &lt;/div</span>&gt;</span><br><span class="line">         &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">       &lt;/nav</span>&gt;</span><br><span class="line"><span class="string">``</span><span class="string">`      </span></span><br><span class="line"><span class="string">     touch app/views/common/_footer.html.erb</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>ruby app/views/common/_footer.html.erb</span><br><span class="line">       &lt;footer class="container" style="margin-top: 100px;"&gt;</span><br><span class="line">         &lt;p class="text-center"&gt;Copyright ©2016 Rails101</span><br><span class="line">         &lt;br&gt;Design by</span><br><span class="line">          &lt;a href=<span class="string">"http://courses.growthschool.com/courses/rails-101/"</span> target=_new&gt;xdite&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">         &lt;/p</span>&gt;</span><br><span class="line">       &lt;<span class="regexp">/footer&gt;</span></span><br><span class="line"><span class="regexp">```      </span></span><br><span class="line"><span class="regexp">```ruby   app/views</span><span class="regexp">/layouts/application</span>.html.erb</span><br><span class="line">      &lt;!DOCTYPE html&gt;</span><br><span class="line">      &lt;html&gt;</span><br><span class="line">         &lt;head&gt;</span><br><span class="line">         &lt;title&gt;Rails101&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">          &lt;%= csrf_meta_tags %&gt;</span></span><br><span class="line"><span class="regexp">      &lt;%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %&gt;</span></span><br><span class="line"><span class="regexp">        &lt;%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %&gt;</span></span><br><span class="line"><span class="regexp">         &lt;/head</span>&gt;</span><br><span class="line">         &lt;body&gt;</span><br><span class="line">           &lt;div class="container-fluid"&gt;</span><br><span class="line">              &lt;%= render <span class="string">"common/navbar"</span> %&gt;</span><br><span class="line">              &lt;%= <span class="keyword">yield</span> %&gt;</span><br><span class="line">           &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">           &lt;%= render "common/footer</span><span class="string">" %&gt;</span></span><br><span class="line"><span class="string">         &lt;/body&gt;</span></span><br><span class="line"><span class="string">       &lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> (3).提示信息<br>  s1.</p>
+<figure class="highlight ruby"><figcaption><span>app/assets/javascripts/application.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  ... (一堆注解)</span><br><span class="line">  /<span class="regexp">/= require jquery</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/= require jquery_ujs</span></span><br><span class="line"><span class="regexp"> /</span><span class="regexp">/= require turbolinks</span></span><br><span class="line"><span class="regexp">+/</span><span class="regexp">/= require bootstrap/alert</span></span><br><span class="line"> /<span class="regexp">/= require_tree .</span></span><br></pre></td></tr></table></figure>
+
+<p>  s2.touch app/views/common/_flashes.html.erb</p>
+<figure class="highlight ruby"><figcaption><span>app/views/common/_flashes.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">          &lt;% <span class="keyword">if</span> flash.any? %&gt;</span><br><span class="line">            &lt;% user_facing_flashes.each <span class="keyword">do</span> <span class="params">|key, value|</span> %&gt;</span><br><span class="line">            &lt;div class="alert alert-dismissable alert-&lt;%= flash_class(key) %&gt;"&gt;</span><br><span class="line">              &lt;button class="close" data-dismiss="alert"&gt;×&lt;/button&gt;</span><br><span class="line">              &lt;%= value %&gt;</span><br><span class="line">           &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;% end %&gt;</span></span><br><span class="line"><span class="regexp">         &lt;% end %&gt;</span></span><br><span class="line"><span class="regexp">```      </span></span><br><span class="line"><span class="regexp">  s3.touch app/helpers</span><span class="regexp">/flashes_helper.rb</span></span><br><span class="line"><span class="regexp">```ruby flashes_helper.rb</span></span><br><span class="line"><span class="regexp">        module FlashesHelper</span></span><br><span class="line"><span class="regexp">        FLASH_CLASSES = &#123; alert: "danger", notice: "success", warning: "warning"&#125;.freeze</span></span><br><span class="line"><span class="regexp">        def flash_class(key)</span></span><br><span class="line"><span class="regexp">           FLASH_CLASSES.fetch key.to_sym, key</span></span><br><span class="line"><span class="regexp">        end</span></span><br><span class="line"><span class="regexp">        def user_facing_flashes</span></span><br><span class="line"><span class="regexp">           flash.to_hash.slice "alert", "notice","warning"</span></span><br><span class="line"><span class="regexp">        end</span></span><br><span class="line"><span class="regexp">        end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ruby"><figcaption><span>app/views/layout/application.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= render <span class="string">"common/flashes"</span> %&gt;</span><br><span class="line">&lt;%= <span class="keyword">yield</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>s4.   flash[:alert] = “xxx”<br> (4).登录系统<br> s1.gem “devise” –&gt; bundle install –&gt; rails g devise:install –&gt; rails g devise user –&gt; rake    db:migrate<br> s2.</p>
+<figure class="highlight ruby"><figcaption><span>app/views/common/_navbar.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-                &lt;li&gt; &lt;%= link_to(<span class="string">"登入"</span>, <span class="string">'#'</span>) %&gt;   &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">+                &lt;% if !current_user %&gt;</span></span><br><span class="line"><span class="regexp">+                  &lt;li&gt;&lt;%= link_to("注册", new_user_registration_path) %&gt; &lt;/li</span>&gt;</span><br><span class="line">+                  &lt;li&gt;&lt;%= link_to(<span class="string">"登入"</span>, new_user_session_path) %&gt;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">+                &lt;% else %&gt;</span></span><br><span class="line"><span class="regexp">+                  &lt;li class="dropdown"&gt;</span></span><br><span class="line"><span class="regexp">+                    &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;</span></span><br><span class="line"><span class="regexp">+                        Hi!, &lt;%= current_user.email %&gt;</span></span><br><span class="line"><span class="regexp">+                        &lt;b class="caret"&gt;&lt;/b</span>&gt;</span><br><span class="line">+                    &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">+                    &lt;ul class="dropdown-menu"&gt;</span></span><br><span class="line"><span class="regexp">+                        &lt;li&gt; &lt;%= link_to("登出", destroy_user_session_path, method: :delete) %&gt; &lt;/li</span>&gt;</span><br><span class="line">+                    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">+                  &lt;/li</span>&gt;</span><br><span class="line">+                &lt;% <span class="keyword">end</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  s3.</p>
+<figure class="highlight ruby"><figcaption><span>app/assets/javascripts/application.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/<span class="regexp">/= require bootstrap/alert</span></span><br><span class="line">/<span class="regexp">/= require bootstrap/dropdow</span></span><br></pre></td></tr></table></figure>
+
+<p> (5).安装simple_form<br>      gem “simple_form” –&gt; bundle install –&gt; rails generate simple_form:install –bootstrap<br>      重开sever</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  &lt;%= simple_form_for @group <span class="keyword">do</span> <span class="params">|f|</span> %&gt;</span><br><span class="line">  &lt;div class="form-group"&gt;</span><br><span class="line">    &lt;%= f.input <span class="symbol">:title</span>, <span class="symbol">input_html:</span> &#123; <span class="class"><span class="keyword">class</span>: "<span class="title">form</span>-<span class="title">control</span>"&#125; %&gt;</span></span><br><span class="line">    &lt;%= f.input <span class="symbol">:description</span>, <span class="symbol">input_html:</span> &#123; <span class="class"><span class="keyword">class</span>: "<span class="title">form</span>-<span class="title">control</span>"&#125; %&gt;</span></span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;%= f.submit "Submit", class: "btn btn-primary", data: &#123; disable_with: "Submitting..." &#125; %&gt;</span></span><br><span class="line"><span class="regexp">&lt;% end %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>6.rails g model xxx 栏位:字符型<br>  rake db:migrate<br>  rails g controller xxxs<br> (rails g controller welcome)<br> <a href="https://gist.github.com/xdite/fe1da2982e08cc964640a3d88cb4dd65" target="_blank" rel="noopener">CRUD</a><br>7.touch app/views/xxxs/index.html.erb<br> (touch app/views/welcome/index.html.erb)<br>8.resources :xxxs／root “welcome#index”<br>                              －－－－在route.rb中添加路径</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2016-12-14-conversation.html" rel="next" title="conversation">
+                <i class="fa fa-chevron-left"></i> conversation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2016-12-20-day-trip-to-macau.html" rel="prev" title="Macau一日游">
+                Macau一日游 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lydia</p>
+              <p class="site-description motion-element" itemprop="description">This is lydia's blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lydia</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8ded9eb0fd1b0c413702',
+          clientSecret: '3bc43a9155cbae7aff9c015c2616cf37a5204a37',
+          repo: 'lydiadai.github.io',
+          owner: 'lydiadai',
+          admin: ['lydiadai'],
+          id: md5(window.location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "serarch.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

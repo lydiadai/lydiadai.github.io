@@ -286,252 +286,6 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-拖拽排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-06T12:46:00+08:00">
-                2017-09-06 12:46
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.Gemfile 中添加<br>  gem ‘sortable-rails’<br>  $ bundle<br>2.app/assets/javascripts/application.js 中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//= require sortable-rails-jquery</span><br><span class="line">//= require_tree .</span><br></pre></td></tr></table></figure>
-
-<p>3.确认需要拖拽排序的表中有position字段<br>4.view</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;tbody id=&quot;steps_sortable_table&quot;&gt;</span><br><span class="line">    &lt;% @steps.each do |step| %&gt;</span><br><span class="line">      &lt;tr data-id = &apos;&lt;%= step.id%&gt;&apos;&gt;</span><br><span class="line">      .......</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(&apos; #steps_sortable_table&apos; ).sortable(&#123;</span><br><span class="line">        opacity: 0.6,</span><br><span class="line">        revert: true,</span><br><span class="line">        cursor: &apos;move&apos;,</span><br><span class="line">        onUpdate: function(evt) &#123;</span><br><span class="line">            neworder = new Array();</span><br><span class="line">            $(&apos;#steps_sortable_table&apos;).children().each(function() &#123;</span><br><span class="line">                id = $(this).attr(&quot;data-id&quot;);</span><br><span class="line">                neworder.push(&#123;</span><br><span class="line">                    id: id</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: &quot;/steps/sort&quot;,</span><br><span class="line">                type: &quot;POST&quot;,</span><br><span class="line">                data: &#123;</span><br><span class="line">                    steps: JSON.stringify(neworder)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            console.log(neworder);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def sort</span><br><span class="line">  if params[:steps].present?</span><br><span class="line">    JSON.parse(params[:steps]).each_with_index do |x, index|</span><br><span class="line">      idx = x[&quot;id&quot;]</span><br><span class="line">      position = index+1</span><br><span class="line">      step = Step.find(idx)</span><br><span class="line">      step.update_attribute(&quot;position&quot;, position)</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">  render nothing: true</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">三元表达式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-05T18:11:00+08:00">
-                2017-09-05 18:11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>条件 ? 如果是true : 如果是false<br>例子：<br>if @good.present?<br>   name = @good.name<br>else<br>   name= ‘没有物品’<br>end<br>可以写成<br>@good.present? @good.name:’没有物品’</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">devise--用户名登录</a></h1>
         
 
@@ -1493,6 +1247,255 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">二代身份证识别仪</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T14:57:00+08:00">
+                2017-08-16 14:57
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我用的是华旭金卡HX-FDX35，这个是基于WindowsIE浏览器开发的<br>1.将驱动安上（光盘中的自动安装 双击就安上了）<br>2.安装测试软件看能不能正常读取<br>3.布置软件<br>   本地：双击运行active_reg.bat<br>   服务器：将CBA文件夹拷贝到与页面相同的文件夹下面<br>4.点击JsDemo.html 文件打开测试页面 测试一下<br>  如果好用的话，就将测试页面的代码集成到程序需要的页面上<br>注意：<br>1.不要写在form里面<br>2..<object>标签和<button>标签不可更改</button></object></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">mysql重置密码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-08T10:22:00+08:00">
+                2017-08-08 10:22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.停止 MySQL 服务</p>
+<p>$ sudo /usr/local/mysql/support-files/mysql.server stop<br>要是不行的话 就ps -ef | grep mysqld<br>将进程杀掉就可以了</p>
+<p>2.进入安全模式<br>sudo mysqld_safe –skip-grant-tables<br>sudo /usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe –skip-grant-tables</p>
+<p>这个地方，如果你 alias 了 mysqlld_safe 这个命令，那么可以直接复制粘贴；如果没有，则需要加上正确的路径。在 Linux/OS X 系统下，默认路径是 /usr/local/mysql/bin/mysqld/usafe。（/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe）–我的路径</p>
+<p>3.启动MySQL服务<br>$ mysql.server start</p>
+<p>4.修改密码<br>进入了之后先不要急着使用 update 命令修改密码，先看看表中的字段名。不同版本密码的字段名可能不一样。</p>
+<p>MySQL 的用户信息是存在 mysql.user 这个表里面的。于是可以先选择 mysql 这个数据库，再看数据库中 user 表中的字段名称。<br>use mysql; //切换数据库<br>describe user; //查看user表的字段<br>然后确定密码字段的名称，一般可能是 Password。然而在 OS X 的 MySQL 5.7 这个版本中，密码字段名称是 authentication_string 。记住这个字段名。</p>
+<p>然后修改密码啊：UPDATE mysql.user SET authentication_string=PASSWORD(‘123456’) where User=’root’; //将root用户密码改成 123456</p>
+<p>5.刷新权限，使配置生效</p>
+<p>flush privileges;<br>最后再启动 MySQL</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1543,7 +1546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1565,7 +1568,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

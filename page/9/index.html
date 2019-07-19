@@ -265,270 +265,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-27-7774375.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-05-27-7774375.html" itemprop="url">ruby-position 排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T14:19:00+08:00">
-                2018-05-27 14:19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.gem ‘acts_as_list’</p>
-<p>2.model</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acts_as_list</span><br></pre></td></tr></table></figure>
-
-<p>3.controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">up</span><br><span class="line">@recruit_info.move_higher</span><br><span class="line"></span><br><span class="line">down</span><br><span class="line">@recruit_info.move_lower  </span><br><span class="line"></span><br><span class="line">top</span><br><span class="line">@recruit_info.move_to_top</span><br><span class="line"></span><br><span class="line">bottom</span><br><span class="line">@recruit_info.move_to_bottom</span><br></pre></td></tr></table></figure>
-
-<p>4.view<br>一般置顶 最末会刷新页面<br>上移 下移用js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-up&quot;), &quot;javascript:;&quot;, method: :post,</span><br><span class="line">                     class: &quot;info-up&quot;, data: &#123; id: recruit_info.id, url: up_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;上移&quot; &#125; %&gt;</span><br><span class="line">         &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-down&quot;), &quot;javascript:;&quot;, method: :post,</span><br><span class="line">                     class: &quot;info-down&quot;, data: &#123; id: recruit_info.id, url: down_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;下移&quot; &#125; %&gt;</span><br><span class="line">         &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-circle-up&quot;), top_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     method: :post, class: &quot;info-top&quot;, data: &#123; toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;置顶&quot; &#125; %&gt;</span><br><span class="line">         &lt;%= link_to content_tag(:i, &quot;&quot;, class: &quot;fa fa-arrow-circle-down&quot;), bottom_comp_recruit_info_path(recruit_info),</span><br><span class="line">                     method: :post, class: &quot;info-bottom&quot;, data: &#123; toggle: &quot;popover&quot;, placement: &quot;top&quot;, content: &quot;最末&quot; &#125; %&gt; |</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"></span><br><span class="line">  $prevLink = $(&apos;.pagination&apos;).find(&apos;.active&apos;).prev().find(&apos;a&apos;).attr(&apos;href&apos;);</span><br><span class="line">  $nextLink = $(&apos;.pagination&apos;).find(&apos;.active&apos;).next().find(&apos;a&apos;).attr(&apos;href&apos;);</span><br><span class="line"></span><br><span class="line">  $(&apos;.info-up&apos;).on(&apos;click&apos;, function()&#123;</span><br><span class="line">      const pageFirst = $(&apos;.recruit-info-item&apos;).first();</span><br><span class="line">      $page = $(this).closest(&apos;.recruit-info-item&apos;);</span><br><span class="line">      $.ajax(&#123;</span><br><span class="line">          url: $(this).data(&apos;url&apos;),</span><br><span class="line">          type: &apos;POST&apos;,</span><br><span class="line">          data: &#123;</span><br><span class="line">            id: $(this).data(&apos;id&apos;)</span><br><span class="line">          &#125;,</span><br><span class="line">          success: function() &#123;</span><br><span class="line">              if ($page.is(pageFirst)) &#123;</span><br><span class="line">                if (&lt;%= @recruit_infos.current_page %&gt; === 1) &#123;</span><br><span class="line">                  $.notify(&apos;不可上移！！&apos;,&apos;error&apos;)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                  window.location.href = $prevLink</span><br><span class="line">                &#125;</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                  $page.prev().before($page);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  $(&apos;.info-down&apos;).on(&apos;click&apos;, function()&#123;</span><br><span class="line">      const pageLast = $(&apos;.recruit-info-item&apos;).last();</span><br><span class="line">      $page = $(this).closest(&apos;.recruit-info-item&apos;);</span><br><span class="line">      $.ajax(&#123;</span><br><span class="line">          url: $(this).data(&apos;url&apos;),</span><br><span class="line">          type: &apos;POST&apos;,</span><br><span class="line">          data: &#123;</span><br><span class="line">            id: $(this).data(&apos;id&apos;)</span><br><span class="line">          &#125;,</span><br><span class="line">          success: function() &#123;</span><br><span class="line">              if ($page.is(pageLast)) &#123;</span><br><span class="line">                  if (&lt;%= @recruit_infos.total_pages == @recruit_infos.current_page %&gt;) &#123;</span><br><span class="line">                    $.notify(&apos;不可下移！！&apos;,&apos;error&apos;)</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                    window.location.href = $nextLink</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                  $page.next().after($page);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>ps: 必须有position字段如果是后加的 在migration文件中需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ExampleCv.order(updated_at: :desc).each.with_index(1) do |todo_item, index|</span><br><span class="line">  todo_item.update_column :position, index</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-获取小程序二维码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T17:34:00+08:00">
-                2018-05-25 17:34
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>def miniProgramQR
- res = RestClient.get &apos;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&apos;+ ENV[&apos;WECHAT_MINIPROGRAM_APP_ID&apos;] + &apos;&amp;secret=&apos; + ENV[&apos;WECHAT_MINIPROGRAM_APP_SECRECT&apos;]
-  json = JSON.parse res.body
-  access_token = json[&apos;access_token&apos;]
-  miniProgram_image = RestClient.post &apos;https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=&apos; + access_token, {&apos;page&apos;: &apos;pages/cvShare/cvShare&apos;, &apos;scene&apos;: @cv.token}.to_json, {content_type: :json, accept: :json}
-  image = Base64.encode64 miniProgram_image
- render json: {
-    image: image
-  }
-end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_type] +’,id:’ + params[:token]这种字符串 然后在小程序中用js分割，不可以用json格式、也不可以用to_s</p>
-<p>  显示用$(‘.qr-code’).attr(‘src’, “data:image/jpeg;base64,” +  data[‘image’])</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -898,7 +634,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-22-7731783.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -917,7 +653,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-iphonx适配</a></h1>
+                <a class="post-title-link" href="/posts/2018-05-22-7731783.html" itemprop="url">微信小程序-iphonx适配</a></h1>
         
 
         <div class="post-meta">
@@ -1024,7 +760,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-17-7693318.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1043,7 +779,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">redis-数据缓存</a></h1>
+                <a class="post-title-link" href="/posts/2018-05-17-7693318.html" itemprop="url">redis-数据缓存</a></h1>
         
 
         <div class="post-meta">
@@ -1148,7 +884,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-15-7678489.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1167,7 +903,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-声明全局变量</a></h1>
+                <a class="post-title-link" href="/posts/2018-05-15-7678489.html" itemprop="url">js-声明全局变量</a></h1>
         
 
         <div class="post-meta">
@@ -1219,7 +955,8 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
       
         
           
-            <p>var editor;<br>$(function(){<br>   editor = ace.edit(‘editor’);<br>});</p>
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> editor;</span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   editor = ace.edit(<span class="string">'editor'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p>这种参数必须在$(document) 里面调用不能直接调</p>
 
           
@@ -1269,7 +1006,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-14-7669337.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1288,7 +1025,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-获取授权 后台获取其他用户信息不行！</a></h1>
+                <a class="post-title-link" href="/posts/2018-05-14-7669337.html" itemprop="url">微信小程序-获取授权 后台获取其他用户信息不行！</a></h1>
         
 
         <div class="post-meta">
@@ -1341,7 +1078,11 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
         
           
             <p>普通授权 用wx.authorize 就可以了有相关文档 可以直接用<br><a href="https://developers.weixin.qq.com/miniprogram/dev/api/authorize.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api/authorize.html</a><br>但是用户信息授权被坑爹的小程序改成了只能用button调起</p>
-<p><button open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Click me </button><br>用以下代码去判断用户是否授权了<br>userInfoHandler: function (e) {<br>  e.detail.userInfo; //要判断这个，有值表示用户点击允许，没有则表示用户点击的是拒绝。<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button open-type=&quot;getUserInfo&quot; bindgetuserinfo=&quot;userInfoHandler&quot;&gt; Click me &lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用以下代码去判断用户是否授权了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userInfoHandler: function (e) &#123;</span><br><span class="line">  e.detail.userInfo; //要判断这个，有值表示用户点击允许，没有则表示用户点击的是拒绝。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>后台只能获取到当前用户信息 并获取不到其他用户信息！！！！坑爹！！！ 只能暂存 </p>
 
           
@@ -1391,7 +1132,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-13-micro-letter-applet-picture-display.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1410,7 +1151,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-图片显示</a></h1>
+                <a class="post-title-link" href="/posts/2018-05-13-micro-letter-applet-picture-display.html" itemprop="url">微信小程序-图片显示</a></h1>
         
 
         <div class="post-meta">
@@ -1498,6 +1239,246 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-获取全局变量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-10T16:12:00+08:00">
+                2018-05-10 16:12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>getApp().globalData.xxx</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">html-普通标签模拟textarea</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-09T11:55:00+08:00">
+                2018-05-09 11:55
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>html5里面的contenteditable属性</p>
+<div class="test_box" contenteditable="true"><br></div> 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1548,7 +1529,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1570,7 +1551,7 @@ end</code></pre><p>  ps: scene 最大32位 可以用’type:’ + params[:file_t
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

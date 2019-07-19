@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-07-03-1996200.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -284,264 +284,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js--字符串包含 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-12T16:34:00+08:00">
-                2017-07-12 16:34
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>indexOf用法: </p>
-<p> if (route.indexOf(“repaire_staffs”) != -1){<br>        document.title = “维修人员”<br> }</p>
-<p> 用 -1这个值来判断 不包含就会返回-1</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T14:55:00+08:00">
-                2017-07-07 14:55
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="noopener">官方文档</a><br><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/conditional.html" target="_blank" rel="noopener">wxml</a><br>1.不用div标签 用<view>代替<br>2.条件渲染：</view></p>
-<p>在框架中，我们用 wx:if=”“ 来判断是否需要渲染该代码块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:if=&quot;&#123;&#123;condition&#125;&#125;&quot;&gt; True &lt;/view&gt;</span><br></pre></td></tr></table></figure>
-
-<p>也可以用 wx:elif 和 wx:else 来添加一个 else 块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:if=&quot;&#123;&#123;length &gt; 5&#125;&#125;&quot;&gt; 1 &lt;/view&gt;</span><br><span class="line">&lt;view wx:elif=&quot;&#123;&#123;length &gt; 2&#125;&#125;&quot;&gt; 2 &lt;/view&gt;</span><br><span class="line">&lt;view wx:else&gt; 3 &lt;/view&gt;</span><br></pre></td></tr></table></figure>
-
-<p>3.循环：wx:for<br> <a href="http://blog.lanchenglv.com/article/wxapp_list_foreach.html" target="_blank" rel="noopener">多级循环</a><br>4.接口 需要在后台配置之后才能用<br>  必须是https<br>  post接口往后台传数据的时候在wx:request中的data赋值 不用setdata<br>5.页面跳转：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">  url: &apos;test?id=1&apos;</span><br><span class="line">&#125;)//保留当前页面 跳转到应用内的某个页面</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.redirectTo(&#123;</span><br><span class="line">  url: &apos;test?id=1&apos;</span><br><span class="line">&#125;)//关闭当前页面 跳转到应用内的某个页面</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">  &quot;tabBar&quot;: &#123;</span><br><span class="line">    &quot;list&quot;: [&#123;</span><br><span class="line">      &quot;pagePath&quot;: &quot;index&quot;,</span><br><span class="line">      &quot;text&quot;: &quot;首页&quot;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">      &quot;pagePath&quot;: &quot;other&quot;,</span><br><span class="line">      &quot;text&quot;: &quot;其他&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">wx.switchTab(&#123;</span><br><span class="line">  url: &apos;/index&apos;</span><br><span class="line">&#125;)//跳转到tabbar页面 并关闭所有其他tabbar页面</span><br></pre></td></tr></table></figure>
-
-<p>6.赋值：setdata<br>7.上传图片<br>  wx:uploadfile<br>  url写后台创建接口<br>  formdata是要传到后台数据<br>  多张图片上传用for循环<br>选择图片显示 用wx.chooseImage</p>
-<p>tip:<br>1.wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.switchTab 跳转到 tabbar 页面<br>2.console.log 不可以写在wx.xxx这种方法的里面</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails csv导出</a></h1>
+                <a class="post-title-link" href="/posts/2017-07-03-1996200.html" itemprop="url">rails csv导出</a></h1>
         
 
         <div class="post-meta">
@@ -592,21 +335,14 @@
 
       
         
-          
-            <p>1.在helper中定义一个导出方法 不能定义在model中 send_data方法不可以在model中用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># -*- encoding : utf-8 -*-</span><br><span class="line">def generate_csv_by_bonus(cash_desks ,day_array)---传进来的参数</span><br><span class="line">    headers = [&apos;品类&apos;, &apos;收款台号&apos;]-----标题显示</span><br><span class="line">    day_array.each do |day|</span><br><span class="line">      headers.push(day.strftime(&quot;%Y-%m-%d&quot;))</span><br><span class="line">    end </span><br><span class="line">    file = CSV.generate do |csv|</span><br><span class="line">      # 先放　header</span><br><span class="line">      csv &lt;&lt; headers</span><br><span class="line">      # 再放　 csv 的内容</span><br><span class="line">      cash_desks.each do |cash_desk|</span><br><span class="line">        result = []</span><br><span class="line">        result &lt;&lt; cash_desk.category.name</span><br><span class="line">        result &lt;&lt; cash_desk.name</span><br><span class="line">        day_array.each do |day|</span><br><span class="line">          result &lt;&lt; cash_desk.sales_checks.where(&quot;created_at &gt;= &apos;#&#123;day.beginning_of_day&#125;&apos; and </span><br><span class="line">          created_at &lt;= &apos;#&#123;day.end_of_day&#125;&apos;&quot;).sum(:award_amount).to_f/100</span><br><span class="line">        end</span><br><span class="line">        csv &lt;&lt; result</span><br><span class="line">      end</span><br><span class="line">    end</span><br><span class="line">    send_data file.encode(&quot;gbk&quot;, &quot;utf-8&quot;), :type =&gt; &apos;text/csv; charset=gbk; header=present&apos;, :disposition =&gt; &quot;attachment;filename=欧亚卖场&gt;&gt;收银台统计表.csv&quot;</span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
-
-<p>2.在controller中定义一个export方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># -*- encoding : utf-8 -*-</span><br><span class="line">include ApplicationHelper</span><br><span class="line"> def export</span><br><span class="line">    @cash_desks = CashDesk.where(&quot;name not like ?&quot; , &apos;%-removed&apos;)</span><br><span class="line">    @day_array = SalesCheck.where(&quot;created_at &gt;= &apos;#&#123;Settings.from&#125;&apos; and created_at &lt;= &apos;#&#123;Settings.to&#125;&apos;&quot;).group(&apos;created_at&apos;).map&#123;|sales_check| sales_check.created_at.beginning_of_day &#125;.uniq.compact</span><br><span class="line">    Tool.generate_csv_by_bonus(@cash_desks ,@day_array)</span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
-
-<p>3.在routes.rb中声明这个方法（get）<br>4.view页面上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;search-field&quot;&gt;</span><br><span class="line">        &lt;%= link_to export_orders_path(format: &quot;csv&quot;, params: params), class: &apos;btn btn-success sub_button&apos; do%&gt;</span><br><span class="line">            &lt;i class=&quot;icon icon-download-alt&quot;&gt;&lt;/i&gt;导出</span><br><span class="line">        &lt;% end %&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>ps:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CSV.generate(:colsep =&gt; &apos;\t&apos;, :rowsep =&gt; &apos;\r\n&apos;) do |csv|</span><br><span class="line">  csv &lt;&lt; [&quot;登录名称&quot;, &quot;真实姓名&quot;, &quot;组织机构&quot;]</span><br><span class="line">  users.each do |user|</span><br><span class="line">    csv &lt;&lt; [user.loginname, user.realname, user.categoriesstr]</span><br><span class="line">  end</span><br><span class="line">end.encode(&apos;gb2312&apos;, :invalid =&gt; :replace, :undef =&gt; :replace, :replace =&gt; &quot;?&quot;)//解决了下载的csv乱码的bug</span><br></pre></td></tr></table></figure>
-
-
-          
+          <p>1.在helper中定义一个导出方法 不能定义在model中 send_data方法不可以在model中用</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/2017-07-03-1996200.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -653,7 +389,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-06-28-1980974.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -672,7 +408,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">在vue 中 放大缩小图片</a></h1>
+                <a class="post-title-link" href="/posts/2017-06-28-1980974.html" itemprop="url">在vue 中 放大缩小图片</a></h1>
         
 
         <div class="post-meta">
@@ -775,7 +511,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-06-24-1971551.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -794,7 +530,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">搭建环境 --mysql安装的坑</a></h1>
+                <a class="post-title-link" href="/posts/2017-06-24-1971551.html" itemprop="url">搭建环境 --mysql安装的坑</a></h1>
         
 
         <div class="post-meta">
@@ -895,7 +631,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-06-20-1963767.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -914,127 +650,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">将脚本运行成独立进程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T11:56:00+08:00">
-                2017-06-22 11:56
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>nohup 你要运行的命令 &amp;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rspec---单元测试</a></h1>
+                <a class="post-title-link" href="/posts/2017-06-20-1963767.html" itemprop="url">rspec---单元测试</a></h1>
         
 
         <div class="post-meta">
@@ -1085,25 +701,19 @@
 
       
         
-          
-            <p>配置环境</p>
+          <p>配置环境</p>
 <ol>
-<li>add to Gemfile:</li>
+<li>add to Gemfile:<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Gemfile: </span></span><br><span class="line">gem <span class="string">'rspec-rails'</span>, <span class="string">'~&gt; 3.5.2'</span></span><br><span class="line">然后运行：</span><br><span class="line">$ bundle exec rails generate <span class="symbol">rspec:</span>install</span><br><span class="line">记得要把生成的.rspec 文件做个修改，删掉</span><br><span class="line"><span class="comment"># .rspec file:</span></span><br><span class="line">--color </span><br><span class="line"><span class="comment"># NO --warning, --require spec_helper</span></span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<h1 id="Gemfile"><a href="#Gemfile" class="headerlink" title="Gemfile:"></a>Gemfile:</h1><p>gem ‘rspec-rails’, ‘~&gt; 3.5.2’<br>然后运行：<br>$ bundle exec rails generate rspec:install<br>记得要把生成的.rspec 文件做个修改，删掉</p>
-<h1 id="rspec-file"><a href="#rspec-file" class="headerlink" title=".rspec file:"></a>.rspec file:</h1><p>–color </p>
-<h1 id="NO-–warning-–require-spec-helper"><a href="#NO-–warning-–require-spec-helper" class="headerlink" title="NO –warning, –require spec_helper"></a>NO –warning, –require spec_helper</h1><ol start="2">
-<li>下面是测试lib文件的一个例子： make sure your have this:</li>
-</ol>
-<h1 id="config-application-rb"><a href="#config-application-rb" class="headerlink" title="config/application.rb"></a>config/application.rb</h1><p>config.autoload_paths += %W(#{config.root}/lib)<br>test a file in lib folder:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">require &apos;rails_helper&apos; # 这句话极度重要. </span><br><span class="line">require &apos;html_parser&apos;  # it&apos;s not require &apos;lib/html_parser&apos;</span><br><span class="line">describe HtmlParser do</span><br><span class="line"></span><br><span class="line">  it &apos;should parse html_content&apos; do</span><br><span class="line">    puts &apos;hihihi&apos;</span><br><span class="line">  end </span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>测试文件示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">require &apos;rails_helper&apos;</span><br><span class="line">describe OrderDishesLabelsController do</span><br><span class="line">  render_views</span><br><span class="line">  before do</span><br><span class="line">    admin_login</span><br><span class="line">    request.env[&quot;HTTP_REFERER&quot;] = root_path</span><br><span class="line">    @order_dishes_label = OrderDishesLabel.create :name =&gt; &quot;多辣&quot;</span><br><span class="line">  end</span><br><span class="line">  it &apos;should get index&apos; do</span><br><span class="line">    get :index</span><br><span class="line">    response.should be_success</span><br><span class="line">    response.code.should == &apos;200&apos;</span><br><span class="line">  end</span><br><span class="line">  it &apos;should get show&apos; do</span><br><span class="line">    get :show, :id =&gt; @order_dishes_label.id</span><br><span class="line">    response.should be_success</span><br><span class="line">    assigns(:order_dishes_label).name.should == &quot;多辣&quot;</span><br><span class="line">  end</span><br><span class="line">  it &apos;should get new&apos; do</span><br><span class="line">    get :new</span><br><span class="line">    response.should be_success</span><br><span class="line">  end</span><br><span class="line">  it &apos;should post create&apos; do</span><br><span class="line">    name = &quot;少盐&quot;</span><br><span class="line">    post :create,</span><br><span class="line">      &#123;   </span><br><span class="line">         :order_dishes_label =&gt; &#123;</span><br><span class="line">           :name =&gt; name</span><br><span class="line">          &#125;   </span><br><span class="line">       &#125;   </span><br><span class="line">    OrderDishesLabel.last.name.should == name</span><br><span class="line">  end</span><br><span class="line">  it &apos;should get edit&apos; do</span><br><span class="line">    get :edit, :id =&gt; @order_dishes_label.id</span><br><span class="line">    response.should be_success</span><br><span class="line">  end</span><br><span class="line">  it &apos;should put update&apos; do</span><br><span class="line">    new_name = &quot;少糖&quot;</span><br><span class="line">    put :update,</span><br><span class="line">     &#123;</span><br><span class="line">       :id =&gt; @order_dishes_label.id ,</span><br><span class="line">       :order_dishes_label =&gt; &#123;</span><br><span class="line">         :name =&gt; new_name</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    OrderDishesLabel.find(@order_dishes_label.id).name.should == new_name</span><br><span class="line">  end</span><br><span class="line">  it &apos;should delete destroy&apos; do</span><br><span class="line">    size_before_delete = Order_dishes_label.all.size</span><br><span class="line">    delete :destroy, :id =&gt; @order_dishes_label.id</span><br><span class="line">    Order_dishes_label.count.should == size_before_delete - 1</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>测试：<br>bundle exec rspec 文件名</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/2017-06-20-1963767.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1150,7 +760,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-06-12-program-is-equal-to-the-judgment.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1169,7 +779,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">程序中的等于判断</a></h1>
+                <a class="post-title-link" href="/posts/2017-06-12-program-is-equal-to-the-judgment.html" itemprop="url">程序中的等于判断</a></h1>
         
 
         <div class="post-meta">
@@ -1270,7 +880,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-06-08-js-depending-on-the-selected-page-partial-refresh.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1289,7 +899,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js--根据选择不同 页面局部刷新</a></h1>
+                <a class="post-title-link" href="/posts/2017-06-08-js-depending-on-the-selected-page-partial-refresh.html" itemprop="url">js--根据选择不同 页面局部刷新</a></h1>
         
 
         <div class="post-meta">
@@ -1341,22 +951,261 @@
       
         
           
-            <div class="detail-tr form-action">
-    <%= f.select(:good_id, good.where(:goods_first_category> '1').map{|g| [g.name, g.id]}, {:include_blank=>"请选择菜品用料"}, :style => 'width: 200px;') %>
-    <%= f.text_field :amount, placeholder: '请输入菜品用量' %><p style="display:inline-block" id="material_unit"></p>
-    <%= link_to_remove_association('删除', f, { wrapper_class: 'detail-tr' })%>
-                                 <%= f.hidden_field :id %>
-</%=></%=></%=></%=></div>
-
-<script>
-$('#dish_materials_attributes_0_good_id（select的id）').change(function(){
-    id = $(this).val()
-    $.get('/interface/goods/' + id, function(data){
-        $('#material_unit').text(data.unit)
-    })
-})
-</script>
+            <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="detail-tr form-action"&gt;</span><br><span class="line">    &lt;%= f.select(<span class="symbol">:good_id</span>, Good.where(<span class="symbol">:goods_first_category</span> =&gt; <span class="string">'1'</span>).map&#123;<span class="params">|g|</span> [g.name, g.id]&#125;, &#123;<span class="symbol">:include_blank=&gt;<span class="string">"请选择菜品用料"</span></span>&#125;, <span class="symbol">:style</span> =&gt; <span class="string">'width: 200px;'</span>) %&gt;</span><br><span class="line">    &lt;%= f.text_field <span class="symbol">:amount</span>, <span class="symbol">placeholder:</span> <span class="string">'请输入菜品用量'</span> %&gt;&lt;p style=<span class="string">"display:inline-block"</span> id=<span class="string">"material_unit"</span>&gt;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;%= link_to_remove_association('删除', f,</span></span><br><span class="line"><span class="regexp">                                   &#123; wrapper_class: 'detail-tr' &#125;)%&gt;</span></span><br><span class="line"><span class="regexp">                                 &lt;%= f.hidden_field :id %&gt;</span></span><br><span class="line"><span class="regexp">&lt;/div</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(<span class="string">'#dish_materials_attributes_0_good_id（select的id）'</span>).change(function()&#123;</span><br><span class="line">    id = $(this).val()</span><br><span class="line">    $.get(<span class="string">'/interface/goods/'</span> + id, function(data)&#123;</span><br><span class="line">        $(<span class="string">'#material_unit'</span>).text(data.unit)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
           
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-22-cocoon.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-05-22-cocoon.html" itemprop="url">gem --- cocoon</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-22T17:15:00+08:00">
+                2017-05-22 17:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.Inside your Gemfile add the following:</p>
+<p>gem “cocoon”</p>
+<p>2.Add the following to application.js so it compiles to the asset pipeline:</p>
+<p>//= require cocoon</p>
+<p>3.model文件中添加（一级）<br>accepts_nested_attributes_for :tasks, allow_destroy: true</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/2017-05-22-cocoon.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-19-select-2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-05-19-select-2.html" itemprop="url">select 2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-19T15:32:00+08:00">
+                2017-05-19 15:32
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.在view表单中添加下拉单，  :multiple =&gt; true,  选择一个数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;control-group&quot;&gt;</span><br><span class="line">    &lt;%= f.label t(&apos;global.user&apos;), :class =&gt; &apos;control&apos; %&gt;</span><br><span class="line">    &lt;div class=&quot;controls&quot;&gt;</span><br><span class="line">      &lt;%= select_tag(:user_id, options_from_collection_for_select(User.all, &quot;id&quot;, &quot;nickname&quot;), :multiple=&gt;true)%&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/2017-05-19-select-2.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1422,7 +1271,7 @@ $('#dish_materials_attributes_0_good_id（select的id）').change(function(){
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">gem --- cocoon</a></h1>
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">capistrano---自动化部署</a></h1>
         
 
         <div class="post-meta">
@@ -1434,8 +1283,8 @@ $('#dish_materials_attributes_0_good_id（select的id）').change(function(){
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-22T17:15:00+08:00">
-                2017-05-22 17:15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-18T17:04:00+08:00">
+                2017-05-18 17:04
               </time>
             
 
@@ -1474,18 +1323,146 @@ $('#dish_materials_attributes_0_good_id（select的id）').change(function(){
       
         
           
-            <p>1.Inside your Gemfile add the following:</p>
-<p>gem “cocoon”</p>
-<p>2.Add the following to application.js so it compiles to the asset pipeline:</p>
-<p>//= require cocoon</p>
-<p>3.model文件中添加（一级）<br>accepts_nested_attributes_for :tasks, allow_destroy: true</p>
-<p>4.在一级model的controller里面的params里面加上<br>tasks_attributes: [:id, :description, :done, :_destroy(有这个才能删除)]<br>以数组形式存入数据<br>在def new下面加上<br>@dish.materials.build</p>
-<p>5.form 文件中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;form-action&quot;&gt;</span><br><span class="line">   &lt;%= link_to_add_association &apos;新增用料&apos;, f, :materials, class: &apos;btn btn-success&apos;,</span><br><span class="line">                               &apos;data-association-insertion-node&apos; =&gt; &apos;.materials&apos;,</span><br><span class="line">                               &apos;data-association-insertion-method&apos; =&gt; &apos;append&apos; %&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;div class=&quot;materials&quot;&gt;</span><br><span class="line">   &lt;%= f.fields_for :materials do |m| %&gt;</span><br><span class="line">       &lt;%= render &apos;material_fields&apos;, f: m %&gt;</span><br><span class="line">   &lt;% end %&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+            <p>1.添加Gemfile (bundle install)<br>group :development<br>  gem ‘capistrano’, ‘2.12.0’<br>  gem ‘capistrano-rbenv’, ‘1.0.1’<br>end<br>2.运行 $ capify .   (会生成两个文件)<br>$ capify .<br>capify .<br>[skip] ‘./Capfile’ already exists<br>[skip] ‘./config/deploy.rb’ already exists<br>[done] capified!<br>会生成两个关键性的文件： Capfile , config/deploy.rb<br>下面是一个完整的 部署脚本( config/deploy.rb )的例子, 修改其中的 用户名,端口号, 目标服务器的域名 , 服务器的启动方式, 就可以直接运行了.:</p>
+<h1 id="encoding-utf-8"><a href="#encoding-utf-8" class="headerlink" title="-- encoding : utf-8 --"></a>-<em>- encoding : utf-8 -</em>-</h1><p>require ‘capistrano-rbenv’<br>load ‘deploy/assets’<br>SSH_USER = ‘你的用户名’<br>SSH_PORT = ‘你的端口号’<br>server = “目标服务器的域名或者ip”<br>FOLDER_IN_REMOTE_SERVER = ‘远程服务器上的目标文件夹’</p>
+<p>ssh_options[:port] = SSH_PORT<br>set :rake, “bundle exec rake”<br>set :application, “app name”<br>set :repository, “.”<br>set :scm, :none<br>set :deploy_via, :copy</p>
+<p>role :web, server<br>role :app, server<br>role :db,  server, :primary =&gt; true<br>role :db,  server</p>
+<p>set :deploy_to, FOLDER_IN_REMOTE_SERVER<br>default_run_options[:pty] = true</p>
+<h1 id="change-to-your-username"><a href="#change-to-your-username" class="headerlink" title="change to your username"></a>change to your username</h1><p>set :user, SSH_USER</p>
+<p>namespace :deploy do<br>  task :start do<br>    run “cd #{release_path} &amp;&amp; bundle exec thin start -C config/thin.yml”<br>  end<br>  task :stop do<br>    run “cd #{release_path} &amp;&amp; bundle exec thin stop -C config/thin.yml”<br>  end<br>  task :restart, :roles =&gt; :app, :except =&gt; { :no_release =&gt; true } do<br>    db_migrate<br>    stop<br>    sleep 2<br>    start<br>  end<br>  task :db_migrate do<br>    run “cd #{release_path} &amp;&amp; bundle install”<br>    run “cd #{release_path} &amp;&amp; bundle exec rake db:migrate RAILS_ENV=production”<br>  end</p>
+<p>  namespace :assets do<br>    task :precompile do<br>      #run “bundle install”<br>      #run “cd #{release_path} &amp;&amp; bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile “<br>    end</p>
+<p>  end<br>end</p>
+<p>desc “Copy database.yml to release_path”<br>task :cp_database_yml do<br>  puts “=== executing my customized command: “<br>  run “cp -r #{shared_path}/config/* #{release_path}/config/“<br>  run “ln -s #{shared_path}/files #{release_path}/public/files”</p>
+<h1 id="因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再-ln"><a href="#因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再-ln" class="headerlink" title="因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再 ln"></a>因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再 ln</h1><p>  run “rm #{release_path}/public/uploads -rf”<br>  run “ln -s #{shared_path}/public/uploads #{release_path}/public/uploads”<br>  puts “=== done (executing my customized command)”<br>end</p>
+<p>before “deploy:assets:precompile”, :cp_database_yml</p>
+<p>#after “deploy”, “deploy:restart”<br>第一次运行时,要先 配置好目标服务器上的文件夹.<br>$ cap deploy:setup<br>注意: 这里让它创建基本的目标文件夹目录层次就可以:<br>/opt/app:<br>    current (这是个软链接 soft link, )-&gt; /opt/app/releases/20150518030114/<br>    releases/<br>    shared/<br>        assets<br>        config<br>        files<br>        log<br>        pids<br>        public<br>        system<br>为 shared 目录下，增加各种配置文件，它们只需要被配置一遍。例如：<br>config/thin.yml       # 服务器的配置<br>config/database.yml   # 数据库的配置<br>config/log4r.yml      # 日志文件的配置<br>config/settings.yml   # 系统的配置<br>配置好ruby环境， mysql, thin, nginx 等<br>开始部署<br>$ bundle exec cap deploy.<br>这个命令会执行下面的过程:<br>准备启动服务器:<br>安装各种新增的rubygem<br>做必要的数据库迁移<br>配置各种文件<br>修改上传文件夹的softlink<br>其他,每次使用裸代码做部署的时候,都要人肉做的事情. (修改保存日志的路径, 修改 rails server的配置, )<br>编译,压缩 js/ css<br>重启 服务器( $ nginx -s reload, $ kill -9 xxx , $ thin start -C config/thin.yml)</p>
+<p><a href="http://wenyc.cn/articles/82" target="_blank" rel="noopener">参考1</a><br><a href="http://web.siwei.me/automation_tools/capistrano.html" target="_blank" rel="noopener">参考2</a></p>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;detail-tr form-action&quot;&gt;</span><br><span class="line">    &lt;%= f.hidden_field :id %&gt;</span><br><span class="line">    &lt;%= f.select(:good_id, Good.where(:goods_first_category =&gt; &apos;1&apos;).map&#123;|g| [g.name, g.id]&#125;, &#123;:include_blank=&gt;&quot;请选择菜品用料&quot;&#125;, :style =&gt; &apos;width: 200px;&apos;) %&gt;</span><br><span class="line">    &lt;%= f.text_field :amount, placeholder: &apos;请输入菜品用量&apos; %&gt;g </span><br><span class="line">    &lt;%= link_to_remove_association(&apos;删除&apos;, f,</span><br><span class="line">                                   &#123; wrapper_class: &apos;detail-tr&apos; &#125;)%&gt; #只有model中添加了那个destroy                                                                                          才能用</span><br><span class="line">                                </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
 
-<p>ps: 1.要注意各个地方的名称对应<br>    2.要给多个地方联动取值的时候 用tag+mark 或者 clas+mark ，不要用id+mark（这样只能取到第一个值）<br><a href="https://github.com/nathanvda/cocoon" title="官方文档" target="_blank" rel="noopener"></a></p>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-15-1839693.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-05-15-1839693.html" itemprop="url">阿里云ssl证书配置的坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T16:20:00+08:00">
+                2017-05-15 16:20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>正常来说只要按照阿里云给的说明配置就可以了 但是会遇到很多神奇的坑<br>如下：<br>1.Nginx配置的时候要在服务器上查询 使用的Nginx文件位置<br>  which nginx<br>2.遇到ssl不识别的问题就要重新编译 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$./configure –prefix=/usr/local/nginx/ –with-http_ssl_module</span><br><span class="line">$make</span><br><span class="line">$make install</span><br></pre></td></tr></table></figure>
+
+<p>注意：1）在编译之前需要将Nginx先停掉<br>        如果Nginx文件已经配置完无法停掉时，就将ssl相关代码注释掉之后再编译<br>     2）编译需要有源代码的情况下<br>        如果没有就要去官网上下载一个<br>        用命令下载并解压下下来的tar.gz文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$wget 网址</span><br><span class="line">$tar zxvf 文件名</span><br></pre></td></tr></table></figure>
+
+<p>3.端口必须用443</p>
 
           
         
@@ -1571,7 +1548,7 @@ $('#dish_materials_attributes_0_good_id（select的id）').change(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1593,7 +1570,7 @@ $('#dish_materials_attributes_0_good_id（select的id）').change(function(){
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

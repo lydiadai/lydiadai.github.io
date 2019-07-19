@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-12-1822532.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -284,395 +284,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">select 2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-19T15:32:00+08:00">
-                2017-05-19 15:32
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.在view表单中添加下拉单，  :multiple =&gt; true,  选择一个数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;control-group&quot;&gt;</span><br><span class="line">    &lt;%= f.label t(&apos;global.user&apos;), :class =&gt; &apos;control&apos; %&gt;</span><br><span class="line">    &lt;div class=&quot;controls&quot;&gt;</span><br><span class="line">      &lt;%= select_tag(:user_id, options_from_collection_for_select(User.all, &quot;id&quot;, &quot;nickname&quot;), :multiple=&gt;true)%&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>2.在对应controller 中添加方法： (transaction ：Rails 中的事务处理， 事务用来确保多条SQL语句要么全部执行成功、要么不执行。事务可以帮助开发者保证应用中的数据一致性。常见的使用事务的场景是银行转账，钱从一个账户转移到另外一个账户。如果中间的某一步出错，那么整个过程应该重置。)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def create</span><br><span class="line">  params[:user_id].each do |id|</span><br><span class="line">    Message.transaction do</span><br><span class="line">      @message = Message.create(</span><br><span class="line">        content: params[:message][:content],</span><br><span class="line">        title: params[:message][:title],</span><br><span class="line">        user_id: id</span><br><span class="line">      )</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">  redirect_to messages_path</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>3.使用select2<br>gem “select2-rails”, ‘3.5.2’        #gem中添加<br>//= require select2                   # application.js中添加<br> *= require select2                   # application.css 中添加<br>4.在view 表中页面中 添加 <script>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$( &quot;#user_id&quot; ).select2(&#123;</span><br><span class="line">   theme: &quot;bootstrap&quot;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>ps: 在新建页面上显示placeholder<br>编辑页面显示选中的值<br><%= select_tag(:position_id, options_from_collection_for_select(Position.all, "id", "name", @staff.appointments.map{|a| a.position.id}), :multiple=>true, :style=>"min-width: 200px", data: {placeholder: "例如:厨师长"}) %></p>
-</script></p>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">capistrano---自动化部署</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-18T17:04:00+08:00">
-                2017-05-18 17:04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.添加Gemfile (bundle install)<br>group :development<br>  gem ‘capistrano’, ‘2.12.0’<br>  gem ‘capistrano-rbenv’, ‘1.0.1’<br>end<br>2.运行 $ capify .   (会生成两个文件)<br>$ capify .<br>capify .<br>[skip] ‘./Capfile’ already exists<br>[skip] ‘./config/deploy.rb’ already exists<br>[done] capified!<br>会生成两个关键性的文件： Capfile , config/deploy.rb<br>下面是一个完整的 部署脚本( config/deploy.rb )的例子, 修改其中的 用户名,端口号, 目标服务器的域名 , 服务器的启动方式, 就可以直接运行了.:</p>
-<h1 id="encoding-utf-8"><a href="#encoding-utf-8" class="headerlink" title="-- encoding : utf-8 --"></a>-<em>- encoding : utf-8 -</em>-</h1><p>require ‘capistrano-rbenv’<br>load ‘deploy/assets’<br>SSH_USER = ‘你的用户名’<br>SSH_PORT = ‘你的端口号’<br>server = “目标服务器的域名或者ip”<br>FOLDER_IN_REMOTE_SERVER = ‘远程服务器上的目标文件夹’</p>
-<p>ssh_options[:port] = SSH_PORT<br>set :rake, “bundle exec rake”<br>set :application, “app name”<br>set :repository, “.”<br>set :scm, :none<br>set :deploy_via, :copy</p>
-<p>role :web, server<br>role :app, server<br>role :db,  server, :primary =&gt; true<br>role :db,  server</p>
-<p>set :deploy_to, FOLDER_IN_REMOTE_SERVER<br>default_run_options[:pty] = true</p>
-<h1 id="change-to-your-username"><a href="#change-to-your-username" class="headerlink" title="change to your username"></a>change to your username</h1><p>set :user, SSH_USER</p>
-<p>namespace :deploy do<br>  task :start do<br>    run “cd #{release_path} &amp;&amp; bundle exec thin start -C config/thin.yml”<br>  end<br>  task :stop do<br>    run “cd #{release_path} &amp;&amp; bundle exec thin stop -C config/thin.yml”<br>  end<br>  task :restart, :roles =&gt; :app, :except =&gt; { :no_release =&gt; true } do<br>    db_migrate<br>    stop<br>    sleep 2<br>    start<br>  end<br>  task :db_migrate do<br>    run “cd #{release_path} &amp;&amp; bundle install”<br>    run “cd #{release_path} &amp;&amp; bundle exec rake db:migrate RAILS_ENV=production”<br>  end</p>
-<p>  namespace :assets do<br>    task :precompile do<br>      #run “bundle install”<br>      #run “cd #{release_path} &amp;&amp; bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile “<br>    end</p>
-<p>  end<br>end</p>
-<p>desc “Copy database.yml to release_path”<br>task :cp_database_yml do<br>  puts “=== executing my customized command: “<br>  run “cp -r #{shared_path}/config/* #{release_path}/config/“<br>  run “ln -s #{shared_path}/files #{release_path}/public/files”</p>
-<h1 id="因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再-ln"><a href="#因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再-ln" class="headerlink" title="因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再 ln"></a>因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再 ln</h1><p>  run “rm #{release_path}/public/uploads -rf”<br>  run “ln -s #{shared_path}/public/uploads #{release_path}/public/uploads”<br>  puts “=== done (executing my customized command)”<br>end</p>
-<p>before “deploy:assets:precompile”, :cp_database_yml</p>
-<p>#after “deploy”, “deploy:restart”<br>第一次运行时,要先 配置好目标服务器上的文件夹.<br>$ cap deploy:setup<br>注意: 这里让它创建基本的目标文件夹目录层次就可以:<br>/opt/app:<br>    current (这是个软链接 soft link, )-&gt; /opt/app/releases/20150518030114/<br>    releases/<br>    shared/<br>        assets<br>        config<br>        files<br>        log<br>        pids<br>        public<br>        system<br>为 shared 目录下，增加各种配置文件，它们只需要被配置一遍。例如：<br>config/thin.yml       # 服务器的配置<br>config/database.yml   # 数据库的配置<br>config/log4r.yml      # 日志文件的配置<br>config/settings.yml   # 系统的配置<br>配置好ruby环境， mysql, thin, nginx 等<br>开始部署<br>$ bundle exec cap deploy.<br>这个命令会执行下面的过程:<br>准备启动服务器:<br>安装各种新增的rubygem<br>做必要的数据库迁移<br>配置各种文件<br>修改上传文件夹的softlink<br>其他,每次使用裸代码做部署的时候,都要人肉做的事情. (修改保存日志的路径, 修改 rails server的配置, )<br>编译,压缩 js/ css<br>重启 服务器( $ nginx -s reload, $ kill -9 xxx , $ thin start -C config/thin.yml)</p>
-<p><a href="http://wenyc.cn/articles/82" target="_blank" rel="noopener">参考1</a><br><a href="http://web.siwei.me/automation_tools/capistrano.html" target="_blank" rel="noopener">参考2</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">阿里云ssl证书配置的坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T16:20:00+08:00">
-                2017-05-15 16:20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>正常来说只要按照阿里云给的说明配置就可以了 但是会遇到很多神奇的坑<br>如下：<br>1.Nginx配置的时候要在服务器上查询 使用的Nginx文件位置<br>  which nginx<br>2.遇到ssl不识别的问题就要重新编译 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$./configure –prefix=/usr/local/nginx/ –with-http_ssl_module</span><br><span class="line">$make</span><br><span class="line">$make install</span><br></pre></td></tr></table></figure>
-
-<p>注意：1）在编译之前需要将Nginx先停掉<br>        如果Nginx文件已经配置完无法停掉时，就将ssl相关代码注释掉之后再编译<br>     2）编译需要有源代码的情况下<br>        如果没有就要去官网上下载一个<br>        用命令下载并解压下下来的tar.gz文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$wget 网址</span><br><span class="line">$tar zxvf 文件名</span><br></pre></td></tr></table></figure>
-
-<p>3.端口必须用443</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">给已有的h5项目导入vuex</a></h1>
+                <a class="post-title-link" href="/posts/2017-05-12-1822532.html" itemprop="url">给已有的h5项目导入vuex</a></h1>
         
 
         <div class="post-meta">
@@ -773,7 +385,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-12-1821610.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -792,7 +404,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">vue.js h5项目搭建</a></h1>
+                <a class="post-title-link" href="/posts/2017-05-12-1821610.html" itemprop="url">vue.js h5项目搭建</a></h1>
         
 
         <div class="post-meta">
@@ -1017,7 +629,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-04-06-calls-the-web-interface-in-ios.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1036,7 +648,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">在ios中调用web接口</a></h1>
+                <a class="post-title-link" href="/posts/2017-04-06-calls-the-web-interface-in-ios.html" itemprop="url">在ios中调用web接口</a></h1>
         
 
         <div class="post-meta">
@@ -1088,8 +700,11 @@
       
         
           
-            <p> NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithWebRoute:@”interface/categories”]]];<br>        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];<br>        NSError *error;<br>        responseHash = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&amp;error];</p>
-<p>ps:stringWithWebRoute 是一个自定义的方法<br>  +(NSString<em>)stringWithWebRoute:(NSString</em>)route<br>  {<br>      return [NSString stringWithRoute:route domainName:WEB_SERVER andId:YES];<br>  }<br>   后面接的是web接口的地址</p>
+            <pre><code>NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithWebRoute:@&quot;interface/categories&quot;]]];
+       NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+       NSError *error;
+       responseHash = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&amp;error];
+</code></pre><p>ps:stringWithWebRoute 是一个自定义的方法<br>  +(NSString<em>)stringWithWebRoute:(NSString</em>)route<br>  {<br>      return [NSString stringWithRoute:route domainName:WEB_SERVER andId:YES];<br>  }<br>   后面接的是web接口的地址</p>
 
           
         
@@ -1138,7 +753,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-04-06-ios-navigation-declare.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1157,7 +772,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios  navigation declare</a></h1>
+                <a class="post-title-link" href="/posts/2017-04-06-ios-navigation-declare.html" itemprop="url">ios  navigation declare</a></h1>
         
 
         <div class="post-meta">
@@ -1533,7 +1148,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-09-1526311.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1552,7 +1167,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">OC-页面跳转</a></h1>
+                <a class="post-title-link" href="/posts/2017-03-09-1526311.html" itemprop="url">OC-页面跳转</a></h1>
         
 
         <div class="post-meta">
@@ -1647,6 +1262,371 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-08-1522514.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-08-1522514.html" itemprop="url">远程部署代码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T15:23:00+08:00">
+                2017-03-08 15:23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>web：<br>1.登录到远程<br>  ssh <a href="mailto:root@www.siwei.tech" target="_blank" rel="noopener">root@www.siwei.tech</a> -p 35888<br>2.进到<br>  /opt/app/pin_tuan_bao_web/current</p>
+<p>3.git pull 将代码拉下来<br>  如果有migration就<br>  bundle exec rake db:migrate<br>  如果有js或者css就<br>  bundle exec rake assets:precompile RAILS_ENV=production </p>
+<p>4.重启远程服务器：<br>  bundle exec thin restart -C config/thin.yml</p>
+<p>h5：<br>首次就是先bundle<br>在本地<br>bundle exec cap deploy</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-04-1505854.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-04-1505854.html" itemprop="url">程序基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T21:56:00+08:00">
+                2017-03-04 21:56
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对象：数据<br>方法：对象的行为<br>参数：执行方法时必须的条件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-02-the-button-into-a-picture.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-02-the-button-into-a-picture.html" itemprop="url">将按钮变成图片</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T11:15:00+08:00">
+                2017-03-02 11:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"image-upload"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"file-input"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"placeholder.jpg"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"file-input"</span> <span class="attr">type</span>=<span class="string">"file"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>With styling:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.image-upload</span> &gt; <span class="selector-tag">input</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1697,7 +1677,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1719,7 +1699,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

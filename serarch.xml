@@ -27,7 +27,7 @@
   <entry>
     <title><![CDATA[服务器搭建]]></title>
     <url>%2Fposts%2Fbuild-server.html</url>
-    <content type="text"><![CDATA[购买服务器， 这次买的是阿里云的 根据配置买就可以了 ssh 根据设置的用户名 密码登陆 根据使用的是什么数据库 安装数据库 123$ apt-get update（自带mysql）$ apt-get install libapr1-dev libxml2-dev libxslt-dev mysql-server libmysqlclient-dev git curl build-essential libssl-dev libreadline-dev build-essential libssl-dev libreadline-dev vim libcurl3 ruby-dev zlib1g-dev liblzma-dev ruby-all-dev$ apt-get install postgresql libpq-dev (安装pgsql) 安装对应的ruby raiils 版本$ apt-get install rbenv（绝对不行！！！！)$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv (用这个)然后根据rbenv 安装 具体可见本地环境配置注： 一定要安装ruby-build$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build 正常可以用capstrino可以直接部署 不能直接部署的时候 在/opt/app 目录下git clone 代码库 然后bundle 手动创建shared,releases目录 还有shared里的tmp,public,log等子目录 创建数据库 导入数据（正常使用rake db:create，但是我安装的时候 一直报没有rake gem的问题 ，所以就手动在数据库里创建了 create tablexxxxx，这个是由于bundle install 没有指定目录 他使用不到 对应的gembundle install –path /root/.rbenv/versions/2.3.8/lib/ruby/gems/2.3.0/) 安装并配置nginx$ apt-get install nginx配置文件在/etc/nginx 下 bundle exec rails s -p 6661 测试能不能启动(跑步起来 一直报NameError: uninitialized constant ActiveModel::Serializers::Xml 还未找到原因， rbenv版本问题应该是 重装了rbenv之后用capstrano 装就没有这个问题了） ps: 所有配置项文件都要放到shared/config 目录下]]></content>
+    <content type="text"><![CDATA[购买服务器， 这次买的是阿里云的 根据配置买就可以了 ssh 根据设置的用户名 密码登陆 根据使用的是什么数据库 安装数据库123$ apt-get update（自带mysql）$ apt-get install libapr1-dev libxml2-dev libxslt-dev mysql-server libmysqlclient-dev git curl build-essential libssl-dev libreadline-dev build-essential libssl-dev libreadline-dev vim libcurl3 ruby-dev zlib1g-dev liblzma-dev ruby-all-dev$ apt-get install postgresql libpq-dev (安装pgsql) 安装对应的ruby raiils 版本$ apt-get install rbenv（绝对不行！！！！)$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv (用这个)然后根据rbenv 安装 具体可见本地环境配置注： 一定要安装ruby-build$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build 正常可以用capstrino可以直接部署 不能直接部署的时候 在/opt/app 目录下git clone 代码库 然后bundle 手动创建shared,releases目录 还有shared里的tmp,public,log等子目录 创建数据库 导入数据（正常使用rake db:create，但是我安装的时候 一直报没有rake gem的问题 ，所以就手动在数据库里创建了 create tablexxxxx，这个是由于bundle install 没有指定目录 他使用不到 对应的gembundle install –path /root/.rbenv/versions/2.3.8/lib/ruby/gems/2.3.0/) 安装并配置nginx$ apt-get install nginx配置文件在/etc/nginx 下 bundle exec rails s -p 6661 测试能不能启动(跑步起来 一直报NameError: uninitialized constant ActiveModel::Serializers::Xml 还未找到原因， rbenv版本问题应该是 重装了rbenv之后用capstrano 装就没有这个问题了） ps: 所有配置项文件都要放到shared/config 目录下]]></content>
       <tags>
         <tag>server</tag>
       </tags>
@@ -106,8 +106,11 @@
   </entry>
   <entry>
     <title><![CDATA[jquery-select2 highlight dropdown keywords]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-12-25-ruby-match.html</url>
     <content type="text"><![CDATA[基本逻辑是在搜索的时候将query 存起来 然后用query.term在templateResult方法中拼接显示matcher只能用于拼接文字什么的 html不行 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253var query = &#123;&#125;; function markMatch (text, term) &#123; // Find where the match is var match = text.toUpperCase().indexOf(term.toUpperCase()); var $result = $('&lt;span&gt;&lt;/span&gt;'); // If there is no match, move on if (match &lt; 0) &#123; return $result.text(text); &#125; // Put in whatever text is before the match $result.text(text.substring(0, match)); // Mark the match var $match = $('&lt;span style="color: #ff4f4c"&gt;&lt;/span&gt;'); $match.text(text.substring(match, match + term.length)); // Append the matching text $result.append($match); // Put in whatever is after the match $result.append(text.substring(match + term.length)); return $result; &#125; function formatState (state) &#123; if (!state.id) &#123; return state.text; &#125; var term = query.term || ''; var $result = markMatch(state.text, term); return $result; &#125;; $('#intentions_profession').select2(&#123; templateSelection: formatSelectedProfession,//改变选中的条目显示 templateResult: formatState,//改变下拉单里条目显示 language: &#123; searching: function (params) &#123; // Intercept the query as it is happening query = params; // Change this to be appropriate for your application return 'Searching…'; &#125; &#125; &#125;); 参考 backspace删除一整个tag 123456$('#intentions_profession').on('select2:unselect', function(event) &#123; $el = $(this) setTimeout(function() &#123; $el.closest('.intention-input').find('.select2-search__field').val('') &#125;, 0) &#125;)]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-notification]]></title>
@@ -151,153 +154,227 @@
   </entry>
   <entry>
     <title><![CDATA[ruby-match]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[str = ‘产品xxx产品经理’str.match(/(产品)/).size]]></content>
+    <url>%2Fposts%2F2018-12-25-ruby-match.html</url>
+    <content type="text"><![CDATA[12str = '产品xxx产品经理'str.match(/(产品)/).size]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-textarea文字计数]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-12-14-html-txt-line-wrap.html</url>
     <content type="text"><![CDATA[123456&lt;div class='input-field'&gt; &lt;%= f.text_area :jd, value: text, maxlength: '100'%&gt; &lt;span class='text-num'&gt; &lt;span class='real-text-num'&gt;0&lt;/span&gt;/100 &lt;/span&gt;&lt;/div&gt; 123$(document).on('input propertychange paste keyup','#recruit_info_jd', function(event) &#123; $(this).closest('.input-field').find('span.text-num .real-text-num').html($(this).val().length)&#125;)]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js- textarea placeholder 换行显示]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[var placeholder = “This is a line \nthis should be a new line”$(document).ready(function(){ if($(‘#recruit_info_jd’).val() == ‘’){ $(‘#recruit_info_jd’).val(placeholder) $(‘#recruit_info_jd’).css(‘color’, “#999”) }}$(‘#recruit_info_jd’).focus(function(){ if($(this).val() === placeholder){ $(this).val(‘’); $(this).css(‘color’, ‘#404040’); }});$(‘#recruit_info_jd’).blur(function(){ if($(this).val() ===’’){ $(this).val(placeholder); $(‘#recruit_info_jd’).css(‘color’, “#999”) }});]]></content>
+    <url>%2Fposts%2F2018-12-21-js-textarea-placeholder-line-wrapping-display.html</url>
+    <content type="text"><![CDATA[12345678910111213141516171819var placeholder = "This is a line \nthis should be a new line"$(document).ready(function()&#123; if($('#recruit_info_jd').val() == '')&#123; $('#recruit_info_jd').val(placeholder) $('#recruit_info_jd').css('color', "#999") &#125;&#125;$('#recruit_info_jd').focus(function()&#123; if($(this).val() === placeholder)&#123; $(this).val(''); $(this).css('color', '#404040'); &#125;&#125;); $('#recruit_info_jd').blur(function()&#123; if($(this).val() ==='')&#123; $(this).val(placeholder); $('#recruit_info_jd').css('color', "#999") &#125;&#125;);]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[html-txt area换行]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-12-14-html-txt-line-wrap.html</url>
     <content type="text"><![CDATA[文字拼接成字符串，要换行：拼接”\n”ps:一定得是双引号]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[jquery-highlight]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-12-08-jquery-highlight.html</url>
     <content type="text"><![CDATA[参考]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[jquery- autocomplete]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[$( “#jd-temp-name” ).autocomplete({ source: function (request, response) { $.ajax({ dataType: “json”, type : ‘Get’, url: ‘&lt;%= search_jd_temps_path%&gt;’, data:{ name: request.term, }, success: function(data) { console.log(data.professions) var items = []; $.each( data.professions, function(key, val){ items.push(&quot;&lt;div class=&apos;result-item&apos;&gt;&quot; + val.level3 + &quot;&lt;div class=&apos;subtitle&apos;&gt;&quot; + val.level1 + &quot;-&quot; + val.level2 + &quot;&lt;/div&gt;&lt;/div&gt;&quot;) }); console.log(items) response(items); }, error: function(data) { console.log(&apos;fail&apos;) } }); }, }).data(&apos;ui-autocomplete&apos;)._renderItem = function(ul, item){ var expression = new RegExp(this.term,&apos;gi&apos;) var result = item.label.replace(expression, &quot;&lt;span style=&apos;color: #ff4f4c!important;&apos;&gt;&quot; + this.term + &quot;&lt;/span&gt;&quot;) return $(&quot;&lt;li&gt;&lt;/li&gt;&quot;).append(result).appendTo(ul) }]]></content>
+    <url>%2Fposts%2F2018-12-08-jquery-autocomplete.html</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031$( "#jd-temp-name" ).autocomplete(&#123; source: function (request, response) &#123; $.ajax(&#123; dataType: "json", type : 'Get', url: '&lt;%= search_jd_temps_path%&gt;', data:&#123; name: request.term, &#125;, success: function(data) &#123; console.log(data.professions) var items = []; $.each( data.professions, function(key, val)&#123; items.push("&lt;div class='result-item'&gt;" + val.level3 + "&lt;div class='subtitle'&gt;" + val.level1 + "-" + val.level2 + "&lt;/div&gt;&lt;/div&gt;") &#125;); console.log(items) response(items); &#125;, error: function(data) &#123; console.log('fail') &#125; &#125;); &#125;, &#125;).data('ui-autocomplete')._renderItem = function(ul, item)&#123; var expression = new RegExp(this.term,'gi') var result = item.label.replace(expression, "&lt;span style='color: #ff4f4c!important;'&gt;" + this.term + "&lt;/span&gt;") return $("&lt;li&gt;&lt;/li&gt;").append(result).appendTo(ul) &#125;]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-监听input 输入中文]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[var cpLock = false;$(‘#jd-temp-name’).on(‘compositionstart’, function () { cpLock = true;});$(‘#jd-temp-name’).on(‘compositionend’, function () { cpLock = false;});$(‘#jd-temp-name’).on(‘input’, function() { if (!cpLock) { setTimeout(function () { $(‘#jd-temp-search-form’).submit() }, 1) }})]]></content>
+    <url>%2Fposts%2F2018-12-08-js-listening-input-into-chinese.html</url>
+    <content type="text"><![CDATA[1234567891011121314var cpLock = false;$('#jd-temp-name').on('compositionstart', function () &#123; cpLock = true; &#125;);$('#jd-temp-name').on('compositionend', function () &#123; cpLock = false;&#125;);$('#jd-temp-name').on('input', function() &#123; if (!cpLock) &#123; setTimeout(function () &#123; $('#jd-temp-search-form').submit() &#125;, 1) &#125; &#125;)]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[devise-将密码设成空字符串]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-12-03-devise-set-the-password-to-an-empty-string.html</url>
     <content type="text"><![CDATA[u.update_column(:encrypted_password, ‘’)]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails- format.js]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-12-03-rails-formatjs.html</url>
     <content type="text"><![CDATA[respond_to do |format| format.js { # 在 client 端執行 alert (javascript) “alert(‘Hello Rails’);”, # page not fount status: 404, # render /app/views/your-controller/test_action.js.erb action: “test_action”, # 將 test_item 以 json 格式 render json: @test_item, # 找到指定的檔案作 render file: filename, # 直接 render text: Hello text: “Hello” } end]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-打开其他app里的文件]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-11-26-ios-open-messages-from-other-apps.html</url>
     <content type="text"><![CDATA[1.info.plist里面配置 123456789101112131415&lt;key&gt;CFBundleDocumentTypes&lt;/key&gt;&lt;array&gt; &lt;dict&gt; &lt;key&gt;CFBundleTypeName&lt;/key&gt; &lt;string&gt;downloadPDF&lt;/string&gt; &lt;key&gt;LSHandlerRank&lt;/key&gt; &lt;string&gt;Default&lt;/string&gt; &lt;key&gt;LSItemContentTypes&lt;/key&gt; &lt;array&gt; &lt;string&gt;com.adobe.pdf&lt;/string&gt; //pdf &lt;string&gt;com.microsoft.word.doc&lt;/string&gt; //doc &lt;string&gt;org.openxmlformats.wordprocessingml.document&lt;/string&gt; //docx &lt;/array&gt; &lt;/dict&gt;&lt;/array&gt; 2.appdelegate在- (BOOL)application:(UIApplication )app openURL:(NSURL *)url options:(NSDictionary&lt;NSString, id&gt; *)options方法里 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697 if (url &amp;&amp; [url isFileURL]) &#123; NSString *fileName = url.lastPathComponent; // 从路径中获得完整的文件名（带后缀） // path 类似这种格式：file:///private/var/mobile/Containers/Data/Application/83643509-E90E-40A6-92EA-47A44B40CBBF/Documents/Inbox/jfkdfj123a.pdf NSString *path = url.absoluteString; // 完整的url字符串 path = [path stringByRemovingPercentEncoding]; // 解决url编码问题 NSMutableString *string = [[NSMutableString alloc] initWithString:path]; if ([path hasPrefix:@&quot;file://&quot;]) &#123; // 通过前缀来判断是文件 // 去除前缀：/private/var/mobile/Containers/Data/Application/83643509-E90E-40A6-92EA-47A44B40CBBF/Documents/Inbox/jfkdfj123a.pdf [string replaceOccurrencesOfString:@&quot;file://&quot; withString:@&quot;&quot; options:NSCaseInsensitiveSearch range:NSMakeRange(0, path.length)]; if( [DXAccountSave account])&#123; unsigned long long size = [[NSFileManager defaultManager] attributesOfItemAtPath:string error:nil].fileSize; size = (size*1.0)/(1024*1024); if(size &gt;= 2)&#123; [SVProgressHUD showErrorWithStatus:@&quot;上传简历请小于2M&quot;]; [SVProgressHUD dismissWithDelay:4]; &#125;else&#123; AppDelegate * delegate = (AppDelegate*)[UIApplication sharedApplication].delegate; [delegate toSelectRoot:0]; AFHTTPSessionManager * manager = [AFHTTPSessionManager manager]; manager.requestSerializer = [AFJSONRequestSerializer serializer]; manager.responseSerializer = [AFJSONResponseSerializer serializer]; NSString *importUrl = [H5_SERVER stringByAppendingString:@&quot;/interface/files/can_upload_file&quot;];[manager POST:importUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123;NSString*info= [responseObject objectForKey:@&quot;info&quot;];if([info isEqualToString:@&quot;can_create&quot;])&#123;UIAlertController *alert = [UIAlertController alertControllerWithTitle:@&quot;上传简历&quot; message:@&quot;将简历上传到超级简历&quot; preferredStyle:UIAlertControllerStyleAlert];UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleDefaulthandler:^(UIAlertAction * action) &#123; [alert dismissViewControllerAnimated:YES completion:nil];&#125;]; UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefaulthandler:^(UIAlertAction * action) &#123; [SVProgressHUD showWithStatus:@&quot;正在上传&quot;]; AFHTTPSessionManager * manager = [AFHTTPSessionManager manager]; manager.requestSerializer = [AFJSONRequestSerializer serializer]; manager.responseSerializer = [AFJSONResponseSerializer serializer]; NSMutableDictionary *parameter = [NSMutableDictionary dictionary]; parameter[@&quot;file&quot;] = [[NSFileManager defaultManager] contentsAtPath:string]; parameter[@&quot;file_name&quot;] = fileName; NSString *importUrl = [H5_SERVER stringByAppendingString:@&quot;/interface/files/upload_file&quot;]; [manager POST:importUrl parameters:parameter constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123; importFileViewController *importFile = [[importFileViewController alloc] init]; importFile.fileName = fileName; importFile.currentRoute = [[responseObject objectForKey:@&quot;file&quot;] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]; UINavigationController * navC = [[UINavigationController alloc]initWithRootViewController:importFile]; [self.window.rootViewController presentViewController:navC animated:YES completion:nil]; &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123; [SVProgressHUD showErrorWithStatus:@&quot;网络繁忙, 请稍后再试&quot;]; &#125;]; &#125;]; [alert addAction:defaultAction]; [alert addAction:confirmAction]; UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds]; alertWindow.rootViewController = [[UIViewController alloc] init]; alertWindow.windowLevel = UIWindowLevelAlert + 1; [alertWindow makeKeyAndVisible]; [alertWindow.rootViewController presentViewController:alert animated:YES completion:nil];&#125;else if ([info isEqualToString:@&quot;no_user&quot;])&#123; [Login showLoginInController:self.window.rootViewController WhenComplete:^&#123; AppDelegate * delegate = (AppDelegate*)[UIApplication sharedApplication].delegate; [delegate toSelectRoot:0]; [DXSave Save:@&quot;showAd&quot; with:@&quot;yes&quot;]; [SVProgressHUD showSuccessWithStatus:@&quot;登录成功 请重新上传文件&quot;]; dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; if(![[DXSave Get:@&quot;hideLoading&quot;] isEqualToString:@&quot;yes&quot;])&#123; [SVProgressHUD showWithStatus:@&quot;加载中&quot;]; &#125; &#125;);&#125;];&#125;else&#123; [SVProgressHUD showErrorWithStatus:info]; [SVProgressHUD dismissWithDelay:2.0]; NSDictionary *dictionary = @&#123;@&quot;fileName&quot;:fileName, @&quot;filePath&quot;:string&#125;; [[NSNotificationCenter defaultCenter]postNotificationName:@&quot;toMember&quot; object:self userInfo:dictionary];&#125;&#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123; [SVProgressHUD showErrorWithStatus:@&quot;网络繁忙, 请稍后再试&quot;];&#125;]; &#125;&#125;else&#123;[Login showLoginInController:self.window.rootViewController WhenComplete:^&#123; AppDelegate * delegate = (AppDelegate*)[UIApplication sharedApplication].delegate; [delegate toSelectRoot:0]; [DXSave Save:@&quot;showAd&quot; with:@&quot;yes&quot;]; [SVProgressHUD showSuccessWithStatus:@&quot;登录成功 请重新上传文件&quot;]; dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; if(![[DXSave Get:@&quot;hideLoading&quot;] isEqualToString:@&quot;yes&quot;])&#123; [SVProgressHUD showWithStatus:@&quot;加载中&quot;]; &#125; &#125;);&#125;];&#125;return YES;&#125;&#125;]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[服务器上操作]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-11-15-operation-on-the-server.html</url>
     <content type="text"><![CDATA[重启servicestaging: sudo service nginx restartproduction:先找到nginx 主进程ps -ef | grep nginxkill -HUP (root 对应的进程号) 修改application.ymlcd ResumeHack/shared直接修改application.yml ps：重启rails server 就是重启service就行]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-wx.request get cookie]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[wx.request({ url: ‘/api/login’, success: (data) =&gt; { if(data.statusCode === 200) { console.log(data); // data 中应该会有 Set-Cookie 或 set-cookie 的字样，嗯，那就是服务器种下的 cookie } }})]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[微信小程序-客服消息配置（自动回复）]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置 另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑 1234567891011def check_miniprogram_msg_signature(token, signature, timestamp, nonce) arr = [token, timestamp, nonce] arr = arr.sort text = &apos;&apos; arr.each &#123;|element| text += element&#125; (Digest::SHA1.hexdigest(text)==signature) ? true : false # 验证消息end def recieve_miniprogram_msg render :text =&gt; params[:echostr] if check_miniprogram_msg_signature(ENV[&apos;NAME_CARD_WECHAT_TOKEN&apos;],params[:signature], params[:timestamp], params[:nonce]) end 读取消息内容： 12content = Nokogiri::XML(request.body.read)username = content.at_css(&apos;FromUserName&apos;)&amp;.children&amp;.text 自动回复：如果是图片 需要mediaid 12res = RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/media/upload?access_token=&apos; + access_token + &apos;&amp;type=image&apos;, &#123;media: file &#125;, &#123;&apos;Content-Type&apos;: &apos;application/octet-stream&apos;&#125; media_id = JSON.parse(res)[&apos;media_id&apos;] 12345678temp = &#123; &quot;touser&quot;: username, &quot;msgtype&quot;:&quot;image&quot;, &quot;image&quot;: &#123; &quot;media_id&quot;: media_id &#125;&#125;msg = RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=&apos; + a ccess_token, temp.to_json, &#123;content_type: :json, accept: :json&#125;]]></content>
+    <url>%2Fposts%2F2018-11-13-wechat-program-wxrequest-get-cookies.html</url>
+    <content type="text"><![CDATA[123456789wx.request(&#123; url: &apos;/api/login&apos;, success: (data) =&gt; &#123; if(data.statusCode === 200) &#123; console.log(data); // data 中应该会有 Set-Cookie 或 set-cookie 的字样，嗯，那就是服务器种下的 cookie &#125; &#125;&#125;)]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[oc-wvjb remove Handler]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-11-10-oc-wvjb-remove-handler.html</url>
     <content type="text"><![CDATA[参考]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios12-页面会上移]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[if(iPhoneXSeries){ _webview.scrollView.contentInset = UIEdgeInsetsMake(88, 0, 0, 0);}else{ _webview.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);}ios 12之前 用这个方法将webview下移来正常显示页面，但是ios12之后这个页面有一个问题就是进行了某些操作之后页面会上移回UIEdgeInsetsMake(0, 0, 0, 0)所以找到了另一个方法固定页面位置 1self.edgesForExtendedLayout=UIRectEdgeNone;]]></content>
+    <url>%2Fposts%2F2018-11-09-ios12-page-will-move-up.html</url>
+    <content type="text"><![CDATA[12345if(iPhoneXSeries)&#123; _webview.scrollView.contentInset = UIEdgeInsetsMake(88, 0, 0, 0);&#125;else&#123; _webview.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);&#125; ios 12之前 用这个方法将webview下移来正常显示页面，但是ios12之后这个页面有一个问题就是进行了某些操作之后页面会上移回UIEdgeInsetsMake(0, 0, 0, 0)所以找到了另一个方法固定页面位置 1self.edgesForExtendedLayout=UIRectEdgeNone;]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ruby-版本判断]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920def compare_app_version(current, old) return if current.blank? || old.blank? la = current.split(&apos;.&apos;) lb = old.split(&apos;.&apos;) i = 0 if la.length &gt; lb.length len = la.length else len = lb.length end while i &lt;= len do if (la[i] &amp;&amp; !lb[i] &amp;&amp; la[i].to_i &gt; 0) || (la[i].to_i &gt; lb[i].to_i) return 1 elsif (lb[i] &amp;&amp; !la[i] &amp;&amp; lb[i].to_i &gt; 0) || (la[i].to_i &lt; lb[i].to_i) return -1 end i +=1 end return 0 end]]></content>
+    <url>%2Fposts%2F2018-11-06-ruby-version-judgment.html</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920def compare_app_version(current, old) return if current.blank? || old.blank? la = current.split('.') lb = old.split('.') i = 0 if la.length &gt; lb.length len = la.length else len = lb.length end while i &lt;= len do if (la[i] &amp;&amp; !lb[i] &amp;&amp; la[i].to_i &gt; 0) || (la[i].to_i &gt; lb[i].to_i) return 1 elsif (lb[i] &amp;&amp; !la[i] &amp;&amp; lb[i].to_i &gt; 0) || (la[i].to_i &lt; lb[i].to_i) return -1 end i +=1 end return 0 end]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-webview登录]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-11-06-ios-webview-login.html</url>
     <content type="text"><![CDATA[ios webview登录最重要的就是将登陆之后的cookie存起来在ios12之前我们登录都能正常从- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler方法中取到response之后，直接处理成cookie存起来但是ios12开始 此方法登录就取不到response里最重要的set-cookie的值 我们就只能在h5那边登录之后的页面取到cookie经过字符串处理 将他们存起来 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647-(void)loginSuccess:(NSHTTPURLResponse*)response orWithCookie:(NSString*)cookie&#123; //清除之前的coockie NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage]; NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]]; for (id obj in _tmpArray) &#123; [cookieJar deleteCookie:obj]; &#125; // 删除NSUserDefault里面的值 NSUserDefaults *defatluts = [NSUserDefaults standardUserDefaults]; NSDictionary *dictionary = [defatluts dictionaryRepresentation]; for(NSString *key in [dictionary allKeys])&#123; if([key isEqualToString:@&quot;cookie&quot;])&#123; [defatluts removeObjectForKey:key]; &#125; [defatluts synchronize]; &#125; //读取wkwebview中的cookie 方法 NSArray *cookies =[NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL: response.URL]; if (cookies.count &lt;= 0)&#123; NSString *b =[[self achieveStringWithRootString:cookie key:@&quot;_ResumeHack_session&quot;] stringByAppendingString:@&quot; path=/; HttpOnly, &quot;]; NSMutableArray* mcookies = [cookies mutableCopy]; [mcookies addObject:[b cookie]]; cookies = [NSArray arrayWithArray:mcookies]; &#125; for (NSHTTPCookie *cookie in cookies) &#123; //将 cookie 存进NSHTTPCookieStorage [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie]; &#125; //把cookie存到NUserDefault里面 NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]]; NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; [defaults setObject: cookiesData forKey: @&quot;cookie&quot;]; [defaults synchronize]; NSLog(@&quot;userdefault中的cookie%@&quot;,[defaults objectForKey:@&quot;cookie&quot;]); //看看存入到了NSHTTPCookieStorage了没有 NSHTTPCookieStorage *cookieJar2 = [NSHTTPCookieStorage sharedHTTPCookieStorage]; for (NSHTTPCookie *cookie in cookieJar2.cookies) &#123; NSLog(@&quot;NSHTTPCookieStorage中的cookie%@&quot;, cookie); &#125; [self dismissViewControllerAnimated:YES completion:^&#123; _loginComplete(); &#125;]; [Loading hide];&#125; 字符串处理cookie 12345678- (NSString *)achieveStringWithRootString:(NSString *)rootString key:(NSString *)key&#123; NSRange aRange = [rootString rangeOfString:[NSString stringWithFormat:@&quot;%@=&quot;,key]]; NSString *c = [rootString substringFromIndex:aRange.location]; NSLog(@&quot;c===============%@&quot;, c); NSRange bRange = [c rangeOfString:@&quot;;&quot;];//匹配得到的下标 NSString *d = [c substringToIndex:bRange.location + bRange.length]; return d;&#125; ps:在登录、登出中清除cookie跟userdefault中的值的时候要避免清除其他有用的值 否则会导致userdefault值的丢失 造成很奇怪的bug]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-开屏广告图]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-11-05-ios-open-screen-advertising-map.html</url>
     <content type="text"><![CDATA[1.广告页加载思路。广告页的内容要实时显示，在无网络状态或者网速缓慢的情况下不能延迟加载，或者等到首页出现了再加载广告页。所以这里我不采用网络请求广告接口获取图片地址，然后加载图片的方式，而是先将图片异步下载到本地，并保存图片名，每次打开app时先根据本地存储的图片名查找沙盒中是否存在该图片，如果存在，则显示广告页。 2.判断广告页面是否更新。无论本地是否存在广告图片，每次启动都需要重新调用广告接口，根据图片名称或者图片id等方法判断广告是否更新，如果获取的图片名称或者图片id跟本地存储的不一致，则需要重新下载新图片，并删除旧图片。 3.广告页点击。如果点击广告需要跳转广告详情页面，那么广告链接地址也需要用NSUserDefaults存储。注意：广告详情页面是从首页push进去的。 4.广告页的显示代码可以放在AppDeleate中，也可以放在首页的控制器中。如果代码是在AppDelegate中，可以通过发送通知的方式，让首页push到广告详情页。 1234567891011121314151617181920212223242526272829303132333435AppDeleate.m //开机广告 NSString *filePath = [self getFilePathWithImageName:[DXSave Get:adImageName]]; BOOL isExist = [self isFileExistWithFilePath:filePath]; if (isExist) &#123;// 图片存在 AFHTTPSessionManager * manager = [AFHTTPSessionManager manager]; manager.requestSerializer = [AFJSONRequestSerializer serializer]; manager.responseSerializer = [AFJSONResponseSerializer serializer]; NSString *getImageUrl = [H5_SERVER stringByAppendingString:@&quot;admin/ios_open_ads/ios_get_ad&quot;]; [manager GET:getImageUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123; if ([self isFileExistWithFilePath: [self getFilePathWithImageName:responseObject[@&quot;name&quot;]]])&#123; NSDateFormatter* df = [[NSDateFormatter alloc] init]; [df setDateFormat:@&quot;yyyy-MM-dd&quot;]; NSLocale* locale = [NSLocale autoupdatingCurrentLocale]; [df setLocale: locale]; [DXSave Save:@&quot;showTime&quot; with:responseObject[@&quot;show_time&quot;]]; NSDate* startTime = [df dateFromString: responseObject[@&quot;start_time&quot;]]; NSDate* endTime = [df dateFromString: responseObject[@&quot;end_time&quot;]]; NSDate *today = [NSDate date]; if (([startTime compare:today] == NSOrderedSame || [startTime compare:today] ==NSOrderedAscending)&amp;&amp; ([endTime compare:today] == NSOrderedSame || [endTime compare:today] ==NSOrderedDescending) )&#123; [DXSave Save:@&quot;showAd&quot; with:@&quot;yes&quot;]; startAd *advertiseView = [[startAd alloc] initWithFrame:self.window.bounds]; advertiseView.filePath =[self getFilePathWithImageName:[DXSave Get:adImageName]]; [advertiseView show]; &#125; &#125; &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123; [SVProgressHUD showErrorWithStatus:@&quot;网络繁忙, 请稍后再试&quot;]; &#125;]; &#125; // 2.无论沙盒中是否存在广告图片，都需要重新调用广告接口，判断广告是否更新 [self getAdvertisingImage]; 调用方法 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081/** * 判断文件是否存在 */- (BOOL)isFileExistWithFilePath:(NSString *)filePath&#123; NSFileManager *fileManager = [NSFileManager defaultManager]; BOOL isDirectory = FALSE; return [fileManager fileExistsAtPath:filePath isDirectory:&amp;isDirectory];&#125;/** * 初始化广告页面 */- (void)getAdvertisingImage&#123; // TODO 请求广告接口 AFHTTPSessionManager * manager = [AFHTTPSessionManager manager]; manager.requestSerializer = [AFJSONRequestSerializer serializer]; manager.responseSerializer = [AFJSONResponseSerializer serializer]; NSString *getImageUrl = [H5_SERVER stringByAppendingString:@&quot;admin/ios_open_ads/ios_get_ad&quot;]; [manager GET:getImageUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123; NSString *imageUrl = responseObject[@&quot;img&quot;]; NSString *imageName = responseObject[@&quot;name&quot;]; [DXSave Save:@&quot;showTime&quot; with:responseObject[@&quot;show_time&quot;]]; NSString *filePath = [self getFilePathWithImageName:imageName]; BOOL isExist = [self isFileExistWithFilePath:filePath]; if (!isExist)&#123;// 如果该图片不存在，则下载新图片，删除老图片 [self downloadAdImageWithUrl:imageUrl imageName:imageName url:responseObject[@&quot;url&quot;]]; &#125; &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;// [SVProgressHUD showErrorWithStatus:@&quot;网络繁忙, 请稍后再试&quot;]; &#125;]; &#125;/** * 下载新图片 */- (void)downloadAdImageWithUrl:(NSString *)imageUrl imageName:(NSString *)imageName url:(NSString*)url&#123; dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123; NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]; UIImage *image = [UIImage imageWithData:data]; NSString *filePath = [self getFilePathWithImageName:imageName]; // 保存文件的名称 [DXSave Save:@&quot;adPath&quot; with:filePath]; if ([UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES]) &#123;// 保存成功 NSLog(@&quot;保存成功&quot;); [self deleteOldImage]; [DXSave Save:adImageName with:imageName]; [DXSave Save:adImageUrl with:url]; &#125;else&#123; NSLog(@&quot;保存失败&quot;); &#125; &#125;);&#125;/** * 删除旧图片 */- (void)deleteOldImage&#123; NSString *imageName = [DXSave Get:adImageName]; if (imageName) &#123; NSString *filePath = [self getFilePathWithImageName:imageName]; NSFileManager *fileManager = [NSFileManager defaultManager]; [fileManager removeItemAtPath:filePath error:nil]; &#125;&#125;/** * 根据图片名拼接文件路径 */- (NSString *)getFilePathWithImageName:(NSString *)imageName&#123; if (imageName) &#123; NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES); NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imageName]; return filePath; &#125; return nil;&#125; 广告页面（uiView） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133startAd.m#import &quot;startAd.h&quot;@interface startAd()@property (nonatomic, strong) UIImageView *adView;@property (nonatomic, strong) UIButton *countBtn;@property (nonatomic, strong) NSTimer *countTimer;@property (nonatomic, assign) int count;@end@implementation startAd- (NSTimer *)countTimer&#123; if (!_countTimer) &#123; _countTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDown) userInfo:nil repeats:YES]; &#125; return _countTimer;&#125;- (instancetype)initWithFrame:(CGRect)frame&#123; if (self = [super initWithFrame:frame]) &#123; // 1.广告图片 _adView = [[UIImageView alloc] initWithFrame:frame]; _adView.userInteractionEnabled = YES; _adView.image = [UIImage imageWithContentsOfFile:_filePath]; _adView.contentMode = UIViewContentModeScaleAspectFill; _adView.clipsToBounds = YES; if(![[DXSave Get:@&quot;adImageUrl&quot;] isEqualToString:@&quot;&quot;])&#123; UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushToAd)]; [_adView addGestureRecognizer:tap]; &#125; // 2.跳过按钮 CGFloat btnW = 60; CGFloat btnH = 30; _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - btnW - 24, btnH, btnW, btnH)]; [_countBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside]; [_countBtn setTitle:[NSString stringWithFormat:@&quot;跳过%d&quot;, [[DXSave Get:@&quot;showTime&quot;] intValue]] forState:UIControlStateNormal]; _countBtn.titleLabel.font = [UIFont systemFontOfSize:15]; [_countBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; _countBtn.backgroundColor = [UIColor colorWithRed:38 /255.0 green:38 /255.0 blue:38 /255.0 alpha:0.6]; _countBtn.layer.cornerRadius = 4; [self addSubview:_adView]; [self addSubview:_countBtn]; &#125; return self;&#125;- (void)setFilePath:(NSString *)filePath&#123; _filePath = filePath; _adView.image = [UIImage imageWithContentsOfFile:filePath];&#125;- (void)pushToAd&#123; [self dismiss]; [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;pushtoad&quot; object:nil userInfo:nil];&#125;- (void)countDown&#123; _count --; [_countBtn setTitle:[NSString stringWithFormat:@&quot;跳过%d&quot;,_count] forState:UIControlStateNormal]; if (_count == 0) &#123; [self dismiss]; &#125;&#125;- (void)show&#123; // 倒计时方法：定时器 [self startTimer]; UIWindow *window = [UIApplication sharedApplication].keyWindow; [window addSubview:self];&#125;// 定时器倒计时- (void)startTimer&#123; _count = [[DXSave Get:@&quot;showTime&quot;] intValue]; [[NSRunLoop mainRunLoop] addTimer:self.countTimer forMode:NSRunLoopCommonModes];&#125;// GCD倒计时- (void)startCoundown&#123; __block int timeout = [[DXSave Get:@&quot;showTime&quot;] intValue] + 1; //倒计时时间 + 1 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue); dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0 * NSEC_PER_SEC, 0); //每秒执行 dispatch_source_set_event_handler(_timer, ^&#123; if(timeout &lt;= 0)&#123; //倒计时结束，关闭 dispatch_source_cancel(_timer); dispatch_async(dispatch_get_main_queue(), ^&#123; [self dismiss]; &#125;); &#125;else&#123; dispatch_async(dispatch_get_main_queue(), ^&#123; [_countBtn setTitle:[NSString stringWithFormat:@&quot;跳过%d&quot;,timeout] forState:UIControlStateNormal]; &#125;); timeout--; &#125; &#125;); dispatch_resume(_timer);&#125;// 移除广告页面- (void)dismiss&#123; [self.countTimer invalidate]; self.countTimer = nil; [UIView animateWithDuration:0.3f animations:^&#123; self.alpha = 0.f; &#125; completion:^(BOOL finished) &#123; [self removeFromSuperview]; &#125;]; &#125;@end 12345678910111213141516startAd.h#import &lt;UIKit/UIKit.h&gt;#define kUserDefaults [NSUserDefaults standardUserDefaults]static NSString *const adImageName = @&quot;adImageName&quot;;static NSString *const adImageUrl = @&quot;adImageUrl&quot;;static NSString *const adUrl = @&quot;adUrl&quot;;@interface startAd : UIView/** 显示广告页面方法*/- (void)show;/** 图片路径*/@property (nonatomic, copy) NSString *filePath;@end 最后首页加跳转链接 123456789- (void)viewDidLoad &#123; [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToAd) name:@&quot;pushtoad&quot; object:nil];&#125;- (void)pushToAd &#123; loadUrlViewController *adVc = [[loadUrlViewController alloc] init]; adVc.currentRoute = [DXSave Get:@&quot;adImageUrl&quot;]; [self.navigationController pushViewController:adVc animated:YES];&#125;]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-版本判断]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[versionCompare = function(left, right) { if (typeof left + typeof right != ‘stringstring’) return false; var a = left.split(&apos;.&apos;) , b = right.split(&apos;.&apos;) , i = 0, len = Math.max(a.length, b.length); for (; i &lt; len; i++) { if ((a[i] &amp;&amp; !b[i] &amp;&amp; parseInt(a[i]) &gt; 0) || (parseInt(a[i]) &gt; parseInt(b[i]))) { return 1; } else if ((b[i] &amp;&amp; !a[i] &amp;&amp; parseInt(b[i]) &gt; 0) || (parseInt(a[i]) &lt; parseInt(b[i]))) { return -1; } } return 0;}]]></content>
+    <url>%2Fposts%2F2018-10-27-js-version-judgment.html</url>
+    <content type="text"><![CDATA[123456789101112131415161718versionCompare = function(left, right) &#123; if (typeof left + typeof right != 'stringstring') return false; var a = left.split('.') , b = right.split('.') , i = 0, len = Math.max(a.length, b.length); for (; i &lt; len; i++) &#123; if ((a[i] &amp;&amp; !b[i] &amp;&amp; parseInt(a[i]) &gt; 0) || (parseInt(a[i]) &gt; parseInt(b[i]))) &#123; return 1; &#125; else if ((b[i] &amp;&amp; !a[i] &amp;&amp; parseInt(b[i]) &gt; 0) || (parseInt(a[i]) &lt; parseInt(b[i]))) &#123; return -1; &#125; &#125; return 0;&#125;]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-监听弹窗弹出]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[$(‘#code’).on(‘shown.bs.modal’, function (e) { // do something…}) $(window).on(‘hidden.bs.modal’, function() { $(‘#code’).modal(‘hide’); alert(‘hidden’);}); ps: 想监听全部 将selector 变成$(‘.modal’)就可以了]]></content>
+    <url>%2Fposts%2F2018-10-23-js-monitoring-pop-up-window.html</url>
+    <content type="text"><![CDATA[12345678$('#code').on('shown.bs.modal', function (e) &#123; // do something...&#125;)$(window).on('hidden.bs.modal', function() &#123; $('#code').modal('hide'); alert('hidden');&#125;); ps: 想监听全部 将selector 变成$(‘.modal’)就可以了]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-阻止input 按enter键提交表单]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[]]></content>
+    <url>%2Fposts%2F2018-10-17-js-prevent-input-from-pressing-the-enter-key-to-submit-the-form.html</url>
+    <content type="text"><![CDATA[1&lt;input onkeydown=&quot;if(event.keyCode==13)&#123;return false;&#125;&quot; type=&quot;text&quot; name=&quot;email[to]&quot; id=&quot;email_to&quot;&gt;]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[regex-email address]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-10-15-regex-email-address.html</url>
     <content type="text"><![CDATA[基于RFC5322 的email合法判断 /(?:[a-z0-9!#$%&amp;’+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&amp;’+/=?^_`{|}~-]+)|”(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\[\x01-\x09\x0b\x0c\x0e-\x7f])“)@(?:(?:a-z0-9?.)+a-z0-9?|[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\[\x01-\x09\x0b\x0c\x0e-\x7f])+)])/ 参考1]]></content>
+      <tags>
+        <tag>regex</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-获取wkwebview里的cookie]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[if (@available(iOS 11.0, )) { //available on iOS 11+ WKHTTPCookieStore *cookieStore = webView.configuration.websiteDataStore.httpCookieStore; [cookieStore getAllCookies:^(NSArray cookies) { if (cookies.count &gt; 0) { for (NSHTTPCookie *cookie in cookies) { //TODO… } } }];}]]></content>
+    <url>%2Fposts%2F2018-10-15-regex-email-address.html</url>
+    <content type="text"><![CDATA[12345678910if (@available(iOS 11.0, *)) &#123; //available on iOS 11+ WKHTTPCookieStore *cookieStore = webView.configuration.websiteDataStore.httpCookieStore; [cookieStore getAllCookies:^(NSArray* cookies) &#123; if (cookies.count &gt; 0) &#123; for (NSHTTPCookie *cookie in cookies) &#123; //TODO... &#125; &#125; &#125;];&#125;]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-字符串进阶]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-09-20-ios-string-advanced.html</url>
     <content type="text"><![CDATA[NSString *a = @”8e0c2412021270fb_gr_session_id=3bb8f9ed-0203-42e4-b25c-98e49206ec0e; 8e0c2412021270fb_gr_session_id_3bb8f9ed-0203-42e4-b25c-98e49206ec0e=true; _ResumeHack_session=am4rQW5SdldaQlQ5eHVpZ1dvWWx3ZE9Yc201WFlTLzBOVUdNMitsYU42UjJIUFU1djR4WDJUT0tvN0dUaVhtdFk1b1dkSE9DNEtXdlFHL2tNM3pLeFFPZ1JZMGlXUGwyUDhkUUVEUythcWoweThGTzBRWVNucDZVVUR4RXNyQVhxY0t2QXRBaEhHWDl6SEdyaGNwMHZJRjlJeVVGcWIwZlRCMWRvMStwNDJMeDIxaDl5bTJKN0NYMWQ0ejdlSlFSTHVUMU4zeEEzbmRXQUNyZGE0V2xyMVlKNzdWeXVqM0VIUmF1TmlybXRoUnNkVFhWNGxiVDNlOWVDYTRQeVFLdC0tVXlETG1xTjcvd25RVmlveFV0RHQxdz09–50662a5248ec2615aaf0098440ba6b9f02492971; __profilin=p%3Dt; gr_user_id=aa9e2d55-23c1-485a-bd88-c51f314824e2; grwng_uid=5d7e8aba-8f56-4950-975c-b8c44d85d7fb”; NSString *b = @”_ResumeHack_session”; NSString *c = @&quot;__profilin&quot;; NSString *d = [NSString stringWithFormat:@&quot;%@%@&quot;,[self achieveStringWithRootString:a key:b],[self achieveStringWithRootString:a key:c]]; NSLog(@&quot;-----&gt;%@&quot;,d);} (NSString *)achieveStringWithRootString:(NSString *)rootStringkey:(NSString *)key{ NSRange aRange = [rootString rangeOfString:[NSString stringWithFormat:@”%@=”,key]]; NSString *c = [rootString substringFromIndex:aRange.location]; NSRange bRange = [c rangeOfString:@”;”];//匹配得到的下标 NSString *d = [c substringToIndex:bRange.location + bRange.length]; return d;}]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[js-字符串]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[不包含：Str.indexOf(‘str’) == -1]]></content>
+    <title><![CDATA[js-字符串不包含]]></title>
+    <url>%2Fposts%2F2018-09-15-js-string.html</url>
+    <content type="text"><![CDATA[1不包含：Str.indexOf('str') == -1]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-发送消息通知]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.get access token 123res = RestClient.get &apos;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&apos;+app_id + &apos;&amp;secret=&apos; + app_secretjson = JSON.parse res.bodyaccess_token = json[&apos;access_token&apos;] 2.template 123456789101112131415161718192021&#123; &quot;touser&quot;: &quot;OPENID&quot;, &quot;template_id&quot;: &quot;TEMPLATE_ID&quot;, &quot;page&quot;: &quot;index&quot;, &quot;form_id&quot;: &quot;FORMID&quot;, &quot;data&quot;: &#123; &quot;keyword1&quot;: &#123; &quot;value&quot;: &quot;339208499&quot; &#125;, &quot;keyword2&quot;: &#123; &quot;value&quot;: &quot;2015年01月05日 12:30&quot; &#125;, &quot;keyword3&quot;: &#123; &quot;value&quot;: &quot;粤海喜来登酒店&quot; &#125; , &quot;keyword4&quot;: &#123; &quot;value&quot;: &quot;广州市天河区天河路208号&quot; &#125; &#125;, &quot;emphasis_keyword&quot;: &quot;keyword1.DATA&quot;&#125; 3.send 1res= RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=&apos; + access_token, temp.to_json, &#123;content_type: :json, accept: :json&#125;]]></content>
+    <url>%2Fposts%2F2018-09-07-wechat-applet-send-message-notification.html</url>
+    <content type="text"><![CDATA[1.get access token 123res = RestClient.get &apos;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&apos;+app_id + &apos;&amp;secret=&apos; + app_secretjson = JSON.parse res.bodyaccess_token = json[&apos;access_token&apos;] > 2.template 123456789101112131415161718192021&#123; &quot;touser&quot;: &quot;OPENID&quot;, &quot;template_id&quot;: &quot;TEMPLATE_ID&quot;, &quot;page&quot;: &quot;index&quot;, &quot;form_id&quot;: &quot;FORMID&quot;, &quot;data&quot;: &#123; &quot;keyword1&quot;: &#123; &quot;value&quot;: &quot;339208499&quot; &#125;, &quot;keyword2&quot;: &#123; &quot;value&quot;: &quot;2015年01月05日 12:30&quot; &#125;, &quot;keyword3&quot;: &#123; &quot;value&quot;: &quot;粤海喜来登酒店&quot; &#125; , &quot;keyword4&quot;: &#123; &quot;value&quot;: &quot;广州市天河区天河路208号&quot; &#125; &#125;, &quot;emphasis_keyword&quot;: &quot;keyword1.DATA&quot;&#125; 3.send 1res= RestClient.post &apos;https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=&apos; + access_token, temp.to_json, &#123;content_type: :json, accept: :json&#125;]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails-性能测试]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-09-07-rails-performance-test.html</url>
     <content type="text"><![CDATA[https://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html 在数据量较大的时候我们可能需要测试跑一个程序所需要的时间 这个时候就可以用benchmark Benchmark.realtime{ xxxxx}]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[小程序-富文本]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-wkwebview 加载进度条]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-08-24-ios-wkwebview-load-progress-bar.html</url>
     <content type="text"><![CDATA[interface里 12@property (weak, nonatomic) CALayer *progresslayer;@property WKWebView* webview; 在viewDidLoad里面 12345678910[_webview addObserver:self forKeyPath:@&quot;estimatedProgress&quot; options:NSKeyValueObservingOptionNew context:nil]; UIView *progress = [[UIView alloc]initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 3)]; progress.backgroundColor = [UIColor clearColor]; [self.view addSubview:progress]; CALayer *layer = [CALayer layer]; layer.frame = CGRectMake(0, 0, 0, 3); layer.backgroundColor = [UIColor blueColor].CGColor; [progress.layer addSublayer:layer]; self.progresslayer = layer; 1234567891011121314151617181920- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSString *,id&gt; *)change context:(void *)context&#123; if ([keyPath isEqualToString:@&quot;estimatedProgress&quot;]) &#123; self.progresslayer.opacity = 1; //不要让进度条倒着走...有时候goback会出现这种情况 if ([change[@&quot;new&quot;] floatValue] &lt; [change[@&quot;old&quot;] floatValue]) &#123; return; &#125; self.progresslayer.frame = CGRectMake(0, 0, self.view.bounds.size.width * [change[@&quot;new&quot;] floatValue], 3); if ([change[@&quot;new&quot;] floatValue] == 1) &#123; dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; self.progresslayer.opacity = 0; &#125;); dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; self.progresslayer.frame = CGRectMake(0, 0, 0, 3); &#125;); &#125; &#125;else&#123; [super observeValueForKeyPath:keyPath ofObject:object change:change context:context]; &#125;&#125; 最后取消监听 123- (void)dealloc&#123; [self.webview removeObserver:self forKeyPath:@&quot;estimatedProgress&quot;];&#125;]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-获取url connection error]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-08-24-ios-get-url-connection-error.html</url>
     <content type="text"><![CDATA[12345678- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error&#123; NSLog(@&quot;connection didFailWithError&quot;); if(error.code==-1009)&#123; do something... &#125;&#125;]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios-微信分享的坑]]></title>
@@ -309,8 +386,11 @@
   </entry>
   <entry>
     <title><![CDATA[rails - 单表继承（STI）]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-08-21-rails-tanku-integration-sti.html</url>
     <content type="text"><![CDATA[单表继承一般用于大部分字段相同只有少部分字段不同的情况用type字段可以将他们区分开 会自动存储modle: 12345class WorkNameCard &lt; NameCard endclass StudentNameCard &lt; NameCard end 优点：可以直接调用不同子类下的方法 如果子类不需要单独的方法可以不使用 STI]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails- float取整]]></title>
@@ -496,28 +576,43 @@
   </entry>
   <entry>
     <title><![CDATA[微信小程序-iphonx适配]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-05-22-7731783.html</url>
     <content type="text"><![CDATA[在app.js文件中 创建全局变量，然后获取设备型号 123456789101112131415161718globalData: &#123; isIphoneX: false, userInfo: null &#125;, onShow:function()&#123; let that = this; wx.getSystemInfo(&#123; success: res=&gt;&#123; // console.log(&apos;手机信息res&apos;+res.model) let modelmes = res.model; if (modelmes.search(&apos;iPhone X&apos;) != -1) &#123; that.globalData.isIphoneX = true &#125; &#125; &#125;) &#125;, 在需要引用的页面js文件中onload方法里获取全局变量 1234let isIphoneX = app.globalData.isIphoneX; this.setData(&#123; isIphoneX: isIphoneX &#125;) ps:button 的边框用button::after{ border: none; }来去除]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[redis-数据缓存]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-05-17-7693318.html</url>
     <content type="text"><![CDATA[gem ‘redis-namespace’bundle新建文件 config/initializers/redis.rb 1$redis = Redis::Namespace.new(&quot;site_point&quot;, :redis =&gt; Redis.new) 存 $redis.set(“test_key”, “Hello World!”)取 $redis.get(“test_key”)删 $redis.del “categories” 参考]]></content>
+      <tags>
+        <tag>redis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-声明全局变量]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[var editor;$(function(){ editor = ace.edit(‘editor’);}); 这种参数必须在$(document) 里面调用不能直接调]]></content>
+    <url>%2Fposts%2F2018-05-15-7678489.html</url>
+    <content type="text"><![CDATA[1234var editor;$(function()&#123; editor = ace.edit('editor');&#125;); 这种参数必须在$(document) 里面调用不能直接调]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-获取授权 后台获取其他用户信息不行！]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[普通授权 用wx.authorize 就可以了有相关文档 可以直接用https://developers.weixin.qq.com/miniprogram/dev/api/authorize.html但是用户信息授权被坑爹的小程序改成了只能用button调起 Click me 用以下代码去判断用户是否授权了userInfoHandler: function (e) { e.detail.userInfo; //要判断这个，有值表示用户点击允许，没有则表示用户点击的是拒绝。} 后台只能获取到当前用户信息 并获取不到其他用户信息！！！！坑爹！！！ 只能暂存]]></content>
+    <url>%2Fposts%2F2018-05-14-7669337.html</url>
+    <content type="text"><![CDATA[普通授权 用wx.authorize 就可以了有相关文档 可以直接用https://developers.weixin.qq.com/miniprogram/dev/api/authorize.html但是用户信息授权被坑爹的小程序改成了只能用button调起 1&lt;button open-type=&quot;getUserInfo&quot; bindgetuserinfo=&quot;userInfoHandler&quot;&gt; Click me &lt;/button&gt; 用以下代码去判断用户是否授权了 123userInfoHandler: function (e) &#123; e.detail.userInfo; //要判断这个，有值表示用户点击允许，没有则表示用户点击的是拒绝。&#125; 后台只能获取到当前用户信息 并获取不到其他用户信息！！！！坑爹！！！ 只能暂存]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-图片显示]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-05-13-micro-letter-applet-picture-display.html</url>
     <content type="text"><![CDATA[https://developers.weixin.qq.com/miniprogram/dev/component/image.html]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序-获取全局变量]]></title>
@@ -929,53 +1024,75 @@
   </entry>
   <entry>
     <title><![CDATA[微信小程序]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[官方文档wxml1.不用div标签 用代替2.条件渲染： 在框架中，我们用 wx:if=”“ 来判断是否需要渲染该代码块： 1&lt;view wx:if=&quot;&#123;&#123;condition&#125;&#125;&quot;&gt; True &lt;/view&gt; 也可以用 wx:elif 和 wx:else 来添加一个 else 块： 123&lt;view wx:if=&quot;&#123;&#123;length &gt; 5&#125;&#125;&quot;&gt; 1 &lt;/view&gt;&lt;view wx:elif=&quot;&#123;&#123;length &gt; 2&#125;&#125;&quot;&gt; 2 &lt;/view&gt;&lt;view wx:else&gt; 3 &lt;/view&gt; 3.循环：wx:for 多级循环4.接口 需要在后台配置之后才能用 必须是https post接口往后台传数据的时候在wx:request中的data赋值 不用setdata5.页面跳转： 123wx.navigateTo(&#123; url: &apos;test?id=1&apos;&#125;)//保留当前页面 跳转到应用内的某个页面 123wx.redirectTo(&#123; url: &apos;test?id=1&apos;&#125;)//关闭当前页面 跳转到应用内的某个页面 1234567891011121314 &#123; &quot;tabBar&quot;: &#123; &quot;list&quot;: [&#123; &quot;pagePath&quot;: &quot;index&quot;, &quot;text&quot;: &quot;首页&quot; &#125;,&#123; &quot;pagePath&quot;: &quot;other&quot;, &quot;text&quot;: &quot;其他&quot; &#125;] &#125;&#125;wx.switchTab(&#123; url: &apos;/index&apos;&#125;)//跳转到tabbar页面 并关闭所有其他tabbar页面 6.赋值：setdata7.上传图片 wx:uploadfile url写后台创建接口 formdata是要传到后台数据 多张图片上传用for循环选择图片显示 用wx.chooseImage tip:1.wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.switchTab 跳转到 tabbar 页面2.console.log 不可以写在wx.xxx这种方法的里面]]></content>
+    <url>%2Fposts%2F2017-07-07-2024609.html</url>
+    <content type="text"><![CDATA[官方文档wxml1.不用div标签 用代替 2.条件渲染： 在框架中，我们用 wx:if=”“ 来判断是否需要渲染该代码块： 1&lt;view wx:if=&quot;&#123;&#123;condition&#125;&#125;&quot;&gt; True &lt;/view&gt; 也可以用 wx:elif 和 wx:else 来添加一个 else 块： 123&lt;view wx:if=&quot;&#123;&#123;length &gt; 5&#125;&#125;&quot;&gt; 1 &lt;/view&gt;&lt;view wx:elif=&quot;&#123;&#123;length &gt; 2&#125;&#125;&quot;&gt; 2 &lt;/view&gt;&lt;view wx:else&gt; 3 &lt;/view&gt; 3.循环：wx:for 多级循环4.接口 需要在后台配置之后才能用 必须是https post接口往后台传数据的时候在wx:request中的data赋值 不用setdata5.页面跳转： 123wx.navigateTo(&#123; url: &apos;test?id=1&apos;&#125;)//保留当前页面 跳转到应用内的某个页面 123wx.redirectTo(&#123; url: &apos;test?id=1&apos;&#125;)//关闭当前页面 跳转到应用内的某个页面 1234567891011121314 &#123; &quot;tabBar&quot;: &#123; &quot;list&quot;: [&#123; &quot;pagePath&quot;: &quot;index&quot;, &quot;text&quot;: &quot;首页&quot; &#125;,&#123; &quot;pagePath&quot;: &quot;other&quot;, &quot;text&quot;: &quot;其他&quot; &#125;] &#125;&#125;wx.switchTab(&#123; url: &apos;/index&apos;&#125;)//跳转到tabbar页面 并关闭所有其他tabbar页面 6.赋值：setdata7.上传图片 wx:uploadfile url写后台创建接口 formdata是要传到后台数据 多张图片上传用for循环选择图片显示 用wx.chooseImage tip:1.wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.switchTab 跳转到 tabbar 页面2.console.log 不可以写在wx.xxx这种方法的里面]]></content>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails csv导出]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.在helper中定义一个导出方法 不能定义在model中 send_data方法不可以在model中用 1234567891011121314151617181920212223# -*- encoding : utf-8 -*-def generate_csv_by_bonus(cash_desks ,day_array)---传进来的参数 headers = [&apos;品类&apos;, &apos;收款台号&apos;]-----标题显示 day_array.each do |day| headers.push(day.strftime(&quot;%Y-%m-%d&quot;)) end file = CSV.generate do |csv| # 先放 header csv &lt;&lt; headers # 再放 csv 的内容 cash_desks.each do |cash_desk| result = [] result &lt;&lt; cash_desk.category.name result &lt;&lt; cash_desk.name day_array.each do |day| result &lt;&lt; cash_desk.sales_checks.where(&quot;created_at &gt;= &apos;#&#123;day.beginning_of_day&#125;&apos; and created_at &lt;= &apos;#&#123;day.end_of_day&#125;&apos;&quot;).sum(:award_amount).to_f/100 end csv &lt;&lt; result end end send_data file.encode(&quot;gbk&quot;, &quot;utf-8&quot;), :type =&gt; &apos;text/csv; charset=gbk; header=present&apos;, :disposition =&gt; &quot;attachment;filename=欧亚卖场&gt;&gt;收银台统计表.csv&quot; end 2.在controller中定义一个export方法 1234567# -*- encoding : utf-8 -*-include ApplicationHelper def export @cash_desks = CashDesk.where(&quot;name not like ?&quot; , &apos;%-removed&apos;) @day_array = SalesCheck.where(&quot;created_at &gt;= &apos;#&#123;Settings.from&#125;&apos; and created_at &lt;= &apos;#&#123;Settings.to&#125;&apos;&quot;).group(&apos;created_at&apos;).map&#123;|sales_check| sales_check.created_at.beginning_of_day &#125;.uniq.compact Tool.generate_csv_by_bonus(@cash_desks ,@day_array) end 3.在routes.rb中声明这个方法（get）4.view页面上 12345&lt;div class=&quot;search-field&quot;&gt; &lt;%= link_to export_orders_path(format: &quot;csv&quot;, params: params), class: &apos;btn btn-success sub_button&apos; do%&gt; &lt;i class=&quot;icon icon-download-alt&quot;&gt;&lt;/i&gt;导出 &lt;% end %&gt;&lt;/div&gt; ps: 123456CSV.generate(:colsep =&gt; &apos;\t&apos;, :rowsep =&gt; &apos;\r\n&apos;) do |csv| csv &lt;&lt; [&quot;登录名称&quot;, &quot;真实姓名&quot;, &quot;组织机构&quot;] users.each do |user| csv &lt;&lt; [user.loginname, user.realname, user.categoriesstr] endend.encode(&apos;gb2312&apos;, :invalid =&gt; :replace, :undef =&gt; :replace, :replace =&gt; &quot;?&quot;)//解决了下载的csv乱码的bug]]></content>
+    <url>%2Fposts%2F2017-07-03-1996200.html</url>
+    <content type="text"><![CDATA[1.在helper中定义一个导出方法 不能定义在model中 send_data方法不可以在model中用 1234567891011121314151617181920212223# -*- encoding : utf-8 -*-def generate_csv_by_bonus(cash_desks ,day_array)---传进来的参数 headers = ['品类', '收款台号']-----标题显示 day_array.each do |day| headers.push(day.strftime("%Y-%m-%d")) end file = CSV.generate do |csv| # 先放 header csv &lt;&lt; headers # 再放 csv 的内容 cash_desks.each do |cash_desk| result = [] result &lt;&lt; cash_desk.category.name result &lt;&lt; cash_desk.name day_array.each do |day| result &lt;&lt; cash_desk.sales_checks.where("created_at &gt;= '#&#123;day.beginning_of_day&#125;' and created_at &lt;= '#&#123;day.end_of_day&#125;'").sum(:award_amount).to_f/100 end csv &lt;&lt; result end end send_data file.encode("gbk", "utf-8"), :type =&gt; 'text/csv; charset=gbk; header=present', :disposition =&gt; "attachment;filename=欧亚卖场&gt;&gt;收银台统计表.csv" end 2.在controller中定义一个export方法 1234567# -*- encoding : utf-8 -*-include ApplicationHelper def export @cash_desks = CashDesk.where("name not like ?" , '%-removed') @day_array = SalesCheck.where("created_at &gt;= '#&#123;Settings.from&#125;' and created_at &lt;= '#&#123;Settings.to&#125;'").group('created_at').map&#123;|sales_check| sales_check.created_at.beginning_of_day &#125;.uniq.compact Tool.generate_csv_by_bonus(@cash_desks ,@day_array) end 3.在routes.rb中声明这个方法（get）4.view页面上 12345&lt;div class="search-field"&gt; &lt;%= link_to export_orders_path(format: "csv", params: params), class: 'btn btn-success sub_button' do%&gt; &lt;i class="icon icon-download-alt"&gt;&lt;/i&gt;导出 &lt;% end %&gt;&lt;/div&gt; ps: 123456CSV.generate(:colsep =&gt; '\t', :rowsep =&gt; '\r\n') do |csv| csv &lt;&lt; ["登录名称", "真实姓名", "组织机构"] users.each do |user| csv &lt;&lt; [user.loginname, user.realname, user.categoriesstr] endend.encode('gb2312', :invalid =&gt; :replace, :undef =&gt; :replace, :replace =&gt; "?")//解决了下载的csv乱码的bug]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[在vue 中 放大缩小图片]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-06-28-1980974.html</url>
     <content type="text"><![CDATA[Vue-preview1.在package.json dependencies里面加上“vue-preview”: “^1.0.5”,2.在main.js里面引用：import VuePreview from ‘vue-preview’Vue.use(VuePreview)3.html:&lt;img class=”preview-img” v-for=”(item, index) in list” :src=”item.src” height=”100” @click=”$preview.open(index, list)”&gt; 注意 ： 图片形式必须为 { src: ‘https://placekitten.com/600/400&#39;, w: 600, h: 400}]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[搭建环境 --mysql安装的坑]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-06-24-1971551.html</url>
     <content type="text"><![CDATA[代码拉下来以后，bundle install 的时候 mysql2死活安装不上要先$ brew install mysql之后才能安装上gemfile中的mysql]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[将脚本运行成独立进程]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[nohup 你要运行的命令 &amp;]]></content>
+      <tags>
+        <tag>bug</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rspec---单元测试]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[配置环境 add to Gemfile: Gemfile:gem ‘rspec-rails’, ‘~&gt; 3.5.2’然后运行：$ bundle exec rails generate rspec:install记得要把生成的.rspec 文件做个修改，删掉 .rspec file:–color NO –warning, –require spec_helper 下面是测试lib文件的一个例子： make sure your have this: config/application.rbconfig.autoload_paths += %W(#{config.root}/lib)test a file in lib folder: 123456789require &apos;rails_helper&apos; # 这句话极度重要. require &apos;html_parser&apos; # it&apos;s not require &apos;lib/html_parser&apos;describe HtmlParser do it &apos;should parse html_content&apos; do puts &apos;hihihi&apos; end end 测试文件示例 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253require &apos;rails_helper&apos;describe OrderDishesLabelsController do render_views before do admin_login request.env[&quot;HTTP_REFERER&quot;] = root_path @order_dishes_label = OrderDishesLabel.create :name =&gt; &quot;多辣&quot; end it &apos;should get index&apos; do get :index response.should be_success response.code.should == &apos;200&apos; end it &apos;should get show&apos; do get :show, :id =&gt; @order_dishes_label.id response.should be_success assigns(:order_dishes_label).name.should == &quot;多辣&quot; end it &apos;should get new&apos; do get :new response.should be_success end it &apos;should post create&apos; do name = &quot;少盐&quot; post :create, &#123; :order_dishes_label =&gt; &#123; :name =&gt; name &#125; &#125; OrderDishesLabel.last.name.should == name end it &apos;should get edit&apos; do get :edit, :id =&gt; @order_dishes_label.id response.should be_success end it &apos;should put update&apos; do new_name = &quot;少糖&quot; put :update, &#123; :id =&gt; @order_dishes_label.id , :order_dishes_label =&gt; &#123; :name =&gt; new_name &#125; &#125; OrderDishesLabel.find(@order_dishes_label.id).name.should == new_name end it &apos;should delete destroy&apos; do size_before_delete = Order_dishes_label.all.size delete :destroy, :id =&gt; @order_dishes_label.id Order_dishes_label.count.should == size_before_delete - 1 endend 测试：bundle exec rspec 文件名]]></content>
+    <url>%2Fposts%2F2017-06-20-1963767.html</url>
+    <content type="text"><![CDATA[配置环境 add to Gemfile:12345678# Gemfile: gem 'rspec-rails', '~&gt; 3.5.2'然后运行：$ bundle exec rails generate rspec:install记得要把生成的.rspec 文件做个修改，删掉# .rspec file:--color # NO --warning, --require spec_helper 下面是测试lib文件的一个例子： make sure your have this: config/application.rbconfig.autoload_paths += %W(#{config.root}/lib)test a file in lib folder: 123456789require 'rails_helper' # 这句话极度重要. require 'html_parser' # it's not require 'lib/html_parser'describe HtmlParser do it 'should parse html_content' do puts 'hihihi' end end 测试文件示例 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253require 'rails_helper'describe OrderDishesLabelsController do render_views before do admin_login request.env["HTTP_REFERER"] = root_path @order_dishes_label = OrderDishesLabel.create :name =&gt; "多辣" end it 'should get index' do get :index response.should be_success response.code.should == '200' end it 'should get show' do get :show, :id =&gt; @order_dishes_label.id response.should be_success assigns(:order_dishes_label).name.should == "多辣" end it 'should get new' do get :new response.should be_success end it 'should post create' do name = "少盐" post :create, &#123; :order_dishes_label =&gt; &#123; :name =&gt; name &#125; &#125; OrderDishesLabel.last.name.should == name end it 'should get edit' do get :edit, :id =&gt; @order_dishes_label.id response.should be_success end it 'should put update' do new_name = "少糖" put :update, &#123; :id =&gt; @order_dishes_label.id , :order_dishes_label =&gt; &#123; :name =&gt; new_name &#125; &#125; OrderDishesLabel.find(@order_dishes_label.id).name.should == new_name end it 'should delete destroy' do size_before_delete = Order_dishes_label.all.size delete :destroy, :id =&gt; @order_dishes_label.id Order_dishes_label.count.should == size_before_delete - 1 endend 测试：bundle exec rspec 文件名]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[程序中的等于判断]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-06-12-program-is-equal-to-the-judgment.html</url>
     <content type="text"><![CDATA[1.sql语句中： =2.ES6的js： ===3.大部分的脚本语言中： ==]]></content>
+      <tags>
+        <tag>base</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js--根据选择不同 页面局部刷新]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA['1').map{|g| [g.name, g.id]}, {:include_blank=>"请选择菜品用料"}, :style => 'width: 200px;') %> $('#dish_materials_attributes_0_good_id（select的id）').change(function(){ id = $(this).val() $.get('/interface/goods/' + id, function(data){ $('#material_unit').text(data.unit) }) })]]></content>
+    <url>%2Fposts%2F2017-06-08-js-depending-on-the-selected-page-partial-refresh.html</url>
+    <content type="text"><![CDATA[12345678910111213141516&lt;div class="detail-tr form-action"&gt; &lt;%= f.select(:good_id, Good.where(:goods_first_category =&gt; '1').map&#123;|g| [g.name, g.id]&#125;, &#123;:include_blank=&gt;"请选择菜品用料"&#125;, :style =&gt; 'width: 200px;') %&gt; &lt;%= f.text_field :amount, placeholder: '请输入菜品用量' %&gt;&lt;p style="display:inline-block" id="material_unit"&gt;&lt;/p&gt; &lt;%= link_to_remove_association('删除', f, &#123; wrapper_class: 'detail-tr' &#125;)%&gt; &lt;%= f.hidden_field :id %&gt;&lt;/div&gt;&lt;script&gt;$('#dish_materials_attributes_0_good_id（select的id）').change(function()&#123; id = $(this).val() $.get('/interface/goods/' + id, function(data)&#123; $('#material_unit').text(data.unit) &#125;)&#125;)&lt;/script&gt;]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[gem --- cocoon]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-05-22-cocoon.html</url>
     <content type="text"><![CDATA[1.Inside your Gemfile add the following: gem “cocoon” 2.Add the following to application.js so it compiles to the asset pipeline: //= require cocoon 3.model文件中添加（一级）accepts_nested_attributes_for :tasks, allow_destroy: true 4.在一级model的controller里面的params里面加上tasks_attributes: [:id, :description, :done, :_destroy(有这个才能删除)]以数组形式存入数据在def new下面加上@dish.materials.build 5.form 文件中添加 1234567891011&lt;div class=&quot;form-action&quot;&gt; &lt;%= link_to_add_association &apos;新增用料&apos;, f, :materials, class: &apos;btn btn-success&apos;, &apos;data-association-insertion-node&apos; =&gt; &apos;.materials&apos;, &apos;data-association-insertion-method&apos; =&gt; &apos;append&apos; %&gt; &lt;/div&gt; &lt;div class=&quot;materials&quot;&gt; &lt;%= f.fields_for :materials do |m| %&gt; &lt;%= render &apos;material_fields&apos;, f: m %&gt; &lt;% end %&gt; &lt;/div&gt; 12345678&lt;div class=&quot;detail-tr form-action&quot;&gt; &lt;%= f.hidden_field :id %&gt; &lt;%= f.select(:good_id, Good.where(:goods_first_category =&gt; &apos;1&apos;).map&#123;|g| [g.name, g.id]&#125;, &#123;:include_blank=&gt;&quot;请选择菜品用料&quot;&#125;, :style =&gt; &apos;width: 200px;&apos;) %&gt; &lt;%= f.text_field :amount, placeholder: &apos;请输入菜品用量&apos; %&gt;g &lt;%= link_to_remove_association(&apos;删除&apos;, f, &#123; wrapper_class: &apos;detail-tr&apos; &#125;)%&gt; #只有model中添加了那个destroy 才能用 &lt;/div&gt; ps: 1.要注意各个地方的名称对应 2.要给多个地方联动取值的时候 用tag+mark 或者 clas+mark ，不要用id+mark（这样只能取到第一个值）]]></content>
+      <tags>
+        <tag>ruby gem</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[select 2]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-05-19-select-2.html</url>
     <content type="text"><![CDATA[1.在view表单中添加下拉单， :multiple =&gt; true, 选择一个数组 123456&lt;div class=&quot;control-group&quot;&gt; &lt;%= f.label t(&apos;global.user&apos;), :class =&gt; &apos;control&apos; %&gt; &lt;div class=&quot;controls&quot;&gt; &lt;%= select_tag(:user_id, options_from_collection_for_select(User.all, &quot;id&quot;, &quot;nickname&quot;), :multiple=&gt;true)%&gt; &lt;/div&gt; &lt;/div&gt; 2.在对应controller 中添加方法： (transaction ：Rails 中的事务处理， 事务用来确保多条SQL语句要么全部执行成功、要么不执行。事务可以帮助开发者保证应用中的数据一致性。常见的使用事务的场景是银行转账，钱从一个账户转移到另外一个账户。如果中间的某一步出错，那么整个过程应该重置。) 123456789101112def create params[:user_id].each do |id| Message.transaction do @message = Message.create( content: params[:message][:content], title: params[:message][:title], user_id: id ) end end redirect_to messages_pathend 3.使用select2gem “select2-rails”, ‘3.5.2’ #gem中添加//= require select2 # application.js中添加 *= require select2 # application.css 中添加4.在view 表中页面中 添加 代码： 123$( &quot;#user_id&quot; ).select2(&#123; theme: &quot;bootstrap&quot;&#125;); ps: 在新建页面上显示placeholder编辑页面显示选中的值true, :style=>"min-width: 200px", data: {placeholder: "例如:厨师长"}) %>]]></content>
+      <tags>
+        <tag>ruby html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[capistrano---自动化部署]]></title>
@@ -984,18 +1101,27 @@
   </entry>
   <entry>
     <title><![CDATA[阿里云ssl证书配置的坑]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-05-15-1839693.html</url>
     <content type="text"><![CDATA[正常来说只要按照阿里云给的说明配置就可以了 但是会遇到很多神奇的坑如下：1.Nginx配置的时候要在服务器上查询 使用的Nginx文件位置 which nginx2.遇到ssl不识别的问题就要重新编译 123$./configure –prefix=/usr/local/nginx/ –with-http_ssl_module$make$make install 注意：1）在编译之前需要将Nginx先停掉 如果Nginx文件已经配置完无法停掉时，就将ssl相关代码注释掉之后再编译 2）编译需要有源代码的情况下 如果没有就要去官网上下载一个 用命令下载并解压下下来的tar.gz文件 12$wget 网址$tar zxvf 文件名 3.端口必须用443]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[给已有的h5项目导入vuex]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-05-12-1822532.html</url>
     <content type="text"><![CDATA[1.npm install vuex –save2.将App.vue 更名为 main.vue3.将main.js中引用文件改成main.vue4.新建views 和 vuex 文件夹。并将vuex中文件导入5.测试 在main.vue 中引用 然后用mounted函数console.info 输出]]></content>
+      <tags>
+        <tag>vuex</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[vue.js h5项目搭建]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-05-12-1821610.html</url>
     <content type="text"><![CDATA[1.在远程（coding.net/github）上面先建立一个项目2.安装cli npm install -g vue-cli3.建立vue.js项目 vue init webpack 文件名4.npm install5.git init git add . git commit -m”init commit” git remote add origin 远程网址 git pull origin master git push -u origin master6.添加Gemfile 123source &apos;https://ruby.taobao.org/&apos;gem &apos;capistrano&apos;, &apos;2.12.0&apos;gem &apos;capistrano-rbenv&apos;, &apos;1.0.1&apos; 然后bundle7.添加deploy文件 capify .7.添加deploy.rb里面脚本内容8.cap deploy:setup9.cap deploy10.到远程配置Nginx 进到/etc/nginx-1.11.10/conf/nginx.conf 里面 更改server下面的listen端口号 更改server下面的location的root 本地运行vue项目1.npm install2.npm run dev]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[dydm-shsd-wvle-rlbh]]></title>
@@ -1004,13 +1130,19 @@
   </entry>
   <entry>
     <title><![CDATA[在ios中调用web接口]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithWebRoute:@”interface/categories”]]]; NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil]; NSError *error; responseHash = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&amp;error]; ps:stringWithWebRoute 是一个自定义的方法 +(NSString)stringWithWebRoute:(NSString)route { return [NSString stringWithRoute:route domainName:WEB_SERVER andId:YES]; } 后面接的是web接口的地址]]></content>
+    <url>%2Fposts%2F2017-04-06-calls-the-web-interface-in-ios.html</url>
+    <content type="text"><![CDATA[NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithWebRoute:@&quot;interface/categories&quot;]]]; NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil]; NSError *error; responseHash = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&amp;error]; ps:stringWithWebRoute 是一个自定义的方法 +(NSString)stringWithWebRoute:(NSString)route { return [NSString stringWithRoute:route domainName:WEB_SERVER andId:YES]; } 后面接的是web接口的地址]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ios navigation declare]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-04-06-ios-navigation-declare.html</url>
     <content type="text"><![CDATA[self.navigation = (CustomNavigationController*) self.navigationController; 查看navigation是否为空po self.navigation ps:一般在ios webview中没有特殊报错，但是又无法实现功能时 经常是navigation为空，在(void)viewDidLoad中声明一下就好了]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[markdown简明教程]]></title>
@@ -1022,188 +1154,280 @@
   </entry>
   <entry>
     <title><![CDATA[OC-页面跳转]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-03-09-1526311.html</url>
     <content type="text"><![CDATA[1.新建一个controller，在目标controller.h文件下 @property (nonatomic, strong) NSString * currentRoute; 2.在源头文件下webview下1）if ([currentRoute containsString:@”slider_show”]) { SliderDetailViewController * sliderShow = [[SliderDetailViewController alloc]init]; sliderShow.currentRoute = currentRoute; 2）interface之后添加 @property(nonatomic,strong)UIWebView *webView; 3）上方添加#import “HomeViewController.h”—想要跳转到的页面 ps:.m文件是显示的页面webview .h是封装各种方法使用的 vue.js 如果是与h5交互的页面跳转 要在main.js中添加 12345678910111213141516router.beforeEach((to, from, next) =&gt; &#123; console.info(to) console.info(from) console.info(&apos;跳转了&apos;) let link if (to.query.client === &apos;ios&apos;) &#123; link = true &#125; else if (from.query.client === &apos;ios&apos;)&#123; console.info(&apos;full_path ===&apos; + to.fullPath) window.location.href = &apos;http://link_to&apos; + to.fullPath link= false &#125; else &#123; link = true &#125; next(link)&#125;) 要不然会只在一个页面进行h5页面之间的跳转 不会进行webview之间的跳转rails 则不需要 可以直接进行跳转]]></content>
+      <tags>
+        <tag>oc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[远程部署代码]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-03-08-1522514.html</url>
     <content type="text"><![CDATA[web：1.登录到远程 ssh root@www.siwei.tech -p 358882.进到 /opt/app/pin_tuan_bao_web/current 3.git pull 将代码拉下来 如果有migration就 bundle exec rake db:migrate 如果有js或者css就 bundle exec rake assets:precompile RAILS_ENV=production 4.重启远程服务器： bundle exec thin restart -C config/thin.yml h5：首次就是先bundle在本地bundle exec cap deploy]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[程序基础]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-03-04-1505854.html</url>
     <content type="text"><![CDATA[对象：数据方法：对象的行为参数：执行方法时必须的条件]]></content>
+      <tags>
+        <tag>base</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[将按钮变成图片]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[&lt;input id=&quot;file-input&quot; type=&quot;file&quot;/&gt; With styling: .image-upload &gt; input{ display: none;}]]></content>
+    <url>%2Fposts%2F2017-03-02-the-button-into-a-picture.html</url>
+    <content type="text"><![CDATA[1234567&lt;div class="image-upload"&gt; &lt;label for="file-input"&gt; &lt;img src="placeholder.jpg"/&gt; &lt;/label&gt; &lt;input id="file-input" type="file"/&gt;&lt;/div&gt; With styling: 1234.image-upload &gt; input&#123; display: none;&#125;]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails--model删除]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-25-1465367.html</url>
     <content type="text"><![CDATA[destroy: 会删掉 关联表的 数据（通过调用关联表的方法） delete : 不会。 只会删掉当前对象对应的表。 例子： 老王去世了。 老王有20张银行卡。 如果： 我们是上帝。 我们就可以这样写： laowang.destroy (老王的银行卡也会被删掉） laowang.delete （只删掉老王， 保留银行卡）]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[form]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-25-1465322.html</url>
     <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[2017/2/22--做从h5页面往后台传数据有感]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-22-1450430.html</url>
     <content type="text"><![CDATA[之前一直做接口，都是将后台的数据集成到前端页面，好容易熟悉了。。。。今天就要做从前端向后台传送数据（用户预约，后台显示数据）混乱的一天，心得如下 如果想像后台传id但不是网址后方的那个而是另一个的话要在h5页面的script标签中data里面，加上你要传的id名称。初始值 赋为0，类似于index。 然后在created里面加上this.xxx = response.body.xxx(后面的这个xxx为你所在的这个界面接口中的这个变量的名称) 之后在method里定义的方法中里面的params加上 xxx: this.xxx 最后在后台的你要执行的操作的接口后面加上这个参数 或者 直接在接口的那个action中添加用case_id找到相对应的case，然后找到对应的设计师。 再将参数写在要执行的接口后面]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails 加断点&查看log]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-21-1437766.html</url>
     <content type="text"><![CDATA[查看log：在terminal中$ tail -f/名称log 加断点1.在想要加断点的位置上面加上 binding.pry 2.执行操作 3.在rails s中可以查看断点执行情况，想要查看的参数输入之后回车就可以了 ps: 1.!!!—–跳出断点测试 2.!!@—–跳过此断点继续执行 3.测试要从里到外：先测试参数，再测试方法]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails N+1]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-21-1437683.html</url>
     <content type="text"><![CDATA[解决方案：使用 includes， 在 where, 或者 find 等查询之前。 例如： @fans = Fan.joins(:sales_checks) .includes([:sales_checks =&gt; [{:wins =&gt; :award}, :cash_desk]])如果， fan : sales_checks = 1 : n, sales_checks : wins = 1 : n , sales_checks : cash_desk = n : 1 wins : award = n : 1 那么，我们在查询fan的时候，要带上 sales_checks, 那么就 Fan.includes(:sales_checks) 也可以写成： Fan.includes( [:sales_checks]) 如果在查询时，要带上 wins, 那么就： Fan.includes([:sales_checks =&gt; [:wins]]) 如果再带上 cash_desk的话, 那么就 Fan.includes([:sales_checks =&gt; [:wins, :cash_desk]) (注意这里 cash_desk是单数， 因为一个 cash_desk对应多个 sales_checks ) 如果要带上 wins的 award的话， 那么就是： Fan.includes([:sales_checks =&gt; [{:wins =&gt; :award}]]) 推荐大家使用bullet 这个gem .特别好用.]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails 初始化数据&代码中有中文]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-21-rails-initialization-data.html</url>
     <content type="text"><![CDATA[1.在script文件夹下建立init_xxx.rb文件2.在terminal中运行：ruby script/init_xxx.rb 在文件顶端加上-- encoding : utf-8 --]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[服务器登录及退出]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-21-server-log-and-exits.html</url>
     <content type="text"><![CDATA[服务器登录rootsiwei.tech-p 35888Sillyboy12$ ssh root@www.siwei.tech -p 35888 退出：ctrl+d]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[controller&model文件头尾固定代码&migration文件代码样式]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[12 1.controller 无namespace的：class XxxsController &lt; ApplicationController 有namespace的：class Xxx::XxxsController &lt; ApplicationController namespace名称::controller名称 2.model class Xxx &lt; ActiveRecord::Base end 3.migrate文件中添加 t.字符类型 :字段名,comment: ‘备注’ t.timestamps]]></content>
+    <url>%2Fposts%2F2017-02-20-controller.html</url>
+    <content type="text"><![CDATA[1.controller 无namespace的：class XxxsController &lt; ApplicationController 有namespace的：class Xxx::XxxsController &lt; ApplicationController namespace名称::controller名称 2.model class Xxx &lt; ActiveRecord::Base end 3.migrate文件中添加 t.字符类型 :字段名,comment: ‘备注’ t.timestamps]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails--路由]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-19-rails-routing.html</url>
     <content type="text"><![CDATA[1.restful get 查询 post 新建 put 修改 delete 删除 2.root path root to: ‘xxx/xxx’(文件路径) 3.match路径 match ‘xxx/xxx’(http路径名), to: ‘xxx#xxx’(文件路径), via: ‘get’ 4.接口 render json: { key: value, …… } 5.查看 bunle exec rake routes 过滤想要的 undle exec rake routes | grep “xxx”]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[sass与css]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[在要改全局css文件时要用$ sass –watch static/sass/pin_tuan_bao.scss:static/css/pin_tuan_bao.css监听文件，然后在sass文件中更改，就会自动改写到css里]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[注释]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[H5：(HTML) (CSS) /* */ 单行：//]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[H5 页面跳转]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[2.在标签中写一个click方法 eg：@click=”show_more_lists 在下面的标签下的method方法下写：name里面写要跳转到的页面名称，在main.js里面可以找到 eg: show_more_lists () { this.$router.push({name: 'cases_list', params: {id: advertisement.id}}) },]]></content>
+    <url>%2Fposts%2F2017-02-15-sass-and-css.html</url>
+    <content type="text"><![CDATA[在要改全局css文件时要用$ sass –watch static/sass/pin_tuan_bao.scss:static/css/pin_tuan_bao.css监听文件，然后在sass文件中更改，就会自动改写到css里 注释：(HTML) (CSS) /* */ 单行：//]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[v-for&v-html&v-model]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.template标签下 123&lt;li v-for=&quot;item in items&quot;&gt; &#123;&#123; item.message &#125;&#125;&lt;/li&gt; 2.script标签下,声明数据，数 123456data: &#123; items: [ &#123;message: &apos;Foo&apos; &#125;, &#123;message: &apos;Bar&apos; &#125; ] &#125; 有索引的： 123&lt;li v-for=&quot;(item, index) in items&quot;&gt; &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;&lt;/li&gt; 1234567data: &#123; parentMessage: &apos;Parent&apos;, items: [ &#123; message: &apos;Foo&apos; &#125;, &#123; message: &apos;Bar&apos; &#125; ] &#125; ps v-for文档 v-model:双向绑定，在输入框输入文字并将值返回后台的时候用v-model文档 v-html：将HTML原始代码转化为页面]]></content>
+    <url>%2Fposts%2F2017-02-14-1416386.html</url>
+    <content type="text"><![CDATA[1.template标签下 123&lt;li v-for=&quot;item in items&quot;&gt; &#123;&#123; item.message &#125;&#125;&lt;/li&gt; 2.script标签下,声明数据，数 123456data: &#123; items: [ &#123;message: 'Foo' &#125;, &#123;message: 'Bar' &#125; ] &#125; 有索引的： 123&lt;li v-for=&quot;(item, index) in items&quot;&gt; &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;&lt;/li&gt; 1234567data: &#123; parentMessage: 'Parent', items: [ &#123; message: 'Foo' &#125;, &#123; message: 'Bar' &#125; ] &#125; ps v-for文档 v-model:双向绑定，在输入框输入文字并将值返回后台的时候用v-model文档 v-html：将HTML原始代码转化为页面]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails-API]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[后台：1.添加app/controllers/interface/xxx_controller.rb文件，写上需要的接口（json） 注意事项： 1.index的接口： 模式：循环用map 类别区分：用where 2.show的接口： 模式：不要循环 区分类别：用if/else语句 3.对于没有数据的栏位要用rescue eg：yezhu: (@case.mobile_user.name rescue ‘’) 或者用SQL workbench添加数据。 4. 如果接口下方有需要用的关联的表，那么在上面的表后面要加上includes（：xxx） 用逗号隔开，如有多个也要都写上ps：添加默认值：在需要的栏位后面加上 【 || 默认值 】 如果默认值是字符串则需要用””括起来！ 前端向后台传数据的时候，写在接口中的find后面需要insert的参数2.在config/routes.rb中添加路径 如 123456789101112131415namespace :interface do resources :homes do collection do get :gong_dis end endend``` 3.查看config/index.js dev下面的target后面的服务器名有没有更换前台（对应的页面）： 1.&lt;sript&gt;标签下的created函数里面加上接口文件路径以及需要的log eg: 斜体部分为索要替换的路径部分 且需要id的时候要把id作为参数放在后面，不同路径形式不一 created () { this.$http.get(‘api/interface/homes’).then((response) =&gt; { console.info(response.body) this.response = response.body }, (error) =&gt; { console.error(error) }); }, 1234(&apos;api/interface/cases/she_ji_shi_info&apos; ,&#123;params:&#123;id: this.id&#125;&#125;)(&apos;api/interface/cases/&apos; + this.id) 2.在data函数下面定义返回的变量名，在里面添加上所需要的数组 eg:response为变量名。 data () { return { response: { sliders: [], categories: [], fuwus: [], zhibos: [], guanggaotu: [], }, } index: 0, }, 注意： show页面data中要添加寻找id的语句(写在return里面定义的变量外面---index的下面,要写在定义的变量上面) eg： $ id: this.$router.app.$route.params.id, 3.在&lt;template&gt;标签下解析要显示的数据 response.item(要显示的栏位名) ps: 数组解析用v-for 几种解析模式： 1.字段 {{ xxx.xxx}} 2.图片 &lt;img :src=&quot;xxx.xxx&quot; style=&quot;height:100%; width:100%;&quot;&gt;&lt;/img&gt;]]></content>
+    <url>%2Fposts%2F2017-02-14-api.html</url>
+    <content type="text"><![CDATA[后台：1.添加app/controllers/interface/xxx_controller.rb文件，写上需要的接口（json） 注意事项： 1.index的接口： 模式：循环用map 类别区分：用where 2.show的接口： 模式：不要循环 区分类别：用if/else语句 3.对于没有数据的栏位要用rescue eg：yezhu: (@case.mobile_user.name rescue &apos;&apos;) 或者用SQL workbench添加数据。 4. 如果接口下方有需要用的关联的表，那么在上面的表后面要加上includes（：xxx） 用逗号隔开，如有多个也要都写上ps：添加默认值：在需要的栏位后面加上 【 || 默认值 】 如果默认值是字符串则需要用””括起来！ 前端向后台传数据的时候，写在接口中的find后面需要insert的参数2.在config/routes.rb中添加路径 如 123456789101112131415namespace :interface do resources :homes do collection do get :gong_dis end endend``` 3.查看config/index.js dev下面的target后面的服务器名有没有更换前台（对应的页面）： 1.&lt;sript&gt;标签下的created函数里面加上接口文件路径以及需要的log eg: 斜体部分为索要替换的路径部分 且需要id的时候要把id作为参数放在后面，不同路径形式不一 created () { this.$http.get(‘api/interface/homes’).then((response) =&gt; { console.info(response.body) this.response = response.body }, (error) =&gt; { console.error(error) }); }, 1234(&apos;api/interface/cases/she_ji_shi_info&apos; ,&#123;params:&#123;id: this.id&#125;&#125;)(&apos;api/interface/cases/&apos; + this.id) 2.在data函数下面定义返回的变量名，在里面添加上所需要的数组 eg:response为变量名。 data () { return { response: { sliders: [], categories: [], fuwus: [], zhibos: [], guanggaotu: [], }, } index: 0, }, 注意： show页面data中要添加寻找id的语句(写在return里面定义的变量外面---index的下面,要写在定义的变量上面) eg： $ id: this.$router.app.$route.params.id, 3.在&lt;template&gt;标签下解析要显示的数据 response.item(要显示的栏位名) ps: 数组解析用v-for 几种解析模式： 1.字段 {{ xxx.xxx}} 2.图片 &lt;img :src=&quot;xxx.xxx&quot; style=&quot;height:100%; width:100%;&quot;&gt;&lt;/img&gt;]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[竖形表格]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-14-vertical-square-table.html</url>
     <content type="text"><![CDATA[姓名: 头像: 手机: 口号: 学号 111 222 333 姓名 leo may ken 班级 111 222 333]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[HTML实体符号]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-12-html.html</url>
     <content type="text"><![CDATA[&nbsp; 空格&raquo;－－－－－ 》]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js 前端组件style调用]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-09-h5-front-end-component-style-called.html</url>
     <content type="text"><![CDATA[1.在对应的component文件中style后面加上需要的style名称eg:将:style=”style” —–&gt; :style=”[style,tab_item_style]” 在下面的props里面加上style名称eg: tab_item_style: [String, Object]2.在需要调用的view页面上标签后面加上styleeg: :tab_item_style=tab_item_style 在下面的sript／data／return里面填上需要的参数eg: tab_item_style: { fontSize: ‘20px’, fontWeight: ‘800’ } ps：要改swiper-item大小要通过height和sliderHeight这两个参数来改]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[添加多张图片]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-06-add-multiple-pictures.html</url>
     <content type="text"><![CDATA[1.rails g uploader avatar avatar_uploader.rb123456789将 include carrierwave::minimagick 前面的＃去掉在store_dir end 下加process resize_to_fit:[800,800]version :thumb doprocess resize_to_fit:[200,200]endversion :medium doprocess resize_to_fit:[400,400]end 2.建立photo.rb model文件:$ rails g model xxx xxxx:xxx avatar:string自然建立migration文件 3.在需要添加图片的model文件中加上 12has_many :photosaccepts_nested_attributes_for :photos photo.rb12mount_uploader :avatar, AvatarUploaderbelongs_to :case 4.在需要添加图片的controller文件中加上def new下面加@photo = @xxx.photos.build def create中if @xxx.save下面加 12345if params[:photos] != nilparams[:photos][&apos;avatar&apos;].each do |a| @photo = @xxx.photos.create(:avatar =&gt; a)endend def show 下面加 123@photos = @xxx.photos.all``` 在def update变成 def update if params[:photos] != nil @case.photos.destroy_all #将原来的图片删掉 [:photos][‘avatar’].each do |a| @photo = @case.photos.create(:avatar =&gt; a) end @case.update(case_params) redirect_to cases_path elsif @case.update(case_params) redirect_to cases_path else render :edit endend 125.在new页面添加 &lt;%= f.label :avatar %&gt;&lt;%= f.file_field :avatar, :multiple =&gt; true,name:”photos[avatar][]” %&gt; 1在show页面添加 @xxx.photos.each do |photo| %> 暂无图片 ``` ps：一个xxx对应多个photo 一个photo对应一个avatar 这种时候要显示avatar就需要对于@xxx.photos这个数组进行遍历来实现]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails-容易错的地方]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-02-04-1383293.html</url>
     <content type="text"><![CDATA[1.关键字不可以做变量名！！！ 会报语法错误 eg:case collection 2.在model文件相关联的时候 如果关联到同一张表但是用不同的外键时要在后面标明 eg: belongs_to :she_ji_shi, :class_name =&gt; SheJiShi, :foreign_key =&gt; ‘she_ji_shi_id’ 3.除了rails以外其余的语言方法名之后都要加（）4.||= 默认值 rescue 是抛出异常时给赋的值]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[css 基本样式&h5程序运行]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-01-24-css.html</url>
     <content type="text"><![CDATA[1.width/height只有在display: inline-block;下才生效2.按钮变成椭圆形：border-radius:3.将图片放在左边：position: absolute; left: 80px;4.设置整个页面背景： 只有将最外侧标签写成body，height才会生效5.改变表格边的样式： Value Description void The outside borders are not shown above The top outside border is shown below The bottom outside border is shown hsides The top and bottom outside borders are shown vsides The left and right outside borders are shown lhs The left outside border is shown rhs The right outside border is shown box The outside borders are shown on all four sides border The outside borders are shown on all four sides 6.改变字体： 值 描述normal 默认值。浏览器显示一个标准的字体样式。italic 浏览器会显示一个斜体的字体样式。oblique 浏览器会显示一个倾斜的字体样式。inherit 规定应该从父元素继承字体样式 改变字体为苹方：font-family: PingFangSC-Regular, sans-serif; 7.字体加粗：关键字 100 ~ 900 为字体指定了 9 级加粗度。如果一个字体内置了这些加粗级别，那么这些数字就直接映射到预 定义的级别，100 对应最细的字体变形，900 对应最粗的字体变形。数字 400 等价于 normal，而 700 等价于 bold。 font-weight:900; 8.将模块放在边侧，可用float，调整位置用margin-left/margin-right9.padding／margin 顺序为上右下左,中间不用，隔开10.position:relative 时，如果top:－50% 不生效就用px来定位 或者给父类加上height11.设置背景透明度：opacity:x(0-1) eg: 0.812.添加背景图片： background-image：url() ps:运行h5程序 source ~/.bash_profile npm run dev]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[clone下来的代码配置运行]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-01-22-1345243.html</url>
     <content type="text"><![CDATA[1.$ cd config $ cp log4r.yml.example log4r.yml $ cp settings.yml.example settings.yml $ cp database.yml.example database.yml 2.在项目根目录中mkdir log 3.vim database.yml，把password写进去，将socket那一行删掉。 4.$ bundle exec rake db:create 5.用script文件下的init文件来初始化数据库 eg: bundle exec ruby script/init_user.rb 6.$ bundle exec rake db:migrate cd config –&gt; touch secrets.yml填入 development:secret_key_base: 52eeb9ef4aebcf526c2415a6f3c0d579c7df7de12099a89a8ed834c840b348d999dec774a11a558d89f463b6bcf810d6e8c42849530e8f6f931ed0a5e66b57a4 test: secret_key_base: 3d768887879e8a78b39213eb90dfd271ac405d369d1de16945d3747a444ab0566842115abfd8b37062136c2a1a77f196aa255a16e47354fc101bac31d65acb6c Do not keep production secrets in the repository,instead read values from the environment.production: secret_key_base: 680911118945d25bfffe2b69ecb5d332fe9f5494ccae9f06cdc2cc74434babf5f5389d64fe1d2aad4bf9f71534c47f5f5a257affaa49af9fdea1d63314ff1993 ps -ef | grep rails 查看rails进程ps -ef | grep dev 查看前端进程]]></content>
+      <tags>
+        <tag>base</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[terminal&vim 基本命令]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-01-20-linux-commands.html</url>
     <content type="text"><![CDATA[terminal:返回上级目录： cd.. 找到对应的rails运行程序：bundle execrm -rf 文件名 强制删除一个文件cd 切换目录（Change Directory）cd ~ 会把家目录设成当前目录ls 这指令会列出当前资料夹里面的档案ls -a 列出专案中所有档案pwd 查看你当前所在文件路径 查看硬盘状态df -kh 在当前目录下，从旧到新的列出所有的文件： (注意参数： trh)$ ls -altrh 查看当前的系统（CPU, 内存，进程）状态。$ top 显示出系统中的所有进程，并且以消耗的内存来从低到高的排序。$ ps aux –sort rss 查看当前服务器的所有分区，并且以用户$ df -kh 查看当前文件夹的大小$ du . -kh 查看文件夹大小 查看进程：ps -ef | grep rails 终止某个进程。 例如： 某个进程的id是3366$ kill -9 3366 查询：grep ‘user-select’ src -r grep ‘user-select’ src -r -n —-显示行数 grep login src -R –include=*vue -n —-查找所有.vue文件中有的 查看某个文件的尾部。 例如：$ tail /var/log/system.log默认显示文件的最后10行。可以跟踪显示某个文件的尾部：$ tail -f /var/log/system.log可以指定显示该文件的尾部100行：$ tail -n 100 /var/log/system.log最常见的用法：跟grep 共同使用, 例如，实时跟踪显示某个文件，只过滤出内容中带有ERROR：$ tail -f /var/log/system.log | grep ERROR－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ vim:在vim中打开文件列表： ,+t在vim中切换分页：ctrl＋w+w切换terminal窗口：shiift+command+{ ／ }刷新文件树：shift+r上下分割当前打开的文件:Ctrl+W s让所有的屏都有一样的高度:Ctrl+W =增加高度:Ctrl+W +减少高度:Ctrl+W -替换文本：选中之后shift+; s/ 被替换的/要替换的/(g)–全局在最后加上某个： 全选 –》 ： –》s/$/你要加的东西在最前面加上某个： 全选 –》： –》s//你要加的东西自动换行：set wrap]]></content>
+      <tags>
+        <tag>system</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mysql基础]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-01-16-mysql.html</url>
     <content type="text"><![CDATA[数据库命令后要加;数据库对大小写不敏感退出mysql：exit第一部分：库 初始进入：mysql -u root如果有密码要用：mysql -u root -p设置密码：mysqladmin -u root password xxx 进入：mysql -u root -p 输入密码创建数据库：create database xxx default charset utf8 collate utf8_general_ci;查看数据库：show databases; 查看数据库编码格式：show variables like ‘character%’;修改数据库编码：默认创建的数据库默认不支持中文字符，如果我们需要它支持中文字符，则将它的编码设置为utf8格式. mysql&gt; ALTER DATABASE testDB CHARACTER SET UTF8; 使用数据库：use xxx;查看当前使用数据库：select database();删除数据库：drop database xxx; 第二部分：表创建表 ：create table 表名 (字段名1 数据类型, 字段名2 数据类型,。。。)；如果要设置主键或非空，则在数据类型后面加上 AUTO_INCREMENT（让主键值自动增长）primary key(主键)要搭配在一起用！或 not null主键：not null + uniquevarchar型要规定长度。ps：利用已有数据创建新表： mysql&gt; create table newTable select * from xxx; 显示表：show tables;删除表：drop table xxx;查看表结构：desc xxx;在表中添加列：alter table xxx add 字段名 字符类型; 修改列：alter table xxx modify 字段名 字符类型; alter table 表名 change 原字段名 新字段名 字段类型;–修改表列名 删除列：alter table xxx drop column xxx－; 修改是否可为空： ALTER TABLE MODIFY 数据类型 &lt;NULL ‘OR’ NOT NULL&gt;对表重命名：rename table xxx to NEW_xxx; 增添数据：insert into 表名 VALUES (default（id）, ‘xxx’,。。。); 多个：insert into 表名 VALUES (default（id）, ‘xxx’,。。。),(null（id）, ‘xxx’,。。。),…;更新数据：update table_name set 列名=’xxxx’,列名=’xxxx’,… where id=xx(或者某个条件);删除数据：delete from table_name where id = xx(或者某个条件); 查询：查询有多少个：select count(*) from xxx where (条件);查询所有：select * from xxx;查询某一列：select 列名 from 表名;查询包含某个字符的信息： select */列名 from 表名 where 列名 like ‘%xxx%’;多个条件用 and/or去重复查询：select distinct 字段名 from 表名；对查询结果排序：select 字段1，字段2…from 表名 where …. order by 属性名 [asc|desc] 多表联合查询：1、内连接：将两个表中存在连结关系的字段符合连接条件的记录形成记录集Select A.name,B.name from A inner join B on A.id=B.id和Select A.name,B.name from A,B where A.id=B.id结果是一样的（内连接的inner关键字可省略）；2、外连接：分为左外连接和右外连接左连接A、B表结果包括A的全部记录和符合条件的B的记录。右联结A、B表的结果和左联结B、A的结果是一样的，也就是说：Select A.name,B.name from A Left Join B on A.id=B.id和Select A.name,B.name from B Right Join A on B.id-A.id执行后的结果是一样的。3、全联结4、无联结5、三表联结查询select username,psw,gname,tel from (t1 left join t2 on t1.t1_id=t2.t1_id) left join t3 on t1.t1_id=t3.t1_id6、终极的三表联结查询items：商品表，item_visit_stats：商品访问表，item_trade_stats：商品销售表SELECT i.num_iid, i.title, i.price, SUM(iv.user_visits) AS uv,it.buyer_num,it.item_num,it.item_num*i.price AS turnoverFROM (items AS i RIGHT JOIN item_visit_stats AS iv ON i.num_iid=iv.num_iid)LEFT JOIN (SELECT num_iid,SUM(buyer_num) AS buyer_num,SUM(item_num) AS item_num FROM item_trade_statsWHERE seller_nick=”XXXX” AND business_day BETWEEN ‘2010-08-14’ AND ‘2010-08-15’ GROUP BY num_iid)AS it ON it.num_iid=iv.num_iidWHERE i.nick=”XXXX” AND iv.business_day BETWEEN ‘2010-08-14’ AND ‘2010-08-15’GROUP BY i.num_iid ORDER BY uv DESC 建立表之间的关系（添加外键）：在建立之初添加外键： (CONSTRAINT 外键名—给外键起名，可省略) FOREIGN KEY (主表作为外键列名) REFERENCES 从表名(从表列名); (上面要建立对应的列！！！)建立好表之后添加外键： ALTER TABLE主表名 ADD CONSTRAINT 外键名 FOREIGN KEY（主表作为外键的列名）REFERENCES 从表名（从表列名);解除关联（删除外键）：ALTER TABLE 表名 DROP FOREIGN KEY 外键名;查看已有的外键：use information_schema;SELECT * FROM information_schema.TABLE_CONSTRAINTSWHERE information_schema.TABLE_CONSTRAINTS.CONSTRAINT_TYPE = ‘FOREIGN KEY’AND information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA = ‘要查看的数据库名’AND information_schema.TABLE_CONSTRAINTS.TABLE_NAME = ‘要查看的表名’; 索引：创建索引：CREATE INDEX 索引名 ON 表名(列名[(length)]…);修改表时添加索引：ALTER TABLE 表名 ADD INDEX [索引名] (列名[(length)]…);创建表时添加索引：INDEX [索引名] (列名[(length)]…);删除索引：DROP INDEX 索引名 ON 表名禁用索引：ALTER TABLE 表名 DISABLE KEYS;打开索引：ALTER TABLE 表名 ENABLE KEYS; ps:CREATE DATABASE - 创建新数据库ALTER DATABASE - 修改数据库CREATE TABLE - 创建新表ALTER TABLE - 变更（改变）数据库表DROP TABLE - 删除表CREATE INDEX - 创建索引（搜索键）DROP INDEX - 删除索引INNER JOIN: 如果表中有至少一个匹配，则返回行 (把两个表中都存在id的行拼成一行（即内联）)LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行 (显示左表T1中的所有行，并把右表T2中符合条件加到左表T1中,右表T2中不符合条件，就不用加入结果表中，并 且NULL表示)RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行 (显示右表T2中的所有行，并把左表T中符合条件加到右表T中,左表T1中不符合条件，就不用加入结果表中，并 且NULL表示)FULL JOIN: 只要其中一个表中存在匹配，就返回行 (显示左表T1、右表T2两边中的所有行，即把左联结果表 + 右联结果表组合在一起，然后过滤掉重复的。)]]></content>
+      <tags>
+        <tag>sql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[按钮图标添加]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-01-11-1297027.html</url>
     <content type="text"><![CDATA[1.安装font-awesome-rails Gemfile1gem "font-awesome-rails" bundle install app/assets/stylesheets/application.scss1@import "font-awesome"; 重开server 2.将需要换上按钮的地方。写上查找到的图标代码eg：将helper中的render_job_status(job) app/helpers/jobs_helper.rb1234567def render_job_status(job) if job.is_hidden content_tag(:span, "", :class =&gt; "fa fa-lock") else content_tag(:span, "", :class =&gt; "fa fa-globe") endend]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[rails 5.0、]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <title><![CDATA[rails 5.0]]></title>
+    <url>%2Fposts%2F2017-01-05-1275873.html</url>
     <content type="text"><![CDATA[1.要想将现有的app rails版本升到5.0，要现将版本升到4.2，确认没问题之后在往上升。从4.2到5.0的时候要在app/models下新增一个文件 application_record.rb app/models/application_record.rb123Class ApplicationRecord &lt; ActiveRecord: :Baseself.abstract_class = trueend 2.APIrails new my_api –api]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[view-partial/helper/scope]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2017-01-02-partcialhelperscope.html</url>
     <content type="text"><![CDATA[PartialStep 1: 产生一个要调用的partialeg： app/views/groups/_form.html.erb touch app/views/groups/_form.html.erb 填入以下内容： app/views/groups/_form.html.erb123456789101112131415161718&lt;%= form_for @group do |f| -%&gt;&lt;% if @group.errors.any? %&gt;&lt;ul&gt; &lt;% @group.errors.full_messages.each do |msg| %&gt; &lt;li&gt;&lt;%= msg %&gt;&lt;/li&gt; &lt;% end %&gt;&lt;/ul&gt;&lt;% end %&gt;标题&lt;%= f.text_field :title %&gt;&lt;br&gt;叙述&lt;br&gt;&lt;%= f.text_area :description %&gt;&lt;br&gt;&lt;%= f.submit "Submit", :disable_with =&gt; 'Submiting...' %&gt;&lt;% end %&gt; Step 2: 修改 app/views/groups/new.html.erb修改 app/views/groups/new.html.erb，把原先重复的表单程式码“整段删掉”，改成 &lt;%= render “form” %&gt; app/views/groups/new.html.erb12345&lt;div class="col-md-4 col-md-offset-4"&gt; &lt;h2&gt;新增讨论版&lt;/h2&gt; &lt;hr&gt; &lt;%= render "form" %&gt;&lt;/div&gt; Step 3: 修改 app/views/groups/edit.html.erb 修改 app/views/groups/edit.html.erb，把原先重复的表单程式码“整段删掉”，改成 &lt;%= render “form” %&gt; app/views/groups/edit.html.erb12345&lt;div class="col-md-4 col-md-offset-4"&gt; &lt;h2&gt;编辑讨论版&lt;/h2&gt; &lt;hr&gt; &lt;%= render "form" %&gt;&lt;/div&gt; Step 4: git 存档 git add .git commit -m “move form to partial” ps:partial 还可以这样用上面我们介绍了，form 可以放入 partial。这里我们要介绍 partial 还可以用在回圈上。Step 1. 修改 app/views/groups/index.html.erb 把 @groups.each 内整段砍掉，换成 partial app/views/groups/index.html.erb123456789101112131415161718&lt;div class="col-md-12"&gt; &lt;div class="group"&gt; &lt;%= link_to("New group", new_group_path, class: "btn btn-primary pull-right") %&gt; &lt;/div&gt; &lt;table class="table table-hover"&gt; &lt;thead&gt; &lt;tr&gt; &lt;td&gt;#&lt;/td&gt; &lt;td&gt;Title&lt;/td&gt; &lt;td&gt;Description&lt;/td&gt; &lt;td&gt;Creator &lt;/td&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;%= render :partial =&gt; "group_item", :collection =&gt; @groups, :as =&gt; :group %&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;/div&gt; 然后 touch app/views/groups/_group_item.html.erb app/views/groups/_group_item.html.erb12345678910111213&lt;tr&gt; &lt;td&gt;#&lt;/td&gt; &lt;td&gt;&lt;%= link_to(group.title, group_path(group)) %&gt;&lt;/td&gt; &lt;td&gt;&lt;%= render_group_description(group) %&gt;&lt;/td&gt; &lt;td&gt;&lt;%= group.user.email %&gt;&lt;/td&gt; &lt;td&gt; &lt;% if current_user &amp;&amp; current_user == group.user %&gt; &lt;%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%&gt; &lt;%= link_to("Delete", group_path(group), class: "btn btn-sm btn-default", method: :delete, data: &#123; confirm: "Are you sure?" &#125; )%&gt; &lt;% end %&gt; &lt;/td&gt;&lt;/tr&gt; Step 2. git 存档git add .git commit -m “render partial with collection” HelperStep 1. 自制 render_group_description(group) 修改 app/helpers/groups_helper.rb 加入： app/helpers/groups_helper.rb12345module GroupsHelper def render_group_description(group) simple_format(group.description) endend 然后换掉 app/views/groups/index.html.erb 与 app/views/account/groups/index.html.erb 里关于 group.description 的部分： app/views/groups/index.html.erb123&lt;td&gt;&lt;%= link_to(group.title, group_path(group)) %&gt;&lt;/td&gt;&lt;td&gt;&lt;%= render_group_description(group) %&gt;&lt;/td&gt;&lt;td&gt; &lt;%= group.user.email %&gt; &lt;/td&gt; Step 2 : git 储存 git add .git commit -m “use self delimit helper” ps：自制的 Helper 是什么意思？Helper 就是用 Ruby 写的“View 装饰的小方法”，你也可以自己定义自制 Helper 都会放在 app/helpers 下 form-helper 1.checkbox 多选 与 radio button 单选 多选的例子: &lt;%= check_box_tag(:banana) %&gt;&lt;%= label_tag(:banana, “我喜欢香蕉”) %&gt;&lt;%= check_box_tag(:orange) %&gt;&lt;%= label_tag(:orange, “我喜欢橘子”) %&gt; 单选的例子: &lt;%= radio_button_tag(:sex, “male”) %&gt;&lt;%= label_tag(:sex_male, “男”) %&gt;&lt;%= radio_button_tag(:sex, “female”) %&gt;&lt;%= label_tag(:sex_female, “女”) %&gt; 2.下拉菜单：1）自己给的选项&lt;%= select_tag ‘sex’, options_for_select([‘男’, ‘女’]) %&gt;2）在已有的信息中调取选项&lt;%= options_from_collection_for_select Book.all, :id, :title %&gt; 3.填写信息框：text_area比text_field框大且text_field会自带默认值text_field_tag要加默认值就要如下写：&lt;%= text_field_tag ‘article[title]’, ‘三体’ %&gt; Scope：在model中定义scope，controller中调用 app/models/post.rb1234class Post &lt; ApplicationRecord # ... 略 scope :recent, -&gt; &#123; order("created_at DESC")&#125;end]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[记不住的知识点！！！]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-26-remember-knowledge.html</url>
     <content type="text"><![CDATA[1.删除纽 method: :delete2.限制 validates :xxx(要限制的栏位),presence: true(不为空)3.要将两个东西关联到一起的话就要在一个中加上另一个的id（用id关联）rails g migration xx，且要在model中添加关系(belongs_to :xxx,optional: true) migration里add_column :xxxs（在哪个model中加）,:xxx（要加的东西）,:xxx(类型)]]></content>
+      <tags>
+        <tag>easy</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Macau一日游]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-20-day-trip-to-macau.html</url>
     <content type="text"><![CDATA[我向往香港和澳门很久，终于在去年冬天有机会去一睹她们的风采。相比于香港的繁华与忙碌我更喜欢澳门当地人的一种悠闲与恬静。 从香港到澳门一般都是坐船有好几个港口之间都可以互通，我是从中港城的码头直接坐到外港客运码头（这个路线的船比较多），不用提前买票只要去的时候现买就可以。要注意的是，有的时候海上有大风浪会很晕，如果你很容易晕，建议：在登船之前买点晕船药或者土豪可以直接做飞机过去。我下了船之后在码头等我同学，但是我在等他无聊的时候用ATM查了一下我的银行卡余额！！！这里要特别注意（敲黑板划重点）！！用内地的卡在澳门ATM机上哪怕不取钱查询余额也是要收手续费的！最二的是我还查了两遍。。。 我同学到了之后我们选择了坐公交车去大三巴看一下～毕竟是标志性建筑！在下了公交车之后还要走一段才能到大三巴，在这一路上有钜记饼家，里面可以免费试吃，基本上每样都可以尝，胃小点的妹纸都能吃饱了。还有猪肉脯什么的，想尝什么味道的都可以哈哈～走（吃）了一段之后就到大三巴了我去的那天天气有点阴看起来有点灰蒙蒙的，大三巴牌坊我觉得也就看一下拍两张照片就差不多了。可是在大三巴边上有很多当地的建筑也是值得一看的。这是我在大三巴边上随手拍的一个居民楼，是不是很有味道～大三巴边上的牛杂和咖喱鱼蛋是真的很好吃啊～有一家有好多人都在排队买，但是就在他边上有一家没什么人但是味道一样不差～我觉得比我前一晚在香港吃的好吃哈哈～可惜吃的太投入忘记拍照片。在吃牛杂之前，我同学还给我安利了澳门一个当地很有名的猪扒包，据说流星花园有在那里取景哦～猪扒包对我来说不是很合口味哈哈，面包太硬了，不过里面夹的肉味道还是很不错的。 看完大三巴我们决定去威尼斯人，因为澳门有免费的巴士可以到威尼斯人，所以我俩就决定走到坐免费巴士的地方，不得不说，澳门的好吃的真的是不少，在这一路上上我们还吃了木糠布甸，炸鸡，还喝了两杯奶茶。这么听起来我俩像俩大胃王哈哈。木糠布甸在这里要着重推荐一下，她的口感不像一般的布丁qq的有点像放在冷藏室的蛋糕的意思，不过非常好吃，喜欢甜品的不要错过噢～我们坐上了到银河的巴士（穿过银河就是威尼斯人了）。下了车之后本来想从银河穿过去直接去威尼斯人的，但是我在银河里发现里面有好都牌子都在打折！！！喜欢shopping的妹纸注意啦！银河绝对是购物天堂，里面有很多牌子折扣特别低，冬天的时候有的牌子的当年秋季款在香港已经没有卖的了，香港的都是来年春季新款所以折扣什么的也没有力度特别大的，这个时候澳门的银河里面就还会有一些而且巨折哈哈，再算上汇率真的是非常便宜，在那里可以买买买了～～买完之后就到了威尼斯人，不得不说，威尼斯人里面真的好漂亮，来两张图观赏一下～它上面的人造天空真的很像真的！都说去威尼斯人一定要去里面的赌场。。。但是我没去。。不过到了威尼斯人里一定要吃安德鲁蛋挞。据说是最正宗的，他在威尼斯人里有一家店里面有面包什么的，但是如果你只想尝尝蛋挞的话，有一个小柜台直接买就好了，没有店里人那么多。 因为我只给澳门留了一天时间，所以这样就要去码头坐船回香港了～下次有机会还要去尝尝澳门火锅啦啦啦～作为一个吃货来说，这样的一天行程也算圆满了～哈哈]]></content>
+      <tags>
+        <tag>life</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[专案起始流程]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.mkdir 文件夹名称 －－－－新建一个你需要放专案的文件夹（可省略）2.rails new 专案名称 －－－－新建一个专案3.cd 专案名称 －－－－进入你的专案4.atom ./打开atom，选择 File &gt; Add Project Folder… －－－－在你的atom中打开专案5-1.git init －－－－把repository（repo）初始化到一个叫做 .git 的资料夹 git add . －－－－告诉 git 你想要把目前资料夹（即 .）还有它底下的所有东西加进repo git commit -m “xxx” －－－－告诉 git 真的要执行你叫它做的事5-2.prepare work (1).install bootstrap: 在atom修改 Gemfile，在 group :development, :test do前一行加入 gem ‘bootstrap-sass’（＃32） bundle install mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss 将 application.css 更名为 application.scss app/assets/stylesheets/application.scss1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950 @import "bootstrap-sprockets"; @import "bootstrap";``` (2).应用bootstrap到全栈（navbar &amp; footer） mkdir app/views/common touch app/views/common/_navbar.html.erb```ruby app/views/common/_navbar.html.erb &lt;nav class="navbar navbar-default" role="navigation"&gt; &lt;div class="container-fluid"&gt; &lt;div class="navbar-header"&gt; &lt;a class="navbar-brand" href="/"&gt;Rails 101&lt;/a&gt; &lt;/div&gt; &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt; &lt;ul class="nav navbar-nav navbar-right"&gt; &lt;li&gt; &lt;%= link_to("登入", '#') %&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;/div&gt; &lt;/nav&gt;``` touch app/views/common/_footer.html.erb```ruby app/views/common/_footer.html.erb &lt;footer class="container" style="margin-top: 100px;"&gt; &lt;p class="text-center"&gt;Copyright ©2016 Rails101 &lt;br&gt;Design by &lt;a href="http://courses.growthschool.com/courses/rails-101/" target=_new&gt;xdite&lt;/a&gt; &lt;/p&gt; &lt;/footer&gt;``` ```ruby app/views/layouts/application.html.erb &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;Rails101&lt;/title&gt; &lt;%= csrf_meta_tags %&gt; &lt;%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %&gt; &lt;%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %&gt; &lt;/head&gt; &lt;body&gt; &lt;div class="container-fluid"&gt; &lt;%= render "common/navbar" %&gt; &lt;%= yield %&gt; &lt;/div&gt; &lt;%= render "common/footer" %&gt; &lt;/body&gt; &lt;/html&gt; (3).提示信息 s1. app/assets/javascripts/application.js123456 ... (一堆注解) //= require jquery //= require jquery_ujs //= require turbolinks+//= require bootstrap/alert //= require_tree . s2.touch app/views/common/_flashes.html.erb app/views/common/_flashes.html.erb1234567891011121314151617181920 &lt;% if flash.any? %&gt; &lt;% user_facing_flashes.each do |key, value| %&gt; &lt;div class="alert alert-dismissable alert-&lt;%= flash_class(key) %&gt;"&gt; &lt;button class="close" data-dismiss="alert"&gt;×&lt;/button&gt; &lt;%= value %&gt; &lt;/div&gt; &lt;% end %&gt; &lt;% end %&gt;``` s3.touch app/helpers/flashes_helper.rb```ruby flashes_helper.rb module FlashesHelper FLASH_CLASSES = &#123; alert: "danger", notice: "success", warning: "warning"&#125;.freeze def flash_class(key) FLASH_CLASSES.fetch key.to_sym, key end def user_facing_flashes flash.to_hash.slice "alert", "notice","warning" end end app/views/layout/application.html.erb12&lt;%= render "common/flashes" %&gt;&lt;%= yield %&gt; s4. flash[:alert] = “xxx” (4).登录系统 s1.gem “devise” –&gt; bundle install –&gt; rails g devise:install –&gt; rails g devise user –&gt; rake db:migrate s2. app/views/common/_navbar.html.erb123456789101112131415- &lt;li&gt; &lt;%= link_to("登入", '#') %&gt; &lt;/li&gt;+ &lt;% if !current_user %&gt;+ &lt;li&gt;&lt;%= link_to("注册", new_user_registration_path) %&gt; &lt;/li&gt;+ &lt;li&gt;&lt;%= link_to("登入", new_user_session_path) %&gt;&lt;/li&gt;+ &lt;% else %&gt;+ &lt;li class="dropdown"&gt;+ &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;+ Hi!, &lt;%= current_user.email %&gt;+ &lt;b class="caret"&gt;&lt;/b&gt;+ &lt;/a&gt;+ &lt;ul class="dropdown-menu"&gt;+ &lt;li&gt; &lt;%= link_to("登出", destroy_user_session_path, method: :delete) %&gt; &lt;/li&gt;+ &lt;/ul&gt;+ &lt;/li&gt;+ &lt;% end %&gt; s3. app/assets/javascripts/application.js12//= require bootstrap/alert+ //= require bootstrap/dropdow (5).安装simple_form gem “simple_form” –&gt; bundle install –&gt; rails generate simple_form:install –bootstrap 重开sever 1234567 &lt;%= simple_form_for @group do |f| %&gt; &lt;div class=&quot;form-group&quot;&gt; &lt;%= f.input :title, input_html: &#123; class: &quot;form-control&quot;&#125; %&gt; &lt;%= f.input :description, input_html: &#123; class: &quot;form-control&quot;&#125; %&gt; &lt;/div&gt; &lt;%= f.submit &quot;Submit&quot;, class: &quot;btn btn-primary&quot;, data: &#123; disable_with: &quot;Submitting...&quot; &#125; %&gt;&lt;% end %&gt; 6.rails g model xxx 栏位:字符型 rake db:migrate rails g controller xxxs (rails g controller welcome) CRUD7.touch app/views/xxxs/index.html.erb (touch app/views/welcome/index.html.erb)8.resources :xxxs／root “welcome#index” －－－－在route.rb中添加路径]]></content>
+    <url>%2Fposts%2F2016-12-18-new-ad-hoc-processes.html</url>
+    <content type="text"><![CDATA[1.mkdir 文件夹名称 －－－－新建一个你需要放专案的文件夹（可省略）2.rails new 专案名称 －－－－新建一个专案3.cd 专案名称 －－－－进入你的专案 4.atom ./打开atom，选择 File &gt; Add Project Folder… －－－－在你的atom中打开专案5-1.git init －－－－把repository（repo）初始化到一个叫做 .git 的资料夹 git add . －－－－告诉 git 你想要把目前资料夹（即 .）还有它底下的所有东西加进repo git commit -m “xxx” －－－－告诉 git 真的要执行你叫它做的事5-2.prepare work (1).install bootstrap: 在atom修改 Gemfile，在 group :development, :test do前一行加入 gem ‘bootstrap-sass’（＃32） bundle install mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss 将 application.css 更名为 application.scss app/assets/stylesheets/application.scss1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950 @import "bootstrap-sprockets"; @import "bootstrap";``` (2).应用bootstrap到全栈（navbar &amp; footer） mkdir app/views/common touch app/views/common/_navbar.html.erb```ruby app/views/common/_navbar.html.erb &lt;nav class="navbar navbar-default" role="navigation"&gt; &lt;div class="container-fluid"&gt; &lt;div class="navbar-header"&gt; &lt;a class="navbar-brand" href="/"&gt;Rails 101&lt;/a&gt; &lt;/div&gt; &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt; &lt;ul class="nav navbar-nav navbar-right"&gt; &lt;li&gt; &lt;%= link_to("登入", '#') %&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;/div&gt; &lt;/nav&gt;``` touch app/views/common/_footer.html.erb```ruby app/views/common/_footer.html.erb &lt;footer class="container" style="margin-top: 100px;"&gt; &lt;p class="text-center"&gt;Copyright ©2016 Rails101 &lt;br&gt;Design by &lt;a href="http://courses.growthschool.com/courses/rails-101/" target=_new&gt;xdite&lt;/a&gt; &lt;/p&gt; &lt;/footer&gt;``` ```ruby app/views/layouts/application.html.erb &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;Rails101&lt;/title&gt; &lt;%= csrf_meta_tags %&gt; &lt;%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %&gt; &lt;%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %&gt; &lt;/head&gt; &lt;body&gt; &lt;div class="container-fluid"&gt; &lt;%= render "common/navbar" %&gt; &lt;%= yield %&gt; &lt;/div&gt; &lt;%= render "common/footer" %&gt; &lt;/body&gt; &lt;/html&gt; (3).提示信息 s1. app/assets/javascripts/application.js123456 ... (一堆注解) //= require jquery //= require jquery_ujs //= require turbolinks+//= require bootstrap/alert //= require_tree . s2.touch app/views/common/_flashes.html.erb app/views/common/_flashes.html.erb1234567891011121314151617181920 &lt;% if flash.any? %&gt; &lt;% user_facing_flashes.each do |key, value| %&gt; &lt;div class="alert alert-dismissable alert-&lt;%= flash_class(key) %&gt;"&gt; &lt;button class="close" data-dismiss="alert"&gt;×&lt;/button&gt; &lt;%= value %&gt; &lt;/div&gt; &lt;% end %&gt; &lt;% end %&gt;``` s3.touch app/helpers/flashes_helper.rb```ruby flashes_helper.rb module FlashesHelper FLASH_CLASSES = &#123; alert: "danger", notice: "success", warning: "warning"&#125;.freeze def flash_class(key) FLASH_CLASSES.fetch key.to_sym, key end def user_facing_flashes flash.to_hash.slice "alert", "notice","warning" end end app/views/layout/application.html.erb12&lt;%= render "common/flashes" %&gt;&lt;%= yield %&gt; s4. flash[:alert] = “xxx” (4).登录系统 s1.gem “devise” –&gt; bundle install –&gt; rails g devise:install –&gt; rails g devise user –&gt; rake db:migrate s2. app/views/common/_navbar.html.erb123456789101112131415- &lt;li&gt; &lt;%= link_to("登入", '#') %&gt; &lt;/li&gt;+ &lt;% if !current_user %&gt;+ &lt;li&gt;&lt;%= link_to("注册", new_user_registration_path) %&gt; &lt;/li&gt;+ &lt;li&gt;&lt;%= link_to("登入", new_user_session_path) %&gt;&lt;/li&gt;+ &lt;% else %&gt;+ &lt;li class="dropdown"&gt;+ &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;+ Hi!, &lt;%= current_user.email %&gt;+ &lt;b class="caret"&gt;&lt;/b&gt;+ &lt;/a&gt;+ &lt;ul class="dropdown-menu"&gt;+ &lt;li&gt; &lt;%= link_to("登出", destroy_user_session_path, method: :delete) %&gt; &lt;/li&gt;+ &lt;/ul&gt;+ &lt;/li&gt;+ &lt;% end %&gt; s3. app/assets/javascripts/application.js12//= require bootstrap/alert//= require bootstrap/dropdow (5).安装simple_form gem “simple_form” –&gt; bundle install –&gt; rails generate simple_form:install –bootstrap 重开sever 1234567 &lt;%= simple_form_for @group do |f| %&gt; &lt;div class="form-group"&gt; &lt;%= f.input :title, input_html: &#123; class: "form-control"&#125; %&gt; &lt;%= f.input :description, input_html: &#123; class: "form-control"&#125; %&gt; &lt;/div&gt; &lt;%= f.submit "Submit", class: "btn btn-primary", data: &#123; disable_with: "Submitting..." &#125; %&gt;&lt;% end %&gt; 6.rails g model xxx 栏位:字符型 rake db:migrate rails g controller xxxs (rails g controller welcome) CRUD7.touch app/views/xxxs/index.html.erb (touch app/views/welcome/index.html.erb)8.resources :xxxs／root “welcome#index” －－－－在route.rb中添加路径]]></content>
+      <tags>
+        <tag>基础</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[conversation]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[mailboxer1.在gemfile中添加 gem ‘mailboxer’, github: ‘mailboxer/mailboxer’ -&gt; bundle install -&gt; rails g mailboxer:install -&gt; rake db:migrate -&gt; rails g mailboxer:views(发邮件／notification时候的设置，对于message没有页面设置) 2.在model_user中添加 user.rb1234567891011121314151617181920212223＋ acts_as_messageable＋ def name＋ "User #&#123;id&#125;"＋ end＋ def mailboxer_email(object)＋ nil＋ end(#Returning any kind of identification you want for the modeldef name return "You should add method :name in your Messageable model"end#Returning the email address of the model if an email should be sent for this object (Message or Notification).#If no mail has to be sent, return nil.def mailboxer_email(object) #Check if an email should be sent for that object #if true return "define_email@on_your.model" #if false #return nilend) ps：在rails c上面测试是否安装成功 12u = User.firstu.send_message User.last, &quot;body&quot;, &quot;subject&quot; 3. routes.rb123resources :conversations do resources :messagesend 4.rails g controller conversations conversations_controller.rb123def index@conversations = current_user.mailbox.conversations #(sentbox+inbox+trash)end touch app/views/conversations/index.html.erbindex.html.erb1234&lt;h1&gt;所有对话&lt;/h1&gt;&lt;% @conversations.each do |conversation| %&gt;&lt;%= link_to conversation.subject %&gt;&lt;% end %&gt; ps:打开测试]]></content>
+    <url>%2Fposts%2F2016-12-14-conversation.html</url>
+    <content type="text"><![CDATA[mailboxer1.在gemfile中添加 1gem &apos;mailboxer&apos;, github: &apos;mailboxer/mailboxer&apos; $ bundle install$ rails g mailboxer:install$ rake db:migrate$ rails g mailboxer:views(发邮件／notification时候的设置，对于message没有页面设置) 2.在model_user中添加 user.rb1234567891011121314151617181920212223 acts_as_messageable def name "User #&#123;id&#125;" end def mailboxer_email(object) nil end(#Returning any kind of identification you want for the modeldef name return "You should add method :name in your Messageable model"end#Returning the email address of the model if an email should be sent for this object (Message or Notification).#If no mail has to be sent, return nil.def mailboxer_email(object) #Check if an email should be sent for that object #if true return "define_email@on_your.model" #if false #return nilend) ps：在rails c上面测试是否安装成功 12u = User.firstu.send_message User.last, &quot;body&quot;, &quot;subject&quot; 3. routes.rb123resources :conversations do resources :messagesend 4.rails g controller conversations conversations_controller.rb123def index@conversations = current_user.mailbox.conversations #(sentbox+inbox+trash)end touch app/views/conversations/index.html.erbindex.html.erb1234&lt;h1&gt;所有对话&lt;/h1&gt;&lt;% @conversations.each do |conversation| %&gt;&lt;%= link_to conversation.subject %&gt;&lt;% end %&gt; ps:打开测试]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[常见命令]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2016-12-13-1204405.html</url>
     <content type="text"><![CDATA[rm -rf 专案名称 强制删除一个非空目录cd 切换目录（Change Directory）cd ~ 会把家目录设成当前目录ls 这指令会列出当前资料夹里面的档案ls -a 列出专案中所有档案pwd 查看你当前所在文件路径&lt;%= pluralize(topic.votes.count, “vote”) %&gt; 复数显示@topic.update_attributes(count: @topic.votes.count) 更新参数将@topic.votes.count赋给count model column 名称建错了的话，rails d model xxx 删除model(rails g migration xxxdef self.uprename_column :modelname, :旧名, :新名 end)未验证如果还提示已存在就rake db:drop scope写在model文件中eg： scope :recent, -&gt; { order(“created_at DESC”)}]]></content>
+      <tags>
+        <tag>easy</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[邮件－－css排版]]></title>
     <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[1.安裝roadie-rails 在Gemfile中添加 gem ‘roadie-rails’, ‘~&gt; 1.0’ 之后bundle install 重启rails server 2.在order_mailer.rb中引用 app/mailer/order_mailer.rb1234567891011class OrderMailer &lt; ApplicationMailer+ include Roadie::Rails::Automatic def notify_order_placed(order) @order = order @user = order.user @product_lists = @order.product_lists mail(to: @user.email , subject: "[JDstore] 感謝您完成本次的下單，以下是您這次購物明細 #&#123;order.token&#125;") endend 3.在通知信上引用CSS app/view/order_mailer/notify_order_placed_html.erb1+ &lt;link rel="stylesheet" type="text/css" href="/assets/application.scss" /&gt; 4.测试 rails console中输入OrderMailer.notify_order_placed(Order.last).deliver!]]></content>
+    <content type="text"><![CDATA[1.安裝roadie-rails 在Gemfile中添加 gem ‘roadie-rails’, ‘~&gt; 1.0’ 之后bundle install 重启rails server 2.在order_mailer.rb中引用 app/mailer/order_mailer.rb1234567891011class OrderMailer &lt; ApplicationMailer+ include Roadie::Rails::Automatic def notify_order_placed(order) @order = order @user = order.user @product_lists = @order.product_lists mail(to: @user.email , subject: "[JDstore] 感謝您完成本次的下單，以下是您這次購物明細 #&#123;order.token&#125;") endend 3.在通知信上引用CSS app/view/order_mailer/notify_order_placed_html.erb1+ &lt;link rel="stylesheet" type="text/css" href="/assets/application.scss" /&gt; 4.测试 rails console中输入 1OrderMailer.notify_order_placed(Order.last).deliver!]]></content>
   </entry>
   <entry>
     <title><![CDATA[rails--参数]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
-    <content type="text"><![CDATA[如果要更新某个栏位他没有反应的话，要去user中查看一下defined的条件，且如果column没有update就用 1@xxx.update_column(:xxx, xx) eg:@user.update_column(:is_vip, true ) &lt;%= pluralize(topic.votes.count, “vote”) %&gt; 复数显示@topic.update_attributes(count: @topic.votes.count) 更新参数将@topic.votes.count赋给count model column 名称建错了的话，rails d model xxx 删除model(rails g migration xxxdef self.uprename_column :modelname, :旧名, :新名 end)未验证如果还提示已存在就rake db:drop 页面跳转的时候如果参数同时传过去要在后面加上(:xxx =&gt; :sss) scope写在model文件中eg： scope :recent, -&gt; { order(“created_at DESC”)}]]></content>
+    <url>%2Fposts%2F2016-12-12-update-column.html</url>
+    <content type="text"><![CDATA[如果要更新某个栏位他没有反应的话，要去user中查看一下defined的条件，且如果column没有update就用 1@xxx.update_column(:xxx, xx) eg:@user.update_column(:is_vip, true ) 12&lt;%= pluralize(topic.votes.count, &quot;vote&quot;) %&gt; 复数显示@topic.update_attributes(count: @topic.votes.count) 更新参数将@topic.votes.count赋给count model column 名称建错了的话，rails d model xxx 删除model(rails g migration xxxdef self.uprename_column :modelname, :旧名, :新名 end)未验证如果还提示已存在就rake db:drop 页面跳转的时候如果参数同时传过去要在后面加上(:xxx =&gt; :sss) scope写在model文件中eg： scope :recent, -&gt; { order(“created_at DESC”)}]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails -- console]]></title>
@@ -1229,7 +1453,7 @@
   <entry>
     <title><![CDATA[devise－strong params]]></title>
     <url>%2Fposts%2F2016-12-07-1179820.html</url>
-    <content type="text"><![CDATA[教程1.简单参数增加方法： 在application／controller中加入（username 是你想加的参数） class ApplicationController &lt; ActionController::Base before_action :configure_permitted_parameters, if: :devise_controller? protected def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_up, keys: [:username]) end end 2.如果你要增加的是nested attributes（与其他model有关联的参数？）[nested attributes](http://api.rubyonra ils.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)，也就是说用accepts_nested_attri butes_for 时，你就要告诉devise所有的关联和类型。devise才会同意你改掉devise的默认值或者进行一些用户操作。 （1）simple scalar values（简单标量值）：eg def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_in) do |user_params| user_params.permit(:username, :email) end （2）array：eg def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_up) do |user_params| user_params.permit({ roles: [] }, :email, :password, :password_confirmation) endend For the list of permitted scalars, and how to declare permitted keys in nested hashes and arrays, see （3） 如果你有好几个 Devise models, 你想在每个model中设置不同的参数（parameter sanitizer）。 我们就需要从 Devise::ParameterSanitizer继承并且添加你自己的逻辑: class User::ParameterSanitizer &lt; Devise::ParameterSanitizer def initialize(*) super permit(:sign_up, keys: [:username, :email]) endend然后让你的controller调用它: class ApplicationController &lt; ActionController::Base protected def devise_parameter_sanitizer if resource_class == User User::ParameterSanitizer.new(User, :user, params) else super # Use the default one end endend]]></content>
+    <content type="text"><![CDATA[教程1.简单参数增加方法： 在application／controller中加入（username 是你想加的参数） 1234567891011121314151617181920 class ApplicationController &lt; ActionController::Base before_action :configure_permitted_parameters, if: :devise_controller? protected def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_up, keys: [:username]) end end ``` &lt;!--more--&gt;2.如果你要增加的是nested attributes（与其他model有关联的参数？）[nested attributes](http://api.rubyonra ils.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)，也就是说用accepts_nested_attri butes_for 时，你就要告诉devise所有的关联和类型。devise才会同意你改掉devise的默认值或者进行一些用户操作。 （1）simple scalar values（简单标量值）：eg```ruby def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_in) do |user_params| user_params.permit(:username, :email) end end （2）array：eg 12345def configure_permitted_parameters devise_parameter_sanitizer.permit(:sign_up) do |user_params| user_params.permit(&#123; roles: [] &#125;, :email, :password, :password_confirmation) endend For the list of permitted scalars, and how to declare permitted keys in nested hashes and arrays, see （3） 如果你有好几个 Devise models, 你想在每个model中设置不同的参数（parameter sanitizer）。 我们就需要从 Devise::ParameterSanitizer继承并且添加你自己的逻辑: 123456class User::ParameterSanitizer &lt; Devise::ParameterSanitizer def initialize(*) super permit(:sign_up, keys: [:username, :email]) endend 然后让你的controller调用它: 1234567891011class ApplicationController &lt; ActionController::Base protected def devise_parameter_sanitizer if resource_class == User User::ParameterSanitizer.new(User, :user, params) else super # Use the default one end endend]]></content>
       <categories>
         <category>ruby</category>
       </categories>
@@ -1245,7 +1469,7 @@
   <entry>
     <title><![CDATA[gem-carriewave]]></title>
     <url>%2Fposts%2F2016-12-06-1176390.html</url>
-    <content type="text"><![CDATA[carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。1.上传文档（1）在gemfile中添加 gem “carriewave” bundle install 重开sever：ctrl＋c =&gt; rails s（2）加入uploader机制 rails g uploader xxx eg：rails g uploader attachment（3）在上传的Model中 mount_uploader :xxx,XxxUploader eg：mount_uploader :attachment,AttachmentUploader（4）在需要的view（new）页面中添加 &lt;%= f.input :xxx %&gt;（5）修改.gitignore，加入public/uploads（6）在关联的model中加上栏位 =&gt; rake db:migrate eg：attatchment:string（7）新建一个controller eg: class ResumesController &lt; ApplicationController before_action :authenticate_user! def new @job = Job.find(params[:job_id]) @resume = Resume.new end def create @job = Job.find(params[:job_id]) @resume = Resume.new(resume_params) @resume.job = @job @resume.user = current_user if @resume.save flash[:notice]=&quot;Upload Success&quot; redirect_to job_path(@job) else render :new end end private def resume_params params.require(:resume).permit(:content,:attachment) end end（8）在routes里加上 resources :xxx 2.添加图片（一张）（1）在gemfile中添加 gem “carriewave” gem “mini_magick” 然后 bundle install rails g uploader image 重开sever（2）在相关model中添加栏位 image :string =&gt; rake db:migrate（3）在 Model 中添加 mount_uploader :image,ImageUploder（4）在image_uploader中 ”include Carriewave::Minigack“ 前面的＃删掉 在Store_dir end下加 process resize_to_fit:[800,800] version :thumb do process resize_to_fit:[200,200] end version :medium do process resize_to_fit:[400,400] end（5）View: new &lt;%= f.input :image,as::file %&gt; edit &lt;% if @xxx.image.present? %&gt; &lt;span&gt;目前商品图片&lt;/span&gt; &lt;%= image_tag (@xxx.image.thumb.url) %&gt; &lt;% end %&gt; show index &lt;% @products.each do |product| %&gt; &lt;div class=&quot;col-xs-6 col-md-3&quot;&gt; &lt;%= link_to product_path(product) do%&gt; &lt;% if product.image.present? %&gt; &lt;%= image_tag(product.image.thumb.url, class:&quot;thumbnail&quot;)%&gt; &lt;% else %&gt; &lt;%= image_tag(&quot;http://placehold.it/200x200&amp;text=No pic&quot;,class:&quot;thumbnail&quot;)%&gt; &lt;% end %&gt; &lt;% end %&gt; show页面在循环中的product前面加上@3.上传多张图片 教程1教程2中文]]></content>
+    <content type="text"><![CDATA[carriewave是一个可以帮助我们上传我们需要文件的插件。它可以上传文档，图片，且可以一次上传多张图片。1.上传文档（1）在gemfile中添加 gem “carriewave” bundle install 重开sever：ctrl＋c =&gt; rails s（2）加入uploader机制 rails g uploader xxx eg：rails g uploader attachment （3）在上传的Model中 mount_uploader :xxx,XxxUploader eg：mount_uploader :attachment,AttachmentUploader（4）在需要的view（new）页面中添加 &lt;%= f.input :xxx %&gt;（5）修改.gitignore，加入public/uploads（6）在关联的model中加上栏位 =&gt; rake db:migrate eg：attatchment:string（7）新建一个controller eg: class ResumesController &lt; ApplicationController before_action :authenticate_user! def new @job = Job.find(params[:job_id]) @resume = Resume.new end def create @job = Job.find(params[:job_id]) @resume = Resume.new(resume_params) @resume.job = @job @resume.user = current_user if @resume.save flash[:notice]=&quot;Upload Success&quot; redirect_to job_path(@job) else render :new end end private def resume_params params.require(:resume).permit(:content,:attachment) end end（8）在routes里加上 resources :xxx 2.添加图片（一张）（1）在gemfile中添加 gem “carriewave” gem “mini_magick” 然后 bundle install rails g uploader image 重开sever（2）在相关model中添加栏位 image :string =&gt; rake db:migrate（3）在 Model 中添加 mount_uploader :image,ImageUploder（4）在image_uploader中 ”include Carriewave::Minigack“ 前面的＃删掉 在Store_dir end下加 process resize_to_fit:[800,800] version :thumb do process resize_to_fit:[200,200] end version :medium do process resize_to_fit:[400,400] end（5）View: new &lt;%= f.input :image,as::file %&gt; edit &lt;% if @xxx.image.present? %&gt; &lt;span&gt;目前商品图片&lt;/span&gt; &lt;%= image_tag (@xxx.image.thumb.url) %&gt; &lt;% end %&gt; show index &lt;% @products.each do |product| %&gt; &lt;div class=&quot;col-xs-6 col-md-3&quot;&gt; &lt;%= link_to product_path(product) do%&gt; &lt;% if product.image.present? %&gt; &lt;%= image_tag(product.image.thumb.url, class:&quot;thumbnail&quot;)%&gt; &lt;% else %&gt; &lt;%= image_tag(&quot;http://placehold.it/200x200&amp;text=No pic&quot;,class:&quot;thumbnail&quot;)%&gt; &lt;% end %&gt; &lt;% end %&gt; show页面在循环中的product前面加上@3.上传多张图片 教程1教程2中文]]></content>
       <tags>
         <tag>ruby</tag>
       </tags>
@@ -1253,7 +1477,7 @@
   <entry>
     <title><![CDATA[使devise可见]]></title>
     <url>%2Fposts%2F2016-12-05-make-the-devise-visible.html</url>
-    <content type="text"><![CDATA[1.使devise下页面可见 rails generate devise:views 2-1.使devise下controller 可见（1) rails generate devise:controllers [scope] eg: rails g devise:controllers users 你将会看到controller被创建在app/controllers/users/文件夹下。而且session controller会如下显示 ： 123456class Users::SessionsController &lt; Devise::SessionsController# GET /resource/sign_in# def new# super# endend （2） 在路径中将devise_for :users替换成 1devise_for :users, controllers: &#123; sessions: 'users/sessions' &#125; （3） 将 devise／session下的 view 文件复制进 user／session 下。 因为controller被改变了，他就不能用原来默认咋在 devise／session 文件夹下的view了（4）改你想要的controller的actions 第一种： 12345class Users::SessionsController &lt; Devise::SessionsController def create # custom sign-in code endend 或者就简单添加你想要做的操作 第二种：1234567class Users::SessionsController &lt; Devise::SessionsController def create super do |resource| BackgroundWorker.trigger(resource) end endend 2-2.gem env–查看gem安装路径之后cp 复制出来]]></content>
+    <content type="text"><![CDATA[1.使devise下页面可见 rails generate devise:views > 2-1.使devise下controller 可见（1) rails generate devise:controllers [scope] eg: rails g devise:controllers users 你将会看到controller被创建在app/controllers/users/文件夹下。而且session controller会如下显示 ： 123456class Users::SessionsController &lt; Devise::SessionsController# GET /resource/sign_in# def new# super# endend （2） 在路径中将devise_for :users替换成 1devise_for :users, controllers: &#123; sessions: 'users/sessions' &#125; （3） 将 devise／session下的 view 文件复制进 user／session 下。 因为controller被改变了，他就不能用原来默认咋在 devise／session 文件夹下的view了（4）改你想要的controller的actions 第一种： 12345class Users::SessionsController &lt; Devise::SessionsController def create # custom sign-in code endend 或者就简单添加你想要做的操作 第二种：1234567class Users::SessionsController &lt; Devise::SessionsController def create super do |resource| BackgroundWorker.trigger(resource) end endend 2-2.gem env–查看gem安装路径之后cp 复制出来]]></content>
       <tags>
         <tag>ruby</tag>
       </tags>

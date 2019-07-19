@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="教程1.简单参数增加方法：  在application／controller中加入（username 是你想加的参数）   class ApplicationController &amp;lt; ActionController::Base    before_action :configure_permitted_parameters, if: :devise_controller? protecte">
+<meta name="description" content="教程1.简单参数增加方法：  在application／controller中加入（username 是你想加的参数） 1234567891011121314151617181920  class ApplicationController &amp;lt; ActionController::Base    before_action :configure_permitted_parameters, i">
 <meta name="keywords" content="ruby vue redis mysql postgres nginx object-c javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="devise－strong params">
 <meta property="og:url" content="https://lydiadai.github.io/posts/2016-12-07-1179820.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="教程1.简单参数增加方法：  在application／controller中加入（username 是你想加的参数）   class ApplicationController &amp;lt; ActionController::Base    before_action :configure_permitted_parameters, if: :devise_controller? protecte">
+<meta property="og:description" content="教程1.简单参数增加方法：  在application／controller中加入（username 是你想加的参数） 1234567891011121314151617181920  class ApplicationController &amp;lt; ActionController::Base    before_action :configure_permitted_parameters, i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T04:08:49.910Z">
+<meta property="og:updated_time" content="2019-07-16T09:47:51.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="devise－strong params">
-<meta name="twitter:description" content="教程1.简单参数增加方法：  在application／controller中加入（username 是你想加的参数）   class ApplicationController &amp;lt; ActionController::Base    before_action :configure_permitted_parameters, if: :devise_controller? protecte">
+<meta name="twitter:description" content="教程1.简单参数增加方法：  在application／controller中加入（username 是你想加的参数） 1234567891011121314151617181920  class ApplicationController &amp;lt; ActionController::Base    before_action :configure_permitted_parameters, i">
 
 
 
@@ -355,22 +355,19 @@
 
       
         <p><a href="https://github.com/plataformatec/devise#strong-parameters" target="_blank" rel="noopener">教程</a><br>1.简单参数增加方法：<br>  在application／controller中加入（username 是你想加的参数）</p>
-<p>  class ApplicationController &lt; ActionController::Base<br>    before_action :configure_permitted_parameters, if: :devise_controller?</p>
-<pre><code>protected
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">ApplicationController</span> &lt; ActionController::Base</span></span><br><span class="line">    before_action <span class="symbol">:configure_permitted_parameters</span>, <span class="symbol">if:</span> <span class="symbol">:devise_controller?</span></span><br><span class="line"></span><br><span class="line">    protected</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">configure_permitted_parameters</span></span></span><br><span class="line">      devise_parameter_sanitizer.permit(<span class="symbol">:sign_up</span>, <span class="symbol">keys:</span> [<span class="symbol">:username</span>])</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> <span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">&lt;!--more--&gt;</span></span><br><span class="line"><span class="string">2.如果你要增加的是nested attributes（与其他model有关联的参数？）[nested attributes](http://api.rubyonra  ils.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)，也就是说用accepts_nested_attri  butes_for  时，你就要告诉devise所有的关联和类型。devise才会同意你改掉devise的默认值或者进行一些用户操作。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  （1）simple scalar values（简单标量值）：eg</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>ruby</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">configure_permitted_parameters</span></span></span><br><span class="line">    devise_parameter_sanitizer.permit(<span class="symbol">:sign_in</span>) <span class="keyword">do</span> <span class="params">|user_params|</span></span><br><span class="line">      user_params.permit(<span class="symbol">:username</span>, <span class="symbol">:email</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-end</code></pre><p>  end</p>
-<p>2.如果你要增加的是nested attributes（与其他model有关联的参数？）[nested attributes](<a href="http://api.rubyonra" target="_blank" rel="noopener">http://api.rubyonra</a>  ils.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)，也就是说用accepts_nested_attri  butes_for  时，你就要告诉devise所有的关联和类型。devise才会同意你改掉devise的默认值或者进行一些用户操作。</p>
-<p>  （1）simple scalar values（简单标量值）：eg</p>
-<p>  def configure_permitted_parameters<br>  devise_parameter_sanitizer.permit(:sign_in) do |user_params|<br>    user_params.permit(:username, :email)<br>  end</p>
 <p>  （2）array：eg</p>
-<p>  def configure_permitted_parameters<br>  devise_parameter_sanitizer.permit(:sign_up) do |user_params|<br>    user_params.permit({ roles: [] }, :email, :password, :password_confirmation)<br>  end<br>end</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">configure_permitted_parameters</span></span></span><br><span class="line">  devise_parameter_sanitizer.permit(<span class="symbol">:sign_up</span>) <span class="keyword">do</span> <span class="params">|user_params|</span></span><br><span class="line">    user_params.permit(&#123; <span class="symbol">roles:</span> [] &#125;, <span class="symbol">:email</span>, <span class="symbol">:password</span>, <span class="symbol">:password_confirmation</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
 <p>  <a href="https://github.com/rails/strong_parameters#nested-parameters" target="_blank" rel="noopener">For the list of permitted scalars, and how to declare permitted keys in nested hashes and arrays, see</a></p>
 <p>（3） 如果你有好几个 Devise models, 你想在每个model中设置不同的参数（parameter sanitizer）。 我们就需要从 Devise::ParameterSanitizer继承并且添加你自己的逻辑:</p>
-<p>class User::ParameterSanitizer &lt; Devise::ParameterSanitizer<br>  def initialize(*)<br>    super<br>    permit(:sign_up, keys: [:username, :email])<br>  end<br>end<br>然后让你的controller调用它:</p>
-<p>class ApplicationController &lt; ActionController::Base<br>  protected</p>
-<p>  def devise_parameter_sanitizer<br>    if resource_class == User<br>      User::ParameterSanitizer.new(User, :user, params)<br>    else<br>      super # Use the default one<br>    end<br>  end<br>end</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User::ParameterSanitizer</span> &lt; Devise::ParameterSanitizer</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(*)</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    permit(<span class="symbol">:sign_up</span>, <span class="symbol">keys:</span> [<span class="symbol">:username</span>, <span class="symbol">:email</span>])</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>然后让你的controller调用它:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationController</span> &lt; ActionController::Base</span></span><br><span class="line">  protected</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">devise_parameter_sanitizer</span></span></span><br><span class="line">    <span class="keyword">if</span> resource_class == User</span><br><span class="line">      User::ParameterSanitizer.new(User, <span class="symbol">:user</span>, params)</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">super</span> <span class="comment"># Use the default one</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
@@ -405,8 +402,8 @@ end</code></pre><p>  end</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/2016-12-10-1193045.html" rel="prev" title="scaffold ">
-                scaffold  <i class="fa fa-chevron-right"></i>
+              <a href="/posts/2016-12-10-1193045.html" rel="prev" title="scaffold">
+                scaffold <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -480,7 +477,7 @@ end</code></pre><p>  end</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">232</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -502,7 +499,7 @@ end</code></pre><p>  end</p>
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
