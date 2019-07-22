@@ -265,6 +265,396 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/wechat-get-miniprogram-qr.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/wechat-get-miniprogram-qr.html" itemprop="url">wechat-get-miniprogram-qr</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-22T15:43:21+08:00">
+                2019-07-22 15:43
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>打开<a href="https://mp.weixin.qq.com/debug/cgi-bin/apiinfo?t=index&type=%E5%9F%BA%E7%A1%80%E6%94%AF%E6%8C%81&form=%E8%8E%B7%E5%8F%96access_token%E6%8E%A5%E5%8F%A3%20/token" target="_blank" rel="noopener">微信公众平台接口调试工具</a>，在参数列表中输入小程序的appid和secret，点击检查问题，如果appid和secret正确，则可以返回正确的access_token结果<img src="https://img-blog.csdnimg.cn/20190513103427618.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0x5ZGlhZGFp,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>生成小程序码有三个接口，我采用的是<a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/wxacode.getUnlimited.html" target="_blank" rel="noopener">接口B</a></li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/wechat-get-miniprogram-qr.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/vue-tynimce.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/vue-tynimce.html" itemprop="url">vue-tynimce</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:41:42+08:00">
+                2019-07-21 16:41
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>安装安装包<br>$  npm install @tinymce/tinymce-vue -S<br>$  npm install tinymce -S</p>
+</li>
+<li><p>在 node_modules 中找到 tinymce/skins 目录，然后将 skins 目录拷贝到 static 目录下</p>
+</li>
+</ol>
+<p>// 如果是使用 vue-cli 3.x 构建的 typescript 项目，就放到 public 目录下，文中所有 static 目录相关都这样处理</p>
+<p>tinymce 默认是英文界面，所以还需要下载一个中文语言包（记得搭梯子！搭梯子！搭梯子！）</p>
+<p>然后将这个语言包放到 static 目录下，为了结构清晰，我包了一层 tinymce 目录</p>
+<p>3.main.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import tinymce from &apos;tinymce/tinymce&apos;</span><br><span class="line">import &apos;tinymce/themes/silver/theme&apos;</span><br><span class="line">import Editor from &apos;@tinymce/tinymce-vue&apos;</span><br><span class="line"></span><br><span class="line">tinymce.init(&#123;</span><br><span class="line">  selector: &apos;textarea&apos;,</span><br><span class="line">  language_url: &apos;/static/tinymce/zh_CN.js&apos;,</span><br><span class="line">  language: &apos;zh_CN&apos;,</span><br><span class="line">  skin_url: &apos;/static/tinymce/skins/ui/oxide&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/vue-components.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/vue-components.html" itemprop="url">vue-components</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-19T16:06:00+08:00">
+                2019-07-19 16:06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>新建一个component文件（vue）(最好新建一个文件夹)</p>
+</li>
+<li><p>引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import pagination from &apos;@/components/base/pagination&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    pagination</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子组件给父组件传值用 $emit<br>父组件给子组件传值用 props<br>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pagination :listData=&apos;blogs&apos; @pageBlogs=&quot;cutBlog&quot;&gt;&lt;/pagination&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&apos;pageBlogs&apos;, this.listData.slice(start, end))</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/miniprogram-custom-service-auto-reply.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -774,7 +1164,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/linux-order-summary.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/wechaty-settings.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -793,7 +1183,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/linux-order-summary.html" itemprop="url">Linux命令合集</a></h1>
+                <a class="post-title-link" href="/posts/wechaty-settings.html" itemprop="url">wechaty-settings</a></h1>
         
 
         <div class="post-meta">
@@ -805,8 +1195,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T18:16:36+08:00">
-                2019-04-29 18:16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-22T16:25:09+08:00">
+                2019-05-22 16:25
               </time>
             
 
@@ -844,273 +1234,22 @@
 
       
         
-          
-            <ol>
-<li><p>根据内存使用由低到高展示进程（Sorting down processes by memory usage）<br>ps aux –sort rss</p>
-</li>
-<li><p>查看CPU使用情况<br>top  —&gt; c —&gt; 1 按照由低到高排序<br>space刷新</p>
-</li>
-<li><p>压缩文件<br>zip 要生成文件名  xxx xxx(后面跟的都是要压缩的文件)<br>解压文件<br>unzip 文件名</p>
-</li>
-<li><p>du -a . | sort -n -r | head -n 10<br>disk usage 列出全部文件 |  排序（从大到小） | 看最大的前十个</p>
+          <h1 id="创建docker-image"><a href="#创建docker-image" class="headerlink" title="创建docker image"></a>创建docker image</h1><ol>
+<li>下载docker.dmg 双击安装 <a href="https://docs.docker.com/v17.12/docker-for-mac/install/" target="_blank" rel="noopener">链接</a></li>
+<li>在对应的文件下 docker build<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t wondercv_wechaty .</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<p>5.更改文件权限<br>sudo chown -R apps.apps wechaty-file-pro1</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/js-magic-function-summary.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/js-magic-function-summary.html" itemprop="url">js-魔法方法汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-25T11:58:44+08:00">
-                2019-04-25 11:58
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>js直接修改url<br>=<br>window.history.pushState(‘’,’’,’/blog/&lt;%= params[:tag]%&gt;’);<br>最后一个参数是url 相对路径</p>
-<p>alert出所有的js error<br>=<br>window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {<br>    alert(“Error occured: “ + errorMsg);//or any message<br>     return false;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/capistrano-useage.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/capistrano-useage.html" itemprop="url">Capistrano 基本用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-20T16:35:59+08:00">
-                2019-04-20 16:35
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li>安装gem<br>gem ‘capistrano’, ‘2.12.0’<br>gem ‘capistrano-rbenv’, ‘1.0.1’<br>bundle</li>
-<li>capify .<br> 会生成两个文件： Capfile ,  config/deploy.rb</li>
-<li>cap deploy:setup 会建立必须的 文件夹 （眼疾手快 及时停止executing “if test -f /etc/debian_version; then echo debian; elif test -f /etc/redhat-release; then echo redhat; elif test -f /etc/system-release; then echo redhat; else echo unknown; fi;”）</li>
-<li>到服务器上 shared目录下创建config 文件夹 里面创建secrets.yml database.yml. application.yml 文件并配置</li>
-<li>执行bundle exec cap deploy
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/capistrano-useage.html#more" rel="contents">
+            <a class="btn" href="/posts/wechaty-settings.html#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -1154,7 +1293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/strange-events-summary.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/css-fuctions-summary.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1173,7 +1312,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/strange-events-summary.html" itemprop="url">灵异现象汇总</a></h1>
+                <a class="post-title-link" href="/posts/css-fuctions-summary.html" itemprop="url">css-fuctions-summary</a></h1>
         
 
         <div class="post-meta">
@@ -1185,8 +1324,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T17:19:25+08:00">
-                2019-04-19 17:19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-21T17:02:12+08:00">
+                2019-05-21 17:02
               </time>
             
 
@@ -1226,10 +1365,10 @@
         
           
             <ol>
-<li><p>在服务器上怎么precompile都不会生成新的assets 文件<br>解决：RAILS_ENV=production放在命令后面<br><a href="https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required" target="_blank" rel="noopener">https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required</a></p>
-</li>
-<li><p>js click事件只监听一次就不再触发了<br>解决： 因为使用的是封装好的dropdown 将他换成普通的隐藏/出现 就不会有问题了</p>
-</li>
+<li>模糊背景： filter: blur(8px);</li>
+<li>iOS禁止长按触发js：-webkit-touch-callout:none;</li>
+<li>iOS除了body外 默认都是正常滑动 没有惯性 想更顺滑：-webkit-overflow-scrolling: touch;</li>
+<li>ol li 前面的数字默认是以数字内侧对齐 我们想改成左对齐 这样就不会有下载简历之后前面的数字被截掉的问题了 在li的style上加:     list-style-position: inside;</li>
 </ol>
 
           
@@ -1279,7 +1418,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/wechat-alert-avoid-cons.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ruby-base64-encode.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1298,7 +1437,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/wechat-alert-avoid-cons.html" itemprop="url">微信打开网页 提示防诈骗</a></h1>
+                <a class="post-title-link" href="/posts/ruby-base64-encode.html" itemprop="url">ruby-base64-encode</a></h1>
         
 
         <div class="post-meta">
@@ -1310,8 +1449,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T16:00:37+08:00">
-                2019-04-16 16:00
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-21T17:01:17+08:00">
+                2019-05-21 17:01
               </time>
             
 
@@ -1350,136 +1489,9 @@
       
         
           
-            <p>之前我们的网站一在微信里打开 输入的时候就会提示防诈骗 对用户来说体验很不好 找了很久配置的地方也没有找到 终于找到了 特此记录<br><img src="https://img-blog.csdnimg.cn/20190416155836195.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0x5ZGlhZGFp,size_16,color_FFFFFF,t_70" alt="设置位置"></p>
+            <p>ruby的base64转换如果用Base64.encode64会自动在每60个字符后加入\n<br>Base64.strict_encode64就不会有这个问题了</p>
 
           
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/log-analyzer.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/log-analyzer.html" itemprop="url">服务器调优-log分析工具</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T11:25:49+08:00">
-                2019-04-15 11:25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="rails-log-passenger-log"><a href="#rails-log-passenger-log" class="headerlink" title="rails log(passenger log)"></a>rails log(passenger log)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install request-log-analyzer</span><br></pre></td></tr></table></figure>
-
-<p>简单用法： 分析一个文件，并且把它输出到 report-for-logs.html 中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ request-log-analyzer cms_production_2013-02-17.log --format rails3 --output HTML --file report-for-cms-logs.html</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/log-analyzer.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1517,7 +1529,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1563,7 +1575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">241</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1585,7 +1597,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
