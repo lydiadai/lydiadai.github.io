@@ -265,6 +265,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-20-controller.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-02-20-controller.html" itemprop="url">controller&model文件头尾固定代码&migration文件代码样式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T09:14:00+08:00">
+                2017-02-20 09:14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.controller<br>  无namespace的：class XxxsController &lt; ApplicationController<br>  有namespace的：class Xxx::XxxsController &lt; ApplicationController<br>             namespace名称::controller名称</p>
+<p>2.model<br>  class Xxx &lt; ActiveRecord::Base<br>  end</p>
+<p>3.migrate文件中添加<br>  t.字符类型 :字段名,comment: ‘备注’<br>   t.timestamps</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-19-rails-routing.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1419,128 +1541,6 @@ ps：一个xxx对应多个photo
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-04-1383293.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-04-1383293.html" itemprop="url">rails-容易错的地方</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T18:16:00+08:00">
-                2017-02-04 18:16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.关键字不可以做变量名！！！<br>  会报语法错误<br>  eg:case collection</p>
-<p>2.在model文件相关联的时候<br>   如果关联到同一张表但是用不同的外键时要在后面标明<br>   eg:<br>   belongs_to :she_ji_shi, :class_name =&gt; SheJiShi, :foreign_key =&gt; ‘she_ji_shi_id’</p>
-<p>3.除了rails以外其余的语言方法名之后都要加（）<br>4.||= 默认值<br>  rescue 是抛出异常时给赋的值</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1591,7 +1591,7 @@ ps：一个xxx对应多个photo
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-count">246</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1613,7 +1613,7 @@ ps：一个xxx对应多个photo
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

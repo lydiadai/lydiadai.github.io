@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[根据pc 还是移动使用不同页面]]></title>
+    <url>%2Fposts%2Fvue-adjust-pc-mobile.html</url>
+    <content type="text"><![CDATA[12345678910111213141516171819import Vue from &apos;vue&apos;import Router from &apos;vue-router&apos;import mobileMe from &apos;./mobile/me&apos;import pcMe from &apos;./pc/me&apos;Vue.use(Router)let route = []if (/Mobile|webOS|Jike/i.test(navigator.userAgent)) &#123; route = [...mobileMe]&#125; else &#123; route = [...pcMe]&#125;const router = new Router(&#123; mode: &apos;history&apos;, routes: route&#125;)]]></content>
+      <tags>
+        <tag>-- tag</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[子div设置margin-top使得父div也跟着向下移动]]></title>
     <url>%2Fposts%2Fchildren-div-margin-top-influence-father-div.html</url>
     <content type="text"><![CDATA[解决方案：1、修改父元素的高度,给父元素加上padding-top 这是我常用的方法，但是总是感觉解决了问题，但是没有抓到本质。2、为父元素添加overflow:hidden3、为父元素添加border4、为父元素或者子元素声明绝对定位。5、为父元素或者子元素声明浮动 推荐前三种解决方法，因为没必要因为这个去修改元素的定位或者是浮动 原理：一个盒子如果没有上补白(padding-top)和上边框(border-top)，那么这个盒子的上边距会和其内部文档流中的第一个子元素的上边距重叠。]]></content>

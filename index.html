@@ -265,6 +265,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/vue-adjust-pc-mobile.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/vue-adjust-pc-mobile.html" itemprop="url">根据pc 还是移动使用不同页面</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-29T18:17:35+08:00">
+                2019-07-29 18:17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Router from &apos;vue-router&apos;</span><br><span class="line">import mobileMe from &apos;./mobile/me&apos;</span><br><span class="line">import pcMe from &apos;./pc/me&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line">let route = []</span><br><span class="line"></span><br><span class="line">if (/Mobile|webOS|Jike/i.test(navigator.userAgent)) &#123;</span><br><span class="line">  route = [...mobileMe]</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  route = [...pcMe]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const router = new Router(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: route</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/children-div-margin-top-influence-father-div.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1397,127 +1518,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/show-spider-html.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/show-spider-html.html" itemprop="url">直接展示爬来数据的html</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-08T14:47:12+08:00">
-                2019-07-08 14:47
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我们爬来的数据有的时候可能是html 用简单的simple_format会将所有的inline style清掉<br>所以这个时候我们要用sanitized<br>后面可以配置 白名单的tag 跟attribute<br>&lt;%= sanitize @comment.body, tags: %w(strong em a), attributes: %w(href) %&gt;</p>
-<p><a href="https://ruby-china.org/topics/16633" target="_blank" rel="noopener">参考</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1568,7 +1568,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-count">246</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1590,7 +1590,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

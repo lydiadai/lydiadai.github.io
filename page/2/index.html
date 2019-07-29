@@ -265,6 +265,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/show-spider-html.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/show-spider-html.html" itemprop="url">直接展示爬来数据的html</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-08T14:47:12+08:00">
+                2019-07-08 14:47
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我们爬来的数据有的时候可能是html 用简单的simple_format会将所有的inline style清掉<br>所以这个时候我们要用sanitized<br>后面可以配置 白名单的tag 跟attribute<br>&lt;%= sanitize @comment.body, tags: %w(strong em a), attributes: %w(href) %&gt;</p>
+<p><a href="https://ruby-china.org/topics/16633" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/build-server.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1388,131 +1509,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/strange-events-summary.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/strange-events-summary.html" itemprop="url">灵异现象汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T17:19:25+08:00">
-                2019-04-19 17:19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>在服务器上怎么precompile都不会生成新的assets 文件<br>解决：RAILS_ENV=production放在命令后面<br><a href="https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required" target="_blank" rel="noopener">https://stackoverflow.com/questions/22778784/rake-assetsprecompile-rails-env-production-not-working-as-required</a></p>
-</li>
-<li><p>js click事件只监听一次就不再触发了<br>解决： 因为使用的是封装好的dropdown 将他换成普通的隐藏/出现 就不会有问题了</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1563,7 +1559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-count">246</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1585,7 +1581,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

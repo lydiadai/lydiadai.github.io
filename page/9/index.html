@@ -284,6 +284,127 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-延迟执行方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-16T02:08:00+08:00">
+                2018-06-16 02:08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(initData) userInfo:nil repeats:NO];</p>
+<p> ps:如果想传参数给init data的话参数要从userInfo里面传<br> eg:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:2.0 </span><br><span class="line">                              target:self </span><br><span class="line">                              selector:@selector(handleTimer:) </span><br><span class="line">                              userInfo:@&quot;someString&quot; repeats:NO];</span><br><span class="line"></span><br><span class="line">- (void)handleTimer:(NSTimer*)theTimer &#123;</span><br><span class="line"></span><br><span class="line">   NSLog (@&quot;Got the string: %@&quot;, (NSString*)[theTimer userInfo]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">安卓- android studio 配置真机调试</a></h1>
         
 
@@ -1362,126 +1483,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-27-7774375.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-05-27-7774375.html" itemprop="url">css-bootstrap table-stripe reverse</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-28T15:00:00+08:00">
-                2018-05-28 15:00
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>.table-striped &gt; tbody &gt; tr:nth-of-type(odd) {<br>background: #fff !important;<br>}<br>.table-striped &gt; tbody &gt; tr:nth-of-type(even) {<br>background: #f9f9f9 !important;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1532,7 +1533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-count">246</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1554,7 +1555,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

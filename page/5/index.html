@@ -265,6 +265,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-12-03-rails-formatjs.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-12-03-rails-formatjs.html" itemprop="url">rails- format.js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-03T11:41:00+08:00">
+                2018-12-03 11:41
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>respond_to do |format|<br>    format.js {<br>        # 在 client 端執行 alert (javascript)<br><br>        “alert(‘Hello Rails’);”,<br><br>        # page not fount<br><br>        status: 404,<br><br>        # render /app/views/your-controller/test_action.js.erb<br><br>        action: “test_action”,<br><br>        # 將 test_item 以 json 格式 render<br><br>        json:      @test_item,<br><br>        # 找到指定的檔案作 render<br><br>        file:      filename,<br><br>        # 直接 render text: Hello<br><br>        text:      “Hello”<br>    }</p>
+<p>end</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-26-ios-open-messages-from-other-apps.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1353,128 +1474,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-10-23-js-monitoring-pop-up-window.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-10-23-js-monitoring-pop-up-window.html" itemprop="url">js-监听弹窗弹出</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T18:37:00+08:00">
-                2018-10-23 18:37
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#code'</span>).on(<span class="string">'shown.bs.modal'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// do something...</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(<span class="built_in">window</span>).on(<span class="string">'hidden.bs.modal'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    $(<span class="string">'#code'</span>).modal(<span class="string">'hide'</span>);</span><br><span class="line">    alert(<span class="string">'hidden'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>ps: 想监听全部 将selector 变成$(‘.modal’)就可以了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1525,7 +1524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-count">246</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1547,7 +1546,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
