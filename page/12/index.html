@@ -284,6 +284,495 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-box-shadow</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T15:41:00+08:00">
+                2018-04-17 15:41
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>box-shadow语法：x轴偏移值 y轴偏移值 模糊半径 阴影半径 || 颜色 insect，其中阴影半径可以为负值，意思是增加或减少指定数值的阴影半径</p>
+<p>正常阴影 box-shadow: 5px 5px 5px black; </p>
+<p>阴影半径为负值  box-shadow: 5px 5px 5px -5px black;</p>
+<p>阴影半径为正值 box-shadow: 5px 5px 5px 5px black;</p>
+<p>双边阴影 box-shadow: 5px 0px 5px -5px black, -5px 0px 5px -5px black;</p>
+<p>单边阴影 box-shadow: 5px 0px 5px -5px black;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-UIActionSheet</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T10:07:00+08:00">
+                2018-04-17 10:07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ios8.3之前用UIActionSheet</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">UIActionSheet *actionSheet = [[UIActionSheet alloc]  </span><br><span class="line">                              initWithTitle:@&quot;这是UIActionSheet&quot;  </span><br><span class="line">                              delegate:self  </span><br><span class="line">                              cancelButtonTitle:@&quot;取消&quot;  </span><br><span class="line">                              destructiveButtonTitle:@&quot;确定&quot;  </span><br><span class="line">                              otherButtonTitles:@&quot;按钮1&quot;, @&quot;按钮2&quot;,nil];  </span><br><span class="line">actionSheet.actionSheetStyle = UIBarStyleDefault;  </span><br><span class="line">[actionSheet showInView:self.view];</span><br></pre></td></tr></table></figure>
+
+<p>之后ios更新了UIAlertController 添加了一种样式：UIAlertControllerStyleActionSheet 来替代UIActionSheet</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">UIAlertController *actionSheet=[UIAlertController alertControllerWithTitle:@&quot;title&quot; message:@&quot;message&quot; preferredStyle:UIAlertControllerStyleActionSheet];</span><br><span class="line">UIAlertController *actionSheet=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];//取消上面的title</span><br><span class="line">//红色按钮</span><br><span class="line">    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;否&quot; style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) &#123;</span><br><span class="line">        NSLog(@&quot;否按钮被点击了&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">    //蓝色按钮</span><br><span class="line">    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@&quot;是&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) &#123;</span><br><span class="line">        NSLog(@&quot;是按钮被点击了&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">    //取消按钮</span><br><span class="line">    UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) &#123;</span><br><span class="line">        NSLog(@&quot;关闭按钮被点击了&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [actionSheet addAction:cancelAction];</span><br><span class="line">    [actionSheet addAction:sureAction];</span><br><span class="line">    [actionSheet addAction:destructiveAction];</span><br><span class="line"></span><br><span class="line">    [self presentViewController:actionSheet animated:YES completion:nil];</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-左滑返回</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T14:34:00+08:00">
+                2018-04-16 14:34
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;</p>
+<pre><code>self.navigationController.interactivePopGestureRecognizer.enabled = NO;</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-wkwebview页面双击会上移</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T17:36:00+08:00">
+                2018-04-13 17:36
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>(function()<br>{<br>    var agent = navigator.userAgent.toLowerCase();        //检测是否是ios<br>    var iLastTouch = null;                                //缓存上一次tap的时间<br>    if (agent.indexOf(‘iphone’) &gt;= 0 || agent.indexOf(‘ipad’) &gt;= 0)<br>    {<br>        document.body.addEventListener(‘touchend’, function(event)<br>        {<br>            var iNow = new Date()<br>                .getTime();<br>            iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */ ;<br>            var delta = iNow - iLastTouch;<br>            if (delta &lt; 500 &amp;&amp; delta &gt; 0)<br>            {<br>                event.preventDefault();<br>                return false;<br>            }<br>            iLastTouch = iNow;<br>        }, false);<br>    }</p>
+<p>})();</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-给navbar tabbar 加分割线</a></h1>
         
 
@@ -1015,501 +1504,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">微信小程序-webview 原生跳转 传递参数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T14:34:00+08:00">
-                2018-03-28 14:34
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>js:<br>在html微信的js中<br>   wx.miniProgram.navigateTo({<br>     url:’/pages/cvShare/cvShare?url=&lt;%= share_cv_url(@cv.token)%&gt;&amp;title=&lt;%= @cv.display_name%&gt;’<br>   });</p>
-<p>小程序：<br>在onload里面接受参数</p>
-<p>onLoad: function (options) {<br>    this.setData({<br>      url: options.url,<br>      title: options.title<br>    })<br>  }, </p>
-<p>  其他方法要用的时候用this.data.url这种</p>
-<p> ps: 小程序在onShareAppMessage方法中可以取到当前页面的url<br>     res.webViewUrl</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-字符串操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-25T17:06:00+08:00">
-                2018-03-25 17:06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.截取字符串</p>
-<p>NSString*string =@”sdfsfsfsAdfsdf”;<br>string = [string substringToIndex:7];//截取掉下标7之后的字符串<br>NSLog(@”截取的值为：%@”,string);<br>[string substringFromIndex:2];//截取掉下标2之前的字符串<br>NSLog(@”截取的值为：%@”,string);</p>
-<p>2.匹配字符串<br>NSString*string =@”sdfsfsfsAdfsdf”;<br>NSRange range = [stringrangeOfString:@”f”];//匹配得到的下标<br>NSLog(@”rang:%@”,NSStringFromRange(range));<br>string = [string substringWithRange:range];//截取范围类的字符串<br>NSLog(@”截取的值为：%@”,string);</p>
-<p>1）截取range之后的字符串<br>NSString<em>string =@”sdfsfsfsAdfsdf”;<br>NSRange range = [string rangeOfString:@”orders/“];//匹配得到的下标<br>NSString</em> str = [string substringFromIndex:range.location + range.length];<br>2）截取range之前的字符串<br>NSString<em>string =@”sdfsfsfsAdfsdf”;<br>NSRange range = [string rangeOfString:@”orders/“];//匹配得到的下标<br>NSString</em> str = [string substringToIndex:range.location + range.length];<br>3)截取固定字符串<br>NSRange r1 = [str1rangeOfString:@”Android”];//查找字符串（返回一个结构体（起始位置及长度））<br>NSString *s12 = [str1substringToIndex:r1.location];//截取子字符串方式</p>
-<p>3.分隔字符串<br>NSString*string =@”sdfsfsfsAdfsdf”;</p>
-<p>NSArray *array = [string componentsSeparatedByString:@”A”]; //从字符A中分隔成2个元素的数组<br>NSLog(@”array:%@”,array); //结果是adfsfsfs和dfsdf</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-判断字符串为空</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T15:50:00+08:00">
-                2018-03-23 15:50
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在ios中，接口经常返回null，有时候又返回空字符串，有时候又返回(null)，甚至<null>，利用isEqualToString:@””，NULL,@”(null)”,nil,Nil比较后均得不到正确结果，甚至连string.length == 0来判断依然不行，但是实际上这个str确实是空的。那这个时候该如何判断才能正确呢？</null></p>
-<p>用NSStringFromClass打印出字符串返回的格式是(null)时，需要这样判断</p>
-<p>if (result == nil)<br>{<br>    NSLog(@”空类型!”);<br>}<br>而如果返回的格式是<null>时，则需要这样判断</null></p>
-<p>if ([result isEqual:[NSNull class]])<br>{<br>    NSLog(@”空类型!”);<br>}  </p>
-<p>所以，总的来说，你可以用一句代码来总结出判断字符串类型的方式，可以这样写：</p>
-<ul>
-<li>(BOOL)StringIsNullOrEmpty:(NSString *)str<br>{<br>  return (str == nil || [str isKindOfClass:[NSNull class]] || str.length == 0);<br>}<br>这样就基本上能解决字符串为空类型时的判断了。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios- CGRectMake</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T17:13:00+08:00">
-                2018-03-22 17:13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>·CGRectMake(origin.x，origin.y，size.width. Size.height)在代码中定义矩形。</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1560,7 +1554,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">241</span>
+                  <span class="site-state-item-count">245</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1582,7 +1576,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

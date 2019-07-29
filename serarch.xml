@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[wechat-get-miniprogram-qr]]></title>
+    <title><![CDATA[子div设置margin-top使得父div也跟着向下移动]]></title>
+    <url>%2Fposts%2Fchildren-div-margin-top-influence-father-div.html</url>
+    <content type="text"><![CDATA[解决方案：1、修改父元素的高度,给父元素加上padding-top 这是我常用的方法，但是总是感觉解决了问题，但是没有抓到本质。2、为父元素添加overflow:hidden3、为父元素添加border4、为父元素或者子元素声明绝对定位。5、为父元素或者子元素声明浮动 推荐前三种解决方法，因为没必要因为这个去修改元素的定位或者是浮动 原理：一个盒子如果没有上补白(padding-top)和上边框(border-top)，那么这个盒子的上边距会和其内部文档流中的第一个子元素的上边距重叠。]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue 路由中#]]></title>
+    <url>%2Fposts%2Fvue-router.html</url>
+    <content type="text"><![CDATA[seo 中有需求 url中最好不要带有#，就去查了一下怎么做 1234const router = new VueRouter(&#123; mode: &apos;history&apos;, routes: [...]&#125;) 参考：https://router.vuejs.org/zh/guide/essentials/history-mode.html]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue项目部署]]></title>
+    <url>%2Fposts%2Fvue-deploy.html</url>
+    <content type="text"><![CDATA[先新建一个Gemfile 123source 'https://gems.ruby-china.com' gem 'capistrano', '2.12.0' gem 'capistrano-rbenv', '1.0.1' $ bundle install $ bundle exec capify . 配置deploy文件 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162# -*- encoding : utf-8 -*-require 'capistrano-rbenv'load 'deploy/assets'SSH_USER = 'root'set :rake, "bundle exec rake"set :application, "xxx"#set :application, "xxx"set :repository, "./dist"set :scm, :none# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`set :deploy_via, :copy#测试服务器ssh_options[:port] = xxxserver = "xxx"#正式服务器#server = "xxx"role :web, serverrole :app, server # This may be the same as your `Web` serverrole :db, server, :primary =&gt; true # This is where Rails migrations will runrole :db, serverset :deploy_to, "xxx" #项目路径set :copy_exclude, [".git", "node_modules", "src"]default_run_options[:pty] = trueset :user, SSH_USERnamespace :deploy do task :restart, :roles =&gt; :app, :except =&gt; &#123; :no_release =&gt; true &#125; do run "nginx -s reload" end namespace :assets do task :precompile do puts "== 这个命令没有用，但是rails中每次都会执行，所以使用空语句覆盖它。" #run "bundle install" #run "cd #&#123;release_path&#125; &amp;&amp; bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile " end task :symlink do puts "== 这个命令没有用，但是rails中每次都会执行，所以使用空语句覆盖它。" end end enddesc "编译vuejs"task :build_vue do puts '== 清空 dist 文件夹' puts `rm -rf dist/*` puts "== 编译 vuejs:" puts `npm run build`endtask :remove_redundant_files do puts "== 删掉远程无用的文件夹： log, public, tmp" run "cd #&#123;release_path&#125; &amp;&amp; trash log public tmp REVISION"endbefore "deploy", :build_vueafter "deploy", :remove_redundant_files 配置nginx 12345678910111213141516171819202122232425262728server &#123; listen 443 ssl; charset utf-8; server_name vue1.wondercv.com; ssl_certificate /opt/ssl/wondercv/wondercv.com.crt; ssl_certificate_key /opt/ssl/wondercv/wondercv.com.key; ssl_session_cache shared:SSL:1m; # 第一步,把所有的 mysite.com/api/interface 转换成: mysite.com/interface location /api &#123; rewrite ^(.*)\/api(.*)$ $1$2; &#125; # 第二步， 把所有的 mysite.com/interface 的请求，转发到 siwei.me/interface location /interface &#123; proxy_pass http://siwei.me; &#125; location / &#123; root /opt/app/vue1.wondercv.com/current; &#125;&#125;server &#123; listen 80; server_name vue1.wondercv.com; return 301 https://$server_name$request_uri;&#125; 在本地 $ bundle exec cap deploy:setupps: 创建完文件夹及时停止 $bundle exec cap deploy]]></content>
+      <tags>
+        <tag>vue deploy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小程序-获取小程序码]]></title>
     <url>%2Fposts%2Fwechat-get-miniprogram-qr.html</url>
     <content type="text"><![CDATA[打开微信公众平台接口调试工具，在参数列表中输入小程序的appid和secret，点击检查问题，如果appid和secret正确，则可以返回正确的access_token结果 生成小程序码有三个接口，我采用的是接口B 接口B：适用于需要的码数量极多的业务场景 0）可接受页面参数较短 1）通过该接口生成的小程序码，永久有效 2）数量不做限制（截止今天，官方未对生成数量做限制） 3）用户扫码后，可以在对应页面获取到二维码中scene字段下面的值 4）B接口调用分钟频率受限(目前5000次/分钟，会调整) 接口地址： https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=ACCESS_TOKEN 打开Postman 请求方式选择POSTURL一栏输入https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=（上一条中返回的access_token值） Body中输入的格式为{“page”: “pages/newImportCv/newImportCv”,“scene”: “a”}的json字符串 确认信息无误后，点击右上方Send按钮请求接口]]></content>
       <tags>
@@ -11,7 +35,7 @@
   <entry>
     <title><![CDATA[vue-tynimce]]></title>
     <url>%2Fposts%2Fvue-tynimce.html</url>
-    <content type="text"><![CDATA[安装安装包$ npm install @tinymce/tinymce-vue -S$ npm install tinymce -S 在 node_modules 中找到 tinymce/skins 目录，然后将 skins 目录拷贝到 static 目录下 // 如果是使用 vue-cli 3.x 构建的 typescript 项目，就放到 public 目录下，文中所有 static 目录相关都这样处理 tinymce 默认是英文界面，所以还需要下载一个中文语言包（记得搭梯子！搭梯子！搭梯子！） 然后将这个语言包放到 static 目录下，为了结构清晰，我包了一层 tinymce 目录 3.main.js 12345678910import tinymce from &apos;tinymce/tinymce&apos;import &apos;tinymce/themes/silver/theme&apos;import Editor from &apos;@tinymce/tinymce-vue&apos;tinymce.init(&#123; selector: &apos;textarea&apos;, language_url: &apos;/static/tinymce/zh_CN.js&apos;, language: &apos;zh_CN&apos;, skin_url: &apos;/static/tinymce/skins/ui/oxide&apos;&#125;)]]></content>
+    <content type="text"><![CDATA[安装安装包$ npm install @tinymce/tinymce-vue -S$ npm install tinymce -S 在 node_modules 中找到 tinymce/skins 目录，然后将 skins 目录拷贝到 static 目录下 // 如果是使用 vue-cli 3.x 构建的 typescript 项目，就放到 public 目录下，文中所有 static 目录相关都这样处理 tinymce 默认是英文界面，所以还需要下载一个中文语言包（记得搭梯子！搭梯子！搭梯子！） 然后将这个语言包放到 static 目录下，为了结构清晰，我包了一层 tinymce 目录 添加一个editor.vue 文件 作为组件 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485&lt;template&gt; &lt;div class=&quot;tinymce-editor&quot;&gt; &lt;editor v-model=&quot;myValue&quot; :init=&quot;init&quot; :disabled=&quot;disabled&quot; @onClick=&quot;onClick&quot;&gt;&lt;/editor&gt; &lt;/div&gt;&lt;/template&gt;&lt;script&gt;import tinymce from &apos;tinymce/tinymce&apos;import Editor from &apos;@tinymce/tinymce-vue&apos;import &apos;tinymce/themes/silver&apos;// 编辑器插件plugins// 更多插件参考：https://www.tiny.cloud/docs/plugins/import &apos;tinymce/plugins/image&apos;// 插入上传图片插件import &apos;tinymce/plugins/media&apos;// 插入视频插件import &apos;tinymce/plugins/table&apos;// 插入表格插件import &apos;tinymce/plugins/lists&apos;// 列表插件import &apos;tinymce/plugins/wordcount&apos;// 字数统计插件export default &#123; components: &#123; Editor &#125;, props: &#123; value: &#123; type: String, default: &apos;&apos; &#125;, disabled: &#123; type: Boolean, default: false &#125;, plugins: &#123; type: [String, Array], default: &apos;lists image media table wordcount&apos; &#125;, toolbar: &#123; type: [String, Array], default: &apos;undo redo | formatselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | lists image media table | removeformat&apos; &#125; &#125;, data () &#123; return &#123; init: &#123; language_url: &apos;/tinymce/langs/zh_CN.js&apos;, language: &apos;zh_CN&apos;, skin_url: &apos;/tinymce/skins/ui/oxide&apos;, // skin_url: &apos;/tinymce/skins/ui/oxide-dark&apos;,//暗色系 height: 300, plugins: this.plugins, toolbar: this.toolbar, branding: false, menubar: false, // 此处为图片上传处理函数，这个直接用了base64的图片形式上传图片， // 如需ajax上传可参考https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_handler images_upload_handler: (blobInfo, success, failure) =&gt; &#123; const img = &apos;data:image/jpeg;base64,&apos; + blobInfo.base64() success(img) &#125; &#125;, myValue: this.value &#125; &#125;, mounted () &#123; tinymce.init(&#123;&#125;) &#125;, methods: &#123; // 添加相关的事件，可用的事件参照文档=&gt; https://github.com/tinymce/tinymce-vue =&gt; All available events // 需要什么事件可以自己增加 onClick (e) &#123; this.$emit(&apos;onClick&apos;, e, tinymce) &#125;, // 可以添加一些自己的自定义事件，如清空内容 clear () &#123; this.myValue = &apos;&apos; &#125; &#125;, watch: &#123; value (newValue) &#123; this.myValue = newValue &#125;, myValue (newValue) &#123; this.$emit(&apos;input&apos;, newValue) &#125; &#125;&#125;&lt;/script&gt; 封装后使用 123456789101112131415161718192021222324252627282930313233343536373839&lt;template&gt; &lt;div&gt; &#123;&#123; msg &#125;&#125; &lt;tinymce-editor ref=&quot;editor&quot; v-model=&quot;msg&quot; :disabled=&quot;disabled&quot; @onClick=&quot;onClick&quot;&gt; &lt;/tinymce-editor&gt; &lt;button @click=&quot;clear&quot;&gt;清空内容&lt;/button&gt; &lt;button @click=&quot;disabled = true&quot;&gt;禁用&lt;/button&gt; &lt;/div&gt;&lt;/template&gt;&lt;script&gt;import TinymceEditor from &apos;./tinymce-editor/tinymce-editor&apos;export default &#123; components: &#123; TinymceEditor &#125;, data () &#123; return &#123; msg: &apos;Welcome to Use Tinymce Editor&apos;, disabled: false &#125; &#125;, methods: &#123; // 鼠标单击的事件 onClick (e, editor) &#123; console.log(&apos;Element clicked&apos;) console.log(e) console.log(editor) &#125;, // 清空内容 clear () &#123; this.$refs.editor.clear() &#125; &#125;&#125;&lt;/script&gt;]]></content>
       <tags>
         <tag>vue</tag>
       </tags>
@@ -38,6 +62,14 @@
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[html-raw-show]]></title>
+    <url>%2Fposts%2Fhtml-raw-show.html</url>
+    <content type="text"><![CDATA[我们爬来的数据有的时候可能是html 用简单的simple_format会将所有的inline style清掉所以这个时候我们要用sanitized后面可以配置 白名单的tag 跟attribute 1&lt;%= sanitize @comment.body, tags: %w(strong em a), attributes: %w(href) %&gt; 参考]]></content>
+      <tags>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -458,18 +490,27 @@
   </entry>
   <entry>
     <title><![CDATA[rails- float取整]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-08-16-rails-float-rounding.html</url>
     <content type="text"><![CDATA[ceil()方法表示向上取整，Math.ceil(4.3)的结果是5，Math.ceil(-9.8)的结果-9； floor()方法表示向下取整，Math.floor(4.3)的结果是4，Math.floor(-9.8)的结果-10； round()方法表示“四舍五入”，Math.round(4.3)的结果是4，Math.round(-9.8)的结果-10； ps: 除法想取整需要是float去除 整数除完只会返回整数]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[bootstrap-取消dropdown 点击消失]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-08-14-bootstrap-cancel-dropdown-click-hour.html</url>
     <content type="text"><![CDATA[解决办法第一步在dropdown-menu中的需要处理的元素添加 data-stopPropagation=”true”，data-stopPropagation属性是用来对点击时停止传播事件，这样我们的点击事件就不会传播给Bootstrap.js中去了。 第二步调用Bootstrap的stopPropagation()函数，可以阻止元素点击时停止传播事件。我在我的代码中写的比较粗暴，对整个treeview声明一个click事件，并且全部绑定上stopPropagation()方法。 $(“.treeview”).on(“click”,function (e) { e.stopPropagation();})]]></content>
+      <tags>
+        <tag>bootstrap</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[rails - hash 取值变成 a.b]]></title>
-    <url>%2Fposts%2Fundefined.html</url>
+    <url>%2Fposts%2F2018-08-13-rails-hash-the-value-into.html</url>
     <content type="text"><![CDATA[auth = ActiveSupport::InheritableOptions.new(provider: ‘open’, info:ActiveSupport::InheritableOptions.new(nickname:’lslls’))]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[js-拖拽出现按钮]]></title>
@@ -1174,7 +1215,7 @@
   <entry>
     <title><![CDATA[给已有的h5项目导入vuex]]></title>
     <url>%2Fposts%2F2017-05-12-1822532.html</url>
-    <content type="text"><![CDATA[1.npm install vuex –verbose2.将App.vue 更名为 main.vue3.将main.js中引用文件改成main.vue4.新建views 和 vuex 文件夹。并将vuex中文件导入5.测试 在main.vue 中引用 然后用mounted函数console.info 输出]]></content>
+    <content type="text"><![CDATA[1.npm install vuex –verbose2.将App.vue 更名为 main.vue3.将main.js中引用文件改成main.vue4.新建views 和 vuex 文件夹。并将vuex中文件导入5.测试 在main.vue 中引用 然后用mounted函数console.info]]></content>
       <tags>
         <tag>vuex</tag>
       </tags>
