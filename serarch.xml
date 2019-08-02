@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue项目接入微信js]]></title>
+    <url>%2Fposts%2Fvue-wechat-js.html</url>
+    <content type="text"><![CDATA[$ npm install weixin-js-sdk –save 引入wechat js文件 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768import wx from &apos;weixin-js-sdk&apos;const wxPlugin = &#123;&#125;wxPlugin.install = function (Vue, options) &#123; function extend (obj1, obj2) &#123; for (var k in obj2) &#123; if (obj1.hasOwnProperty(k)) &#123; if (isObject(obj2[k])) &#123; extend(obj1[k], obj2[k]) &#125; else &#123; obj1[k] = obj2[k] &#125; &#125; else &#123; obj1[k] = obj2[k] &#125; &#125; return obj1 &#125; function getProp (obj, str) &#123; var result = extend(&#123;&#125;, obj) var array = str.split(&apos;.&apos;) for (var i = 0; i &lt; array.length; i++) &#123; if (result[array[i]]) &#123; result = result[array[i]] &#125; else &#123; result = result[array[i]] break &#125; &#125; return result &#125; // 判断options.config的数据类型 if (!options.config) &#123; console.error(&apos;wxPlugin Error：config属性必须为一个对象或者promise，不能为空&apos;) return &#125; // 如果config为一个对象 if (Object.prototype.toString.call(options.config) === &apos;[object Object]&apos;) &#123; wxConfig(options.config) &#125; // 如果config为一个promise if (options.config instanceof Promise) &#123; options.config.then(function (res) &#123; var config if (options.path) &#123; config = getProp(res, options.path) &#125; else &#123; config = res.data &#125; wxConfig(config) &#125;) &#125; function wxConfig (config) &#123; wx.config(&#123; debug: false, appId: config.appId, timestamp: config.timestamp, nonceStr: config.nonceStr, signature: config.signature, jsApiList: options.actions &#125;) wx.error(function (err) &#123; console.error(err) &#125;) &#125; Vue.prototype.wx = wx&#125;export default wxPlugin main.js中引用 1234567891011import wxPlugin from &apos;common/js/wechatJs.js&apos;const options = &#123; config: api.me.getWechatJsConfig(&#123;url: location.href&#125;), // 如果config是promise，path需要指定如何从promise返回值中拿到符合格式的object; // 如果config是一个object，则无需指定path值 path: &apos;data&apos;, // 声明用到的微信api actions: [&apos;onMenuShareAppMessage&apos;, &apos;onMenuShareTimeline&apos;]&#125;Vue.use(wxPlugin, options) 页面中引用 1234567891011121314151617181920212223wx_share () &#123; this.wx.ready(function () &#123; // 分享给朋友 this.wx.onMenuShareAppMessage(&#123; title: &apos;问题反馈&apos;, desc: &apos;问题反馈&apos;, link: location.href, imgUrl: &apos;https://files.wondercv.com/App%20Icon@2x.png&apos;, success: function () &#123; alert(&apos;分享成功&apos;) &#125; &#125;) // 分享到朋友圈 this.wx.onMenuShareTimeline(&#123; title: &apos;问题反馈&apos;, link: location.href, imgUrl: &apos;https://files.wondercv.com/App%20Icon@2x.png&apos;, success: function () &#123; alert(&apos;分享成功&apos;) &#125; &#125;) &#125;)&#125;]]></content>
+      <tags>
+        <tag>-- vue wechat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx 不改变url 根据需求分发到不同的项目]]></title>
+    <url>%2Fposts%2Fnginx-rewrite-location.html</url>
+    <content type="text"><![CDATA[需求一：根据页面转发 12345location /account/users/mobile_account_index &#123; root /opt/app/vuetest.wondercv.com/current; index index.html; try_files $uri /index.html $uri/;&#125; ps: 要注意指向的文件夹里有没有版本库 来判定要不要current 需求二：根据user agent &amp;&amp; url转发 12345678location /feedbacks/new &#123; root /opt/app/vuetest.wondercv.com/current; index index.html; try_files $uri /index.html $uri/; if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123; proxy_pass http://app_servers; &#125;&#125;]]></content>
+      <tags>
+        <tag>-- nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[根据pc 还是移动使用不同页面]]></title>
     <url>%2Fposts%2Fvue-adjust-pc-mobile.html</url>
     <content type="text"><![CDATA[12345678910111213141516171819import Vue from &apos;vue&apos;import Router from &apos;vue-router&apos;import mobileMe from &apos;./mobile/me&apos;import pcMe from &apos;./pc/me&apos;Vue.use(Router)let route = []if (/Mobile|webOS|Jike/i.test(navigator.userAgent)) &#123; route = [...mobileMe]&#125; else &#123; route = [...pcMe]&#125;const router = new Router(&#123; mode: &apos;history&apos;, routes: route&#125;)]]></content>

@@ -286,6 +286,253 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">网络打印机安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T16:20:00+08:00">
+                2017-08-21 16:20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我用的是爱宝打印机 在win10的系统下<br>1.安装网络打印机驱动<br>2.要么修改打印机网段（打印机网段一般为1）<br>ps：网段：192.168.x.xxx 第三位为网段<br>  要么修改局域网网段（一般为0）<br>ps：修改打印机网段需要客服提供工具 自己很难改<br>    但是修改局域网网段会影响局域网连接外网，所以这里我们还是选择修改打印机网段<br>3.将电脑的局域网网段先改成1<br>  1）打开网络与共享中心。<br>  2）点击以太网 点击属性 选择TCP/IPv4双击打开 选择使用下面的IP地址<br>  3）输入192.168.1.xxx 确定关闭<br>  （如果是修改局域网网段就这样就可以了）<br>4.将电脑与打印机网口直连（电脑断网） 用客服提供的工具将打印机网段设置成0<br>5.将网线连回去 将局域网设置取消<br>6.给打印机添加端口<br>  1）端口类型选择StandardTCP/IP<br>  2）输入打印机ip地址<br>  3）会显示没有找到设备 但是没关系 点击下面的自定义<br>     协议   –&gt; Raw<br>     端口号 –&gt; 9100<br>     之后确定 下一步 完成就OK了！<br>7.集成到系统上 客服还没有给我SDK 等他给我集成上之后再更新</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">iOS 发布证书配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T16:06:00+08:00">
+                2017-08-21 16:06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>公司账号<br>1.先登录公司账号 invite成管理员，点击邮件中链接点选同意</p>
+<ol start="2">
+<li>钥匙串访问：<br>钥匙串访问 –&gt; 证书助理 –&gt; 从证书办法机构请求证书 –&gt;生成CSR文件</li>
+<li>到Xcode –&gt; preference –&gt; account 添加apple ID，并选择对应的公司账号</li>
+<li>apple developer中 certificates 添加production证书 将CSR文件传上去 下载生成的证书，<br>双击点开配置到电脑上</li>
+<li>Provisioning Profiles –&gt; distribution 再申请一个证书选择ADhoc<br>下载生成的证书双击运行<br>ps:现在Xcode中运行的设备必须是配置distribution证书是select的设备</li>
+</ol>
+<p>个人账号<br>1.钥匙串访问：<br>   钥匙串访问 –&gt; 证书助理 –&gt; 从证书办法机构请求证书 –&gt;生成CSR文件<br>2.申请production证书<br>3.申请appid（bundle id要跟xcode里面一样）<br>4.申请distribution证书</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">web打印</a></h1>
         
 
@@ -1291,245 +1538,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">cancancan & 动态权限</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T16:31:00+08:00">
-                2017-07-19 16:31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://ccaloha.cc/blog/2014/06/30/dynamic-roles-and-permissions-management-using-cancan/" target="_blank" rel="noopener">参考</a><a href="https://blog.joshsoftware.com/2012/10/23/dynamic-roles-and-permissions-using-cancan/" target="_blank" rel="noopener">参考的参考</a><a href="http://blog.xdite.net/posts/2012/07/30/cancan-rule-engine-authorization-based-library-1" target="_blank" rel="noopener">关于cancancan1</a><br><a href="http://blog.xdite.net/posts/2012/07/30/cancan-rule-engine-authorization-based-library-2/" target="_blank" rel="noopener">关于cancancan2</a><br><a href="http://blog.xdite.net/posts/2012/07/30/cancan-rule-engine-authorization-based-library-3/" target="_blank" rel="noopener">关于cancancan3</a><br><a href="https://github.com/ryanb/cancan/wiki" target="_blank" rel="noopener">官方文档</a><br>rake permissions:permissions</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css 白线</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T15:58:00+08:00">
-                2017-07-17 15:58
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <div style="width:800px;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1580,7 +1588,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">246</span>
+                  <span class="site-state-item-count">248</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1602,7 +1610,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

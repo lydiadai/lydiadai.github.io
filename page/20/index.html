@@ -265,6 +265,253 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-06-08-js-depending-on-the-selected-page-partial-refresh.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-06-08-js-depending-on-the-selected-page-partial-refresh.html" itemprop="url">js--根据选择不同 页面局部刷新</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T11:24:00+08:00">
+                2017-06-08 11:24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="detail-tr form-action"&gt;</span><br><span class="line">    &lt;%= f.select(<span class="symbol">:good_id</span>, Good.where(<span class="symbol">:goods_first_category</span> =&gt; <span class="string">'1'</span>).map&#123;<span class="params">|g|</span> [g.name, g.id]&#125;, &#123;<span class="symbol">:include_blank=&gt;<span class="string">"请选择菜品用料"</span></span>&#125;, <span class="symbol">:style</span> =&gt; <span class="string">'width: 200px;'</span>) %&gt;</span><br><span class="line">    &lt;%= f.text_field <span class="symbol">:amount</span>, <span class="symbol">placeholder:</span> <span class="string">'请输入菜品用量'</span> %&gt;&lt;p style=<span class="string">"display:inline-block"</span> id=<span class="string">"material_unit"</span>&gt;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;%= link_to_remove_association('删除', f,</span></span><br><span class="line"><span class="regexp">                                   &#123; wrapper_class: 'detail-tr' &#125;)%&gt;</span></span><br><span class="line"><span class="regexp">                                 &lt;%= f.hidden_field :id %&gt;</span></span><br><span class="line"><span class="regexp">&lt;/div</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(<span class="string">'#dish_materials_attributes_0_good_id（select的id）'</span>).change(function()&#123;</span><br><span class="line">    id = $(this).val()</span><br><span class="line">    $.get(<span class="string">'/interface/goods/'</span> + id, function(data)&#123;</span><br><span class="line">        $(<span class="string">'#material_unit'</span>).text(data.unit)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-22-cocoon.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-05-22-cocoon.html" itemprop="url">gem --- cocoon</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-22T17:15:00+08:00">
+                2017-05-22 17:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.Inside your Gemfile add the following:</p>
+<p>gem “cocoon”</p>
+<p>2.Add the following to application.js so it compiles to the asset pipeline:</p>
+<p>//= require cocoon</p>
+<p>3.model文件中添加（一级）<br>accepts_nested_attributes_for :tasks, allow_destroy: true</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/2017-05-22-cocoon.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-05-19-select-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1246,406 +1493,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/markdown 简明教程.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/markdown 简明教程.html" itemprop="url">markdown简明教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-14T14:33:17+08:00">
-                2017-03-14 14:33
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Markdown-学习"><a href="#Markdown-学习" class="headerlink" title="Markdown 学习"></a>Markdown 学习</h1><p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
-<h2 id="MarkdownPad2-5-注册码"><a href="#MarkdownPad2-5-注册码" class="headerlink" title="MarkdownPad2.5 注册码"></a>MarkdownPad2.5 注册码</h2><p>邮箱：<br><a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a></p>
-<p>授权秘钥：<br>GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</p>
-<h2 id="使用-Markdown-的优点"><a href="#使用-Markdown-的优点" class="headerlink" title="使用 Markdown 的优点"></a>使用 Markdown 的优点</h2><ul>
-<li>专注你的文字内容而不是排版样式。</li>
-<li>轻松的导出 HTML、PDF 和本身的 .md 文件。</li>
-<li>纯文本内容，兼容所有的文本编辑器与字处理软件。</li>
-<li>可读，直观。适合所有人的写作语言。</li>
-</ul>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>工具茫茫多</p>
-<ul>
-<li>windows 下 markdownPad2</li>
-<li>在线 <a href="http://md.birdteam.net/" target="_blank" rel="noopener">http://md.birdteam.net/</a></li>
-</ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题有六级<br>由 # 组成<br>类比于 h1 ~ h6</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题（H1，通常用于文档标题）  </span><br><span class="line">## 这是二级标题（H2，有些渲染器会为二级标题添加 hr 底线）  </span><br><span class="line">### 这是三级标题（H3）  </span><br><span class="line">#### 这是四级标题（H4）  </span><br><span class="line">##### 这是五级标题（H5） </span><br><span class="line">###### 这是六级标题（H6）</span><br></pre></td></tr></table></figure>
-
-<p>注：在#后加一个空格再跟标题</p>
-<h3 id="首行缩进"><a href="#首行缩进" class="headerlink" title="首行缩进"></a>首行缩进</h3><p>&emsp;&emsp;写文章时，我们常常希望能够首行缩进，这时可以在段首加入<code>&amp;ensp;</code>或<code>&amp;nbsp</code>来输入一个空格.加入<code>&amp;emsp;</code>来输入两个空格。这里的空格是英文状态的空格，英文状态的两个空格相当于中文状态的一个空格</p>
-<h3 id="添加空行"><a href="#添加空行" class="headerlink" title="添加空行"></a>添加空行</h3><p>添加空行可以结束先前的格式状态。个人建议在改变格式时，均添加一个空行</p>
-<p>文本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;引用状态</span><br><span class="line">[空行]</span><br><span class="line">### 标题状态</span><br><span class="line">[空行]</span><br><span class="line">------</span><br><span class="line">[空行]</span><br><span class="line">- 列表状态</span><br><span class="line">- 列表状态</span><br><span class="line">[空行]</span><br></pre></td></tr></table></figure>
-
-<p>效果</p>
-<blockquote>
-<p>引用状态</p>
-</blockquote>
-<h3 id="标题状态"><a href="#标题状态" class="headerlink" title="标题状态"></a>标题状态</h3><hr>
-<ul>
-<li>列表状态</li>
-<li>列表状态</li>
-</ul>
-<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>换行的时候 结尾要加上 两个空格。  </p>
-<h3 id="斜体与粗体"><a href="#斜体与粗体" class="headerlink" title="斜体与粗体"></a>斜体与粗体</h3><p>斜体：使用 两个星号 <code>**</code> 中间夹杂的就是 斜体, 例如：<em>斜体</em><br>粗体： 使用 四个星号 <code>****</code> 中间夹杂的就是 粗体, 例如：<strong>粗体</strong> </p>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>+ - *</code> 都表示无序列表<br>注：后面也需要跟一个空格</p>
-<p>例如：</p>
-<ul>
-<li>使用 - 号<ul>
-<li>吃饭</li>
-<li>睡觉</li>
-<li>打豆豆</li>
-<li>再打豆豆<ul>
-<li>接着打豆豆</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>使用 + 号<ul>
-<li>吃饭</li>
-<li>睡觉</li>
-<li>打豆豆</li>
-</ul>
-</li>
-<li>使用 * 号<ul>
-<li>吃饭</li>
-<li>睡觉</li>
-<li>打豆豆</li>
-</ul>
-</li>
-</ul>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>使用 <code>1. 2. 3.</code> 可以表示有序列表<br>注：后面也需要跟一个空格<br>例如：</p>
-<ol>
-<li>买菜</li>
-<li>洗菜</li>
-<li>切菜</li>
-<li>炒菜</li>
-<li>吃菜</li>
-<li>洗碗</li>
-</ol>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>使用 <code>&gt;</code> 表示引用  </p>
-<blockquote>
-<p>海明威曾经写过：我可以被杀死，但是不可以被打败</p>
-</blockquote>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
-<thead>
-<tr>
-<th>默认对齐</th>
-<th align="left">居左对齐</th>
-<th align="center">居中对齐</th>
-<th align="right">居右对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>窗前</td>
-<td align="left">明月</td>
-<td align="center">光</td>
-<td align="right">，</td>
-</tr>
-<tr>
-<td>疑是</td>
-<td align="left">地上</td>
-<td align="center">霜</td>
-<td align="right">，</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th align="left">性别</th>
-<th align="center">年纪</th>
-<th>班级</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>张三</td>
-<td align="left">男</td>
-<td align="center">29</td>
-<td>0830</td>
-</tr>
-<tr>
-<td>李四</td>
-<td align="left">女</td>
-<td align="center">28</td>
-<td>0830</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>地点</th>
-<th>人物</th>
-<th align="center">事件事件事件事件事件事件事件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>北京</td>
-<td>我</td>
-<td align="center">吃面</td>
-</tr>
-</tbody></table>
-<p>注：表格开始与结尾都需要一行空行</p>
-<h3 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h3><p>插入代码的方式有两种</p>
-<ol>
-<li>在每行代码前加入4个空格或者添加一个制表符（TAB键）</li>
-<li>在代码两侧添加三个反引号‘<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 方式一</span><br><span class="line">其缩进是相对于当前格式状态下的。</span><br><span class="line"></span><br><span class="line">文本</span><br><span class="line">- 列表项</span><br><span class="line">- 列表项</span><br><span class="line">  [TAB][TAB]printf(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">效果</span><br><span class="line">- 列表项</span><br><span class="line">- 列表项</span><br><span class="line">		printf(&quot;hello world!&quot;);</span><br><span class="line">在列表项状态下，需要输入两次TAB键(制表符)才能以代码格式插入。</span><br><span class="line"></span><br><span class="line">#### 方式2</span><br><span class="line">反引号最好在代码的前后行添加，而不是直接加在代码两边。</span><br><span class="line"></span><br><span class="line">- 使用这个符号 ` `` ` 中间夹`&lt;br&gt;`着代码</span><br><span class="line">	- `&lt;br&gt;`</span><br><span class="line">- 使用 三个 ` 符号成对夹代码</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-    <li>好好学习</li>
-    <li>天天向上</li>
-    <li>锻炼身体</li>
-</ul>
-```
-
-<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p><a href="http://www.baidu.com" target="_blank" rel="noopener">百度</a><br><a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a></p>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><img src="/assets/images/posts/markdown/6G0U014.jpg" alt="无名"></p>
-<h4 id="限制图片大小并居中"><a href="#限制图片大小并居中" class="headerlink" title="限制图片大小并居中"></a>限制图片大小并居中</h4><p>许多 MarkDown 编辑器中直接按原图大小显示图片，造成版面凌乱。使用该命令<code>&lt;img src=&quot;图片地址&quot; width=&quot;图片显示宽度&quot; height=&quot;显示高度&quot; alt=&quot;图片名称&quot;/&gt;</code>设置图片大小，再用<code>&lt;div style=&quot;text-align:center&quot;&gt;&lt;/div&gt;</code>命令包裹达到居中效果。</p>
-<div style="text-align:center"><img src="/assets/images/posts/markdown/88070423gw1ep30aw8an7g204d04gkgd.gif" width="157" height="160" alt="亦菲表演机器猫"></div>
-
-
-<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>简书     <a href="http://www.jianshu.com/" target="_blank" rel="noopener">http://www.jianshu.com/</a><br>github     <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>官网地址： <a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="noopener">http://wowubuntu.com/markdown/basic.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-09-1526311.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-03-09-1526311.html" itemprop="url">OC-页面跳转</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T17:20:00+08:00">
-                2017-03-09 17:20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.新建一个controller，在目标controller.h文件下<br>  @property (nonatomic, strong) NSString * currentRoute;</p>
-<p>2.在源头文件下webview下<br>1）if ([currentRoute containsString:@”slider_show”]) {<br>                SliderDetailViewController * sliderShow = [[SliderDetailViewController alloc]init];<br>                sliderShow.currentRoute = currentRoute;</p>
-<p>2）interface之后添加 <uiwebviewdelegate><br>@property(nonatomic,strong)UIWebView *webView;</uiwebviewdelegate></p>
-<p>3）上方添加#import “HomeViewController.h”—想要跳转到的页面</p>
-<p>ps:.m文件是显示的页面webview<br>   .h是封装各种方法使用的<br>   vue.js 如果是与h5交互的页面跳转 要在main.js中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  console.info(to)</span><br><span class="line">  console.info(from)</span><br><span class="line">  console.info(&apos;跳转了&apos;)</span><br><span class="line">  let link</span><br><span class="line">  if (to.query.client === &apos;ios&apos;) &#123;</span><br><span class="line">    link = true</span><br><span class="line">  &#125; else if (from.query.client === &apos;ios&apos;)&#123;</span><br><span class="line">    console.info(&apos;full_path ===&apos; + to.fullPath)</span><br><span class="line">    window.location.href = &apos;http://link_to&apos; + to.fullPath</span><br><span class="line">    link= false</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    link = true</span><br><span class="line">  &#125;</span><br><span class="line">  next(link)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>要不然会只在一个页面进行h5页面之间的跳转 不会进行webview之间的跳转<br>rails 则不需要 可以直接进行跳转</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1696,7 +1543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">246</span>
+                  <span class="site-state-item-count">248</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1718,7 +1565,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
