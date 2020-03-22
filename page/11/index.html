@@ -265,6 +265,502 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-23-js-data-pass-value.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-05-23-js-data-pass-value.html" itemprop="url">js-data传参键名是变量不能识别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T16:16:00+08:00">
+                2018-05-23 16:16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>const fileData= {};<br>fileData[fileType] = data;</p>
+<p>ps: 一定要注意 在里面写的时候data: fileData 这么传值！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-22-7737697.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-05-22-7737697.html" itemprop="url">js-判断页面是否加载完成</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T17:12:00+08:00">
+                2018-05-22 17:12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于页面来说，dom结构，样式,脚本也属于内容，页面内的图片文字视频音频也是内容。</p>
+<p>那么我们常用的 window.onload和 jquery 中的 ready 函数就能判断内容是否全部加载完成吗？答案是否定的。以上两个只能判定页面骨架加载完成了，但是不能判定页面资源是否加载完成，比如页面的超大图片，视频等。还有如果是有异步请求的资源等都无法检测到的，尤其是在 onload 之后发生的请求。</p>
+<p>onreadystatechange回调不行，原因：每当有请求发生时 readyState 都会改变并触发 onreadystatechange </p>
+<p>如果需要动态处理 dom 那么在 onload|ready 中就可以了，因为此时页面 dom 已经加载完成了。如果你需要对某些异步的请求做监控，则只需要在对应的异步中添加上回调即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.readyState == “complete”) <span class="comment">//当页面加载状态 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload页面(包括资源)准备就绪</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.onloadDOM加载完毕</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-22-7731783.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-05-22-7731783.html" itemprop="url">微信小程序-iphonx适配</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T11:17:00+08:00">
+                2018-05-22 11:17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在app.js文件中 创建全局变量，然后获取设备型号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">globalData: &#123;  </span><br><span class="line">  isIphoneX: false,  </span><br><span class="line">  userInfo: null  </span><br><span class="line">&#125;,  </span><br><span class="line">onShow:function()&#123;  </span><br><span class="line">  let  that = this;  </span><br><span class="line">  wx.getSystemInfo(&#123;  </span><br><span class="line">    success:  res=&gt;&#123;  </span><br><span class="line">      // console.log(&apos;手机信息res&apos;+res.model)  </span><br><span class="line">      let modelmes = res.model;  </span><br><span class="line">      if (modelmes.search(&apos;iPhone X&apos;) != -1) &#123;  </span><br><span class="line">        that.globalData.isIphoneX = true  </span><br><span class="line">      &#125;  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;)  </span><br><span class="line">    </span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p> 在需要引用的页面js文件中onload方法里获取全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let isIphoneX = app.globalData.isIphoneX;</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      isIphoneX: isIphoneX</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>ps:button 的边框用button::after{ border: none; }来去除</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-17-7693318.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-05-17-7693318.html" itemprop="url">redis-数据缓存</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T11:12:00+08:00">
+                2018-05-17 11:12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>gem ‘redis-namespace’<br>bundle<br>新建文件 config/initializers/redis.rb   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$redis = Redis::Namespace.new(&quot;site_point&quot;, :redis =&gt; Redis.new)</span><br></pre></td></tr></table></figure>
+
+<p>存 $redis.set(“test_key”, “Hello World!”)<br>取 $redis.get(“test_key”)<br>删 $redis.del “categories”</p>
+<p><a href="https://ruby-china.org/topics/26711" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-05-15-7678489.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -985,532 +1481,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-tooltip需要点两次</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-02T17:48:00+08:00">
-                2018-05-02 17:48
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//listen for the show event on any triggered elements<br>$(‘[data-toggle=”tooltip”]’).on(‘show.bs.tooltip’, function() {<br>      $(this).click();<br>});</p>
-<p>button 可以<br>a tag 不行<br>a tag 带data-confirm 可以</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-版本更新提示</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T11:44:00+08:00">
-                2018-04-27 11:44
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//判断是否需要提示更新App</p>
-<ul>
-<li>(void)shareAppVersionAlert {<br>  if(![self judgeNeedVersionUpdate])  return ;<br>  //App内info.plist文件里面版本号<br>  NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];<br>  NSString *appVersion = infoDict[@”CFBundleShortVersionString”];<br>//    NSString *bundleId   = infoDict[@”CFBundleIdentifier”];<br>  NSString *urlString =[NSString stringWithFormat:@”<a href="https://itunes.apple.com/cn/lookup?id=%@&quot;" target="_blank" rel="noopener">https://itunes.apple.com/cn/lookup?id=%@&quot;</a>, appId];;<br>  //两种请求appStore最新版本app信息 通过bundleId与appleId判断<br>  //[NSString stringWithFormat:@”<a href="https://itunes.apple.com/cn/lookup?bundleid=%@&quot;" target="_blank" rel="noopener">https://itunes.apple.com/cn/lookup?bundleid=%@&quot;</a>, bundleId]<br>  NSURL *urlStr = [NSURL URLWithString:urlString];<br>  //创建请求体<br>  NSURLRequest *urlRequest = [NSURLRequest requestWithURL:urlStr];<br>  [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {<pre><code>if (connectionError) {
-    //            NSLog(@&quot;connectionError-&gt;%@&quot;, connectionError.localizedDescription);
-    return ;
-}
-NSError *error;
-NSDictionary *resultsDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&amp;error];
-if (error) {
-    //            NSLog(@&quot;error-&gt;%@&quot;, error.localizedDescription);
-    return;
-}
-NSArray *sourceArray = resultsDict[@&quot;results&quot;];
-if (sourceArray.count &gt;= 1) {
-    //AppStore内最新App的版本号
-    NSDictionary *sourceDict = sourceArray[0];
-    NSString *newVersion = sourceDict[@&quot;version&quot;];
-    if ([self judgeNewVersion:newVersion withOldVersion:appVersion])
-    {
-        UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@&quot;提示:\n您的App不是最新版本，请问是否更新&quot; message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@&quot;暂不更新&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //                    [alertVc dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [alertVc addAction:action1];
-        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@&quot;去更新&quot; style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            //跳转到AppStore，该App下载界面
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sourceDict[@&quot;trackViewUrl&quot;]]];
-        }];
-        [alertVc addAction:action2];
-        [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertVc animated:YES completion:nil];
-    }
-}</code></pre>  }];<br>}<br>//每天进行一次版本判断</li>
-<li>(BOOL)judgeNeedVersionUpdate {<br>  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];<br>  [formatter setDateFormat:@”yyyy-MM-dd”];<br>//    获取年-月-日<br>  NSString *dateString = [formatter stringFromDate:[NSDate date]];<br>  NSString *currentDate = [[NSUserDefaults standardUserDefaults] objectForKey:@”currentDate”];<br>  if ([currentDate isEqualToString:dateString]) {<pre><code>return NO;</code></pre>  }<br>  [[NSUserDefaults standardUserDefaults] setObject:dateString forKey:@”currentDate”];<br>  return YES;<br>}<br>//判断当前app版本和AppStore最新app版本大小</li>
-<li>(BOOL)judgeNewVersion:(NSString *)newVersion withOldVersion:(NSString *)oldVersion {<br>  NSArray *newArray = [newVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@”.”]];<br>  NSArray *oldArray = [oldVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@”.”]];<br>  for (NSInteger i = 0; i &lt; newArray.count; i ++) {<pre><code>if ([newArray[i] integerValue] &gt; [oldArray[i] integerValue]) {
-    return YES;
-} else if ([newArray[i] integerValue] &lt; [oldArray[i] integerValue]) {
-    return NO;
-} else { }</code></pre>  }<br>  return NO;<br>}</li>
-</ul>
-<p>在 didFinishLaunchingWithOptions方法中调用就可以了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-ios alert confirm 不显示网址</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-26T17:17:00+08:00">
-                2018-04-26 17:17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>window.alert = function(name){<br>        var iframe = document.createElement(“IFRAME”);<br>        iframe.style.display=”none”;<br>        iframe.setAttribute(“src”, ‘data:text/plain,’);<br>        document.documentElement.appendChild(iframe);<br>        window.frames[0].window.alert(name);<br>        iframe.parentNode.removeChild(iframe);<br>    };</p>
-<p>window.confirm = (message) -&gt;<br>  iframe = document.createElement(‘IFRAME’)<br>  iframe.style.display = ‘none’<br>  iframe.setAttribute ‘src’, ‘data:text/plain,’<br>  document.documentElement.appendChild iframe<br>  alertFrame = window.frames[0]<br>  result = alertFrame.window.confirm(message)<br>  iframe.parentNode.removeChild iframe<br>  result</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-notify dismiss</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-26T16:27:00+08:00">
-                2018-04-26 16:27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>$(‘.notifyjs-wrapper’).remove();</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1556,7 +1531,7 @@ if (sourceArray.count &gt;= 1) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">248</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1578,7 +1553,7 @@ if (sourceArray.count &gt;= 1) {
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -1615,7 +1590,7 @@ if (sourceArray.count &gt;= 1) {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

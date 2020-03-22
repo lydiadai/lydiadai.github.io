@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ios universal link]]></title>
+    <url>%2Fposts%2Fios-universal-link.html</url>
+    <content type="text"></content>
+      <tags>
+        <tag>ios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ios IAP]]></title>
+    <url>%2Fposts%2Fios-in-app-purchase.html</url>
+    <content type="text"></content>
+      <tags>
+        <tag>ios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python初体验]]></title>
+    <url>%2Fposts%2Fpython-first.html</url>
+    <content type="text"><![CDATA[安装环境 安装python 3.7 安装 anaconda 直接搜索下载 安装虚拟环境3.1 创建环境 conda create –name your_env_name python=3.53.2 conda env list 查看虚拟环境列表3.3 conda create –name new_env_name –clone old_env_name 复制环境3.4 conda remove –name your_env_name –all 删除环境3.5 conda activate –name 切换环境3.6 conda install -n env_name package_name 为指定环境安装某个包https://blog.csdn.net/menc15/article/details/71477949 安装Django 下载pycharm 创建第一个python项目 切换到对应的虚拟环境 进入对应文件夹 1django-admin startproject python2]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[iOS 13 adjust]]></title>
+    <url>%2Fposts%2FiOS%2013%20adjust.html</url>
+    <content type="text"><![CDATA[presentView 不是全屏 1nav.modalPresentationStyle = UIModalPresentationFullScreen; search bar 左侧icon位置偏移在uiimageview 外面套一层uiview 设置uiview的职位 1234567UIView * iconOutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];UIImageView* iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@&quot;搜索图标&quot;]];iconView.center = CGPointMake(iconOutView.frame.size.width/2,iconOutView.frame.size.height/2);[iconOutView addSubview:iconView];self.leftView = iconOutView;self.leftViewMode = UITextFieldViewModeAlways; launch img要被禁用了 需要配置成launch screen 先创建一个launch screen文件 点击xcode 右上角的加号 添加imageview 添加约束显示 dark mode status bar not showStatus bar style DefaultUser Interface Style LightView controller-based status bar appearance YES]]></content>
+      <tags>
+        <tag>-- oc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue项目接入微信js]]></title>
     <url>%2Fposts%2Fvue-wechat-js.html</url>
     <content type="text"><![CDATA[$ npm install weixin-js-sdk –save 引入wechat js文件 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768import wx from &apos;weixin-js-sdk&apos;const wxPlugin = &#123;&#125;wxPlugin.install = function (Vue, options) &#123; function extend (obj1, obj2) &#123; for (var k in obj2) &#123; if (obj1.hasOwnProperty(k)) &#123; if (isObject(obj2[k])) &#123; extend(obj1[k], obj2[k]) &#125; else &#123; obj1[k] = obj2[k] &#125; &#125; else &#123; obj1[k] = obj2[k] &#125; &#125; return obj1 &#125; function getProp (obj, str) &#123; var result = extend(&#123;&#125;, obj) var array = str.split(&apos;.&apos;) for (var i = 0; i &lt; array.length; i++) &#123; if (result[array[i]]) &#123; result = result[array[i]] &#125; else &#123; result = result[array[i]] break &#125; &#125; return result &#125; // 判断options.config的数据类型 if (!options.config) &#123; console.error(&apos;wxPlugin Error：config属性必须为一个对象或者promise，不能为空&apos;) return &#125; // 如果config为一个对象 if (Object.prototype.toString.call(options.config) === &apos;[object Object]&apos;) &#123; wxConfig(options.config) &#125; // 如果config为一个promise if (options.config instanceof Promise) &#123; options.config.then(function (res) &#123; var config if (options.path) &#123; config = getProp(res, options.path) &#125; else &#123; config = res.data &#125; wxConfig(config) &#125;) &#125; function wxConfig (config) &#123; wx.config(&#123; debug: false, appId: config.appId, timestamp: config.timestamp, nonceStr: config.nonceStr, signature: config.signature, jsApiList: options.actions &#125;) wx.error(function (err) &#123; console.error(err) &#125;) &#125; Vue.prototype.wx = wx&#125;export default wxPlugin main.js中引用 1234567891011import wxPlugin from &apos;common/js/wechatJs.js&apos;const options = &#123; config: api.me.getWechatJsConfig(&#123;url: location.href&#125;), // 如果config是promise，path需要指定如何从promise返回值中拿到符合格式的object; // 如果config是一个object，则无需指定path值 path: &apos;data&apos;, // 声明用到的微信api actions: [&apos;onMenuShareAppMessage&apos;, &apos;onMenuShareTimeline&apos;]&#125;Vue.use(wxPlugin, options) 页面中引用 1234567891011121314151617181920212223wx_share () &#123; this.wx.ready(function () &#123; // 分享给朋友 this.wx.onMenuShareAppMessage(&#123; title: &apos;问题反馈&apos;, desc: &apos;问题反馈&apos;, link: location.href, imgUrl: &apos;https://files.wondercv.com/App%20Icon@2x.png&apos;, success: function () &#123; alert(&apos;分享成功&apos;) &#125; &#125;) // 分享到朋友圈 this.wx.onMenuShareTimeline(&#123; title: &apos;问题反馈&apos;, link: location.href, imgUrl: &apos;https://files.wondercv.com/App%20Icon@2x.png&apos;, success: function () &#123; alert(&apos;分享成功&apos;) &#125; &#125;) &#125;)&#125;]]></content>
@@ -11,7 +43,7 @@
   <entry>
     <title><![CDATA[nginx 不改变url 根据需求分发到不同的项目]]></title>
     <url>%2Fposts%2Fnginx-rewrite-location.html</url>
-    <content type="text"><![CDATA[需求一：根据页面转发 12345location /account/users/mobile_account_index &#123; root /opt/app/vuetest.wondercv.com/current; index index.html; try_files $uri /index.html $uri/;&#125; ps: 要注意指向的文件夹里有没有版本库 来判定要不要current 需求二：根据user agent &amp;&amp; url转发 12345678location /feedbacks/new &#123; root /opt/app/vuetest.wondercv.com/current; index index.html; try_files $uri /index.html $uri/; if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123; proxy_pass http://app_servers; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[需求一：根据页面转发 12345location /account/users/mobile_account_index &#123; root /opt/app/vuetest.wondercv.com/current; index index.html; try_files $uri /index.html $uri/;&#125; ps: 要注意指向的文件夹里有没有版本库 来判定要不要current 需求二：根据user agent &amp;&amp; url转发 12345678location /feedbacks/new &#123; root /opt/app/vuetest.wondercv.com/current; index index.html; try_files $uri /index.html $uri/; if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123; proxy_pass http://app_servers; &#125;&#125; 需求三：重写url 12345678location ~ /jianlimoban/&#123; #url不变 # rewrite ^(.*)jianlimoban(.*)$ $1muban$2;&quot;[&apos;&quot; #url改变 if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123; rewrite ^(.*)jianlimoban(.*)$ $1muban$2 redirect; &#125;&#125; ps:nginx 关于 rewrite 指令最后一项的参数说明： last : 相当于apache里的 [L]标示，表示完成rewrite； break：本条规则匹配完成后，终止匹配，不再匹配后面的规则； redirect：返回302 临时重定向，浏览器地址栏会显示跳转后的url地址； permanent： 返回301 永久重定向，浏览器地址会显示跳转后的url地址；需求四：转发server （换域名） 12345location ~ /jianlimoban/&#123; if ($http_user_agent ~* &quot;Mobile|webOS|Jike&quot;) &#123; return 301 https://m.wondercv.com$request_uri; &#125;&#125; ps： 12345678910set $to_vue 0;if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123; set $to_vue 1;&#125;if ($http_user_agent ~* &quot;wondercv_ios&quot;) &#123; set $to_vue 1;&#125;if ($request_method ~* &quot;POST&quot;) &#123; set $to_vue 1;&#125; https://moonbingbing.gitbooks.io/openresty-best-practices/ngx/nginx_local_pcre.html location 匹配规则语法规则location [=|||^] /uri/ { … }模式 含义location = /uri = 表示精确匹配，只有完全匹配上才能生效location ^ /uri ^~ 开头对URL路径进行前缀匹配，并且在正则之前。location ~ pattern 开头表示区分大小写的正则匹配location ~ pattern 开头表示不区分大小写的正则匹配location /uri 不带任何修饰符，也表示前缀匹配，但是在正则匹配之后location / 通用匹配，任何未匹配到其它location的请求都会匹配到，相当于switch中的default]]></content>
       <tags>
         <tag>-- nginx</tag>
       </tags>

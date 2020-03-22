@@ -265,6 +265,484 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-12-21-js-textarea-placeholder-line-wrapping-display.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-12-21-js-textarea-placeholder-line-wrapping-display.html" itemprop="url">js- textarea placeholder 换行显示</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T18:30:00+08:00">
+                2018-12-21 18:30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> placeholder = <span class="string">"This is a line \nthis should be a new line"</span></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>($(<span class="string">'#recruit_info_jd'</span>).val() == <span class="string">''</span>)&#123; </span><br><span class="line">    $(<span class="string">'#recruit_info_jd'</span>).val(placeholder)</span><br><span class="line">    $(<span class="string">'#recruit_info_jd'</span>).css(<span class="string">'color'</span>, <span class="string">"#999"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">$(<span class="string">'#recruit_info_jd'</span>).focus(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  <span class="keyword">if</span>($(<span class="keyword">this</span>).val() === placeholder)&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).val(<span class="string">''</span>);</span><br><span class="line">    $(<span class="keyword">this</span>).css(<span class="string">'color'</span>, <span class="string">'#404040'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;); </span><br><span class="line">$(<span class="string">'#recruit_info_jd'</span>).blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>($(<span class="keyword">this</span>).val() ===<span class="string">''</span>)&#123; </span><br><span class="line">    $(<span class="keyword">this</span>).val(placeholder);</span><br><span class="line">    $(<span class="string">'#recruit_info_jd'</span>).css(<span class="string">'color'</span>, <span class="string">"#999"</span>) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-12-14-html-txt-line-wrap.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-12-14-html-txt-line-wrap.html" itemprop="url">html-txt area换行</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-14T15:52:00+08:00">
+                2018-12-14 15:52
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>文字拼接成字符串，要换行：拼接”\n”<br>ps:一定得是双引号</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-12-08-jquery-highlight.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-12-08-jquery-highlight.html" itemprop="url">jquery-highlight</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T18:06:00+08:00">
+                2018-12-08 18:06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://bartaz.github.io/sandbox.js/jquery.highlight.html" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-12-08-jquery-autocomplete.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-12-08-jquery-autocomplete.html" itemprop="url">jquery- autocomplete</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T17:44:00+08:00">
+                2018-12-08 17:44
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$( <span class="string">"#jd-temp-name"</span> ).autocomplete(&#123;</span><br><span class="line">      source: <span class="function"><span class="keyword">function</span> (<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">          dataType: <span class="string">"json"</span>,</span><br><span class="line">          type : <span class="string">'Get'</span>,</span><br><span class="line">          url: <span class="string">'&lt;%= search_jd_temps_path%&gt;'</span>,</span><br><span class="line">          data:&#123;</span><br><span class="line">            name: request.term,</span><br><span class="line">          &#125;,</span><br><span class="line">          success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data.professions)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">            $.each( data.professions, <span class="function"><span class="keyword">function</span>(<span class="params">key, val</span>)</span>&#123;</span><br><span class="line">              items.push(<span class="string">"&lt;div class='result-item'&gt;"</span> + val.level3 + <span class="string">"&lt;div class='subtitle'&gt;"</span> + val.level1 + <span class="string">"-"</span> + val.level2 + <span class="string">"&lt;/div&gt;&lt;/div&gt;"</span>)</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="built_in">console</span>.log(items)</span><br><span class="line">            response(items);</span><br><span class="line">          &#125;,</span><br><span class="line">          error: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'fail'</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;).data(<span class="string">'ui-autocomplete'</span>)._renderItem = <span class="function"><span class="keyword">function</span>(<span class="params">ul, item</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> expression = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="keyword">this</span>.term,<span class="string">'gi'</span>)</span><br><span class="line">      <span class="keyword">var</span> result = item.label.replace(expression, <span class="string">"&lt;span style='color: #ff4f4c!important;'&gt;"</span> + <span class="keyword">this</span>.term + <span class="string">"&lt;/span&gt;"</span>)</span><br><span class="line">      <span class="keyword">return</span> $(<span class="string">"&lt;li&gt;&lt;/li&gt;"</span>).append(result).appendTo(ul)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-12-08-js-listening-input-into-chinese.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -982,498 +1460,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-10-oc-wvjb-remove-handler.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-11-10-oc-wvjb-remove-handler.html" itemprop="url">oc-wvjb remove Handler</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-10T12:08:00+08:00">
-                2018-11-10 12:08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://github.com/marcuswestin/WebViewJavascriptBridge/blob/master/WebViewJavascriptBridge/WKWebViewJavascriptBridge.m" target="_blank" rel="noopener">参考</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-09-ios12-page-will-move-up.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-11-09-ios12-page-will-move-up.html" itemprop="url">ios12-页面会上移</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-09T14:37:00+08:00">
-                2018-11-09 14:37
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(iPhoneXSeries)&#123;</span><br><span class="line">  _webview.scrollView.contentInset = UIEdgeInsetsMake(88, 0, 0, 0);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  _webview.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ios 12之前 用这个方法将webview下移来正常显示页面，但是ios12之后这个页面有一个问题就是进行了某些操作之后页面会上移回UIEdgeInsetsMake(0, 0, 0, 0)<br>所以找到了另一个方法固定页面位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.edgesForExtendedLayout=UIRectEdgeNone;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-06-ruby-version-judgment.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-11-06-ruby-version-judgment.html" itemprop="url">ruby-版本判断</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T15:13:00+08:00">
-                2018-11-06 15:13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_app_version</span><span class="params">(current, old)</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> current.blank? <span class="params">||</span> old.blank?</span><br><span class="line">    la = current.split(<span class="string">'.'</span>)</span><br><span class="line">    lb = old.split(<span class="string">'.'</span>)</span><br><span class="line">    i = <span class="number">0</span> </span><br><span class="line">    <span class="keyword">if</span> la.length &gt; lb.length</span><br><span class="line">      len = la.length</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      len = lb.length</span><br><span class="line">    <span class="keyword">end</span> </span><br><span class="line">    <span class="keyword">while</span> i &lt;= len  <span class="keyword">do</span>  </span><br><span class="line">      <span class="keyword">if</span> (la[i] &amp;&amp; !lb[i] &amp;&amp; la[i].to_i &gt; <span class="number">0</span>) <span class="params">||</span> (la[i].to_i &gt; lb[i].to_i)</span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">      <span class="keyword">elsif</span> (lb[i] &amp;&amp; !la[i] &amp;&amp; lb[i].to_i &gt; <span class="number">0</span>) <span class="params">||</span> (la[i].to_i &lt; lb[i].to_i)</span><br><span class="line">          <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">      <span class="keyword">end</span> </span><br><span class="line">      i +=<span class="number">1</span> </span><br><span class="line">    <span class="keyword">end</span> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-06-ios-webview-login.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-11-06-ios-webview-login.html" itemprop="url">ios-webview登录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T14:43:00+08:00">
-                2018-11-06 14:43
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ios webview登录最重要的就是将登陆之后的cookie存起来<br>在ios12之前我们登录都能正常从- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler方法中取到response之后，直接处理成cookie存起来<br>但是ios12开始 此方法登录就取不到response里最重要的set-cookie的值 我们就只能在h5那边登录之后的页面取到cookie经过字符串处理 将他们存起来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-(void)loginSuccess:(NSHTTPURLResponse*)response orWithCookie:(NSString*)cookie&#123;</span><br><span class="line">    //清除之前的coockie</span><br><span class="line">        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">        NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];</span><br><span class="line">        for (id obj in _tmpArray) &#123;</span><br><span class="line">            [cookieJar deleteCookie:obj];</span><br><span class="line">        &#125;</span><br><span class="line">        // 删除NSUserDefault里面的值</span><br><span class="line">        NSUserDefaults *defatluts = [NSUserDefaults standardUserDefaults];</span><br><span class="line">        NSDictionary *dictionary = [defatluts dictionaryRepresentation];</span><br><span class="line">        for(NSString *key in [dictionary allKeys])&#123;</span><br><span class="line">            if([key isEqualToString:@&quot;cookie&quot;])&#123;</span><br><span class="line">                [defatluts removeObjectForKey:key];</span><br><span class="line">            &#125;</span><br><span class="line">            [defatluts synchronize];</span><br><span class="line">        &#125;</span><br><span class="line">    //读取wkwebview中的cookie 方法</span><br><span class="line">    NSArray *cookies =[NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL: response.URL];</span><br><span class="line">    if (cookies.count &lt;= 0)&#123;</span><br><span class="line">        NSString *b =[[self achieveStringWithRootString:cookie key:@&quot;_ResumeHack_session&quot;] stringByAppendingString:@&quot; path=/; HttpOnly, &quot;];</span><br><span class="line">         NSMutableArray* mcookies =  [cookies mutableCopy];</span><br><span class="line">        [mcookies addObject:[b cookie]];</span><br><span class="line">         cookies = [NSArray arrayWithArray:mcookies];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (NSHTTPCookie *cookie in cookies) &#123;</span><br><span class="line">            //将 cookie 存进NSHTTPCookieStorage</span><br><span class="line">            [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];</span><br><span class="line">        &#125;</span><br><span class="line">        //把cookie存到NUserDefault里面</span><br><span class="line">        NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];</span><br><span class="line">        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">        [defaults setObject: cookiesData forKey: @&quot;cookie&quot;];</span><br><span class="line">        [defaults synchronize];</span><br><span class="line">        NSLog(@&quot;userdefault中的cookie%@&quot;,[defaults objectForKey:@&quot;cookie&quot;]);</span><br><span class="line">    </span><br><span class="line">        //看看存入到了NSHTTPCookieStorage了没有</span><br><span class="line">        NSHTTPCookieStorage *cookieJar2 = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">        for (NSHTTPCookie *cookie in cookieJar2.cookies) &#123;</span><br><span class="line">            NSLog(@&quot;NSHTTPCookieStorage中的cookie%@&quot;, cookie);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    [self dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        _loginComplete();</span><br><span class="line">    &#125;];</span><br><span class="line">    [Loading hide];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>字符串处理cookie</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)achieveStringWithRootString:(NSString *)rootString key:(NSString *)key&#123;</span><br><span class="line">    NSRange aRange = [rootString rangeOfString:[NSString stringWithFormat:@&quot;%@=&quot;,key]];</span><br><span class="line">    NSString *c = [rootString substringFromIndex:aRange.location];</span><br><span class="line">    NSLog(@&quot;c===============%@&quot;, c);</span><br><span class="line">    NSRange bRange = [c rangeOfString:@&quot;;&quot;];//匹配得到的下标</span><br><span class="line">    NSString *d = [c substringToIndex:bRange.location + bRange.length];</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ps:在登录、登出中清除cookie跟userdefault中的值的时候要避免清除其他有用的值 否则会导致userdefault值的丢失 造成很奇怪的bug</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1519,7 +1510,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">248</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1541,7 +1532,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -1578,7 +1569,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

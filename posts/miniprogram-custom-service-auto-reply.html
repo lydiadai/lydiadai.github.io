@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置                      另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑 1234567891011def check_miniprogram_msg_signature(token, signature, timestamp, nonce)  arr = [token, t">
+<meta name="description" content="微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置                      另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑">
 <meta name="keywords" content="wechat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序-客服消息配置（自动回复）">
 <meta property="og:url" content="https://lydiadai.github.io/posts/miniprogram-custom-service-auto-reply.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置                      另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑 1234567891011def check_miniprogram_msg_signature(token, signature, timestamp, nonce)  arr = [token, t">
+<meta property="og:description" content="微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置                      另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T11:41:22.792Z">
+<meta property="og:updated_time" content="2019-09-23T04:07:16.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序-客服消息配置（自动回复）">
-<meta name="twitter:description" content="微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置                      另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑 1234567891011def check_miniprogram_msg_signature(token, signature, timestamp, nonce)  arr = [token, t">
+<meta name="twitter:description" content="微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置                      另一种是人工回复 只要我们在小程序后台配置就可以了今天主要写的是自动回复在小程序后台配置的坑">
 
 
 
@@ -333,6 +333,7 @@
 
       
         <p>微信小程序客服消息分两种，一种是自动回复 需要我们在后台配置<br>                      另一种是人工回复 只要我们在小程序后台配置就可以了<br>今天主要写的是自动回复在小程序后台配置的坑</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def check_miniprogram_msg_signature(token, signature, timestamp, nonce)</span><br><span class="line">  arr = [token, timestamp, nonce]</span><br><span class="line">  arr = arr.sort</span><br><span class="line">  text = &apos;&apos;</span><br><span class="line">  arr.each &#123;|element| text += element&#125;</span><br><span class="line">  (Digest::SHA1.hexdigest(text)==signature) ? true : false # 验证消息</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"> def recieve_miniprogram_msg</span><br><span class="line">     render :text =&gt; params[:echostr] if check_miniprogram_msg_signature(ENV[&apos;NAME_CARD_WECHAT_TOKEN&apos;],params[:signature], params[:timestamp], params[:nonce])</span><br><span class="line"> end</span><br></pre></td></tr></table></figure>
 
 <p>读取消息内容：</p>
@@ -459,7 +460,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">248</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -481,7 +482,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -518,7 +519,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

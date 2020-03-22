@@ -336,9 +336,27 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location /account/users/mobile_account_index &#123;</span><br><span class="line">  root /opt/app/vuetest.wondercv.com/current;</span><br><span class="line">  index           index.html;</span><br><span class="line">  try_files $uri /index.html $uri/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>ps: 要注意指向的文件夹里有没有版本库 来判定要不要current</p>
+<a id="more"></a>
+
 <p>需求二：根据user agent &amp;&amp; url转发</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">location /feedbacks/new &#123;</span><br><span class="line">  root /opt/app/vuetest.wondercv.com/current;</span><br><span class="line">  index           index.html;</span><br><span class="line">  try_files $uri /index.html $uri/;</span><br><span class="line">  if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123;</span><br><span class="line">    proxy_pass          http://app_servers;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>需求三：重写url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">location ~ /jianlimoban/&#123;</span><br><span class="line">    #url不变</span><br><span class="line">    # rewrite    ^(.*)jianlimoban(.*)$   $1muban$2;&quot;[&apos;&quot;</span><br><span class="line">    #url改变</span><br><span class="line">    if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123;</span><br><span class="line">      rewrite    ^(.*)jianlimoban(.*)$   $1muban$2 redirect;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ps:<br>nginx 关于 rewrite 指令最后一项的参数说明：<br>    last :  相当于apache里的 [L]标示，表示完成rewrite；</p>
+<pre><code>break：本条规则匹配完成后，终止匹配，不再匹配后面的规则；
+
+redirect：返回302 临时重定向，浏览器地址栏会显示跳转后的url地址；
+
+permanent： 返回301 永久重定向，浏览器地址会显示跳转后的url地址；</code></pre><p>需求四：转发server （换域名）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ~ /jianlimoban/&#123;</span><br><span class="line">  if ($http_user_agent ~* &quot;Mobile|webOS|Jike&quot;) &#123;</span><br><span class="line">    return 301 https://m.wondercv.com$request_uri;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ps：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">set $to_vue 0;</span><br><span class="line">if ($http_user_agent !~* &quot;Mobile|webOS|Jike&quot;) &#123;</span><br><span class="line">  set $to_vue 1;</span><br><span class="line">&#125;</span><br><span class="line">if ($http_user_agent ~* &quot;wondercv_ios&quot;) &#123;</span><br><span class="line">  set $to_vue 1;</span><br><span class="line">&#125;</span><br><span class="line">if ($request_method ~* &quot;POST&quot;) &#123;</span><br><span class="line">  set $to_vue 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/ngx/nginx_local_pcre.html" target="_blank" rel="noopener">https://moonbingbing.gitbooks.io/openresty-best-practices/ngx/nginx_local_pcre.html</a></p>
+<p>location 匹配规则<br>语法规则<br>location [=|<del>|</del><em>|^<del>] /uri/ { … }<br>模式                 含义<br>location = /uri      = 表示精确匹配，只有完全匹配上才能生效<br>location ^</del> /uri     ^~ 开头对URL路径进行前缀匹配，并且在正则之前。<br>location ~ pattern   开头表示区分大小写的正则匹配<br>location ~</em> pattern  开头表示不区分大小写的正则匹配<br>location /uri        不带任何修饰符，也表示前缀匹配，但是在正则匹配之后<br>location /           通用匹配，任何未匹配到其它location的请求都会匹配到，相当于switch中的default</p>
 
       
     </div>
@@ -454,7 +472,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">248</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -476,7 +494,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -513,7 +531,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
