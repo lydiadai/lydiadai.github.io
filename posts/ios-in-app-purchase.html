@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="This is lydia&apos;s blog">
+<meta name="description" content="ios 所有虚拟商品的支付都不允许接第三方支付 实在是太烦了 只能自己接IAP 也是第一次接触 将过程记录下来 有任何问题 欢迎指教官方文档：https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc ​                    https://help.apple.com/app-">
 <meta name="keywords" content="ios">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ios IAP">
 <meta property="og:url" content="https://lydiadai.github.io/posts/ios-in-app-purchase.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="This is lydia&apos;s blog">
+<meta property="og:description" content="ios 所有虚拟商品的支付都不允许接第三方支付 实在是太烦了 只能自己接IAP 也是第一次接触 将过程记录下来 有任何问题 欢迎指教官方文档：https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc ​                    https://help.apple.com/app-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-22T08:25:09.000Z">
+<meta property="og:image" content="https://lydiadai.github.io/Users/lydia/Library/Application%20Support/typora-user-images/image-20200322222445401.png">
+<meta property="og:image" content="https://lydiadai.github.io/Users/lydia/Library/Application%20Support/typora-user-images/image-20200322222723336.png">
+<meta property="og:image" content="https://lydiadai.github.io/Users/lydia/Library/Application%20Support/typora-user-images/image-20200322231906611.png">
+<meta property="og:updated_time" content="2020-03-02T13:25:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios IAP">
-<meta name="twitter:description" content="This is lydia&apos;s blog">
+<meta name="twitter:description" content="ios 所有虚拟商品的支付都不允许接第三方支付 实在是太烦了 只能自己接IAP 也是第一次接触 将过程记录下来 有任何问题 欢迎指教官方文档：https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc ​                    https://help.apple.com/app-">
+<meta name="twitter:image" content="https://lydiadai.github.io/Users/lydia/Library/Application%20Support/typora-user-images/image-20200322222445401.png">
 
 
 
@@ -294,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-22T16:25:09+08:00">
-                2020-03-22 16:25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T21:25:09+08:00">
+                2020-03-02 21:25
               </time>
             
 
@@ -332,7 +336,84 @@
       
 
       
-        
+        <p>ios 所有虚拟商品的支付都不允许接第三方支付 实在是太烦了 只能自己接IAP 也是第一次接触 将过程记录下来 有任何问题 欢迎指教<br>官方文档：<a href="https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc" target="_blank" rel="noopener">https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc</a></p>
+<p>​                    <a href="https://help.apple.com/app-store-connect/#/devb57be10e7" target="_blank" rel="noopener">https://help.apple.com/app-store-connect/#/devb57be10e7</a></p>
+<p>相关参考：<a href="https://www.jianshu.com/p/7ae9654b85ee" target="_blank" rel="noopener">https://www.jianshu.com/p/7ae9654b85ee</a></p>
+<p>​                   </p>
+<p>具体操作</p>
+<a id="more"></a>
+
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><ol>
+<li><p>在iTunes connect中完善你的银行，税务，联系人信息</p>
+</li>
+<li><p>在证书和project中开启in-app purchase</p>
+</li>
+<li><p>准备一个可以支付的沙盒测试账号</p>
+<img src="/Users/lydia/Library/Application Support/typora-user-images/image-20200322222445401.png" alt="image-20200322222445401" style="zoom:50%;">
+
+<p>这个账号必须是一个没有注册过apple id的账号 这样在你测试的时候 你只要输入这个账号的用户名密码就可以了</p>
+</li>
+<li><p>创建应用内购买项目</p>
+<p>在iTunes Connect中，我的app-&gt;功能，点击App内购买项目，加号就可以添加了 需要根据不同需要添加不同类型的商品</p>
+<p>![image-20200322222344383](/Users/lydia/Library/Application Support/typora-user-images/image-20200322222344383.png)</p>
+<img src="/Users/lydia/Library/Application Support/typora-user-images/image-20200322222723336.png" alt="image-20200322222723336" style="zoom:50%;">
+
+
+
+</li>
+</ol>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><ol>
+<li><p>获取Product Identifier 当用户点击对应商品时  将刚才创建的product id传进来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithArray:[NSArray arrayWithObjects:@&quot;productID&quot;, nil]]];</span><br><span class="line">        request.delegate = self;</span><br><span class="line">        [request start];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发起购买</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response&#123;</span><br><span class="line">    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:response.products.firstObject];</span><br><span class="line">    [[SKPaymentQueue defaultQueue] addPayment:payment];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证购买凭证(包括 ios 跟调用服务端接口)</p>
+<p>发起了购买后，我们要对返回进行后续的处理，因为苹果只负责支付这一个部分，他并不负责这个购买完成后的服务怎么提供，也就说我们需要与后台交互，完成我们自己的业务逻辑<br> 这个Observer的代码需要写在Appdelegate.m中，这是因为我们要处理app意外推出的情况，如果写在了购买页面，那么就没有办法去处理意外退出的情况</p>
+<p>对于交易成功的商品，我们需要校验transaction的receipt是否是真实的，这里一个可行的做法就是我们把这个receipt（自动续约还需要共享密钥）交给后台，由后台负责与苹果校验信息是否有效。这步OK了之后，就可以和用户说购买成功，然后提供你这个增值服务了。</p>
+<p>由于我们与后台校验的逻辑不能写在购买页面，我们只传个receipt给后台，后台同事可能会问，我怎么知道用户买的是什么，看<a href="https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html#//apple_ref/doc/uid/TP40010573-CH106-SW1" target="_blank" rel="noopener">苹果的文档</a>，我们发现校验成功后，返回的json数据有所有我们需要的信息</p>
+<p>这里要注意的是在处理交易完成的各种情况时，要记得调用下面的方法，告诉苹果，我这个购买完成了,否则每次进app都会收到updatedTransactions的回调。</p>
+<figure class="highlight plain"><figcaption><span>defaultQueue] finishTransaction: transaction];//购买结束```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```objective-c</span><br><span class="line">- (void)request:(SKRequest *)request didFailWithError:(NSError *)error &#123;</span><br><span class="line">    [SVProgressHUD showErrorWithStatus:@&quot;发起支付失败&quot;];</span><br><span class="line">&#125;</span><br><span class="line">- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions &#123;</span><br><span class="line">    for (SKPaymentTransaction *transaction in transactions)</span><br><span class="line">    &#123;</span><br><span class="line">        switch (transaction.transactionState)</span><br><span class="line">        &#123;</span><br><span class="line">            case SKPaymentTransactionStatePurchased://购买成功</span><br><span class="line">                [self dl_completeTransaction:transaction];</span><br><span class="line">                break;</span><br><span class="line">            case SKPaymentTransactionStateFailed://购买失败</span><br><span class="line">                [self dl_failedTransaction:transaction];</span><br><span class="line">                break;</span><br><span class="line">            case SKPaymentTransactionStateRestored://恢复购买</span><br><span class="line">                [self dl_restoreTransaction:transaction];</span><br><span class="line">                break;</span><br><span class="line">            case SKPaymentTransactionStatePurchasing://正在处理</span><br><span class="line">                break;</span><br><span class="line">            default:</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">#pragma mark - PrivateMethod</span><br><span class="line">- (void)dl_completeTransaction:(SKPaymentTransaction *)transaction &#123;</span><br><span class="line">    NSString *productIdentifier = transaction.payment.productIdentifier;</span><br><span class="line">    NSData *receiptData = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]];</span><br><span class="line">    NSString *receipt = [receiptData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];</span><br><span class="line">    if ([receipt length] &gt; 0 &amp;&amp; [productIdentifier length] &gt; 0) &#123;</span><br><span class="line">        [SVProgressHUD showSuccessWithStatus:@&quot;支付成功&quot;];</span><br><span class="line">        /**</span><br><span class="line">         可以将receipt发给服务器进行购买验证</span><br><span class="line">         */</span><br><span class="line">        [self dl_validateReceiptWiththeAppStore:receipt];</span><br><span class="line">    &#125;</span><br><span class="line">    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];//购买结束</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)dl_failedTransaction:(SKPaymentTransaction *)transaction &#123;</span><br><span class="line">    if(transaction.error.code != SKErrorPaymentCancelled) &#123;</span><br><span class="line">        [SVProgressHUD showErrorWithStatus:@&quot;用户取消支付&quot;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        [SVProgressHUD showErrorWithStatus:@&quot;支付失败&quot;];</span><br><span class="line">    &#125;</span><br><span class="line">    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void)dl_restoreTransaction:(SKPaymentTransaction *)transaction &#123;</span><br><span class="line">    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(void)dl_validateReceiptWiththeAppStore:(NSString *)receipt</span><br><span class="line">&#123;</span><br><span class="line">    NSError *error;</span><br><span class="line">    NSDictionary *requestContents = @&#123;@&quot;receipt-data&quot;: receipt&#125;;</span><br><span class="line">    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestContents options:0 error:&amp;error];</span><br><span class="line">    if (!requestData) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    NSLog(@&quot;%@&quot;, requestData);</span><br><span class="line">    NSURL *storeURL;</span><br><span class="line">#ifdef DEBUG</span><br><span class="line">    storeURL = [NSURL URLWithString:@&quot;https://sandbox.itunes.apple.com/verifyReceipt&quot;];</span><br><span class="line">#else</span><br><span class="line">    storeURL = [NSURL URLWithString:@&quot;https://buy.itunes.apple.com/verifyReceipt&quot;];</span><br><span class="line">#endif</span><br><span class="line">    </span><br><span class="line">    NSMutableURLRequest *storeRequest = [NSMutableURLRequest requestWithURL:storeURL];</span><br><span class="line">    [storeRequest setHTTPMethod:@&quot;POST&quot;];</span><br><span class="line">    [storeRequest setHTTPBody:requestData];</span><br><span class="line">    NSOperationQueue *queue = [[NSOperationQueue alloc] init];</span><br><span class="line">    [NSURLConnection sendAsynchronousRequest:storeRequest queue:queue</span><br><span class="line">                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) &#123;</span><br><span class="line">                               if (connectionError) &#123;</span><br><span class="line">                                   [SVProgressHUD showErrorWithStatus:@&quot;网络繁忙, 请稍后再试&quot;];</span><br><span class="line">                               &#125; else &#123;</span><br><span class="line">                                   NSError *error;</span><br><span class="line">                                   NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&amp;error];</span><br><span class="line">                                   if (!jsonResponse) &#123;</span><br><span class="line">                                       /* 处理error */</span><br><span class="line">                                       NSLog(@&quot;%@&quot;, error);</span><br><span class="line">                                   &#125;else&#123;</span><br><span class="line">                                     /*服务端处理支付请求*/</span><br><span class="line">                                       NSString *paidUrl = [API_SERVER stringByAppendingString:@&quot;paid_url&quot;];</span><br><span class="line">                                           NSMutableDictionary *parameter = [NSMutableDictionary dictionary];</span><br><span class="line">                                           parameter[@&quot;token&quot;] = @&quot;xxx&quot;;//订单唯一标识</span><br><span class="line">                                           parameter[@&quot;pay_method&quot;] = @&quot;xxx&quot;;</span><br><span class="line">                                           parameter[@&quot;receipt&quot;] = receipt;</span><br><span class="line">                                           AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];</span><br><span class="line">                                           manager.requestSerializer = [AFJSONRequestSerializer serializer];</span><br><span class="line">                                           manager.responseSerializer = [AFJSONResponseSerializer serializer];</span><br><span class="line">                                           [manager POST:paidUrl parameters:parameter constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</span><br><span class="line">                                                         NSNumber*code= [responseObject objectForKey:@&quot;code&quot;];</span><br><span class="line">                                                         if([code isEqualToNumber:[NSNumber numberWithInt:1000]])&#123;</span><br><span class="line">                                                           NSLog(@&quot;update order status success&quot;);</span><br><span class="line">                                                         &#125;else&#123;</span><br><span class="line">                                                           NSLog(@&quot;update order status error&quot;);</span><br><span class="line">                                                         &#125;</span><br><span class="line">                                                     &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</span><br><span class="line">                                                         NSLog(@&quot;error==========%@&quot;, error);</span><br><span class="line">                                                         [SVProgressHUD showErrorWithStatus:@&quot;网络繁忙, 请稍后再试&quot;];</span><br><span class="line">                                                     &#125;];</span><br><span class="line">                                       &#125;</span><br><span class="line">                                   &#125;</span><br><span class="line">                           &#125;];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>ps: 在支付文件头部需要引入StoreKit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;StoreKit/StoreKit.h&gt;</span><br><span class="line">#import &lt;StoreKit/SKPaymentTransaction.h&gt;</span><br><span class="line">@interface memberChoosePeriodViewController ()&lt;SKProductsRequestDelegate,SKPaymentTransactionObserver&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="服务器端之后的验证"><a href="#服务器端之后的验证" class="headerlink" title="服务器端之后的验证"></a>服务器端之后的验证</h1><p>如果是会自动续费的产品 我们就需要做自己的验证了</p>
+<p>在APP启动时候要增加侦听：<br><code>[[SKPaymentQueue defaultQueue] addTransactionObserver:self];</code></p>
+<ol>
+<li><p>在订阅url 中填入服务器地址 每次需要续费的时候 ios 会来请求</p>
+<p>![image-20200322225205935](/Users/lydia/Library/Application Support/typora-user-images/image-20200322225205935.png)</p>
+</li>
+<li><p>对于自动订阅的订单 每次支付的时候 我都会开一个30days之后的定时任务 去检查到期时扣款是否成功</p>
+<p>ps：注意上线跟测试时的地址是不同的</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IosRenewMemberWorker</span></span></span><br><span class="line">  <span class="keyword">include</span> Sidekiq::Worker</span><br><span class="line">  sidekiq_options <span class="symbol">queue:</span> <span class="symbol">:api_default</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">perform</span><span class="params">(order_id)</span></span></span><br><span class="line">    order = ImprovedOrder.find order_id</span><br><span class="line">    res = RestClient::Request.execute(</span><br><span class="line">            <span class="symbol">method:</span> <span class="symbol">:post</span>,</span><br><span class="line">            <span class="symbol">url:</span> <span class="string">"https://sandbox.itunes.apple.com/verifyReceipt"</span>,</span><br><span class="line"><span class="comment">#            url: "https://buy.itunes.apple.com/verifyReceipt",</span></span><br><span class="line">            <span class="symbol">timeout:</span> <span class="number">5</span>,</span><br><span class="line">            <span class="symbol">headers:</span> &#123;<span class="string">"content-type"</span> =&gt; <span class="string">'application/json'</span>&#125;,</span><br><span class="line">            <span class="symbol">payload:</span> &#123;<span class="string">"receipt-data"</span>: order.ios_newest_receipt.gsub(<span class="string">"\r\n"</span>, <span class="string">""</span>),<span class="string">"password"</span>: <span class="string">"xxx"</span>&#125;.to_json <span class="comment">#passtword 是App 专用共享密钥</span></span><br><span class="line">          )   </span><br><span class="line">    r = JSON.parse res </span><br><span class="line">    <span class="comment">#订阅重试 r["pending_renewal_info"][0]["is_in_billing_retry_period"]</span></span><br><span class="line">    <span class="comment">#“1”- App Store 仍然尝试续期订阅,续期失败 “0”- App Store 已停止尝试续期订阅。</span></span><br><span class="line">    <span class="keyword">if</span> r[<span class="string">'status'</span>] == <span class="number">0</span> &amp;&amp; order.aasm_state == <span class="string">'paid'</span> &amp;&amp; r[<span class="string">"pending_renewal_info"</span>][<span class="number">0</span>][<span class="string">"is_in_billing_retry_period"</span>] != <span class="string">"1"</span> </span><br><span class="line">      order.update(<span class="symbol">ios_newest_receipt:</span> r[<span class="string">"latest_receipt"</span>])</span><br><span class="line">      order.user.upgrade_membership!(<span class="number">30</span>.days,<span class="string">"auto"</span>)</span><br><span class="line">      <span class="comment">#自动续期状态 r["pending_renewal_info"][0]["auto_renew_status"]</span></span><br><span class="line">       <span class="comment">#“1”- 订阅将在当前订阅时间段结束时续期。 “0”- 顾客已关闭自动续期订阅。</span></span><br><span class="line">      IosRenewMemberWorker.perform_at(<span class="number">30</span>.days, order.id) <span class="keyword">if</span> r[<span class="string">"pending_renewal_info"</span>][<span class="number">0</span>][<span class="string">"auto_renew_status"</span>] == <span class="string">"1"</span></span><br><span class="line">      <span class="comment">#取消订阅 cancellation_date</span></span><br><span class="line">      <span class="comment">#注意: 取消的App内购买项目将无限期保留在收据中。仅在为非消耗型产品、自动续期订阅、 非续期订阅或免费订阅退款时适用。</span></span><br><span class="line">      <span class="comment">#续费产品  r["pending_renewal_info"][0]["product_id"]</span></span><br><span class="line">    <span class="keyword">elsif</span> r[<span class="string">"pending_renewal_info"</span>][<span class="number">0</span>][<span class="string">"is_in_billing_retry_period"</span>] == <span class="string">"1"</span></span><br><span class="line">      order.ios_pay_fail!</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每次需要续费的时候 ios 会来请求url 更待订单状态 并支付虚拟商品</p>
+<img src="/Users/lydia/Library/Application Support/typora-user-images/image-20200322231906611.png" alt="image-20200322231906611" style="zoom:50%;">
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">desc <span class="string">'iOS IAP listen url'</span></span><br><span class="line">      post <span class="string">'IAP_listen'</span> <span class="keyword">do</span></span><br><span class="line">        order = ImprovedOrder.find_by(<span class="symbol">ios_newest_receipt:</span> params[<span class="symbol">:unified_receipt</span>])</span><br><span class="line">        <span class="comment">#CANCEL Apple客户支持取消了订阅。检查Cancellation Date以了解订阅取消的日期和时间。</span></span><br><span class="line">        <span class="comment">#RENEWAL  已过期订阅的自动续订成功。检查Subscription Expiration Date以确定下一个续订日期和时间。</span></span><br><span class="line">        <span class="comment">#INTERACTIVE_RENEWAL  客户通过使用应用程序界面或在App Store中的App Store中以交互方式续订订阅。服务立即可用。</span></span><br><span class="line">        <span class="comment">#DID_CHANGE_RENEWAL_PREF  客户更改了在下次续订时生效的计划。当前的有效计划不受影响。</span></span><br><span class="line">        <span class="keyword">if</span> params[<span class="symbol">:notification_type</span>] == <span class="string">"CANCEL"</span></span><br><span class="line">          order.cancel_auto_renew!</span><br><span class="line">        <span class="keyword">elsif</span>  params[<span class="symbol">:notification_type</span>] == <span class="string">"RENEWAL"</span></span><br><span class="line">          order.restore_pay!</span><br><span class="line">          IosRenewMemberWorker.perform_at(<span class="number">30</span>.days, order.id) <span class="keyword">if</span> order.plan == <span class="string">'ios_wonder_cv_vip'</span></span><br><span class="line">        <span class="keyword">elsif</span>  params[<span class="symbol">:notification_type</span>] == <span class="string">"INTERACTIVE_RENEWAL"</span></span><br><span class="line">          order.auto_restore_pay!</span><br><span class="line">          IosRenewMemberWorker.perform_at(<span class="number">30</span>.days, order.id) <span class="keyword">if</span> order.plan == <span class="string">'ios_wonder_cv_vip'</span></span><br><span class="line">        <span class="comment">#elsif  params[:notification_type] == "DID_CHANGE_RENEWAL_PREF"</span></span><br><span class="line">        <span class="keyword">end</span> </span><br><span class="line">        &#123;   </span><br><span class="line">          <span class="symbol">status:</span> <span class="number">0</span>,</span><br><span class="line">          <span class="symbol">code:</span> <span class="number">1000</span>,</span><br><span class="line">          <span class="symbol">message:</span> <span class="string">'订单状态更改成功'</span></span><br><span class="line">        &#125;   </span><br><span class="line">      <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><ul>
+<li>测试拉取有效的IAP项目，和相关页面</li>
+<li>测试一个成功的交易<br> 购买你的IAP项目，然后登陆第一步中申请的sandbox测试员的账号，然后在paymentQueue:updatedTransactions:看这个transaction.status是不是SKPaymentTransactionStatePurchased</li>
+<li>测试校验收据</li>
+<li>测试一个被打断的交易<br> 打断点，在完成交易前终止程序重新run项目，看看能不能继续完成购买<br> ，这个情况是模拟用户已经付款成功，但是App由于某种原因崩溃。</li>
+</ul>
+<h1 id="特殊点"><a href="#特殊点" class="headerlink" title="特殊点"></a>特殊点</h1><p><strong>1.sandbox怎么测试取消订阅？</strong><br> 答：自己模拟啊，模拟苹果的post请求，先看苹果的server-to-server（<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdeveloper.apple.com%2Fdocumentation%2Fstorekit%2Fin-app_purchase%2Fenabling_server-to-server_notifications%3Flanguage%3Dobjc" target="_blank" rel="noopener">https://developer.apple.com/documentation/storekit/in-app_purchase/enabling_server-to-server_notifications?language=objc</a>），其中notification_type 对应值为 CANCEL ，其它字段按需要改成之前订阅的数据，向你们服务器发送请求啊，就点拨到这了。</p>
+<p><strong>2.自己的服务器怎么处理苹果的续订？</strong><br> 答：</p>
+<ul>
+<li>首先用户第一次购买订阅，server需要把票据存储（最好把过期时间也记录一下，字段record_expires_date），苹果会通知我们的server的，其中notification_type 对应值为 INITIAL_BUY。</li>
+<li>服务器需要做个定期（每天）检测，检测目前已有的所有订阅订单是否过期，如果发现过期了，就去苹果服务器验证receipt，其中苹果返回的latest_receipt_info 字段，会告诉最新的订阅订单情况，你可以校验expires-date与当前时间比较，判断该订阅有没有续订成功，并同时更新上述让记录的record_expires_date字段.</li>
+<li>我们为什么做上述的处理？大家都知道苹果服务器会在订阅过期的前一天，对用户进行自动扣费，如果扣费成功了，苹果服务器并不会通知我们的服务器，这是重点。不过有个特例，如果苹果订阅过期前一天扣费失败了，苹果服务器后面几天还会尝试对用户自动扣费，如果后面扣费成功了（这时候用户实际状态是没有续订成功），苹果会通知我们的server的，其中notification_type 对应值为 RENEWAL,对于RENEWAL我们还是需要给用户更新为正在订阅的状态。</li>
+<li>正式环境下，用户主动取消订阅，苹果会通知我们的server的，其中notification_type 对应值为 CANCEL，我们需要更新用户订阅的状态为取消。</li>
+<li>总结，对于自动续订订阅，我们自己的服务器完全可以与apple server的交互应对用户的订阅状态，只需要确定客户端传来的用户第一次购买， user id 对应 original-transaction-id的关系。后面的续订，取消，变更套餐，完全不依赖于客户端传来的信息。</li>
+</ul>
+
       
     </div>
     
@@ -362,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/python-first.html" rel="next" title="python初体验">
-                <i class="fa fa-chevron-left"></i> python初体验
+              <a href="/posts/ios-test-flight.html" rel="next" title="ios test flight">
+                <i class="fa fa-chevron-left"></i> ios test flight
               </a>
             
           </div>
@@ -431,8 +512,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -447,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">253</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -492,6 +582,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器端之后的验证"><span class="nav-number">3.</span> <span class="nav-text">服务器端之后的验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊点"><span class="nav-number">5.</span> <span class="nav-text">特殊点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -265,6 +265,126 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">vue js - 封装component</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-18T14:38:00+08:00">
+                2017-10-18 14:38
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.slot 可以直接引用代码放进component中<br>  有名字的要在父层代码中的标签上加上    slot =“”<br>   没有名字的直接引了<br>2.要想从父层代码向component中传不改变的值，在component中声明一个props 然后在父层中绑定（:name=“”）就传进去了<br>3.如果要双向绑定的话，参考<a href="http://duxiao.sweetysoft.com/blog/posts/vuejs-v-model" target="_blank" rel="noopener">http://duxiao.sweetysoft.com/blog/posts/vuejs-v-model</a><br>如果是object的话一定要传value 接口中的值定义也要给一个”value”作为名称<br>4.在组件中要是想调用父层代码中方法的话<br>先定义@click=”onClickItem()”<br>然后 组件中的methods中加上<br>onClickItem () {<br>      this.$emit(‘on-click-item’)<br>    }<br>最后在父层需要调用方法的地方<br>@on_click_item=“xxx”<br>Xxx是在父层代码中定义的方法gg</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-10-18-error-there-was-a-problem-with-the-editor-vi.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1380,129 +1500,6 @@ location /interface {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">devise--用户名登录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T09:59:00+08:00">
-                2017-08-30 09:59
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.给user表添加user_name字段<br> $ rails g migration add_user_name_to_user<br>2.config/initializers/devise.rb中<br>  config.authetication_keys=[:email]改成config.authetication_keys=[:user_name]<br>3.使devise的登录页面可见（<a href="http://lydia-blog.logdown.com/posts/1173714-make-the-devise-visible" target="_blank" rel="noopener">具体参考</a>）<br>修改登录页面<br>4.给config/routes.rb中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resources :users</span><br></pre></td></tr></table></figure>
-
-<p>注意: devise_for :users 一定要在resources :users上面</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1553,7 +1550,7 @@ location /interface {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">253</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

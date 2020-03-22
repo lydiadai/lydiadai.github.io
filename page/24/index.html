@@ -265,6 +265,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-01-20-linux-commands.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-01-20-linux-commands.html" itemprop="url">terminal&vim 基本命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-20T14:11:00+08:00">
+                2017-01-20 14:11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>terminal:<br>返回上级目录： cd..</p>
+<p>找到对应的rails运行程序：bundle exec<br>rm -rf 文件名                                                强制删除一个文件<br>cd                                                          切换目录（Change Directory）<br>cd ~                                                        会把家目录设成当前目录<br>ls                                                          这指令会列出当前资料夹里面的档案<br>ls -a                                                       列出专案中所有档案<br>pwd                                                         查看你当前所在文件路径</p>
+<p>查看硬盘状态<br>df -kh</p>
+<p>在当前目录下，从旧到新的列出所有的文件： (注意参数： trh)<br>$ ls -altrh</p>
+<p>查看当前的系统（CPU, 内存，进程）状态。<br>$ top</p>
+<p>显示出系统中的所有进程，并且以消耗的内存来从低到高的排序。<br>$ ps aux –sort rss</p>
+<p>查看当前服务器的所有分区，并且以用户<br>$ df -kh</p>
+<p>查看当前文件夹的大小<br>$ du . -kh  查看文件夹大小</p>
+<p>查看进程：<br>ps -ef | grep rails</p>
+<p>终止某个进程。 例如： 某个进程的id是3366<br>$ kill -9 3366</p>
+<p>查询：grep ‘user-select’ src  -r<br>     grep ‘user-select’ src  -r -n             —-显示行数<br>     grep login src -R –include=*vue  -n       —-查找所有.vue文件中有的</p>
+<p>查看某个文件的尾部。 例如：<br>$ tail /var/log/system.log<br>默认显示文件的最后10行。<br>可以跟踪显示某个文件的尾部：<br>$ tail -f /var/log/system.log<br>可以指定显示该文件的尾部100行：<br>$ tail -n 100 /var/log/system.log<br>最常见的用法：跟grep 共同使用, 例如，实时跟踪显示某个文件，只过滤出内容中带有ERROR：<br>$ tail -f /var/log/system.log | grep ERROR<br>－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</p>
+<p>vim:<br>在vim中打开文件列表： ,+t<br>在vim中切换分页：ctrl＋w+w<br>切换terminal窗口：shiift+command+{ ／ }<br>刷新文件树：shift+r<br>上下分割当前打开的文件:Ctrl+W s<br>让所有的屏都有一样的高度:Ctrl+W =<br>增加高度:Ctrl+W +<br>减少高度:Ctrl+W -<br>替换文本：选中之后shift+; s/ 被替换的/要替换的/(g)–全局<br>在最后加上某个： 全选 –》 ： –》s/$/你要加的东西<br>在最前面加上某个： 全选 –》： –》s//你要加的东西<br>自动换行：set wrap</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-01-16-mysql.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1370,130 +1502,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">邮件－－css排版</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-13T17:01:00+08:00">
-                2016-12-13 17:01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1.安裝roadie-rails<br>  在Gemfile中添加<br>     gem ‘roadie-rails’, ‘~&gt; 1.0’<br>  之后bundle install<br>  重启rails server</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/undefined.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1544,7 +1552,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">253</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

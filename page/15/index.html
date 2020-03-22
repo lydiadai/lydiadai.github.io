@@ -284,6 +284,254 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-有字的分割线</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-07T11:05:00+08:00">
+                2018-02-07 11:05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;other-example-divider&quot;&gt;</span><br><span class="line">  &lt;span class=&quot;line&quot;&gt;&lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;text&quot;&gt;文字&lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;line&quot;&gt;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.other-example-divider</span><br><span class="line">    padding-left: 30px</span><br><span class="line">    padding-right: 42px</span><br><span class="line">    height: 20px</span><br><span class="line">    width: 100%</span><br><span class="line">    display: flex</span><br><span class="line">    justify-content: space-between</span><br><span class="line">    align-items: center</span><br><span class="line">    .text</span><br><span class="line">      color: #9c9c9c</span><br><span class="line">      padding-left: 20px</span><br><span class="line">      padding-right: 20px</span><br><span class="line">    .line</span><br><span class="line">      height: 2px </span><br><span class="line">      flex-grow: 1</span><br><span class="line">      background-color: #dedfe1</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails 去掉空白符</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-31T17:41:00+08:00">
+                2018-01-31 17:41
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>lstrip : 去掉首空格</p>
+<p>rstrip : 去掉尾空格</p>
+<p>gsub : 去掉全部空格,不过要用到pattern匹配</p>
+<p>eg:</p>
+<p>s1 = “ Test  whitespace”<br>s2 = “ hello  Ruby  Rails  “<br>s3 = “trailing  “<br>puts s1.lstrip+s3 # show  lstrip remove leading  whitespace<br>puts s2.rstrip+s3 # show  rstrip  remove trail whitespace<br>puts s1.strip + s2.strip + s3 # show strip remove leading and trail whitespace<br>puts s2.gsub(/\s+/,’’)<br>puts s2.gsub(‘ ‘,’’)<br>puts s2.gsub!(‘ ‘,’’)<br>puts s2.gsub(//,’’) # four methods show remove all whitespace</p>
+<p>str.gsub(/^ | $/,””)去掉首尾空格</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-字过长不显示</a></h1>
         
 
@@ -881,7 +1129,7 @@ z-index: 9;</code></pre><p>  }</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/h5-intercom-change-css.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -900,7 +1148,7 @@ z-index: 9;</code></pre><p>  }</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">h5-intercom 样式调整问题</a></h1>
+                <a class="post-title-link" href="/posts/h5-intercom-change-css.html" itemprop="url">h5-intercom 样式调整问题</a></h1>
         
 
         <div class="post-meta">
@@ -952,22 +1200,9 @@ z-index: 9;</code></pre><p>  }</p>
       
         
           
-            <pre><code>&lt;script&gt;
-  function addNewStyle(newStyle) {
-      var styleElement = document.getElementById(&apos;styles_js&apos;);
-      if (!styleElement) {
-          styleElement = document.createElement(&apos;style&apos;);
-          styleElement.type = &apos;text/css&apos;;
-          styleElement.id = &apos;styles_js&apos;;
-          document.getElementsByTagName(&apos;head&apos;)[0].appendChild(styleElement);
-      }
-      styleElement.appendChild(document.createTextNode(newStyle));
-  }
-         addNewStyle(&apos;#intercom-container .intercom-messenger-frame&gt;iframe{top:10% !important;}&apos;)
-      addNewStyle(&apos;#intercom-container .intercom-messenger-frame&gt;iframe{position:absolute !important;}&apos;)
-      addNewStyle(&apos;#intercom-container .intercom-app div.intercom-messenger-frame iframe{height:90% !important;}&apos;)
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">addNewStyle</span>(<span class="params">newStyle</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> styleElement = <span class="built_in">document</span>.getElementById(<span class="string">'styles_js'</span>);</span><br><span class="line">      <span class="keyword">if</span> (!styleElement) &#123;</span><br><span class="line">          styleElement = <span class="built_in">document</span>.createElement(<span class="string">'style'</span>);</span><br><span class="line">          styleElement.type = <span class="string">'text/css'</span>;</span><br><span class="line">          styleElement.id = <span class="string">'styles_js'</span>;</span><br><span class="line">          <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(styleElement);</span><br><span class="line">      &#125;</span><br><span class="line">      styleElement.appendChild(<span class="built_in">document</span>.createTextNode(newStyle));</span><br><span class="line">  &#125;</span><br><span class="line">         addNewStyle(<span class="string">'#intercom-container .intercom-messenger-frame&gt;iframe&#123;top:10% !important;&#125;'</span>)</span><br><span class="line">      addNewStyle(<span class="string">'#intercom-container .intercom-messenger-frame&gt;iframe&#123;position:absolute !important;&#125;'</span>)</span><br><span class="line">      addNewStyle(<span class="string">'#intercom-container .intercom-app div.intercom-messenger-frame iframe&#123;height:90% !important;&#125;'</span>)</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-&lt;/script&gt;</code></pre><p>找到合适的class 给他赋予样式<br>注意：一定要写在layout里面</p>
+<p>其实很简单 就是找到合适的class 给他赋予样式<br>ps：一定要写在layout里面 才能全局通用</p>
 
           
         
@@ -1016,7 +1251,7 @@ z-index: 9;</code></pre><p>  }</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/js-phone-keyboard-hide-input.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
@@ -1035,7 +1270,7 @@ z-index: 9;</code></pre><p>  }</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js- 手机上键盘弹出挡住输入框</a></h1>
+                <a class="post-title-link" href="/posts/js-phone-keyboard-hide-input.html" itemprop="url">js 手机上键盘弹出挡住输入框</a></h1>
         
 
         <div class="post-meta">
@@ -1087,152 +1322,7 @@ z-index: 9;</code></pre><p>  }</p>
       
         
           
-            <p>   var viewTop = document.body.scrollTop,<br>          viewBottom = viewTop + window.innerHeight;<br>              $(“#intercom-container .intercom-composer textarea”).on(“focus”, function(){<br>                  window.setTimeout(function() {<br>                    window.scrollTo(0, viewBottom); // 调整value<br>                 },200);<br>              })<br>              $(“#intercom-container .intercom-composer textarea”).on(“blur”, function(){<br>                  window.setTimeout(function() {<br>                    window.scrollTo(0, viewTOP); // 调整value<br>                 },200);<br>              })</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-文件下载与分享</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-22T09:50:00+08:00">
-                2017-12-22 09:50
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>-(void)download {<br>        [SVProgressHUD showWithStatus:@”正在下载文件”];</p>
-<pre><code>    NSURL *url = [NSURL URLWithString:self.currentRoute];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    //将下载后的数据存入文件(lastObject 无数据返回nil，不会导致程序崩溃)
-    _filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString* name = [_fileName stringByAppendingString:@&quot;.pdf&quot;];
-    _filePath = [_filePath stringByAppendingPathComponent:name];
-    NSLog(@&quot;%@&quot;,_filePath);
-
-    //将下载的二进制文件转成入文件
-    NSFileManager *manager = [NSFileManager defaultManager];
-    BOOL isDownLoad =  [manager createFileAtPath:_filePath contents:data attributes:nil];
-      [Loading hide];
-    if (isDownLoad) {
-        [SVProgressHUD  showSuccessWithStatus:@&quot;下载完成&quot;];
-    }else{
-        [SVProgressHUD  showErrorWithStatus:@&quot;下载失败，请重试&quot;];
-    }
-      [SVProgressHUD dismissWithDelay:1];
-}];
-//开始下载 否则不会开始
-[task resume];</code></pre><p>}</p>
-<p>-(void)sharePDF{<br>    //创建实例(写成成员变量，不然可能导致分享出去被释放崩溃问题)<br>    _documentController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:_filePath]];<br>    //设置代理<br>    _documentController.delegate = self;<br>    BOOL canOpen = [_documentController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];<br>    if (!canOpen) {<br>        NSLog(@”沒有程序可以打開要分享的文件”);<br>        [Loading showLoginFail:_webview for:@”沒有程序可以打開要分享的文件”];<br>         [SVProgressHUD dismissWithDelay:1];<br>    }<br>}</p>
-<p>ps:如果只想分享url这样的 用这个就可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//ios系统分享</span><br><span class="line">-(void)SystemShareWithTitle:(NSString*)title withText:(NSString*)text withImageUrl:(NSString*)url withSiteUrl:(NSString*)siteurl withVC:(UIViewController*)VC</span><br><span class="line">&#123;</span><br><span class="line">    NSString *titleText = title;</span><br><span class="line">    NSString *shareText = text;</span><br><span class="line">    NSURL *URL = [NSURL URLWithString:siteurl];</span><br><span class="line">    UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];</span><br><span class="line">    UIActivityViewController *a = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:titleText,shareText,URL,image, nil] applicationActivities:nil];</span><br><span class="line">    [VC presentViewController:a animated:true completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> viewTop = <span class="built_in">document</span>.body.scrollTop,</span><br><span class="line">       viewBottom = viewTop + <span class="built_in">window</span>.innerHeight;</span><br><span class="line">           $(<span class="string">"#intercom-container .intercom-composer textarea"</span>).on(<span class="string">"focus"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                 <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, viewBottom); <span class="comment">// 调整value</span></span><br><span class="line">              &#125;,<span class="number">200</span>);</span><br><span class="line">           &#125;)</span><br><span class="line">           $(<span class="string">"#intercom-container .intercom-composer textarea"</span>).on(<span class="string">"blur"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                 <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, viewTOP); <span class="comment">// 调整value</span></span><br><span class="line">              &#125;,<span class="number">200</span>);</span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1389,131 +1479,6 @@ z-index: 9;</code></pre><p>  }</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios11- wkweview获取的内容向下偏离</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T09:40:00+08:00">
-                2017-11-25 09:40
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>if (@available(iOS 11.0, *)) {
-    _webview.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    _webview.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    _webview.scrollView.scrollIndicatorInsets = _webview.scrollView.contentInset;
-}
-
-也可以解决ipone x底部留白问题</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1564,7 +1529,7 @@ z-index: 9;</code></pre><p>  }</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">253</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
