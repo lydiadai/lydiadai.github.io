@@ -265,6 +265,682 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ios-react-build.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/ios-react-build.html" itemprop="url">React-native ios框架搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-13T17:19:40+08:00">
+                2020-04-13 17:19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>npm install -g react-native-cli</p>
+</li>
+<li><p>react-native init MyProject</p>
+</li>
+<li><p>将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹</p>
+</li>
+<li><p>然后，我们在<code>Podfile</code>文件中添加如下代码：</p>
+<p>用这个可以对比每一个版本升级 rn podfile改动 在这上面花的时间太多了 </p>
+<p><a href="https://react-native-community.github.io/upgrade-helper/?from=0.59.5&amp;to=0.62.2" target="_blank" rel="noopener">https://react-native-community.github.io/upgrade-helper/?from=0.59.5&amp;to=0.62.2</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">target &apos;RNHybridiOS&apos; do</span><br><span class="line">  # Uncomment the next line if you&apos;re using Swift or would like to use dynamic frameworks</span><br><span class="line">  # use_frameworks!</span><br><span class="line"></span><br><span class="line">  # Your &apos;node_modules&apos; directory is probably in the root of your project,</span><br><span class="line">  # but if not, adjust the `:path` accordingly</span><br><span class="line">    pod &apos;FBLazyVector&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/FBLazyVector&quot;</span><br><span class="line">  pod &apos;FBReactNativeSpec&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/FBReactNativeSpec&quot;</span><br><span class="line">  pod &apos;RCTRequired&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/RCTRequired&quot;</span><br><span class="line">  pod &apos;RCTTypeSafety&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/TypeSafety&quot;</span><br><span class="line"></span><br><span class="line">  pod &apos;React&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line">  pod &apos;React-Core&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line">  pod &apos;React-Core/DevSupport&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line"></span><br><span class="line">  pod &apos;React-RCTActionSheet&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/ActionSheetIOS&apos;</span><br><span class="line">  pod &apos;React-RCTAnimation&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/NativeAnimation&apos;</span><br><span class="line">  pod &apos;React-RCTBlob&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Blob&apos;</span><br><span class="line">  pod &apos;React-RCTImage&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Image&apos;</span><br><span class="line">  pod &apos;React-RCTLinking&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/LinkingIOS&apos;</span><br><span class="line">  pod &apos;React-RCTNetwork&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Network&apos;</span><br><span class="line">  pod &apos;React-RCTSettings&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Settings&apos;</span><br><span class="line">  pod &apos;React-RCTText&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Text&apos;</span><br><span class="line">  pod &apos;React-RCTVibration&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Vibration&apos;</span><br><span class="line">  pod &apos;React-Core/RCTWebSocket&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line">  pod &apos;React-cxxreact&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/cxxreact&apos;</span><br><span class="line">  pod &apos;React-jsi&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/jsi&apos;</span><br><span class="line">  pod &apos;React-jsiexecutor&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/jsiexecutor&apos;</span><br><span class="line">  pod &apos;React-jsinspector&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/jsinspector&apos;</span><br><span class="line">  pod &apos;ReactCommon/callinvoker&apos;, :path =&gt; &quot;../node_modules/react-native/ReactCommon&quot;</span><br><span class="line">  pod &apos;ReactCommon/turbomodule/core&apos;, :path =&gt; &quot;../node_modules/react-native/ReactCommon&quot;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">  pod &apos;Yoga&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/yoga&apos;</span><br><span class="line"></span><br><span class="line">  # Third party deps podspec link</span><br><span class="line">  pod &apos;DoubleConversion&apos;, :podspec =&gt; &apos;../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec&apos;</span><br><span class="line">  pod &apos;glog&apos;, :podspec =&gt; &apos;../node_modules/react-native/third-party-podspecs/glog.podspec&apos;</span><br><span class="line">  pod &apos;Folly&apos;, :podspec =&gt; &apos;../node_modules/react-native/third-party-podspecs/Folly.podspec&apos;</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>接下来在项目目录下执行：$pod install</p>
+</li>
+<li><p>建一个新的viewController</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;RNPageController.h&quot;</span><br><span class="line">#import &lt;React/RCTRootView.h&gt;</span><br><span class="line">#import &lt;React/RCTBundleURLProvider.h&gt;</span><br><span class="line">#import &lt;React/RCTEventEmitter.h&gt;</span><br><span class="line">@interface RNPageController ()</span><br><span class="line">@end</span><br><span class="line">@implementation RNPageController</span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    [self initRCTRootView];</span><br><span class="line">&#125;</span><br><span class="line">- (void)initRCTRootView&#123;</span><br><span class="line">    NSURL *jsCodeLocation;</span><br><span class="line">    // jsCodeLocation = [NSURL URLWithString:@&quot;http://localhost:8081/index.bundle?platform=ios&quot;]; //手动拼接jsCodeLocation用于开发环境 //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@&quot;main&quot; withExtension:@&quot;jsbundle&quot;]; //release之后从包中读取名为main的静态js bundle</span><br><span class="line">    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index&quot; fallbackResource:nil]; // 通过RCTBundleURLProvider生成，用于开发环境</span><br><span class="line">    //这个&quot;App1&quot;名字一定要和我们在index.js中注册的名字保持一致</span><br><span class="line">    RCTRootView *rootView =[[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName: @&quot;App1&quot; initialProperties:nil launchOptions: nil];</span><br><span class="line">    self.view=rootView;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>跑了发现报错 Undefined symbol: google::LogMessage::LogMessage(char const*, int, int)</p>
+<p>在pod中，在目标下，单击React然后，构建阶段&gt;链接Binary与库添加DoubleConversion.Framework和glog.framework和Folly.framework。每当你进行pod更新时，请确保在反应依赖项下添加这些更新然后运行。<img src="/Users/lydia/Study/hexo/source/image/image-20200414182437873.png" alt="image-20200414182437873"></p>
+</li>
+<li><p>跑了发现报错 Undefined symbol: <em>OBJC_CLASS</em>$_GrowingSentryBreadcrumb</p>
+<p>这个是growing 第三方包的问题 由于推送包跟埋点包版本不一致到值的 因为推送包是手动集成的 埋点包是pod集成的 pod update的时候更新了埋点包的版本</p>
+<p>通过集成push最新版本解决</p>
+</li>
+<li><p>在build phase里删除run script </p>
+</li>
+</ol>
+<p><img src="/Users/lydia/Study/hexo/source/image/321586947735_.pic.jpg" alt="321586947735_.pic"></p>
+<ol start="9">
+<li><p>Error: missing script: start</p>
+<p>在package.json里添加 scripts:{start: ‘react-native start’}</p>
+</li>
+</ol>
+<ol start="10">
+<li><p>UIViewControllerBasedStatusBarAppearance key in the Info.plist is set to NO</p>
+<p>设置app的状态栏样式的使用使用了旧的方式，在info.plist里面设置了View controller-based status bar appearance为NO，默认为YES，一般式iOS6的时候使用这种方式，iOS7，8也兼容，但是到了iOS9就报了警告。</p>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><p>在info.plist中，<code>add row</code>添加<code>View controller-based status bar appearance</code>并设置为<code>NO</code>即可</p>
+</li>
+<li><p>添加更多React Native的组件</p>
+<p>我们可以根据需要添加更多的React Native的组件：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AppRegistry &#125; from &apos;react-native&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line">import App2 from &apos;./App2&apos;;</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(&apos;App1&apos;, () =&gt; App);</span><br><span class="line">AppRegistry.registerComponent(&apos;App2&apos;, () =&gt; App);</span><br></pre></td></tr></table></figure>
+
+<p>​    然后，在Native中根据需要加载指定名字的RN组件即可。</p>
+<p>ps: </p>
+<ol>
+<li>查看react-native 版本： $react-native –version</li>
+<li>查看全部react-native版本： $npm info react-native</li>
+<li><a href="https://github.com/facebook/react/releases" target="_blank" rel="noopener">https://github.com/facebook/react/releases</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ios-universal-link.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/ios-universal-link.html" itemprop="url">ruby sql find string in array</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-06T19:32:09+08:00">
+                2020-04-06 19:32
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ruby 数组中查一个值 用any</p>
+<p>examples = examples.where(“:name = ANY(cv_templates)”,name: cv.cv_type) </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ios-dict-to-json.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/ios-dict-to-json.html" itemprop="url">ios NSDictionary 转换成JSON</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-01T19:51:21+08:00">
+                2020-04-01 19:51
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上传接口请求参数只接受 json格式的 平时都是dict格式上传的 </p>
+<p>在网上找了两个dict转json的方法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)convertToJsonData:(NSDictionary *)dict&#123;</span><br><span class="line">    NSError *error;</span><br><span class="line">    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&amp;error];</span><br><span class="line">    NSString *jsonString;</span><br><span class="line"></span><br><span class="line">    if (!jsonData) &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;,error);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    NSMutableString *mutStr = [NSMutableString stringWithString:jsonString];</span><br><span class="line"></span><br><span class="line">    NSRange range = &#123;0,jsonString.length&#125;;</span><br><span class="line"></span><br><span class="line">    //去掉字符串中的空格</span><br><span class="line">    [mutStr replaceOccurrencesOfString:@&quot; &quot; withString:@&quot;&quot; options:NSLiteralSearch range:range];</span><br><span class="line"></span><br><span class="line">    NSRange range2 = &#123;0,mutStr.length&#125;;</span><br><span class="line"></span><br><span class="line">    //去掉字符串中的换行符</span><br><span class="line">    [mutStr replaceOccurrencesOfString:@&quot;\n&quot; withString:@&quot;&quot; options:NSLiteralSearch range:range2];</span><br><span class="line"></span><br><span class="line">    return mutStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString&#123;</span><br><span class="line">    if (jsonString == nil) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    NSError *err;</span><br><span class="line">    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&amp;err];</span><br><span class="line">    if(err)</span><br><span class="line">    &#123;</span><br><span class="line">        NSLog(@&quot;json解析失败：%@&quot;,err);</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line">    return dic;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是坑爹的是 文件转换会报错 <strong>Invalid type in JSON write (NSConcreteData)</strong></p>
+<p>网上查了下,能够转换为json字符串的对象必须具有如下属性:</p>
+<p>顶层对象必须是NSArray或者NSDictionary</p>
+<p>所有的对象必须是NSString/NSNumber/NSArray/NSDictionary/NSNull的实例</p>
+<p>所有NSDictionary的key必须是NSString类型</p>
+<p>ps：用这个方法就可以传dict的参数格式了（没有constructingBodyWithBlock 就只能传json）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[manager POST:importUrl parameters:parameter headers:dataDir constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123;&#125;]</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ios-crash-bug-report.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/ios-crash-bug-report.html" itemprop="url">ios崩溃log查看</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-27T18:00:09+08:00">
+                2020-03-27 18:00
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ios 经常出现版本崩溃 但是不知道原因的问题 每次找都很崩溃 直到学会了 直接用xcode看崩溃日志</p>
+<p>但是有两个限制</p>
+<ol>
+<li><p>必须要通过Xcode登陆开发者账号。</p>
+</li>
+<li><p>线上的ipa包必须是通过你当前的这个电脑打包导出的，因为dSYMs文件夹涉及到解析crash日志。</p>
+<p>通过Xcode上方 点击window -&gt; orginazer可以看到如下页面：</p>
+</li>
+</ol>
+<p><img src="/Users/lydia/Study/hexo/source/image/image-20200327175013693.png" alt="image-20200327175013693"></p>
+<p><img src="/Users/lydia/Study/hexo/source/image/image-20200327180042306.png" alt="image-20200327180042306"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ios-localstorage-single-processPool.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/ios-localstorage-single-processPool.html" itemprop="url">ios localstorage 单例模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-27T16:46:58+08:00">
+                2020-03-27 16:46
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>WKWebView 在内存占用上优化的很多。但是在实践中发现bug：localstorage信息不一致。<br>A页面和B页面都存在 一个WKWebView。 在B页面使用localstorage保存信息。 回到A页面取不到最新的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];</span><br><span class="line">config.processPool = [LoadWKWebViewWithBridge singleWkProcessPool];</span><br><span class="line">WKWebView * webView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:config];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (WKProcessPool*)singleWkProcessPool&#123;</span><br><span class="line">static WKProcessPool *processPool = nil;</span><br><span class="line">static dispatch_once_t onceToken;</span><br><span class="line">  dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">      if (!processPool) &#123;</span><br><span class="line">          processPool = [[WKProcessPool alloc] init];</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  return processPool;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/ios-universal-link.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -335,7 +1011,9 @@
 
       
         
-          <p>第一次接触 universal link是发现有的app可以发短信里面带链接 点击直接用safari打开 跳转到app 大概粗略的看了一下 没有具体实施<br>第二次则是由于新版ios 微信sdk必须配置 每次到universal link配置就会卡住 所以决定研究一下这个到底是什么<br>官方文档：<a href="https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/enabling_universal_links?language=objc" target="_blank" rel="noopener">https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/enabling_universal_links?language=objc</a></p>
+          <p>第一次接触 universal link是发现有的app可以发短信里面带链接 点击直接用safari打开 跳转到app 大概粗略的看了一下 没有具体实施<br>第二次则是由于新版ios 微信sdk必须配置 每次到universal link配置就会卡住 所以决定研究一下这个到底是什么 </p>
+<p>官方文档：<a href="https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/enabling_universal_links?language=objc" target="_blank" rel="noopener">https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/enabling_universal_links?language=objc</a></p>
+<p><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12-SW1" target="_blank" rel="noopener">https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12-SW1</a></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/ios-universal-link.html#more" rel="contents">
@@ -461,8 +1139,7 @@
         
           <p>ios 所有虚拟商品的支付都不允许接第三方支付 实在是太烦了 只能自己接IAP 也是第一次接触 将过程记录下来 有任何问题 欢迎指教<br>官方文档：<a href="https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc" target="_blank" rel="noopener">https://developer.apple.com/documentation/storekit/in-app_purchase?language=objc</a></p>
 <p>​                    <a href="https://help.apple.com/app-store-connect/#/devb57be10e7" target="_blank" rel="noopener">https://help.apple.com/app-store-connect/#/devb57be10e7</a></p>
-<p>相关参考：<a href="https://www.jianshu.com/p/7ae9654b85ee" target="_blank" rel="noopener">https://www.jianshu.com/p/7ae9654b85ee</a></p>
-<p>​                   </p>
+<p>相关参考：<a href="https://www.jianshu.com/p/7ae9654b85ee" target="_blank" rel="noopener">https://www.jianshu.com/p/7ae9654b85ee</a>        </p>
 <p>具体操作</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -890,632 +1567,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/vue-wechat-js.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/vue-wechat-js.html" itemprop="url">vue项目接入微信js</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-01T11:05:38+08:00">
-                2019-08-01 11:05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>$ npm install weixin-js-sdk –save</p>
-</li>
-<li><p>引入wechat js文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">import wx from &apos;weixin-js-sdk&apos;</span><br><span class="line"></span><br><span class="line">const wxPlugin = &#123;&#125;</span><br><span class="line">wxPlugin.install = function (Vue, options) &#123;</span><br><span class="line">  function extend (obj1, obj2) &#123;</span><br><span class="line">    for (var k in obj2) &#123;</span><br><span class="line">      if (obj1.hasOwnProperty(k)) &#123;</span><br><span class="line">        if (isObject(obj2[k])) &#123;</span><br><span class="line">          extend(obj1[k], obj2[k])</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          obj1[k] = obj2[k]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        obj1[k] = obj2[k]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return obj1</span><br><span class="line">  &#125;</span><br><span class="line">  function getProp (obj, str) &#123;</span><br><span class="line">    var result = extend(&#123;&#125;, obj)</span><br><span class="line">    var array = str.split(&apos;.&apos;)</span><br><span class="line">    for (var i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">      if (result[array[i]]) &#123;</span><br><span class="line">        result = result[array[i]]</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        result = result[array[i]]</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result</span><br><span class="line">  &#125;</span><br><span class="line">  // 判断options.config的数据类型</span><br><span class="line">  if (!options.config) &#123;</span><br><span class="line">    console.error(&apos;wxPlugin Error：config属性必须为一个对象或者promise，不能为空&apos;)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果config为一个对象</span><br><span class="line">  if (Object.prototype.toString.call(options.config) === &apos;[object Object]&apos;) &#123;</span><br><span class="line">    wxConfig(options.config)</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果config为一个promise</span><br><span class="line">  if (options.config instanceof Promise) &#123;</span><br><span class="line">    options.config.then(function (res) &#123;</span><br><span class="line">      var config</span><br><span class="line">      if (options.path) &#123;</span><br><span class="line">        config = getProp(res, options.path)</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">        config = res.data</span><br><span class="line">      &#125;</span><br><span class="line">      wxConfig(config)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  function wxConfig (config) &#123;</span><br><span class="line">    wx.config(&#123;</span><br><span class="line">      debug: false,</span><br><span class="line">      appId: config.appId,</span><br><span class="line">      timestamp: config.timestamp,</span><br><span class="line">      nonceStr: config.nonceStr,</span><br><span class="line">      signature: config.signature,</span><br><span class="line">      jsApiList: options.actions</span><br><span class="line">    &#125;)</span><br><span class="line">    wx.error(function (err) &#123;</span><br><span class="line">      console.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  Vue.prototype.wx = wx</span><br><span class="line">&#125;</span><br><span class="line">export default wxPlugin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>main.js中引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import wxPlugin from &apos;common/js/wechatJs.js&apos;</span><br><span class="line">const options = &#123;</span><br><span class="line">  config: api.me.getWechatJsConfig(&#123;url: location.href&#125;),</span><br><span class="line">  // 如果config是promise，path需要指定如何从promise返回值中拿到符合格式的object;</span><br><span class="line">  // 如果config是一个object，则无需指定path值</span><br><span class="line">  path: &apos;data&apos;,</span><br><span class="line">  // 声明用到的微信api</span><br><span class="line">  actions: [&apos;onMenuShareAppMessage&apos;, &apos;onMenuShareTimeline&apos;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vue.use(wxPlugin, options)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>页面中引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">wx_share () &#123;</span><br><span class="line">  this.wx.ready(function () &#123;</span><br><span class="line">    // 分享给朋友</span><br><span class="line">    this.wx.onMenuShareAppMessage(&#123;</span><br><span class="line">      title: &apos;问题反馈&apos;,</span><br><span class="line">      desc: &apos;问题反馈&apos;,</span><br><span class="line">      link: location.href,</span><br><span class="line">      imgUrl: &apos;https://files.wondercv.com/App%20Icon@2x.png&apos;,</span><br><span class="line">      success: function () &#123;</span><br><span class="line">        alert(&apos;分享成功&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    // 分享到朋友圈</span><br><span class="line">    this.wx.onMenuShareTimeline(&#123;</span><br><span class="line">      title: &apos;问题反馈&apos;,</span><br><span class="line">      link: location.href,</span><br><span class="line">      imgUrl: &apos;https://files.wondercv.com/App%20Icon@2x.png&apos;,</span><br><span class="line">      success: function () &#123;</span><br><span class="line">        alert(&apos;分享成功&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/nginx-rewrite-location.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/nginx-rewrite-location.html" itemprop="url">nginx 不改变url 根据需求分发到不同的项目</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T16:08:02+08:00">
-                2019-07-30 16:08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>需求一：根据页面转发</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location /account/users/mobile_account_index &#123;</span><br><span class="line">  root /opt/app/vuetest.wondercv.com/current;</span><br><span class="line">  index           index.html;</span><br><span class="line">  try_files $uri /index.html $uri/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ps: 要注意指向的文件夹里有没有版本库 来判定要不要current</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/nginx-rewrite-location.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/vue-adjust-pc-mobile.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/vue-adjust-pc-mobile.html" itemprop="url">根据pc 还是移动使用不同页面</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-29T18:17:35+08:00">
-                2019-07-29 18:17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Router from &apos;vue-router&apos;</span><br><span class="line">import mobileMe from &apos;./mobile/me&apos;</span><br><span class="line">import pcMe from &apos;./pc/me&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line">let route = []</span><br><span class="line"></span><br><span class="line">if (/Mobile|webOS|Jike/i.test(navigator.userAgent)) &#123;</span><br><span class="line">  route = [...mobileMe]</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  route = [...pcMe]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const router = new Router(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: route</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/children-div-margin-top-influence-father-div.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/children-div-margin-top-influence-father-div.html" itemprop="url">子div设置margin-top使得父div也跟着向下移动</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-26T16:50:01+08:00">
-                2019-07-26 16:50
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>解决方案：<br>1、修改父元素的高度,给父元素加上padding-top<br>   这是我常用的方法，但是总是感觉解决了问题，但是没有抓到本质。<br>2、为父元素添加overflow:hidden<br>3、为父元素添加border<br>4、为父元素或者子元素声明绝对定位。<br>5、为父元素或者子元素声明浮动</p>
-<p>推荐前三种解决方法，因为没必要因为这个去修改元素的定位或者是浮动</p>
-<p>原理：<br>一个盒子如果没有上补白(padding-top)和上边框(border-top)，那么这个盒子的上边距会和其内部文档流中的第一个子元素的上边距重叠。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/vue-router.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/vue-router.html" itemprop="url">vue 路由中#</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-23T15:30:16+08:00">
-                2019-07-23 15:30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>seo 中有需求 url中最好不要带有#，就去查了一下怎么做</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: [...]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html" target="_blank" rel="noopener">https://router.vuejs.org/zh/guide/essentials/history-mode.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1566,7 +1617,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">253</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1588,7 +1639,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

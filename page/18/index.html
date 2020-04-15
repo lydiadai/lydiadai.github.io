@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="https://lydiadai.github.io/page/18/"/>
+  <link rel="canonical" href="https://lydiadai.github.io/page/18/">
 
 
 
@@ -154,7 +154,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Lydia's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -184,7 +184,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
           </a>
@@ -207,7 +207,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             Search
           </a>
@@ -228,9 +228,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -271,7 +269,625 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">vue.js--表格搜索功能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T19:28:00+08:00">
+                2017-09-13 19:28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.添加一个component search/index.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;table style=&quot;color: #3b3b3b;&quot;&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th v-for=&quot;key in columns&quot;</span><br><span class="line">          @click=&quot;sortBy(key)&quot;</span><br><span class="line">          :class=&quot;&#123; active: sortKey == key &#125;&quot;&gt;</span><br><span class="line">          &#123;&#123; key == &apos;name&apos; ? &apos;物品名称&apos; : &apos;是否购买&apos;&#125;&#125;</span><br><span class="line">          &lt;span class=&quot;arrow&quot; :class=&quot;sortOrders[key] &gt; 0 ? &apos;asc&apos; : &apos;dsc&apos;&quot;&gt;</span><br><span class="line">          &lt;/span&gt;</span><br><span class="line">        &lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">      &lt;tr v-for=&quot;entry in filteredData&quot;&gt;</span><br><span class="line">        &lt;td v-for=&quot;key in columns&quot; @click=&quot;get_good(entry)&quot;&gt;</span><br><span class="line">          &lt;div v-if=&quot;key == &apos;is_chosen&apos;&quot;&gt;</span><br><span class="line">            &#123;&#123; entry[key] == false ? &apos;没有购买&apos; : &apos;已经购买&apos;&#125;&#125;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;div v-else&gt;</span><br><span class="line">            &#123;&#123; entry[key] &#125;&#125;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    var sortOrders = &#123;&#125;</span><br><span class="line">    this.columns.forEach(function (key) &#123;</span><br><span class="line">      sortOrders[key] = 1</span><br><span class="line">    &#125;)</span><br><span class="line">    return &#123;</span><br><span class="line">      currentValue: [],      sortKey: &apos;&apos;,</span><br><span class="line">      sortOrders: sortOrders</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    value: Array,</span><br><span class="line">    columns: Array,</span><br><span class="line">    filterKey: String</span><br><span class="line">  &#125;,</span><br><span class="line">  created () &#123;</span><br><span class="line">    this.currentValue = this.value</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    value (val) &#123;</span><br><span class="line">      this.currentValue = val</span><br><span class="line">    &#125;,</span><br><span class="line">    currentValue (newVal) &#123;</span><br><span class="line">      this.$emit(&apos;input&apos;, newVal)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    filteredData: function () &#123;</span><br><span class="line">      var sortKey = this.sortKey</span><br><span class="line">      var filterKey = this.filterKey &amp;&amp; this.filterKey.toLowerCase()</span><br><span class="line">      var order = this.sortOrders[sortKey] || 1</span><br><span class="line">      var data = this.currentValue</span><br><span class="line">      if (filterKey) &#123;</span><br><span class="line">        data = data.filter(function (row) &#123;</span><br><span class="line">          return Object.keys(row).some(function (key) &#123;</span><br><span class="line">            return String(row[key]).toLowerCase().indexOf(filterKey) &gt; -1</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      if (sortKey) &#123;</span><br><span class="line">        data = data.slice().sort(function (a, b) &#123;</span><br><span class="line">          a = a[sortKey]</span><br><span class="line">          b = b[sortKey]</span><br><span class="line">          return (a === b ? 0 : a &gt; b ? 1 : -1) * order</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      return data</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    capitalize: function (str) &#123;</span><br><span class="line">      return str.charAt(0).toUpperCase() + str.slice(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    sortBy: function (key) &#123;</span><br><span class="line">      this.sortKey = key</span><br><span class="line">      this.sortOrders[key] = this.sortOrders[key] * -1</span><br><span class="line">    &#125;,</span><br><span class="line">    get_good(entry)&#123;</span><br><span class="line">      console.info(entry)</span><br><span class="line">      this.$emit(&quot;get-good&quot;, entry)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">@import &quot;../../styles/px2rem.scss&quot;;</span><br><span class="line">@import &quot;../../styles/variable.scss&quot;;</span><br><span class="line">body &#123;</span><br><span class="line">  font-family: Helvetica Neue, Arial, sans-serif;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  color: #444;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table &#123;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  @include px2rem(width, 200px);</span><br><span class="line">  text-align: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">th &#123;</span><br><span class="line">  color: #3b3b3b;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">  user-select: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td &#123;</span><br><span class="line">  background-color: #f9f9f9;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">th, td &#123;</span><br><span class="line">  @include px2rem(min-width, 90px);</span><br><span class="line">  padding: 10px 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">th.active &#123;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">th.active .arrow &#123;</span><br><span class="line">  opacity: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.arrow &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  width: 0;</span><br><span class="line">  height: 0;</span><br><span class="line">  margin-left: 5px;</span><br><span class="line">  opacity: 0.66;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.arrow.asc &#123;</span><br><span class="line">  border-left: 4px solid transparent;</span><br><span class="line">  border-right: 4px solid transparent;</span><br><span class="line">  border-bottom: 4px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.arrow.dsc &#123;</span><br><span class="line">  border-left: 4px solid transparent;</span><br><span class="line">  border-right: 4px solid transparent;</span><br><span class="line">  border-top: 4px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.在使用的页面上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div  class=&quot;search&quot;&gt;</span><br><span class="line">              搜索:&lt;input v-model=&quot;search&quot; name=&quot;search&quot;/&gt;</span><br><span class="line">              &lt;div class=&apos;close&apos; @click=&quot;show_search_page = false&quot;&gt;</span><br><span class="line">                x</span><br><span class="line">              &lt;/div&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;div style=&quot;overflow: auto; background-color: #FFFFFF; &quot;&gt;</span><br><span class="line">            &lt;search v-model=&quot;all_goods&quot;</span><br><span class="line">              :columns=&quot;gridColumns&quot;</span><br><span class="line">              :filter-key=&quot;search&quot; class=&quot;search_table&quot; @get-good=&apos;get_good&apos;&gt;</span><br><span class="line">            &lt;/search&gt;</span><br><span class="line">          &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://jsfiddle.net/HubertWang/t5ac1quc/" target="_blank" rel="noopener">演示</a><br><a href="https://vuejs.org/v2/examples/grid-component.html" target="_blank" rel="noopener">官方文档</a><br><a href="https://github.com/WangHong-yang/Vue.js-Search-Highlight" target="_blank" rel="noopener">github</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails - 查询自动刷新</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T15:30:00+08:00">
+                2017-09-08 15:30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.在application.js页面添加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function merge_parameter_and_refresh(key, value) &#123;</span><br><span class="line">  key = escape(key); value = escape(value);</span><br><span class="line">  var kvp = document.location.search.substr(1).split(&apos;&amp;&apos;);</span><br><span class="line">  if (kvp == &apos;&apos;) &#123;</span><br><span class="line">    document.location.search = &apos;?&apos; + key + &apos;=&apos; + value;</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    var i = kvp.length; var x; while (i--) &#123;</span><br><span class="line">      x = kvp[i].split(&apos;=&apos;);</span><br><span class="line">      if (x[0] == key) &#123;</span><br><span class="line">        x[1] = value;</span><br><span class="line">        kvp[i] = x.join(&apos;=&apos;);</span><br><span class="line">        break;</span><br><span class="line">      &#125;   </span><br><span class="line">    &#125;   </span><br><span class="line">    if (i &lt; 0) &#123; kvp[kvp.length] = [key, value].join(&apos;=&apos;); &#125;</span><br><span class="line">    //this will reload the page, it&apos;s likely better to store this until finished</span><br><span class="line">    document.location.search = kvp.join(&apos;&amp;&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.在view页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  $(&apos;#good_goods_first_category_id&apos;).change(function()&#123;</span><br><span class="line">    merge_parameter_and_refresh(&apos;category_id&apos;, $(this).val())</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p> category_id 是下拉框的name</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js- date 格式化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-06T17:18:00+08:00">
+                2017-09-06 17:18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Date.toISOString()</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-拖拽排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-06T12:46:00+08:00">
+                2017-09-06 12:46
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.Gemfile 中添加<br>  gem ‘sortable-rails’<br>  $ bundle<br>2.app/assets/javascripts/application.js 中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//= require sortable-rails-jquery</span><br><span class="line">//= require_tree .</span><br></pre></td></tr></table></figure>
+
+<p>3.确认需要拖拽排序的表中有position字段<br>4.view</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;tbody id=&quot;steps_sortable_table&quot;&gt;</span><br><span class="line">    &lt;% @steps.each do |step| %&gt;</span><br><span class="line">      &lt;tr data-id = &apos;&lt;%= step.id%&gt;&apos;&gt;</span><br><span class="line">      .......</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(&apos; #steps_sortable_table&apos; ).sortable(&#123;</span><br><span class="line">        opacity: 0.6,</span><br><span class="line">        revert: true,</span><br><span class="line">        cursor: &apos;move&apos;,</span><br><span class="line">        onUpdate: function(evt) &#123;</span><br><span class="line">            neworder = new Array();</span><br><span class="line">            $(&apos;#steps_sortable_table&apos;).children().each(function() &#123;</span><br><span class="line">                id = $(this).attr(&quot;data-id&quot;);</span><br><span class="line">                neworder.push(&#123;</span><br><span class="line">                    id: id</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: &quot;/steps/sort&quot;,</span><br><span class="line">                type: &quot;POST&quot;,</span><br><span class="line">                data: &#123;</span><br><span class="line">                    steps: JSON.stringify(neworder)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            console.log(neworder);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>controller</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def sort</span><br><span class="line">  if params[:steps].present?</span><br><span class="line">    JSON.parse(params[:steps]).each_with_index do |x, index|</span><br><span class="line">      idx = x[&quot;id&quot;]</span><br><span class="line">      position = index+1</span><br><span class="line">      step = Step.find(idx)</span><br><span class="line">      step.update_attribute(&quot;position&quot;, position)</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">  render nothing: true</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">三元表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-05T18:11:00+08:00">
+                2017-09-05 18:11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>条件 ? 如果是true : 如果是false<br>例子：<br>if @good.present?<br>   name = @good.name<br>else<br>   name= ‘没有物品’<br>end<br>可以写成<br>@good.present? @good.name:’没有物品’</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -394,7 +1010,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -514,7 +1130,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -634,7 +1250,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -755,7 +1371,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -858,644 +1474,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">网络打印机安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T16:20:00+08:00">
-                2017-08-21 16:20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我用的是爱宝打印机 在win10的系统下<br>1.安装网络打印机驱动<br>2.要么修改打印机网段（打印机网段一般为1）<br>ps：网段：192.168.x.xxx 第三位为网段<br>  要么修改局域网网段（一般为0）<br>ps：修改打印机网段需要客服提供工具 自己很难改<br>    但是修改局域网网段会影响局域网连接外网，所以这里我们还是选择修改打印机网段<br>3.将电脑的局域网网段先改成1<br>  1）打开网络与共享中心。<br>  2）点击以太网 点击属性 选择TCP/IPv4双击打开 选择使用下面的IP地址<br>  3）输入192.168.1.xxx 确定关闭<br>  （如果是修改局域网网段就这样就可以了）<br>4.将电脑与打印机网口直连（电脑断网） 用客服提供的工具将打印机网段设置成0<br>5.将网线连回去 将局域网设置取消<br>6.给打印机添加端口<br>  1）端口类型选择StandardTCP/IP<br>  2）输入打印机ip地址<br>  3）会显示没有找到设备 但是没关系 点击下面的自定义<br>     协议   –&gt; Raw<br>     端口号 –&gt; 9100<br>     之后确定 下一步 完成就OK了！<br>7.集成到系统上 客服还没有给我SDK 等他给我集成上之后再更新</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">iOS 发布证书配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T16:06:00+08:00">
-                2017-08-21 16:06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>公司账号<br>1.先登录公司账号 invite成管理员，点击邮件中链接点选同意</p>
-<ol start="2">
-<li>钥匙串访问：<br>钥匙串访问 –&gt; 证书助理 –&gt; 从证书办法机构请求证书 –&gt;生成CSR文件</li>
-<li>到Xcode –&gt; preference –&gt; account 添加apple ID，并选择对应的公司账号</li>
-<li>apple developer中 certificates 添加production证书 将CSR文件传上去 下载生成的证书，<br>双击点开配置到电脑上</li>
-<li>Provisioning Profiles –&gt; distribution 再申请一个证书选择ADhoc<br>下载生成的证书双击运行<br>ps:现在Xcode中运行的设备必须是配置distribution证书是select的设备</li>
-</ol>
-<p>个人账号<br>1.钥匙串访问：<br>   钥匙串访问 –&gt; 证书助理 –&gt; 从证书办法机构请求证书 –&gt;生成CSR文件<br>2.申请production证书<br>3.申请appid（bundle id要跟xcode里面一样）<br>4.申请distribution证书</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">web打印</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T16:34:00+08:00">
-                2017-08-16 16:34
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.按照说明书将打印机驱动安在电脑上测试，可用之后<br>2.在需要打印的页面，用<br>chrome</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.print()</span><br></pre></td></tr></table></figure>
-
-<p>IE浏览器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mywindow.print()</span><br></pre></td></tr></table></figure>
-
-<p> 打印<br> ps：页眉，页脚，距离边上的边距都在调起打印之后更多设置里面选择设置<br> 页眉： 日期+网页title<br> 页脚： 网址+页数<br>3<br>3-1.如果只想打印一部分页面，就在js里面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#print_btn&quot;).click( function ()&#123;</span><br><span class="line">      var old_body = $(&quot;body&quot;).html();</span><br><span class="line"></span><br><span class="line">      var new_body = $(&quot;#print_id&quot;).html();</span><br><span class="line"></span><br><span class="line">      new_body = &quot;&lt;div id=&apos;print_id&apos; style=&apos;width: 230px&apos;&gt;&quot; + new_body + &quot;&lt;/div&gt;&quot; ;</span><br><span class="line">      //还可以让取到的html代码加上新的标签 style等</span><br><span class="line">      //$(&quot;#xxx&quot;).html() 和$(&quot;#xxx&quot;).innerHTML 是一样的。都取不到最外层的div（&lt;div id=&quot;xxx&quot;&gt;&lt;/div&gt;）</span><br><span class="line">      </span><br><span class="line">      window.document.body.innerHTML= new_body;</span><br><span class="line">      window.print();</span><br><span class="line"></span><br><span class="line">      $(&quot;body&quot;).html(old_body);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>3-2.如果想要新开一颗窗口去打印的话就用window.open()<br>  ps:1.括号里为空的时候会新开一个tab<br>     新开一个window的话需要window.open(“url”, “name”,”some value”,replace)<br>     <a href="http://www.w3school.com.cn/jsref/met_win_open.asp" target="_blank" rel="noopener">window.open官方文档</a><br>     2.width，height不可以写成活的</p>
-<p>注意：<br>1.打印的某些参数可以写在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">@media print&#123;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>里面,但是要特别注意空格 多一个都不会识别 所以建议都不要空格 都顶头写<br>在ruby中要写在application.html.erb的<head><meta name="generator" content="Hexo 3.9.0">标签里面</head></p>
-<p>2.media是style的一个属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">@media print&#123;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>等同于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;style media=&quot;print&quot;&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>3.如果想引入一个css文件作为样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function Popup(data) &#123;</span><br><span class="line">  var mywindow = window.open(&apos;&apos;);</span><br><span class="line">  mywindow.document.write(&apos;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&apos;);</span><br><span class="line">  mywindow.document.write(&quot;&lt;%= j stylesheet_link_tag &apos;v2_editor&apos;, media: &apos;all&apos;%&gt;&quot;);</span><br><span class="line">  mywindow.document.write(&apos;&lt;/head&gt;&lt;body &gt;&apos;);</span><br><span class="line">  mywindow.document.write(data);</span><br><span class="line">  mywindow.document.write(&apos;&lt;/body&gt;&lt;/html&gt;&apos;);</span><br><span class="line">  mywindow.focus();</span><br><span class="line">  setTimeout(function()&#123;</span><br><span class="line">    mywindow.print();</span><br><span class="line">    mywindow.close();   //取消之后会自动关闭窗口</span><br><span class="line">  &#125;,200);</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">二代身份证识别仪</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T14:57:00+08:00">
-                2017-08-16 14:57
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我用的是华旭金卡HX-FDX35，这个是基于WindowsIE浏览器开发的<br>1.将驱动安上（光盘中的自动安装 双击就安上了）<br>2.安装测试软件看能不能正常读取<br>3.布置软件<br>   本地：双击运行active_reg.bat<br>   服务器：将CBA文件夹拷贝到与页面相同的文件夹下面<br>4.点击JsDemo.html 文件打开测试页面 测试一下<br>  如果好用的话，就将测试页面的代码集成到程序需要的页面上<br>注意：<br>1.不要写在form里面<br>2..<object>标签和<button>标签不可更改</button></object></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">mysql重置密码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-08T10:22:00+08:00">
-                2017-08-08 10:22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.停止 MySQL 服务</p>
-<p>$ sudo /usr/local/mysql/support-files/mysql.server stop<br>要是不行的话 就ps -ef | grep mysqld<br>将进程杀掉就可以了</p>
-<p>2.进入安全模式<br>sudo mysqld_safe –skip-grant-tables<br>sudo /usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe –skip-grant-tables</p>
-<p>这个地方，如果你 alias 了 mysqlld_safe 这个命令，那么可以直接复制粘贴；如果没有，则需要加上正确的路径。在 Linux/OS X 系统下，默认路径是 /usr/local/mysql/bin/mysqld/usafe。（/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe）–我的路径</p>
-<p>3.启动MySQL服务<br>$ mysql.server start</p>
-<p>4.修改密码<br>进入了之后先不要急着使用 update 命令修改密码，先看看表中的字段名。不同版本密码的字段名可能不一样。</p>
-<p>MySQL 的用户信息是存在 mysql.user 这个表里面的。于是可以先选择 mysql 这个数据库，再看数据库中 user 表中的字段名称。<br>use mysql; //切换数据库<br>describe user; //查看user表的字段<br>然后确定密码字段的名称，一般可能是 Password。然而在 OS X 的 MySQL 5.7 这个版本中，密码字段名称是 authentication_string 。记住这个字段名。</p>
-<p>然后修改密码啊：UPDATE mysql.user SET authentication_string=PASSWORD(‘123456’) where User=’root’; //将root用户密码改成 123456</p>
-<p>5.刷新权限，使配置生效</p>
-<p>flush privileges;<br>最后再启动 MySQL</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1546,7 +1524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">253</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1568,7 +1546,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
