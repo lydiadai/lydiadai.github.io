@@ -335,63 +335,22 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li><p>npm install -g react-native-cli</p>
 </li>
 <li><p>react-native init MyProject</p>
 </li>
 <li><p>将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹</p>
-</li>
-<li><p>然后，我们在<code>Podfile</code>文件中添加如下代码：</p>
-<p>用这个可以对比每一个版本升级 rn podfile改动 在这上面花的时间太多了 </p>
-<p><a href="https://react-native-community.github.io/upgrade-helper/?from=0.59.5&amp;to=0.62.2" target="_blank" rel="noopener">https://react-native-community.github.io/upgrade-helper/?from=0.59.5&amp;to=0.62.2</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">target &apos;RNHybridiOS&apos; do</span><br><span class="line">  # Uncomment the next line if you&apos;re using Swift or would like to use dynamic frameworks</span><br><span class="line">  # use_frameworks!</span><br><span class="line"></span><br><span class="line">  # Your &apos;node_modules&apos; directory is probably in the root of your project,</span><br><span class="line">  # but if not, adjust the `:path` accordingly</span><br><span class="line">    pod &apos;FBLazyVector&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/FBLazyVector&quot;</span><br><span class="line">  pod &apos;FBReactNativeSpec&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/FBReactNativeSpec&quot;</span><br><span class="line">  pod &apos;RCTRequired&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/RCTRequired&quot;</span><br><span class="line">  pod &apos;RCTTypeSafety&apos;, :path =&gt; &quot;../node_modules/react-native/Libraries/TypeSafety&quot;</span><br><span class="line"></span><br><span class="line">  pod &apos;React&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line">  pod &apos;React-Core&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line">  pod &apos;React-Core/DevSupport&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line"></span><br><span class="line">  pod &apos;React-RCTActionSheet&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/ActionSheetIOS&apos;</span><br><span class="line">  pod &apos;React-RCTAnimation&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/NativeAnimation&apos;</span><br><span class="line">  pod &apos;React-RCTBlob&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Blob&apos;</span><br><span class="line">  pod &apos;React-RCTImage&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Image&apos;</span><br><span class="line">  pod &apos;React-RCTLinking&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/LinkingIOS&apos;</span><br><span class="line">  pod &apos;React-RCTNetwork&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Network&apos;</span><br><span class="line">  pod &apos;React-RCTSettings&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Settings&apos;</span><br><span class="line">  pod &apos;React-RCTText&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Text&apos;</span><br><span class="line">  pod &apos;React-RCTVibration&apos;, :path =&gt; &apos;../node_modules/react-native/Libraries/Vibration&apos;</span><br><span class="line">  pod &apos;React-Core/RCTWebSocket&apos;, :path =&gt; &apos;../node_modules/react-native/&apos;</span><br><span class="line">  pod &apos;React-cxxreact&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/cxxreact&apos;</span><br><span class="line">  pod &apos;React-jsi&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/jsi&apos;</span><br><span class="line">  pod &apos;React-jsiexecutor&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/jsiexecutor&apos;</span><br><span class="line">  pod &apos;React-jsinspector&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/jsinspector&apos;</span><br><span class="line">  pod &apos;ReactCommon/callinvoker&apos;, :path =&gt; &quot;../node_modules/react-native/ReactCommon&quot;</span><br><span class="line">  pod &apos;ReactCommon/turbomodule/core&apos;, :path =&gt; &quot;../node_modules/react-native/ReactCommon&quot;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">  pod &apos;Yoga&apos;, :path =&gt; &apos;../node_modules/react-native/ReactCommon/yoga&apos;</span><br><span class="line"></span><br><span class="line">  # Third party deps podspec link</span><br><span class="line">  pod &apos;DoubleConversion&apos;, :podspec =&gt; &apos;../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec&apos;</span><br><span class="line">  pod &apos;glog&apos;, :podspec =&gt; &apos;../node_modules/react-native/third-party-podspecs/glog.podspec&apos;</span><br><span class="line">  pod &apos;Folly&apos;, :podspec =&gt; &apos;../node_modules/react-native/third-party-podspecs/Folly.podspec&apos;</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>接下来在项目目录下执行：$pod install</p>
-</li>
-<li><p>建一个新的viewController</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;RNPageController.h&quot;</span><br><span class="line">#import &lt;React/RCTRootView.h&gt;</span><br><span class="line">#import &lt;React/RCTBundleURLProvider.h&gt;</span><br><span class="line">#import &lt;React/RCTEventEmitter.h&gt;</span><br><span class="line">@interface RNPageController ()</span><br><span class="line">@end</span><br><span class="line">@implementation RNPageController</span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    [self initRCTRootView];</span><br><span class="line">&#125;</span><br><span class="line">- (void)initRCTRootView&#123;</span><br><span class="line">    NSURL *jsCodeLocation;</span><br><span class="line">    // jsCodeLocation = [NSURL URLWithString:@&quot;http://localhost:8081/index.bundle?platform=ios&quot;]; //手动拼接jsCodeLocation用于开发环境 //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@&quot;main&quot; withExtension:@&quot;jsbundle&quot;]; //release之后从包中读取名为main的静态js bundle</span><br><span class="line">    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index&quot; fallbackResource:nil]; // 通过RCTBundleURLProvider生成，用于开发环境</span><br><span class="line">    //这个&quot;App1&quot;名字一定要和我们在index.js中注册的名字保持一致</span><br><span class="line">    RCTRootView *rootView =[[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName: @&quot;App1&quot; initialProperties:nil launchOptions: nil];</span><br><span class="line">    self.view=rootView;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>跑了发现报错 Undefined symbol: google::LogMessage::LogMessage(char const*, int, int)</p>
-<p>在pod中，在目标下，单击React然后，构建阶段&gt;链接Binary与库添加DoubleConversion.Framework和glog.framework和Folly.framework。每当你进行pod更新时，请确保在反应依赖项下添加这些更新然后运行。<img src="/Users/lydia/Study/hexo/source/image/image-20200414182437873.png" alt="image-20200414182437873"></p>
-</li>
-<li><p>跑了发现报错 Undefined symbol: <em>OBJC_CLASS</em>$_GrowingSentryBreadcrumb</p>
-<p>这个是growing 第三方包的问题 由于推送包跟埋点包版本不一致到值的 因为推送包是手动集成的 埋点包是pod集成的 pod update的时候更新了埋点包的版本</p>
-<p>通过集成push最新版本解决</p>
-</li>
-<li><p>在build phase里删除run script </p>
-</li>
-</ol>
-<p><img src="/Users/lydia/Study/hexo/source/image/321586947735_.pic.jpg" alt="321586947735_.pic"></p>
-<ol start="9">
-<li><p>Error: missing script: start</p>
-<p>在package.json里添加 scripts:{start: ‘react-native start’}</p>
-</li>
-</ol>
-<ol start="10">
-<li><p>UIViewControllerBasedStatusBarAppearance key in the Info.plist is set to NO</p>
-<p>设置app的状态栏样式的使用使用了旧的方式，在info.plist里面设置了View controller-based status bar appearance为NO，默认为YES，一般式iOS6的时候使用这种方式，iOS7，8也兼容，但是到了iOS9就报了警告。</p>
-<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><p>在info.plist中，<code>add row</code>添加<code>View controller-based status bar appearance</code>并设置为<code>NO</code>即可</p>
-</li>
-<li><p>添加更多React Native的组件</p>
-<p>我们可以根据需要添加更多的React Native的组件：</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AppRegistry &#125; from &apos;react-native&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line">import App2 from &apos;./App2&apos;;</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(&apos;App1&apos;, () =&gt; App);</span><br><span class="line">AppRegistry.registerComponent(&apos;App2&apos;, () =&gt; App);</span><br></pre></td></tr></table></figure>
-
-<p>​    然后，在Native中根据需要加载指定名字的RN组件即可。</p>
-<p>ps: </p>
-<ol>
-<li>查看react-native 版本： $react-native –version</li>
-<li>查看全部react-native版本： $npm info react-native</li>
-<li><a href="https://github.com/facebook/react/releases" target="_blank" rel="noopener">https://github.com/facebook/react/releases</a></li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/ios-react-build.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
     
     
     

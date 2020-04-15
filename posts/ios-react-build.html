@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="npm install -g react-native-cli  react-native init MyProject  将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹  然后，我们在Podfile文件中添加如下代码： 用这个可以对比每一个版本升级 rn podfile改动 在这上面花的时间太多了  https://react-native-community.github">
+<meta name="description" content="npm install -g react-native-cli  react-native init MyProject  将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹">
 <meta name="keywords" content="ios react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React-native ios框架搭建">
 <meta property="og:url" content="https://lydiadai.github.io/posts/ios-react-build.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="npm install -g react-native-cli  react-native init MyProject  将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹  然后，我们在Podfile文件中添加如下代码： 用这个可以对比每一个版本升级 rn podfile改动 在这上面花的时间太多了  https://react-native-community.github">
+<meta property="og:description" content="npm install -g react-native-cli  react-native init MyProject  将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://lydiadai.github.io/Users/lydia/Study/hexo/source/image/image-20200414182437873.png">
-<meta property="og:image" content="https://lydiadai.github.io/Users/lydia/Study/hexo/source/image/321586947735_.pic.jpg">
+<meta property="og:image" content="https://lydiadai.github.io/image/image-20200414182437873.png">
+<meta property="og:image" content="https://lydiadai.github.io/image/321586947735_.pic.jpg">
 <meta property="og:updated_time" content="2020-04-13T09:19:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React-native ios框架搭建">
-<meta name="twitter:description" content="npm install -g react-native-cli  react-native init MyProject  将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹  然后，我们在Podfile文件中添加如下代码： 用这个可以对比每一个版本升级 rn podfile改动 在这上面花的时间太多了  https://react-native-community.github">
-<meta name="twitter:image" content="https://lydiadai.github.io/Users/lydia/Study/hexo/source/image/image-20200414182437873.png">
+<meta name="twitter:description" content="npm install -g react-native-cli  react-native init MyProject  将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹">
+<meta name="twitter:image" content="https://lydiadai.github.io/image/image-20200414182437873.png">
 
 
 
@@ -341,6 +341,7 @@
 <li><p>react-native init MyProject</p>
 </li>
 <li><p>将已有native项目更名为 ios 拖动到项目里替换掉已有文件夹</p>
+<a id="more"></a>
 </li>
 <li><p>然后，我们在<code>Podfile</code>文件中添加如下代码：</p>
 <p>用这个可以对比每一个版本升级 rn podfile改动 在这上面花的时间太多了 </p>
@@ -353,7 +354,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;RNPageController.h&quot;</span><br><span class="line">#import &lt;React/RCTRootView.h&gt;</span><br><span class="line">#import &lt;React/RCTBundleURLProvider.h&gt;</span><br><span class="line">#import &lt;React/RCTEventEmitter.h&gt;</span><br><span class="line">@interface RNPageController ()</span><br><span class="line">@end</span><br><span class="line">@implementation RNPageController</span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    [self initRCTRootView];</span><br><span class="line">&#125;</span><br><span class="line">- (void)initRCTRootView&#123;</span><br><span class="line">    NSURL *jsCodeLocation;</span><br><span class="line">    // jsCodeLocation = [NSURL URLWithString:@&quot;http://localhost:8081/index.bundle?platform=ios&quot;]; //手动拼接jsCodeLocation用于开发环境 //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@&quot;main&quot; withExtension:@&quot;jsbundle&quot;]; //release之后从包中读取名为main的静态js bundle</span><br><span class="line">    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index&quot; fallbackResource:nil]; // 通过RCTBundleURLProvider生成，用于开发环境</span><br><span class="line">    //这个&quot;App1&quot;名字一定要和我们在index.js中注册的名字保持一致</span><br><span class="line">    RCTRootView *rootView =[[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName: @&quot;App1&quot; initialProperties:nil launchOptions: nil];</span><br><span class="line">    self.view=rootView;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>跑了发现报错 Undefined symbol: google::LogMessage::LogMessage(char const*, int, int)</p>
-<p>在pod中，在目标下，单击React然后，构建阶段&gt;链接Binary与库添加DoubleConversion.Framework和glog.framework和Folly.framework。每当你进行pod更新时，请确保在反应依赖项下添加这些更新然后运行。<img src="/Users/lydia/Study/hexo/source/image/image-20200414182437873.png" alt="image-20200414182437873"></p>
+<p>在pod中，在目标下，单击React然后，构建阶段&gt;链接Binary与库添加DoubleConversion.Framework和glog.framework和Folly.framework。每当你进行pod更新时，请确保在反应依赖项下添加这些更新然后运行。<img src="/image/image-20200414182437873.png" alt="image-20200414182437873"></p>
 </li>
 <li><p>跑了发现报错 Undefined symbol: <em>OBJC_CLASS</em>$_GrowingSentryBreadcrumb</p>
 <p>这个是growing 第三方包的问题 由于推送包跟埋点包版本不一致到值的 因为推送包是手动集成的 埋点包是pod集成的 pod update的时候更新了埋点包的版本</p>
@@ -362,13 +363,11 @@
 <li><p>在build phase里删除run script </p>
 </li>
 </ol>
-<p><img src="/Users/lydia/Study/hexo/source/image/321586947735_.pic.jpg" alt="321586947735_.pic"></p>
+<p><img src="/image/321586947735_.pic.jpg" alt="321586947735_.pic"></p>
 <ol start="9">
 <li><p>Error: missing script: start</p>
 <p>在package.json里添加 scripts:{start: ‘react-native start’}</p>
 </li>
-</ol>
-<ol start="10">
 <li><p>UIViewControllerBasedStatusBarAppearance key in the Info.plist is set to NO</p>
 <p>设置app的状态栏样式的使用使用了旧的方式，在info.plist里面设置了View controller-based status bar appearance为NO，默认为YES，一般式iOS6的时候使用这种方式，iOS7，8也兼容，但是到了iOS9就报了警告。</p>
 <h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><p>在info.plist中，<code>add row</code>添加<code>View controller-based status bar appearance</code>并设置为<code>NO</code>即可</p>
