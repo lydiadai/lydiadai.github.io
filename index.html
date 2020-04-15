@@ -585,23 +585,15 @@
 
       
         
-          
-            <p>上传接口请求参数只接受 json格式的 平时都是dict格式上传的 </p>
+          <p>上传接口请求参数只接受 json格式的 平时都是dict格式上传的 </p>
 <p>在网上找了两个dict转json的方法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)convertToJsonData:(NSDictionary *)dict&#123;</span><br><span class="line">    NSError *error;</span><br><span class="line">    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&amp;error];</span><br><span class="line">    NSString *jsonString;</span><br><span class="line"></span><br><span class="line">    if (!jsonData) &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;,error);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    NSMutableString *mutStr = [NSMutableString stringWithString:jsonString];</span><br><span class="line"></span><br><span class="line">    NSRange range = &#123;0,jsonString.length&#125;;</span><br><span class="line"></span><br><span class="line">    //去掉字符串中的空格</span><br><span class="line">    [mutStr replaceOccurrencesOfString:@&quot; &quot; withString:@&quot;&quot; options:NSLiteralSearch range:range];</span><br><span class="line"></span><br><span class="line">    NSRange range2 = &#123;0,mutStr.length&#125;;</span><br><span class="line"></span><br><span class="line">    //去掉字符串中的换行符</span><br><span class="line">    [mutStr replaceOccurrencesOfString:@&quot;\n&quot; withString:@&quot;&quot; options:NSLiteralSearch range:range2];</span><br><span class="line"></span><br><span class="line">    return mutStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString&#123;</span><br><span class="line">    if (jsonString == nil) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    NSError *err;</span><br><span class="line">    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&amp;err];</span><br><span class="line">    if(err)</span><br><span class="line">    &#123;</span><br><span class="line">        NSLog(@&quot;json解析失败：%@&quot;,err);</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line">    return dic;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是坑爹的是 文件转换会报错 <strong>Invalid type in JSON write (NSConcreteData)</strong></p>
-<p>网上查了下,能够转换为json字符串的对象必须具有如下属性:</p>
-<p>顶层对象必须是NSArray或者NSDictionary</p>
-<p>所有的对象必须是NSString/NSNumber/NSArray/NSDictionary/NSNull的实例</p>
-<p>所有NSDictionary的key必须是NSString类型</p>
-<p>ps：用这个方法就可以传dict的参数格式了（没有constructingBodyWithBlock 就只能传json）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[manager POST:importUrl parameters:parameter headers:dataDir constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123;&#125;]</span><br></pre></td></tr></table></figure>
-
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/ios-dict-to-json.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -718,20 +710,14 @@
 
       
         
-          
-            <p>ios 经常出现版本崩溃 但是不知道原因的问题 每次找都很崩溃 直到学会了 直接用xcode看崩溃日志</p>
-<p>但是有两个限制</p>
-<ol>
-<li><p>必须要通过Xcode登陆开发者账号。</p>
-</li>
-<li><p>线上的ipa包必须是通过你当前的这个电脑打包导出的，因为dSYMs文件夹涉及到解析crash日志。</p>
-<p>通过Xcode上方 点击window -&gt; orginazer可以看到如下页面：</p>
-</li>
-</ol>
-<p><img src="/image/image-20200327175013693.png" alt="image-20200327175013693"></p>
-<p><img src="/image/image-20200327180042306.png" alt="image-20200327180042306"></p>
-
-          
+          <p>ios 经常出现版本崩溃 但是不知道原因的问题 每次找都很崩溃 直到学会了 直接用xcode看崩溃日志</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/ios-crash-bug-report.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -848,12 +834,14 @@
 
       
         
-          
-            <p>WKWebView 在内存占用上优化的很多。但是在实践中发现bug：localstorage信息不一致。<br>A页面和B页面都存在 一个WKWebView。 在B页面使用localstorage保存信息。 回到A页面取不到最新的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];</span><br><span class="line">config.processPool = [LoadWKWebViewWithBridge singleWkProcessPool];</span><br><span class="line">WKWebView * webView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:config];</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (WKProcessPool*)singleWkProcessPool&#123;</span><br><span class="line">static WKProcessPool *processPool = nil;</span><br><span class="line">static dispatch_once_t onceToken;</span><br><span class="line">  dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">      if (!processPool) &#123;</span><br><span class="line">          processPool = [[WKProcessPool alloc] init];</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  return processPool;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          <p>WKWebView 在内存占用上优化的很多。但是在实践中发现bug：localstorage信息不一致。<br>A页面和B页面都存在 一个WKWebView。 在B页面使用localstorage保存信息。 回到A页面取不到最新的数据</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/ios-localstorage-single-processPool.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
