@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="BatchedBridge error in React Native on iOS 将index.js文件改成index.ios.js  Unable to resolve module react-navigation-stack $ npm install –save react-navigation-stack @react-native-community/masked-view re">
+<meta name="description" content="BatchedBridge error in React Native on iOS 将index.js文件改成index.ios.js">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react-native 报错解决">
 <meta property="og:url" content="https://lydiadai.github.io/posts/react-native-error-fix.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="BatchedBridge error in React Native on iOS 将index.js文件改成index.ios.js  Unable to resolve module react-navigation-stack $ npm install –save react-navigation-stack @react-native-community/masked-view re">
+<meta property="og:description" content="BatchedBridge error in React Native on iOS 将index.js文件改成index.ios.js">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-20T08:48:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native 报错解决">
-<meta name="twitter:description" content="BatchedBridge error in React Native on iOS 将index.js文件改成index.ios.js  Unable to resolve module react-navigation-stack $ npm install –save react-navigation-stack @react-native-community/masked-view re">
+<meta name="twitter:description" content="BatchedBridge error in React Native on iOS 将index.js文件改成index.ios.js">
 
 
 
@@ -335,6 +335,7 @@
         <ol>
 <li><p>BatchedBridge error in React Native on iOS</p>
 <p>将index.js文件改成index.ios.js</p>
+<a id="more"></a>
 </li>
 <li><p>Unable to resolve module <code>react-navigation-stack</code></p>
 <p>$ npm install –save react-navigation-stack @react-native-community/masked-view react-native-safe-area-context</p>
@@ -349,8 +350,7 @@
 <p>注意：在其他js中引用default导出的导出的函数类时，应为import 类名 from “./…js”,错误的写法是import { 类名} from “./…js”;</p>
 </li>
 <li><p>Invariant Violation: requireNativeComponent: “RNCSafeAreaView” was not found in the UIManager.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save react-native-safe-area-context</span><br><span class="line">   $ npm install --save react-native-safe-area-view</span><br><span class="line">$ react-native link react-native-safe-area-view</span><br><span class="line">   $ react-native link react-native-safe-area-context</span><br><span class="line"><span class="variable">$cd</span> ios</span><br><span class="line">   <span class="variable">$pod</span> install</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save react-native-safe-area-context</span><br><span class="line">$ npm install --save react-native-safe-area-view</span><br><span class="line">$ react-native link react-native-safe-area-view</span><br><span class="line">$ react-native link react-native-safe-area-context</span><br><span class="line"><span class="variable">$cd</span> ios</span><br><span class="line"><span class="variable">$pod</span> install</span><br></pre></td></tr></table></figure>
 
 
 

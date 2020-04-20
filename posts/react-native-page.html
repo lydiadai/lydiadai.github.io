@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="创建一个setup.js文件 12345678910111213141516171819202122232425262728293031323334353637import React,&amp;#123;Component&amp;#125; from &amp;apos;react&amp;apos;import &amp;#123;                           Navigator,">
+<meta name="description" content="创建一个setup.js文件">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react-native page写法">
 <meta property="og:url" content="https://lydiadai.github.io/posts/react-native-page.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="创建一个setup.js文件 12345678910111213141516171819202122232425262728293031323334353637import React,&amp;#123;Component&amp;#125; from &amp;apos;react&amp;apos;import &amp;#123;                           Navigator,">
+<meta property="og:description" content="创建一个setup.js文件">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-20T09:25:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native page写法">
-<meta name="twitter:description" content="创建一个setup.js文件 12345678910111213141516171819202122232425262728293031323334353637import React,&amp;#123;Component&amp;#125; from &amp;apos;react&amp;apos;import &amp;#123;                           Navigator,">
+<meta name="twitter:description" content="创建一个setup.js文件">
 
 
 
@@ -334,6 +334,8 @@
       
         <ol>
 <li><p>创建一个setup.js文件</p>
+<a id="more"></a>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import React,&#123;Component&#125; from &apos;react&apos;</span><br><span class="line">import &#123;                       </span><br><span class="line">    Navigator,                 </span><br><span class="line">&#125;from &apos;react-native&apos;</span><br><span class="line"></span><br><span class="line">import Jobs from &apos;./jobs&apos;   //主页面文件</span><br><span class="line">import &#123; RootNavigator &#125; from &apos;./RootNavigator&apos;;</span><br><span class="line"></span><br><span class="line">function setup()&#123;              </span><br><span class="line">    class Root extends Component &#123;  </span><br><span class="line">    </span><br><span class="line">        constructor(props) &#123;</span><br><span class="line">            super(props);      </span><br><span class="line">            this.state = &#123;     </span><br><span class="line">            &#125;;                 </span><br><span class="line">        &#125;</span><br><span class="line">        _renderScene(route, navigator) &#123;</span><br><span class="line">            let Component = route.component;</span><br><span class="line">            return (           </span><br><span class="line">                &lt;Component &#123;...route.params&#125; navigator=&#123;navigator&#125;/&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;RootNavigator</span><br><span class="line">                    initialRoute=&#123;&#123;                 </span><br><span class="line">                        name: &apos;Jobs&apos;,                   </span><br><span class="line">                        component: Jobs                 </span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    renderScene=&#123;(e, i)=&gt;this._renderScene(e, i)&#125;</span><br><span class="line">                /&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return &lt;Root/&gt;;</span><br><span class="line">&#125;</span><br><span class="line">module.exports = setup;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在index.js里引入setup文件</p>
