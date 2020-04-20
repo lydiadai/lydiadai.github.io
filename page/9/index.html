@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="https://lydiadai.github.io/page/9/">
+  <link rel="canonical" href="https://lydiadai.github.io/page/9/"/>
 
 
 
@@ -154,7 +154,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Lydia's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -184,7 +184,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -207,7 +207,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             Search
           </a>
@@ -228,7 +228,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -265,11 +267,629 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-08-13-rails-hash-the-value-into.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-08-13-rails-hash-the-value-into.html" itemprop="url">rails - hash 取值变成 a.b</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-13T12:30:00+08:00">
+                2018-08-13 12:30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>auth = ActiveSupport::InheritableOptions.new(provider: ‘open’, info:ActiveSupport::InheritableOptions.new(nickname:’lslls’))</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-拖拽出现按钮</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T18:18:00+08:00">
+                2018-08-11 18:18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>window.addEventListener(‘load’, function() {<br>  var initX; //触摸位置<br>  var moveX; //滑动时的位置<br>  var X = 0; //移动距离<br>  var objX = 0; //目标对象位置<br>  window.addEventListener(‘touchstart’, function(event) {<br>    var obj = event.target.closest(‘.list-li’);<br>    if (obj != undefined) {<br>      initX = event.targetTouches[0].pageX;<br>      objX = (obj.style.WebkitTransform.replace(/translateX(/g, “”).replace(/px)/g, “”)) * 1;<br>      $(‘.list-li’).css(‘transform’, ‘translateX(0px)’)<br>    }<br>    if (objX == 0) {<br>      window.addEventListener(‘touchmove’, function(event) {<br>        var obj = event.target.closest(‘.list-li’);<br>        if (obj != undefined) {<br>          moveX = event.targetTouches[0].pageX;<br>          X = moveX - initX;<br>          if (X &gt;= 0) {<br>            obj.style.WebkitTransform = “translateX(“ + 0 + “px)”;<br>          } else if (X &lt; 0) {<br>            var l = Math.abs(X);<br>            obj.style.WebkitTransform = “translateX(“ + -l + “px)”;<br>            if (l &gt; 80) {<br>              l = 80;<br>              obj.style.WebkitTransform = “translateX(“ + -l + “px)”;<br>            }<br>          }<br>        }<br>      });<br>    } else if (objX &lt; 0) {<br>      window.addEventListener(‘touchmove’, function(event) {<br>        var obj = event.target.closest(‘.list-li’);<br>        if (obj != undefined) {<br>          moveX = event.targetTouches[0].pageX;<br>          X = moveX - initX;<br>          if (X &gt;= 0) {<br>            var r = -80 + Math.abs(X);<br>            obj.style.WebkitTransform = “translateX(“ + r + “px)”;<br>            if (r &gt; 0) {<br>              r = 0;<br>              obj.style.WebkitTransform = “translateX(“ + r + “px)”;<br>            }<br>          } else { //向左滑动<br>            obj.style.WebkitTransform = “translateX(“ + -80 + “px)”;<br>          }<br>        }<br>      });<br>    }   </p>
+<p>  })<br>  window.addEventListener(‘touchend’, function(event) {<br>    var obj = event.target.closest(‘.list-li’);<br>    if (obj != undefined) {<br>      objX = (obj.style.WebkitTransform.replace(/translateX(/g, “”).replace(/px)/g, “”)) * 1;<br>      if (objX &gt; -40) {<br>        obj.style.WebkitTransform = “translateX(“ + 0 + “px)”;<br>        objX = 0;<br>      } else {<br>        obj.style.WebkitTransform = “translateX(“ + -80 + “px)”;<br>        objX = -80;<br>      }<br>    }<br>  })<br>})</p>
+<p>css:</p>
+<p> .list-ul {<br> <strong>overflow: hidden*</strong>text 一定要有<br> }</p>
+<p> .list-li {<br>   line-height: 60px;<br>   border-bottom: 1px solid #fcfcfc;<br>   position: relative;<br>   padding: 0 12px;<br>   color: #666;<br>   background: #f2f2f2;<br>   -webkit-transform: translateX(0px);<br> }</p>
+<p> .btn {<br>   position: absolute;<br>   top: 0;<br>   right: -80px;<br>   text-align: center;<br>   background: #ffcb20;<br>   color: #fff;<br>   width: 80px<br> }</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-toggle animate</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T13:16:00+08:00">
+                2018-08-11 13:16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、show()显示效果</p>
+<p>语法：show(speed,callback)　　Number/String,Function　speend为动画执行时间，单位为毫秒。也可以为slow”,”normal”,”fast”　callback可选,为当动画完成时执行的函数。</p>
+<p>show(speed,[easing],callback)　　Number/String　　easing默认是swing,可选linear;</p>
+<p>$(“#div1”).show(3000,function(){ alert(“动画显示完成!”); });　　
+　　　　</p>
+<p>2、hide()隐藏效果</p>
+<p>语法:hide(speed,callback)　　Number/String,Function</p>
+<p>hide(speed,easing,callback)　　Number/String</p>
+<p>$(“#div1”).hide(3000,function(){ alert(“动画隐藏完成”) });<br>3、toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示</p>
+<p>语法：toggle(speed,callback)　　Number/String,Function</p>
+<p> toggle(speed,callback)　　Number/String,String,Function</p>
+<p>$(“#div1”).toggle(3000,function(){ alert(“动画效果切换完成”) });
+　　　　　</p>
+<p>4、slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开</p>
+<p>语法:slideDown(speed,callback)　　Number/String,Function</p>
+<p> slideDown(speed,[easing],callback)　　Number/String,Function</p>
+<p>$(“#div1”).slideDown(3000,function(){ alert(“向下展开显示成功!”); });<br>5、slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏</p>
+<p>语法:slideUp(speed,callback)　　Number/String,Function</p>
+<p> slideUp(speed,[easing],callback)　　Number/String,String,Function</p>
+<p>$(“#div1”).slideUp(3000,function(){ alert(“向上收起隐藏成功!”); })<br>6、slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。</p>
+<p>语法:slideToggle(speed,callback)　　Number/String,Function</p>
+<p>slideToggle(speed,[easing],callback)　　Number/String,String,Function</p>
+<p>$(“#div1”).slideToggle(3000,function(){ alert(“水平方向上切换成功”); });
+　　　　</p>
+<p>7、fadeIn() 以改变透明度来显示</p>
+<p>语法：fadeIn(speed,callback)　　　　Number/String,Function</p>
+<p>fadeIn(speed,[easing],callback)　　Number/String,Function</p>
+<p>$(“#div1”).FadeIn(3000,function(){ alert(“淡入显示成功!”); });<br>8、fadeOut() 以改变透明度来隐藏</p>
+<p>语法：fadeOut(speed,callback)　　 Number/String,Function</p>
+<p>fadeOut(speed,[easing],callcack)　　   Number/String,String,Function</p>
+<p> $(“#div1”).fadeOut(3000,function(){ alert(“淡出隐藏成功!”); });<br>9、fadeToggle() 以改变透明度来切换显示隐藏状态</p>
+<p>语法: fadeToggle(speed,callback)　　Number/String,Function</p>
+<p>fadeToggle(speed,[easing],callback)　　　　Number/String,Function</p>
+<p>$(“#div1”).fadeToggle(3000,function(){ alert(“淡入淡出切换成功!”); });<br>10、fadeTo() 由指定的时间将透明度改变到指定的透明度</p>
+<p>语法：fadeTo(speed,callback)　　　　Number/String,Function</p>
+<p>fadeTo([speed],opacity,[easing],[fn])　　Number/String,Float,String,Function</p>
+<p>$(“#div1”).fadeTo(3000,0.22,function(){ alert(“透明度改变成功!”); });<br>11、animate() 自定义动画，一般来说数字变动都可以用于动画。</p>
+<p>语法：animate(params,speed,easing,callback);　　样式参数，时间，可选择，函数</p>
+<p>$(“#div1”).animate({ width:300px,height,300px },3000);</p>
+<p>其中params要用中括号括起来，可以使用的css样式参数。注意要采用骆驼法则，如font-size要写成fontSize。颜色渐变不支持。</p>
+<p>backgroundPosition<br>borderWidth<br>borderBottomWidth<br>borderLeftWidth<br>borderRightWidth<br>borderTopWidth<br>borderSpacing<br>margin<br>marginBottom<br>marginLeft<br>marginRight<br>marginTop<br>outlineWidth<br>padding<br>paddingBottom<br>paddingLeft<br>paddingRight<br>paddingTop<br>height<br>width<br>maxHeight<br>maxWidth<br>minHeight<br>maxWidth<br>font<br>fontSize<br>bottom<br>left<br>right<br>top<br>letterSpacing<br>wordSpacing<br>lineHeight<br>textIndent<br>12、stop() 停止正在执行动画</p>
+<p>stop([clearQueue],[gotoEnd]);　　两个参数均为布尔值，第一个表示，是否停止动画执行、第二个表示，如果停止，是否立即变为执行完成的状态，如果设置为否，则停留在执行一半的状态。</p>
+<p>$(“#div1”).hide(5000)　　//此动画正在执行</p>
+<p>$(“#div1”).stop();　　　　//上一行代码指定的动画停止在一半状态</p>
+<p>$(“#div1”).stop(true,true);　　//停止当前动画，同时动画切换到完成执行状态。<br>13、delay() 延迟执行动画　　当一个动画stop()了之后还能够用delay()来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。</p>
+<p>delay(duration,[queueName])　　设置一个延迟值来执行动画　　Integer,String</p>
+<p>$(“#div1”).delay(3000).hide(3000);　　//表示在3000毫秒后执行hide(3000);<br>14、jQuery.fx.off　　//该属性只是是否关闭当前页面上的动画,关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。</p>
+<p>$(function(){</p>
+<p>　　　　jQuery.fx.off = true;　　//属性在事件外面，对页面加载后执行的所有动画有效</p>
+<p>　　　　$(“#div1”).click(function(){　　//属性如果写在这里，仅仅对当前点击事件无效，不影响其他事件的动画</p>
+<p>　　　　　　$(“#div1”).hide(3000);　　//注意由于jQuery.fx.off设置为了true,因此3000毫秒失效，相当于hide();</p>
+<p>　　　　 });</p>
+<p>　　})<br>15、jQuery.fx.interval　　//该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围</p>
+<p> $(function(){</p>
+<p>　　　　jQuery.fx.interval = 1000;</p>
+<p>　　　　$(“#div1”).click(function(){　　</p>
+<p>　　　　　　$(“#div1”).hide(3000);　　　//jQuery.fx.interval设置为1000，也就是1秒钟，改变一次效果。　</p>
+<p>　　　　 });</p>
+<p>　　 })</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-bootstrap dropdown menu 多层级</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T14:25:00+08:00">
+                2018-08-09 14:25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!DOCTYPE html>
+<html>
+ <head><meta name="generator" content="Hexo 3.9.0"> 
+  <meta charset="utf-8"> 
+  <title>Bootstrap 实例 - 工具提示（Tooltip）插件</title> 
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  <style>
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+    </style> 
+ </head> 
+ <body> 
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+   <div class="container"> 
+    <div class="navbar-header"> 
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+    </div> 
+    <div class="collapse navbar-collapse navbar-ex1-collapse"> 
+     <ul class="nav navbar-nav"> 
+      <li class="menu-item dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drop Down<b class="caret"></b></a> 
+       <ul class="dropdown-menu"> 
+        <li class="menu-item dropdown dropdown-submenu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Level 1</a> 
+         <ul class="dropdown-menu"> 
+          <li class="menu-item "> <a href="#">Link 1</a> </li> 
+          <li class="menu-item dropdown dropdown-submenu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Level 2</a> 
+           <ul class="dropdown-menu"> 
+            <li> <a href="#">Link 3</a> </li> 
+           </ul> </li> 
+         </ul> </li> 
+       </ul> </li> 
+     </ul> 
+    </div> 
+   </div> 
+  </div>  
+ </body>
+</html>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -396,7 +1016,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -524,7 +1144,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -649,7 +1269,7 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -775,7 +1395,7 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -895,7 +1515,7 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -998,492 +1618,11 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-获取element 准确高度 不四舍五入</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-25T14:59:00+08:00">
-                2018-07-25 14:59
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>document.getElementById(‘divMMHeight’).getBoundingClientRect().height  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">android -判断小程序环境失效</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T11:22:00+08:00">
-                2018-07-24 11:22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在wx.ready(function () {<br>})里面的判断才有效</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ruby- csv utf-8 转 gbk有问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-18T17:27:00+08:00">
-                2018-07-18 17:27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>require ‘csv’<br>file_path = “/Users/zhangshuo/Downloads/#{Time.now}-user-email.csv”</p>
-<p>CSV.open(file_path, ‘w’) do |writer|<br>  writer &lt;&lt; [“\xEF\xBB\xBF”]<br>  User.find_each do |u|<br>    writer &lt;&lt; [u.email] unless u.fake_email?<br>  end<br>end</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-mobile li click not work</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T15:43:00+08:00">
-                2018-07-04 15:43
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>.liClass { cursor : pointer; }</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1529,7 +1668,7 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">258</span>
+                  <span class="site-state-item-count">262</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1551,7 +1690,7 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

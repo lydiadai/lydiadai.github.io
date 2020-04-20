@@ -284,6 +284,501 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-左滑返回</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T14:34:00+08:00">
+                2018-04-16 14:34
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;</p>
+<pre><code>self.navigationController.interactivePopGestureRecognizer.enabled = NO;</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-wkwebview页面双击会上移</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T17:36:00+08:00">
+                2018-04-13 17:36
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>(function()<br>{<br>    var agent = navigator.userAgent.toLowerCase();        //检测是否是ios<br>    var iLastTouch = null;                                //缓存上一次tap的时间<br>    if (agent.indexOf(‘iphone’) &gt;= 0 || agent.indexOf(‘ipad’) &gt;= 0)<br>    {<br>        document.body.addEventListener(‘touchend’, function(event)<br>        {<br>            var iNow = new Date()<br>                .getTime();<br>            iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */ ;<br>            var delta = iNow - iLastTouch;<br>            if (delta &lt; 500 &amp;&amp; delta &gt; 0)<br>            {<br>                event.preventDefault();<br>                return false;<br>            }<br>            iLastTouch = iNow;<br>        }, false);<br>    }</p>
+<p>})();</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-给navbar tabbar 加分割线</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T15:45:00+08:00">
+                2018-04-12 15:45
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.创建UIimage的类方法 imageWithUicolor</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@implementation UIImage (color)</span><br><span class="line">+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size &#123;</span><br><span class="line">    CGRect rect = CGRectMake(0, 0, size.width, size.height);</span><br><span class="line">    UIGraphicsBeginImageContext(rect.size);</span><br><span class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</span><br><span class="line">    CGContextSetFillColorWithColor(context,color.CGColor);</span><br><span class="line">    CGContextFillRect(context, rect);</span><br><span class="line">    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    </span><br><span class="line">    return img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2-navbar.页面上调用setShadowImage方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:BORDERGRAY size:CGSizeMake(SCREEN_WIDTH, 0.5)]];</span><br></pre></td></tr></table></figure>
+
+<p>ps：不要分割线<br> [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];<br>2-tabbar.页面上调用setShadowImage方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.tabBarsetShadowImage:[UIImage imageWithColor:BORDERGRAY size:CGSizeMake(SCREEN_WIDTH, 0.5)]];</span><br></pre></td></tr></table></figure>
+
+<p>ps: 创建类方法要选用object-c file —&gt; category —-&gt;  uiimage<br>    写完方法后要记得引用！</p>
+<p>ps:如果不是用navigation controller这样来做的 就给uiview 添加了一个subview就可以了<br>横线：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UIView *horizontalLine = [[UIView alloc]initWithFrame:CGRectMake(x, y, SCREEN_WIDTH, 1)];</span><br><span class="line">horizontalLine.backgroundColor = BORDERGRAY;</span><br><span class="line">[self.tabBar addSubview:horizontalLine];</span><br></pre></td></tr></table></figure>
+
+
+<p>竖线：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UIView *verticalLine = [[UIView alloc]initWithFrame:CGRectMake(x cordinate, y cordinate, 1, viewWidth())];</span><br><span class="line">verticalLine.backgroundColor = [UIColor grayColor];</span><br><span class="line">[self.view addSubview:verticalLine];</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-select text align</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T18:09:00+08:00">
+                2018-04-10 18:09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> text-align-last: right;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">h5-ipnonex适配</a></h1>
         
 
@@ -1010,507 +1505,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-判断字符串为空</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T15:50:00+08:00">
-                2018-03-23 15:50
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在ios中，接口经常返回null，有时候又返回空字符串，有时候又返回(null)，甚至<null>，利用isEqualToString:@””，NULL,@”(null)”,nil,Nil比较后均得不到正确结果，甚至连string.length == 0来判断依然不行，但是实际上这个str确实是空的。那这个时候该如何判断才能正确呢？</null></p>
-<p>用NSStringFromClass打印出字符串返回的格式是(null)时，需要这样判断</p>
-<p>if (result == nil)<br>{<br>    NSLog(@”空类型!”);<br>}<br>而如果返回的格式是<null>时，则需要这样判断</null></p>
-<p>if ([result isEqual:[NSNull class]])<br>{<br>    NSLog(@”空类型!”);<br>}  </p>
-<p>所以，总的来说，你可以用一句代码来总结出判断字符串类型的方式，可以这样写：</p>
-<ul>
-<li>(BOOL)StringIsNullOrEmpty:(NSString *)str<br>{<br>  return (str == nil || [str isKindOfClass:[NSNull class]] || str.length == 0);<br>}<br>这样就基本上能解决字符串为空类型时的判断了。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios- CGRectMake</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T17:13:00+08:00">
-                2018-03-22 17:13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>·CGRectMake(origin.x，origin.y，size.width. Size.height)在代码中定义矩形。</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-navbar上定义多个按钮</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T16:11:00+08:00">
-                2018-03-22 16:11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第一种方法<br>UIToolbar<em>tools=[[UIToolbar alloc]initWithFrame:CGRectMake(5, 0, 80, 39)];<br>    //解决出现的那条线<br>    tools.clipsToBounds = YES;<br>//解决tools背景颜色的问题<br>    [tools setBackgroundImage:[UIImage new]forToolbarPosition:UIBarPositionAny                      barMetrics:UIBarMetricsDefault];<br>    [tools setShadowImage:[UIImage new]<br>              forToolbarPosition:UIToolbarPositionAny];<br>//添加两个button<br>NSMutableArray</em>buttons=[[NSMutableArray alloc]initWithCapacity:2];<br>UIBarButtonItem<em>button3=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@”你的图片”] style: UIBarButtonItemStyleDone target:self action:@selector(press2)];<br>    UIBarButtonItem</em>button2=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@”你的图片”] style: UIBarButtonItemStyleDone target:self action:@selector(press)];<br> button3.tintColor=[UIColor whiteColor];<br>    button2.tintColor=[UIColor whiteColor];<br>[buttons addObject:button3];<br>    [buttons addObject:button2];<br>    [tools setItems:buttons animated:NO];<br>    UIBarButtonItem*btn=[[UIBarButtonItem    alloc]initWithCustomView:tools];<br>    self.navigationItem.rightBarButtonItem=btn;</p>
-<p>有一个更简单的方法<br>self.navigationItem.rightBarButtonItems=@[button2, button3];</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">ios-tabbar</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T15:23:00+08:00">
-                2018-03-20 15:23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//tabbar<br>    UITabBarController * tabbar = [[UITabBarController alloc] init];<br>    myFileViewController * myfile = [[myFileViewController alloc] init];<br>    myfile.tabBarItem.title = @”简历”;<br>    myfile.tabBarItem.image =  [[UIImage imageNamed:@”tabbar_home_icon_normal”] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];<br>    myfile.tabBarItem.selectedImage = [[UIImage imageNamed:@”tabbar_home_icon_selected”] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];<br>    UINavigationController *fileNav = [[UINavigationController alloc] init];<br>    [fileNav addChildViewController:myfile];</p>
-<pre><code>blogIndexViewController * blogIndex = [[blogIndexViewController alloc]init];
-blogIndex.tabBarItem.title = @&quot;攻略&quot;;
-blogIndex.tabBarItem.image = [[UIImage imageNamed:@&quot;tabbar_case_icon_normal&quot;] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-blogIndex.tabBarItem.selectedImage = [[UIImage imageNamed:@&quot;tabbar_case_icon_seleted&quot;] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-UINavigationController *blogNav = [[UINavigationController alloc] init];
-[blogNav addChildViewController:blogIndex];
-
-[tabbar addChildViewController: fileNav];
-[tabbar addChildViewController:blogNav];</code></pre><p>   这个是最简单的写法 最好推荐用YPTabBarController 基本可以满足需要而且不用自己写tababar的显示隐藏等很多基本功能</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1556,7 +1555,7 @@ UINavigationController *blogNav = [[UINavigationController alloc] init];
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">258</span>
+                  <span class="site-state-item-count">262</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1578,7 +1577,7 @@ UINavigationController *blogNav = [[UINavigationController alloc] init];
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

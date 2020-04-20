@@ -265,6 +265,493 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-10-oc-wvjb-remove-handler.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-11-10-oc-wvjb-remove-handler.html" itemprop="url">oc-wvjb remove Handler</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-10T12:08:00+08:00">
+                2018-11-10 12:08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/marcuswestin/WebViewJavascriptBridge/blob/master/WebViewJavascriptBridge/WKWebViewJavascriptBridge.m" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-09-ios12-page-will-move-up.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-11-09-ios12-page-will-move-up.html" itemprop="url">ios12-页面会上移</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-09T14:37:00+08:00">
+                2018-11-09 14:37
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(iPhoneXSeries)&#123;</span><br><span class="line">  _webview.scrollView.contentInset = UIEdgeInsetsMake(88, 0, 0, 0);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  _webview.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ios 12之前 用这个方法将webview下移来正常显示页面，但是ios12之后这个页面有一个问题就是进行了某些操作之后页面会上移回UIEdgeInsetsMake(0, 0, 0, 0)<br>所以找到了另一个方法固定页面位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.edgesForExtendedLayout=UIRectEdgeNone;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-06-ruby-version-judgment.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-11-06-ruby-version-judgment.html" itemprop="url">ruby-版本判断</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T15:13:00+08:00">
+                2018-11-06 15:13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_app_version</span><span class="params">(current, old)</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> current.blank? <span class="params">||</span> old.blank?</span><br><span class="line">    la = current.split(<span class="string">'.'</span>)</span><br><span class="line">    lb = old.split(<span class="string">'.'</span>)</span><br><span class="line">    i = <span class="number">0</span> </span><br><span class="line">    <span class="keyword">if</span> la.length &gt; lb.length</span><br><span class="line">      len = la.length</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      len = lb.length</span><br><span class="line">    <span class="keyword">end</span> </span><br><span class="line">    <span class="keyword">while</span> i &lt;= len  <span class="keyword">do</span>  </span><br><span class="line">      <span class="keyword">if</span> (la[i] &amp;&amp; !lb[i] &amp;&amp; la[i].to_i &gt; <span class="number">0</span>) <span class="params">||</span> (la[i].to_i &gt; lb[i].to_i)</span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">      <span class="keyword">elsif</span> (lb[i] &amp;&amp; !la[i] &amp;&amp; lb[i].to_i &gt; <span class="number">0</span>) <span class="params">||</span> (la[i].to_i &lt; lb[i].to_i)</span><br><span class="line">          <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">      <span class="keyword">end</span> </span><br><span class="line">      i +=<span class="number">1</span> </span><br><span class="line">    <span class="keyword">end</span> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-06-ios-webview-login.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-11-06-ios-webview-login.html" itemprop="url">ios-webview登录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T14:43:00+08:00">
+                2018-11-06 14:43
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ios webview登录最重要的就是将登陆之后的cookie存起来<br>在ios12之前我们登录都能正常从- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler方法中取到response之后，直接处理成cookie存起来<br>但是ios12开始 此方法登录就取不到response里最重要的set-cookie的值 我们就只能在h5那边登录之后的页面取到cookie经过字符串处理 将他们存起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-(void)loginSuccess:(NSHTTPURLResponse*)response orWithCookie:(NSString*)cookie&#123;</span><br><span class="line">    //清除之前的coockie</span><br><span class="line">        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">        NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];</span><br><span class="line">        for (id obj in _tmpArray) &#123;</span><br><span class="line">            [cookieJar deleteCookie:obj];</span><br><span class="line">        &#125;</span><br><span class="line">        // 删除NSUserDefault里面的值</span><br><span class="line">        NSUserDefaults *defatluts = [NSUserDefaults standardUserDefaults];</span><br><span class="line">        NSDictionary *dictionary = [defatluts dictionaryRepresentation];</span><br><span class="line">        for(NSString *key in [dictionary allKeys])&#123;</span><br><span class="line">            if([key isEqualToString:@&quot;cookie&quot;])&#123;</span><br><span class="line">                [defatluts removeObjectForKey:key];</span><br><span class="line">            &#125;</span><br><span class="line">            [defatluts synchronize];</span><br><span class="line">        &#125;</span><br><span class="line">    //读取wkwebview中的cookie 方法</span><br><span class="line">    NSArray *cookies =[NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL: response.URL];</span><br><span class="line">    if (cookies.count &lt;= 0)&#123;</span><br><span class="line">        NSString *b =[[self achieveStringWithRootString:cookie key:@&quot;_ResumeHack_session&quot;] stringByAppendingString:@&quot; path=/; HttpOnly, &quot;];</span><br><span class="line">         NSMutableArray* mcookies =  [cookies mutableCopy];</span><br><span class="line">        [mcookies addObject:[b cookie]];</span><br><span class="line">         cookies = [NSArray arrayWithArray:mcookies];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (NSHTTPCookie *cookie in cookies) &#123;</span><br><span class="line">            //将 cookie 存进NSHTTPCookieStorage</span><br><span class="line">            [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];</span><br><span class="line">        &#125;</span><br><span class="line">        //把cookie存到NUserDefault里面</span><br><span class="line">        NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];</span><br><span class="line">        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">        [defaults setObject: cookiesData forKey: @&quot;cookie&quot;];</span><br><span class="line">        [defaults synchronize];</span><br><span class="line">        NSLog(@&quot;userdefault中的cookie%@&quot;,[defaults objectForKey:@&quot;cookie&quot;]);</span><br><span class="line">    </span><br><span class="line">        //看看存入到了NSHTTPCookieStorage了没有</span><br><span class="line">        NSHTTPCookieStorage *cookieJar2 = [NSHTTPCookieStorage sharedHTTPCookieStorage];</span><br><span class="line">        for (NSHTTPCookie *cookie in cookieJar2.cookies) &#123;</span><br><span class="line">            NSLog(@&quot;NSHTTPCookieStorage中的cookie%@&quot;, cookie);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    [self dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        _loginComplete();</span><br><span class="line">    &#125;];</span><br><span class="line">    [Loading hide];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>字符串处理cookie</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)achieveStringWithRootString:(NSString *)rootString key:(NSString *)key&#123;</span><br><span class="line">    NSRange aRange = [rootString rangeOfString:[NSString stringWithFormat:@&quot;%@=&quot;,key]];</span><br><span class="line">    NSString *c = [rootString substringFromIndex:aRange.location];</span><br><span class="line">    NSLog(@&quot;c===============%@&quot;, c);</span><br><span class="line">    NSRange bRange = [c rangeOfString:@&quot;;&quot;];//匹配得到的下标</span><br><span class="line">    NSString *d = [c substringToIndex:bRange.location + bRange.length];</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ps:在登录、登出中清除cookie跟userdefault中的值的时候要避免清除其他有用的值 否则会导致userdefault值的丢失 造成很奇怪的bug</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-11-05-ios-open-screen-advertising-map.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -978,504 +1465,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-09-20-ios-string-advanced.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-09-20-ios-string-advanced.html" itemprop="url">ios-字符串进阶</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-20T14:15:00+08:00">
-                2018-09-20 14:15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>NSString *a = @”8e0c2412021270fb_gr_session_id=3bb8f9ed-0203-42e4-b25c-98e49206ec0e; 8e0c2412021270fb_gr_session_id_3bb8f9ed-0203-42e4-b25c-98e49206ec0e=true; _ResumeHack_session=am4rQW5SdldaQlQ5eHVpZ1dvWWx3ZE9Yc201WFlTLzBOVUdNMitsYU42UjJIUFU1djR4WDJUT0tvN0dUaVhtdFk1b1dkSE9DNEtXdlFHL2tNM3pLeFFPZ1JZMGlXUGwyUDhkUUVEUythcWoweThGTzBRWVNucDZVVUR4RXNyQVhxY0t2QXRBaEhHWDl6SEdyaGNwMHZJRjlJeVVGcWIwZlRCMWRvMStwNDJMeDIxaDl5bTJKN0NYMWQ0ejdlSlFSTHVUMU4zeEEzbmRXQUNyZGE0V2xyMVlKNzdWeXVqM0VIUmF1TmlybXRoUnNkVFhWNGxiVDNlOWVDYTRQeVFLdC0tVXlETG1xTjcvd25RVmlveFV0RHQxdz09–50662a5248ec2615aaf0098440ba6b9f02492971; __profilin=p%3Dt; gr_user_id=aa9e2d55-23c1-485a-bd88-c51f314824e2; grwng_uid=5d7e8aba-8f56-4950-975c-b8c44d85d7fb”;<br>    NSString *b = @”_ResumeHack_session”;</p>
-<pre><code>NSString *c = @&quot;__profilin&quot;;
-
-NSString *d = [NSString stringWithFormat:@&quot;%@%@&quot;,[self achieveStringWithRootString:a key:b],[self achieveStringWithRootString:a key:c]];
-NSLog(@&quot;-----&gt;%@&quot;,d);</code></pre><p>}</p>
-<ul>
-<li>(NSString *)achieveStringWithRootString:(NSString *)rootString<pre><code>key:(NSString *)key{</code></pre>  NSRange aRange = [rootString rangeOfString:[NSString stringWithFormat:@”%@=”,key]];<br>  NSString *c = [rootString substringFromIndex:aRange.location];<br>  NSRange bRange = [c rangeOfString:@”;”];//匹配得到的下标<br>  NSString *d = [c substringToIndex:bRange.location + bRange.length];<br>  return d;<br>}</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-09-15-js-string.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-09-15-js-string.html" itemprop="url">js-字符串不包含</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T15:12:00+08:00">
-                2018-09-15 15:12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不包含：Str.indexOf(<span class="string">'str'</span>) == <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-09-07-wechat-applet-send-message-notification.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-09-07-wechat-applet-send-message-notification.html" itemprop="url">微信小程序-发送消息通知</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T17:28:00+08:00">
-                2018-09-07 17:28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1.get access token </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res = RestClient.get &apos;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&apos;+app_id + &apos;&amp;secret=&apos; + app_secret</span><br><span class="line">json = JSON.parse res.body</span><br><span class="line">access_token = json[&apos;access_token&apos;]</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/2018-09-07-wechat-applet-send-message-notification.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-09-07-rails-performance-test.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2018-09-07-rails-performance-test.html" itemprop="url">rails-性能测试</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T16:22:00+08:00">
-                2018-09-07 16:22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html" target="_blank" rel="noopener">https://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html</a></p>
-<p>在数据量较大的时候我们可能需要测试跑一个程序所需要的时间 这个时候就可以用<br>benchmark </p>
-<p>Benchmark.realtime{ xxxxx}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1521,7 +1515,7 @@ NSLog(@&quot;-----&gt;%@&quot;,d);</code></pre><p>}</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">258</span>
+                  <span class="site-state-item-count">262</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1543,7 +1537,7 @@ NSLog(@&quot;-----&gt;%@&quot;,d);</code></pre><p>}</p>
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

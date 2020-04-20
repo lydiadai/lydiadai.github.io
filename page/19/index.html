@@ -286,6 +286,487 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rbenv</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-28T18:04:00+08:00">
+                2017-08-28 18:04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://gist.github.com/sandyxu/8aceec7e436a6ab9621f" target="_blank" rel="noopener">https://gist.github.com/sandyxu/8aceec7e436a6ab9621f</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-windows下安装 gem mysql2的大坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-24T15:17:00+08:00">
+                2017-08-24 15:17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.在本地安装好mysql之后<br>  将mysql\lib\libmysql.dll复制到railsInstall中ruby\bin下面<br>2.gem install mysql2 -v ‘0.3.17’ - - ‘- - with -mysql-dir:”MySQL文件路径 （要到最后一个文件夹 文件夹下直接就是bind这样的文件夹的才行）”‘</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails 事件回滚</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T10:16:00+08:00">
+                2017-08-22 10:16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.在有很多存储操作时，<br>Model.transaction do<br>end<br>这样一报错在这个里面的所有存储事件就都会回滚。可以避免存储很多脏数据</p>
+<p>2.如果你想判断什么时候回滚的话<br>Model.transaction do<br>  if …<br>  else<br>    raise ActiveRecord::Rollback<br>  end<br>end<br>redirect_to …<br>注意：返回路径一定要写在transaction外面 要不然会报missing template的错误</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails create&update action 取某一个params值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T10:15:00+08:00">
+                2017-08-22 10:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>xxx_params[:xxx]</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">网络打印机安装</a></h1>
         
 
@@ -1012,537 +1493,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">新建一个ios项目 用x-code</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-02T14:21:00+08:00">
-                2017-08-02 14:21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.搭建ios项目 create a new project<br> 选择 single view application<br> 然后填写<br> 将项目中的storyboard文件删掉（两个）<br> 将General –&gt; Development Info –&gt; Main Interface中的值删掉<br> （如果删不掉就将info.plist 文件中的Main Story base name 删掉）<br>2.在supporting files里面新建一个pch文件<br>点击最上方那个蓝色的项目图标（xcodeproj）<br>build settings 里面选择 Prefix Header 配置路径（<a href="http://www.jianshu.com/p/b9a831aedde8" target="_blank" rel="noopener">参考</a>）<br>3.填写pch文件中应该有的颜色 适配等信息<br>4.$ pod init —–新建Podfile<br>  $ pod install ———-安装插件<br>5.新建.gitignore文件 将不要上传的文件写进去<br>6.之后就用以xcworkspace为后缀的文件打开项目(白的！！！！)<br>7.在Appdelegate.m里面写进入ipad的默认路径<br> 想要嵌套webview要配置info.plist 详情见x-code的一些基本配置</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails-将数据库中user的password跟h5输入的匹配</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-31T10:51:00+08:00">
-                2017-07-31 10:51
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> user.valid_password?(params[:password])</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails -- modal</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-28T10:16:00+08:00">
-                2017-07-28 10:16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第一种方法：用gem ‘bootstrap-modal-rails’使用插件<br>1.首先在index页面中添加按钮（冻结，解冻）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">&lt;% if user.is_enabled.blank? or user.is_enabled == &quot;ture&quot; %&gt;</span><br><span class="line">  &lt;%= link_to_modal freeze_users_path(:id =&gt; user.id), id: &quot;freeze&quot;, class: &apos;btn btn-danger&apos;, title: &quot;冻结&quot; do %&gt;</span><br><span class="line">    &lt;%= t(&apos;freeze&apos;) %&gt;</span><br><span class="line">  &lt;% end %&gt;</span><br><span class="line">&lt;% else%&gt;</span><br><span class="line">  &lt;%= link_to t(&apos;defreeze&apos;), defreeze_users_path(:id =&gt; user.id), method: :post,  class: &apos;btn btn-primary&apos;,</span><br><span class="line">    data: &#123; confirm: &quot;确定要解冻该用户么?&quot;&#125; %&gt;</span><br><span class="line">&lt;% end %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>2.controller的对应的action<br>3.设置对应的route路由中。<br>4.1 重点来了 ，需要调用modal了.首先在gemfile 中添加gem : </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem &apos;bootstrap-modal-rails&apos;, &apos;2.2.5&apos;</span><br></pre></td></tr></table></figure>
-
-<p>4.2 在application.js 中添加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//= require bootstrap-modal    </span><br><span class="line">//= require bootstrap-modalmanager</span><br><span class="line"></span><br><span class="line">$(document).on(&apos;click&apos;, &apos;[data-toggle=modal-ajax]&apos;, function(e) &#123;</span><br><span class="line">    e.preventDefault();        </span><br><span class="line">    e.stopPropagation();       </span><br><span class="line">    console.info();            </span><br><span class="line">    $(&apos;#modal-ajax&apos;).empty().modal().modal(&apos;loading&apos;);</span><br><span class="line">    $.rails.handleRemote($(this));  </span><br><span class="line">    return false;              </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(document).on(&apos;ajax:beforeSend&apos;, &apos;.modal form[data-remote]&apos;, function(e) &#123;</span><br><span class="line">    return $(this).parents(&apos;.modal&apos;).modal(&apos;loading&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>4.3 application.css中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*= require bootstrap-modal    </span><br><span class="line">*= require bootstrap-modal-bs3patch</span><br></pre></td></tr></table></figure>
-
-<p>4.4 helpers/application_helper.rb中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def link_to_modal(name, options = nil, html_options = nil, &amp;block)</span><br><span class="line">  default_options = &#123; data: &#123; toggle: &apos;modal-ajax&apos;, target: &apos;#modal-ajax&apos; &#125; &#125;</span><br><span class="line">  if block_given?            </span><br><span class="line">    link_to(name, default_options.update(options), html_options, &amp;block)</span><br><span class="line">  else</span><br><span class="line">    link_to(name, options, default_options.update(html_options))</span><br><span class="line">  end</span><br><span class="line">end</span><br><span class="line">def modal_header(title)      </span><br><span class="line">  %(&lt;div class=&quot;modal-header&quot;&gt;    </span><br><span class="line">  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;</span><br><span class="line">  &lt;h3&gt;#&#123;title&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;).html_safe</span><br><span class="line">end    </span><br><span class="line">def modal_footer(&amp;block)     </span><br><span class="line">  %(&lt;div class=&quot;modal-footer&quot;&gt;    </span><br><span class="line">    #&#123;capture(&amp;block)&#125;       </span><br><span class="line">    &lt;button type=&quot;button&quot; data-dismiss=&quot;modal&quot; class=&quot;btn&quot;&gt;#&#123;t(&quot;cancel&quot;)&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;).html_safe          </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<p>4.5 layouts/application.html.rb中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 全局弹出层 --&gt;</span><br><span class="line">&lt;div id=&quot;modal-ajax&quot; class=&quot;modal hide fade&quot; tabindex=&quot;-1&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>4.6 在视图层添加 view/users/freeze.js.erb:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#modal-ajax&apos;).html(&apos;&lt;%= j(render &apos;freeze&apos;) %&gt;&apos;);</span><br><span class="line">$(&apos;#modal-ajax&apos;).modal();</span><br><span class="line">$(&quot;#modal-ajax&quot;).removeClass(&quot;hide&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>4.7 在视图层添加 view/users/_freeze.html.erb, 在freeze.js.erb中render会渲染这个视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= modal_header t(&quot;freeze_user&quot;) %&gt; &lt;%= form_for @user, url: freeze_reason_users_path, :html =&gt; &#123; method: &apos;post&apos;&#125; do |f| %&gt;</span><br><span class="line">&lt;%#= f.radio_button :is_enabled, &apos;false&apos;, :id =&gt; &apos;user_reason&apos;, :style =&gt; &apos;margin: 0; margin-top: -22px; margin-left: 20px;&apos;, :class=&gt;&quot;stat &lt;%#= f.label :reason, &apos;冻结&apos;, :style =&gt; &apos;margin-top: -25px; margin-left: 10px;&apos; %&gt;</span><br><span class="line">&lt;%= f.label t(&quot;freeze_reason&quot;) %&gt;</span><br><span class="line">&lt;%= f.text_area :reason_of_freeze, :name =&gt; &quot;reason&quot;, :placeholder =&gt; t(&apos;freeze_placeholder&apos;), style: &quot;width: 100%; height: 80px; margi</span><br><span class="line">&lt;%= modal_footer do %&gt; &lt;%= f.submit t(&apos;global.submit&apos;), class: &apos;btn btn-primary&apos;%&gt; &lt;% end %&gt; &lt;% end %&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://wenyc.cn/articles/55" target="_blank" rel="noopener">参考原文</a></p>
-<p>第二种方法： gem：jquery-ui-rails 自己写modal<br><a href="https://github.com/jquery-ui-rails/jquery-ui-rails" target="_blank" rel="noopener">jquery-ui</a><br><a href="http://js.siwei.me/web_front_end/js_components/dialog.html" target="_blank" rel="noopener">参考原文</a><br>1.安装上jquery-ui之后<br>2.页面上js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(function() &#123;</span><br><span class="line">  dialog = $( &quot;#dialog&quot; ).dialog(&#123;</span><br><span class="line">    autoOpen:false,</span><br><span class="line">    modal: true,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">//打开弹窗</span><br><span class="line">function open_dialog(url)&#123;</span><br><span class="line">  dialog.dialog(&apos;open&apos;);</span><br><span class="line">  $.get(url,function(data)&#123;</span><br><span class="line">    $(&apos;#dialog&apos;).html(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">//关闭弹窗</span><br><span class="line">function close_dialog()&#123;</span><br><span class="line">  $(&apos;#dialog&apos;).dialog(&apos;close&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>html:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id=&quot;dialog&quot; title=&quot;新建工序&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%= link_to_function &apos;新增&apos;, &quot;open_dialog(&apos;/steps/ajax_new_form?craft_id=#&#123;params[:craft_id]&#125;&apos;)&quot;, id: &quot;opener&quot;, class: &apos;btn btn-primary&apos; %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>关闭按钮：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to_function &apos;返回&apos;, &apos;close_dialog()&apos;, class: &quot;btn btn-default btn-small&quot; %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意： rails及以后是不可以直接使用link_to_function的<br>要在application helper里面 加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def link_to_function(name, *args, &amp;block)</span><br><span class="line">    html_options = args.extract_options!.symbolize_keys</span><br><span class="line"></span><br><span class="line">    function = block_given?? update_page(&amp;block) : args[0] || &apos;&apos;</span><br><span class="line">    onclick =&quot;#&#123;&quot;#&#123;html_options[:onclick]&#125;;&quot; if html_options[:onclick]&#125;#&#123;function&#125;; return false;&quot;</span><br><span class="line">    href = html_options[:href] || &apos;#&apos; </span><br><span class="line"></span><br><span class="line">    content_tag(:a, name, html_options.merge(:href =&gt; href, :onclick =&gt; onclick))</span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">highchart</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T09:40:00+08:00">
-                2017-07-27 09:40
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>想添加图表时使用highchart<br>1.在Gemfile中 添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem &quot;highcharts-rails&quot;</span><br></pre></td></tr></table></figure>
-
-<p>$ bundle install<br>2.在application.js中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//= require highcharts</span><br><span class="line">//= require highcharts/highcharts-more</span><br></pre></td></tr></table></figure>
-
-<p>3.在页面上<br>HTML：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;container&quot; style=&quot;min-width:800px;height:400px&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>js：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var chart = new Highcharts.Chart(&apos;container&apos;, &#123;// 图表初始化函数，其中 container 为图表的容器 div               </span><br><span class="line">    chart: &#123;</span><br><span class="line">        type: &apos;bar&apos;                           //指定图表的类型，默认是折线图（line）</span><br><span class="line">    &#125;,</span><br><span class="line">    title: &#123;</span><br><span class="line">        text: &apos;我的第一个图表&apos;                 //指定图表标题</span><br><span class="line">    &#125;,</span><br><span class="line">    xAxis: &#123;</span><br><span class="line">        categories: [&apos;苹果&apos;, &apos;香蕉&apos;, &apos;橙子&apos;]   //指定x轴分组</span><br><span class="line">    &#125;,</span><br><span class="line">    yAxis: &#123;</span><br><span class="line">        title: &#123;</span><br><span class="line">            text: &apos;something&apos;                 //指定y轴的标题</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    series: [&#123;                                 //指定数据列</span><br><span class="line">        name: &apos;小明&apos;,                          //数据列名</span><br><span class="line">        data: [1, 0, 4]                        //数据</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        name: &apos;小红&apos;,</span><br><span class="line">        data: [5, 7, 3]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>ps：1.<a href="https://www.hcharts.cn/docs/start-helloworld" target="_blank" rel="noopener">官方文档</a><br>    2.坑：<br>      1）series中的data必须是数组<br>         如果是从controller中取值:<br>           若取得值为数组则直接输出在rails中&lt;%= @xxx%&gt;<br>           若只有一个值则写成[&lt;%= @xxx%&gt;]<br>      2)xAxis中的categories必须是数组 若在controller中取值 必须用raw</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1588,7 +1543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">258</span>
+                  <span class="site-state-item-count">262</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1610,7 +1565,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
