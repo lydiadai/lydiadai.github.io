@@ -265,6 +265,1142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-04-06-calls-the-web-interface-in-ios.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-04-06-calls-the-web-interface-in-ios.html" itemprop="url">在ios中调用web接口</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-06T18:50:00+08:00">
+                2017-04-06 18:50
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithWebRoute:@&quot;interface/categories&quot;]]];
+       NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+       NSError *error;
+       responseHash = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&amp;error];
+</code></pre><p>ps:stringWithWebRoute 是一个自定义的方法<br>  +(NSString<em>)stringWithWebRoute:(NSString</em>)route<br>  {<br>      return [NSString stringWithRoute:route domainName:WEB_SERVER andId:YES];<br>  }<br>   后面接的是web接口的地址</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-04-06-ios-navigation-declare.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-04-06-ios-navigation-declare.html" itemprop="url">ios  navigation declare</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-06T18:45:00+08:00">
+                2017-04-06 18:45
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>self.navigation = (CustomNavigationController*) self.navigationController;</p>
+<p>查看navigation是否为空<br>po self.navigation</p>
+<p>ps:一般在ios webview中没有特殊报错，但是又无法实现功能时<br>   经常是navigation为空，在(void)viewDidLoad中声明一下就好了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/markdown 简明教程.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/markdown 简明教程.html" itemprop="url">markdown简明教程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-14T14:33:17+08:00">
+                2017-03-14 14:33
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Markdown-学习"><a href="#Markdown-学习" class="headerlink" title="Markdown 学习"></a>Markdown 学习</h1><p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+<h2 id="MarkdownPad2-5-注册码"><a href="#MarkdownPad2-5-注册码" class="headerlink" title="MarkdownPad2.5 注册码"></a>MarkdownPad2.5 注册码</h2><p>邮箱：<br><a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a></p>
+<p>授权秘钥：<br>GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</p>
+<h2 id="使用-Markdown-的优点"><a href="#使用-Markdown-的优点" class="headerlink" title="使用 Markdown 的优点"></a>使用 Markdown 的优点</h2><ul>
+<li>专注你的文字内容而不是排版样式。</li>
+<li>轻松的导出 HTML、PDF 和本身的 .md 文件。</li>
+<li>纯文本内容，兼容所有的文本编辑器与字处理软件。</li>
+<li>可读，直观。适合所有人的写作语言。</li>
+</ul>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>工具茫茫多</p>
+<ul>
+<li>windows 下 markdownPad2</li>
+<li>在线 <a href="http://md.birdteam.net/" target="_blank" rel="noopener">http://md.birdteam.net/</a></li>
+</ul>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题有六级<br>由 # 组成<br>类比于 h1 ~ h6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题（H1，通常用于文档标题）  </span><br><span class="line">## 这是二级标题（H2，有些渲染器会为二级标题添加 hr 底线）  </span><br><span class="line">### 这是三级标题（H3）  </span><br><span class="line">#### 这是四级标题（H4）  </span><br><span class="line">##### 这是五级标题（H5） </span><br><span class="line">###### 这是六级标题（H6）</span><br></pre></td></tr></table></figure>
+
+<p>注：在#后加一个空格再跟标题</p>
+<h3 id="首行缩进"><a href="#首行缩进" class="headerlink" title="首行缩进"></a>首行缩进</h3><p>&emsp;&emsp;写文章时，我们常常希望能够首行缩进，这时可以在段首加入<code>&amp;ensp;</code>或<code>&amp;nbsp</code>来输入一个空格.加入<code>&amp;emsp;</code>来输入两个空格。这里的空格是英文状态的空格，英文状态的两个空格相当于中文状态的一个空格</p>
+<h3 id="添加空行"><a href="#添加空行" class="headerlink" title="添加空行"></a>添加空行</h3><p>添加空行可以结束先前的格式状态。个人建议在改变格式时，均添加一个空行</p>
+<p>文本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;引用状态</span><br><span class="line">[空行]</span><br><span class="line">### 标题状态</span><br><span class="line">[空行]</span><br><span class="line">------</span><br><span class="line">[空行]</span><br><span class="line">- 列表状态</span><br><span class="line">- 列表状态</span><br><span class="line">[空行]</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<blockquote>
+<p>引用状态</p>
+</blockquote>
+<h3 id="标题状态"><a href="#标题状态" class="headerlink" title="标题状态"></a>标题状态</h3><hr>
+<ul>
+<li>列表状态</li>
+<li>列表状态</li>
+</ul>
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>换行的时候 结尾要加上 两个空格。  </p>
+<h3 id="斜体与粗体"><a href="#斜体与粗体" class="headerlink" title="斜体与粗体"></a>斜体与粗体</h3><p>斜体：使用 两个星号 <code>**</code> 中间夹杂的就是 斜体, 例如：<em>斜体</em><br>粗体： 使用 四个星号 <code>****</code> 中间夹杂的就是 粗体, 例如：<strong>粗体</strong> </p>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>+ - *</code> 都表示无序列表<br>注：后面也需要跟一个空格</p>
+<p>例如：</p>
+<ul>
+<li>使用 - 号<ul>
+<li>吃饭</li>
+<li>睡觉</li>
+<li>打豆豆</li>
+<li>再打豆豆<ul>
+<li>接着打豆豆</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用 + 号<ul>
+<li>吃饭</li>
+<li>睡觉</li>
+<li>打豆豆</li>
+</ul>
+</li>
+<li>使用 * 号<ul>
+<li>吃饭</li>
+<li>睡觉</li>
+<li>打豆豆</li>
+</ul>
+</li>
+</ul>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>使用 <code>1. 2. 3.</code> 可以表示有序列表<br>注：后面也需要跟一个空格<br>例如：</p>
+<ol>
+<li>买菜</li>
+<li>洗菜</li>
+<li>切菜</li>
+<li>炒菜</li>
+<li>吃菜</li>
+<li>洗碗</li>
+</ol>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>使用 <code>&gt;</code> 表示引用  </p>
+<blockquote>
+<p>海明威曾经写过：我可以被杀死，但是不可以被打败</p>
+</blockquote>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
+<thead>
+<tr>
+<th>默认对齐</th>
+<th align="left">居左对齐</th>
+<th align="center">居中对齐</th>
+<th align="right">居右对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>窗前</td>
+<td align="left">明月</td>
+<td align="center">光</td>
+<td align="right">，</td>
+</tr>
+<tr>
+<td>疑是</td>
+<td align="left">地上</td>
+<td align="center">霜</td>
+<td align="right">，</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="left">性别</th>
+<th align="center">年纪</th>
+<th>班级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td align="left">男</td>
+<td align="center">29</td>
+<td>0830</td>
+</tr>
+<tr>
+<td>李四</td>
+<td align="left">女</td>
+<td align="center">28</td>
+<td>0830</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>地点</th>
+<th>人物</th>
+<th align="center">事件事件事件事件事件事件事件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>北京</td>
+<td>我</td>
+<td align="center">吃面</td>
+</tr>
+</tbody></table>
+<p>注：表格开始与结尾都需要一行空行</p>
+<h3 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h3><p>插入代码的方式有两种</p>
+<ol>
+<li>在每行代码前加入4个空格或者添加一个制表符（TAB键）</li>
+<li>在代码两侧添加三个反引号‘<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 方式一</span><br><span class="line">其缩进是相对于当前格式状态下的。</span><br><span class="line"></span><br><span class="line">文本</span><br><span class="line">- 列表项</span><br><span class="line">- 列表项</span><br><span class="line">  [TAB][TAB]printf(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">效果</span><br><span class="line">- 列表项</span><br><span class="line">- 列表项</span><br><span class="line">		printf(&quot;hello world!&quot;);</span><br><span class="line">在列表项状态下，需要输入两次TAB键(制表符)才能以代码格式插入。</span><br><span class="line"></span><br><span class="line">#### 方式2</span><br><span class="line">反引号最好在代码的前后行添加，而不是直接加在代码两边。</span><br><span class="line"></span><br><span class="line">- 使用这个符号 ` `` ` 中间夹`&lt;br&gt;`着代码</span><br><span class="line">	- `&lt;br&gt;`</span><br><span class="line">- 使用 三个 ` 符号成对夹代码</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+    <li>好好学习</li>
+    <li>天天向上</li>
+    <li>锻炼身体</li>
+</ul>
+```
+
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p><a href="http://www.baidu.com" target="_blank" rel="noopener">百度</a><br><a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a></p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><img src="/assets/images/posts/markdown/6G0U014.jpg" alt="无名"></p>
+<h4 id="限制图片大小并居中"><a href="#限制图片大小并居中" class="headerlink" title="限制图片大小并居中"></a>限制图片大小并居中</h4><p>许多 MarkDown 编辑器中直接按原图大小显示图片，造成版面凌乱。使用该命令<code>&lt;img src=&quot;图片地址&quot; width=&quot;图片显示宽度&quot; height=&quot;显示高度&quot; alt=&quot;图片名称&quot;/&gt;</code>设置图片大小，再用<code>&lt;div style=&quot;text-align:center&quot;&gt;&lt;/div&gt;</code>命令包裹达到居中效果。</p>
+<div style="text-align:center"><img src="/assets/images/posts/markdown/88070423gw1ep30aw8an7g204d04gkgd.gif" width="157" height="160" alt="亦菲表演机器猫"></div>
+
+
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>简书     <a href="http://www.jianshu.com/" target="_blank" rel="noopener">http://www.jianshu.com/</a><br>github     <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>官网地址： <a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="noopener">http://wowubuntu.com/markdown/basic.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-09-1526311.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-09-1526311.html" itemprop="url">OC-页面跳转</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T17:20:00+08:00">
+                2017-03-09 17:20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.新建一个controller，在目标controller.h文件下<br>  @property (nonatomic, strong) NSString * currentRoute;</p>
+<p>2.在源头文件下webview下<br>1）if ([currentRoute containsString:@”slider_show”]) {<br>                SliderDetailViewController * sliderShow = [[SliderDetailViewController alloc]init];<br>                sliderShow.currentRoute = currentRoute;</p>
+<p>2）interface之后添加 <uiwebviewdelegate><br>@property(nonatomic,strong)UIWebView *webView;</uiwebviewdelegate></p>
+<p>3）上方添加#import “HomeViewController.h”—想要跳转到的页面</p>
+<p>ps:.m文件是显示的页面webview<br>   .h是封装各种方法使用的<br>   vue.js 如果是与h5交互的页面跳转 要在main.js中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  console.info(to)</span><br><span class="line">  console.info(from)</span><br><span class="line">  console.info(&apos;跳转了&apos;)</span><br><span class="line">  let link</span><br><span class="line">  if (to.query.client === &apos;ios&apos;) &#123;</span><br><span class="line">    link = true</span><br><span class="line">  &#125; else if (from.query.client === &apos;ios&apos;)&#123;</span><br><span class="line">    console.info(&apos;full_path ===&apos; + to.fullPath)</span><br><span class="line">    window.location.href = &apos;http://link_to&apos; + to.fullPath</span><br><span class="line">    link= false</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    link = true</span><br><span class="line">  &#125;</span><br><span class="line">  next(link)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>要不然会只在一个页面进行h5页面之间的跳转 不会进行webview之间的跳转<br>rails 则不需要 可以直接进行跳转</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-08-1522514.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-08-1522514.html" itemprop="url">远程部署代码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T15:23:00+08:00">
+                2017-03-08 15:23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>web：<br>1.登录到远程<br>  ssh <a href="mailto:root@www.siwei.tech" target="_blank" rel="noopener">root@www.siwei.tech</a> -p 35888<br>2.进到<br>  /opt/app/pin_tuan_bao_web/current</p>
+<p>3.git pull 将代码拉下来<br>  如果有migration就<br>  bundle exec rake db:migrate<br>  如果有js或者css就<br>  bundle exec rake assets:precompile RAILS_ENV=production </p>
+<p>4.重启远程服务器：<br>  bundle exec thin restart -C config/thin.yml</p>
+<p>h5：<br>首次就是先bundle<br>在本地<br>bundle exec cap deploy</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-04-1505854.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-04-1505854.html" itemprop="url">程序基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T21:56:00+08:00">
+                2017-03-04 21:56
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对象：数据<br>方法：对象的行为<br>参数：执行方法时必须的条件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-03-02-the-button-into-a-picture.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-03-02-the-button-into-a-picture.html" itemprop="url">将按钮变成图片</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T11:15:00+08:00">
+                2017-03-02 11:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"image-upload"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"file-input"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"placeholder.jpg"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"file-input"</span> <span class="attr">type</span>=<span class="string">"file"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>With styling:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.image-upload</span> &gt; <span class="selector-tag">input</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-25-1465367.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2017-02-25-1465367.html" itemprop="url">rails--model删除</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-25T16:15:00+08:00">
+                2017-02-25 16:15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>destroy: 会删掉 关联表的 数据（通过调用关联表的方法） delete : 不会。 只会删掉当前对象对应的表。</p>
+<p>例子：</p>
+<p>老王去世了。 老王有20张银行卡。</p>
+<p>如果： 我们是上帝。 我们就可以这样写：</p>
+<p>laowang.destroy    (老王的银行卡也会被删掉）</p>
+<p>laowang.delete  （只删掉老王， 保留银行卡）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-25-1465322.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -494,1000 +1630,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-21-1437766.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-21-1437766.html" itemprop="url">rails 加断点&查看log</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T16:48:00+08:00">
-                2017-02-21 16:48
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>查看log：<br>在terminal中<br>$ tail -f/名称log</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/2017-02-21-1437766.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-21-1437683.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-21-1437683.html" itemprop="url">rails N+1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T16:10:00+08:00">
-                2017-02-21 16:10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>解决方案：<br>使用 includes， 在 where, 或者 find  等查询之前。</p>
-<p>例如： </p>
-<pre><code>@fans = Fan.joins(:sales_checks)
-           .includes([:sales_checks =&gt; [{:wins =&gt; :award}, :cash_desk]])</code></pre><p>如果， fan : sales_checks = 1 : n,</p>
-<p>sales_checks : wins = 1 : n   ,    sales_checks : cash_desk = n : 1</p>
-<p>wins : award = n : 1</p>
-<p>那么，我们在查询fan的时候，要带上  sales_checks, 那么就 Fan.includes(:sales_checks)</p>
-<p>也可以写成：  Fan.includes( [:sales_checks])</p>
-<p>如果在查询时，要带上 wins, 那么就：   Fan.includes([:sales_checks =&gt; [:wins]])</p>
-<p>如果再带上 cash_desk的话, 那么就  Fan.includes([:sales_checks =&gt; [:wins, :cash_desk])  (注意这里   cash_desk是单数， 因为一个    cash_desk对应多个 sales_checks ) </p>
-<p>如果要带上  wins的 award的话， 那么就是： </p>
-<p>Fan.includes([:sales_checks =&gt; [{:wins =&gt; :award}]])</p>
-<p>推荐大家使用bullet 这个gem .特别好用.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-21-rails-initialization-data.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-21-rails-initialization-data.html" itemprop="url">rails 初始化数据&代码中有中文</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T11:53:00+08:00">
-                2017-02-21 11:53
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.在script文件夹下建立init_xxx.rb文件<br>2.在terminal中运行：ruby script/init_xxx.rb</p>
-<hr>
-<p>在文件顶端加上<br>-<em>- encoding : utf-8 -</em>-</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-21-server-log-and-exits.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-21-server-log-and-exits.html" itemprop="url">服务器登录及退出</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T10:36:00+08:00">
-                2017-02-21 10:36
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>服务器登录<br>root<br>siwei.tech<br>-p 35888<br>Sillyboy12$</p>
-<p>ssh <a href="mailto:root@www.siwei.tech" target="_blank" rel="noopener">root@www.siwei.tech</a> -p 35888</p>
-<p>退出：ctrl+d</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-20-controller.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-20-controller.html" itemprop="url">controller&model文件头尾固定代码&migration文件代码样式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T09:14:00+08:00">
-                2017-02-20 09:14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.controller<br>  无namespace的：class XxxsController &lt; ApplicationController<br>  有namespace的：class Xxx::XxxsController &lt; ApplicationController<br>             namespace名称::controller名称</p>
-<p>2.model<br>  class Xxx &lt; ActiveRecord::Base<br>  end</p>
-<p>3.migrate文件中添加<br>  t.字符类型 :字段名,comment: ‘备注’<br>   t.timestamps</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-19-rails-routing.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-19-rails-routing.html" itemprop="url">rails--路由</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T22:56:00+08:00">
-                2017-02-19 22:56
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.restful<br>   get  查询<br>   post 新建<br>   put  修改<br>   delete 删除</p>
-<p>2.root path<br>  root to: ‘xxx/xxx’(文件路径)</p>
-<p>3.match路径<br>  match ‘xxx/xxx’(http路径名), to: ‘xxx#xxx’(文件路径), via: <a href="http请求类型">‘get’</a></p>
-<p>4.接口<br>  render json: {<br>    key: value,<br>    ……<br>  }</p>
-<p>5.查看<br>  bunle exec rake routes<br>  过滤想要的<br>  undle exec rake routes | grep “xxx”</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-15-sass-and-css.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-15-sass-and-css.html" itemprop="url">sass与css</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T15:44:00+08:00">
-                2017-02-15 15:44
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在要改全局css文件时要用<br>$ sass –watch static/sass/pin_tuan_bao.scss:static/css/pin_tuan_bao.css<br>监听文件，然后在sass文件中更改，就会自动改写到css里</p>
-<p>注释：<br><template>(HTML)        <!--     --></template></p>
-<script>(CSS)          /*        */ 
-                    单行：//</script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2017-02-15-1419356.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2017-02-15-1419356.html" itemprop="url">H5 页面跳转</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T13:32:00+08:00">
-                2017-02-15 13:32
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><router-link :to="{name:'要跳转到的页面名称，在main.js里面可以找到', params:{id: 你想要跳转到那个页面需要的id}}">
-</router-link>
-
-</li>
-</ol>
-<p>2.在标签中写一个click方法<br>   eg：@click=”show_more_lists<br>  在下面的<script>标签下的method方法下写：name里面写要跳转到的页面名称，在main.js里面可以找到<br>   eg:<br>  show_more_lists () {<br>      this.$router.push({name: 'cases_list', params: {id: advertisement.id}})<br>    },</p>
-</script></p>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1538,7 +1680,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">262</span>
+                  <span class="site-state-item-count">270</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1560,7 +1702,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
