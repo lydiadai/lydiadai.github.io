@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="Lydia&#39;s blog">
 <meta property="og:description" content="RN中有很多在css踩的坑 在这个blog中记录一下 样式如果报了语法错误 改了之后log中没有报错 但是模拟机还是报错的话 就重新运行一下 参考：https://reactnative.cn/docs/layout-props/">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lydiadai.github.io/image/image-20200426164150979.png">
 <meta property="og:updated_time" content="2020-04-21T02:54:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native page 样式">
 <meta name="twitter:description" content="RN中有很多在css踩的坑 在这个blog中记录一下 样式如果报了语法错误 改了之后log中没有报错 但是模拟机还是报错的话 就重新运行一下 参考：https://reactnative.cn/docs/layout-props/">
+<meta name="twitter:image" content="https://lydiadai.github.io/image/image-20200426164150979.png">
 
 
 
@@ -372,6 +374,15 @@
 </li>
 <li><p>rn元素的绝对定位和相对定位不需要父元素设置position，且没有zIndex配置</p>
 </li>
+<li><p>使用safeAreaView的时候 注意要加上style  flex: 1</p>
+</li>
+<li><p>React Native中position只有absolute和relative两个值；并没有fixed值。  </p>
+<p>页面用的是ScrollView。我们只需要将这个置底悬浮按钮写在ScrollView外部就好</p>
+</li>
+<li><p>Applying borderRadius to  ignores backgroundColor </p>
+<p><img src="/image/image-20200426164150979.png" alt="image-20200426164150979"></p>
+<p>overflow=”hidden”</p>
+</li>
 </ol>
 
       
@@ -488,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">270</span>
+                  <span class="site-state-item-count">273</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

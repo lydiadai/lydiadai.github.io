@@ -267,6 +267,373 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-08-14-bootstrap-cancel-dropdown-click-hour.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-08-14-bootstrap-cancel-dropdown-click-hour.html" itemprop="url">bootstrap-取消dropdown 点击消失</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-14T14:41:00+08:00">
+                2018-08-14 14:41
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>解决办法<br>第一步<br>在dropdown-menu中的需要处理的元素添加 data-stopPropagation=”true”，data-stopPropagation属性是用来对点击时停止传播事件，这样我们的点击事件就不会传播给Bootstrap.js中去了。</p>
+<p>第二步<br>调用Bootstrap的stopPropagation()函数，可以阻止元素点击时停止传播事件。<br>我在我的代码中写的比较粗暴，对整个treeview声明一个click事件，并且全部绑定上stopPropagation()方法。</p>
+<p>$(“.treeview”).on(“click”,function (e) {<br>    e.stopPropagation();<br>})</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/2018-08-13-rails-hash-the-value-into.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/2018-08-13-rails-hash-the-value-into.html" itemprop="url">rails - hash 取值变成 a.b</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-13T12:30:00+08:00">
+                2018-08-13 12:30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>auth = ActiveSupport::InheritableOptions.new(provider: ‘open’, info:ActiveSupport::InheritableOptions.new(nickname:’lslls’))</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-拖拽出现按钮</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T18:18:00+08:00">
+                2018-08-11 18:18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>window.addEventListener(‘load’, function() {<br>  var initX; //触摸位置<br>  var moveX; //滑动时的位置<br>  var X = 0; //移动距离<br>  var objX = 0; //目标对象位置<br>  window.addEventListener(‘touchstart’, function(event) {<br>    var obj = event.target.closest(‘.list-li’);<br>    if (obj != undefined) {<br>      initX = event.targetTouches[0].pageX;<br>      objX = (obj.style.WebkitTransform.replace(/translateX(/g, “”).replace(/px)/g, “”)) * 1;<br>      $(‘.list-li’).css(‘transform’, ‘translateX(0px)’)<br>    }<br>    if (objX == 0) {<br>      window.addEventListener(‘touchmove’, function(event) {<br>        var obj = event.target.closest(‘.list-li’);<br>        if (obj != undefined) {<br>          moveX = event.targetTouches[0].pageX;<br>          X = moveX - initX;<br>          if (X &gt;= 0) {<br>            obj.style.WebkitTransform = “translateX(“ + 0 + “px)”;<br>          } else if (X &lt; 0) {<br>            var l = Math.abs(X);<br>            obj.style.WebkitTransform = “translateX(“ + -l + “px)”;<br>            if (l &gt; 80) {<br>              l = 80;<br>              obj.style.WebkitTransform = “translateX(“ + -l + “px)”;<br>            }<br>          }<br>        }<br>      });<br>    } else if (objX &lt; 0) {<br>      window.addEventListener(‘touchmove’, function(event) {<br>        var obj = event.target.closest(‘.list-li’);<br>        if (obj != undefined) {<br>          moveX = event.targetTouches[0].pageX;<br>          X = moveX - initX;<br>          if (X &gt;= 0) {<br>            var r = -80 + Math.abs(X);<br>            obj.style.WebkitTransform = “translateX(“ + r + “px)”;<br>            if (r &gt; 0) {<br>              r = 0;<br>              obj.style.WebkitTransform = “translateX(“ + r + “px)”;<br>            }<br>          } else { //向左滑动<br>            obj.style.WebkitTransform = “translateX(“ + -80 + “px)”;<br>          }<br>        }<br>      });<br>    }   </p>
+<p>  })<br>  window.addEventListener(‘touchend’, function(event) {<br>    var obj = event.target.closest(‘.list-li’);<br>    if (obj != undefined) {<br>      objX = (obj.style.WebkitTransform.replace(/translateX(/g, “”).replace(/px)/g, “”)) * 1;<br>      if (objX &gt; -40) {<br>        obj.style.WebkitTransform = “translateX(“ + 0 + “px)”;<br>        objX = 0;<br>      } else {<br>        obj.style.WebkitTransform = “translateX(“ + -80 + “px)”;<br>        objX = -80;<br>      }<br>    }<br>  })<br>})</p>
+<p>css:</p>
+<p> .list-ul {<br> <strong>overflow: hidden*</strong>text 一定要有<br> }</p>
+<p> .list-li {<br>   line-height: 60px;<br>   border-bottom: 1px solid #fcfcfc;<br>   position: relative;<br>   padding: 0 12px;<br>   color: #666;<br>   background: #f2f2f2;<br>   -webkit-transform: translateX(0px);<br> }</p>
+<p> .btn {<br>   position: absolute;<br>   top: 0;<br>   right: -80px;<br>   text-align: center;<br>   background: #ffcb20;<br>   color: #fff;<br>   width: 80px<br> }</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1253,371 +1620,11 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css- input placeholder 居中</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T10:44:00+08:00">
-                2018-07-26 10:44
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>input::input-placeholder {text-align: center; }<br>input::-ms-input-placeholder{text-align: center;}<br>input::-webkit-input-placeholder{text-align: center;}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js-获取element 准确高度 不四舍五入</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-25T14:59:00+08:00">
-                2018-07-25 14:59
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>document.getElementById(‘divMMHeight’).getBoundingClientRect().height  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">android -判断小程序环境失效</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T11:22:00+08:00">
-                2018-07-24 11:22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在wx.ready(function () {<br>})里面的判断才有效</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1663,7 +1670,7 @@ UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarg
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">270</span>
+                  <span class="site-state-item-count">273</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
