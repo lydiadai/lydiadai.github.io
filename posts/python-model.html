@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python,">
+  <meta name="keywords" content="Django python,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="This is lydia&apos;s blog">
-<meta name="keywords" content="python">
+<meta name="description" content="Model声明在app的model.py文件里 声明 person是model名称 将每一个字段都声明出来 如果字段很多 可以用   1$ django-admin startapp 名称  1$ python manage.py inspectdb persons  将字段跑出来 直接粘到model文件里 但是需要调整  比如： max_length 或者 jsonb格式的数据">
+<meta name="keywords" content="Django python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python model">
+<meta property="og:title" content="Django model">
 <meta property="og:url" content="https://lydiadai.github.io/posts/python-model.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="This is lydia&apos;s blog">
+<meta property="og:description" content="Model声明在app的model.py文件里 声明 person是model名称 将每一个字段都声明出来 如果字段很多 可以用   1$ django-admin startapp 名称  1$ python manage.py inspectdb persons  将字段跑出来 直接粘到model文件里 但是需要调整  比如： max_length 或者 jsonb格式的数据">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-27T09:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python model">
-<meta name="twitter:description" content="This is lydia&apos;s blog">
+<meta name="twitter:title" content="Django model">
+<meta name="twitter:description" content="Model声明在app的model.py文件里 声明 person是model名称 将每一个字段都声明出来 如果字段很多 可以用   1$ django-admin startapp 名称  1$ python manage.py inspectdb persons  将字段跑出来 直接粘到model文件里 但是需要调整  比如： max_length 或者 jsonb格式的数据">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>python model | Lydia's blog</title>
+  <title>Django model | Lydia's blog</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python model</h1>
+          <h1 class="post-title" itemprop="name headline">Django model</h1>
         
 
         <div class="post-meta">
@@ -332,7 +332,128 @@
       
 
       
-        
+        <h2 id="Model声明"><a href="#Model声明" class="headerlink" title="Model声明"></a>Model声明</h2><p>在app的model.py文件里 声明 person是model名称</p>
+<p>将每一个字段都声明出来 如果字段很多 可以用  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ django-admin startapp 名称</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py inspectdb persons</span><br></pre></td></tr></table></figure>
+
+<p>将字段跑出来 直接粘到model文件里 但是需要调整 </p>
+<p>比如： max_length 或者 jsonb格式的数据</p>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    first_name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    last_name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        managed = <span class="literal">False</span></span><br><span class="line">        app_label = <span class="string">'options'</span></span><br><span class="line">        db_table = <span class="string">'persons'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>字段命名约束：</strong></p>
+<p>Django不允许下面两种字段名：</p>
+<ul>
+<li><p>与Python关键字冲突。这会导致语法错误。例如：</p>
+<p>class Example(models.Model): pass = models.IntegerField() # ‘pass’是Python保留字！</p>
+</li>
+<li><p>字段名中不能有两个以上下划线在一起，因为两个下划线是Django的查询语法。</p>
+</li>
+</ul>
+<p>ps:  声明之后要在base.py中PROJECT_APPS 中注册</p>
+<p>参考：<a href="https://www.liujiangblog.com/course/django/95" target="_blank" rel="noopener">https://www.liujiangblog.com/course/django/95</a></p>
+<h2 id="Model关联"><a href="#Model关联" class="headerlink" title="Model关联"></a>Model关联</h2><h3 id="1对多"><a href="#1对多" class="headerlink" title="1对多"></a>1对多</h3><p>多对一的关系，通常被称为外键。外键字段类的定义如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForeignKey</span><span class="params">(to, on_delete, **options)</span>[<span class="title">source</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>外键要定义在‘多’的一方！</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv_account = models.ForeignKey(CvAccount, on_delete=models.SET_NULL, null=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果要关联的对象在另外一个app中，可以显式的指出。下例假设Manufacturer模型存在于production这个app中，则Car模型的定义如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    manufacturer = models.ForeignKey(</span><br><span class="line">        <span class="string">'production.Manufacturer'</span>,      <span class="comment"># 关键在这里！！</span></span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>如果要创建一个递归的外键，也就是自己关联自己的的外键，使用下面的方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">models.ForeignKey(<span class="string">'self'</span>, on_delete=models.CASCADE)</span><br></pre></td></tr></table></figure>
+
+<h4 id="on-delete参数"><a href="#on-delete参数" class="headerlink" title="on_delete参数"></a>on_delete参数</h4><p>该参数可选的值都内置在<code>django.db.models</code>中，包括：</p>
+<ul>
+<li>CASCADE：模拟SQL语言中的<code>ON DELETE CASCADE</code>约束，将定义有外键的模型对象同时删除！（该操作为当前Django版本的默认操作！）</li>
+<li>PROTECT:阻止上面的删除操作，但是弹出<code>ProtectedError</code>异常</li>
+<li>SET_NULL：将外键字段设为null，只有当字段设置了<code>null=True</code>时，方可使用该值。</li>
+<li>SET_DEFAULT:将外键字段设为默认值。只有当字段设置了default参数时，方可使用。</li>
+<li>DO_NOTHING：什么也不做。</li>
+<li>SET()：设置为一个传递给SET()的值或者一个回调函数的返回值。注意大小写。</li>
+</ul>
+<h4 id="db-column参数"><a href="#db-column参数" class="headerlink" title="db_column参数"></a>db_column参数</h4><p>设置了外键的字段在下面表字段声明里就不要声明了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cv_account = models.ForeignKey(<span class="string">'cv_accounts.CvAccount'</span>, on_delete=models.SET_NULL, null=<span class="literal">True</span>, db_column=<span class="string">'user_id'</span>)</span><br><span class="line"><span class="comment">#models.Model 就可以直接声明关联关系 </span></span><br><span class="line"><span class="keyword">from</span> api.cv_accounts.models <span class="keyword">import</span> CvAccount</span><br><span class="line">cv_account = models.ForeignKey(<span class="string">'CvAccount'</span>, on_delete=models.SET_NULL, null=<span class="literal">True</span>, db_column=<span class="string">'user_id'</span>)</span><br><span class="line"><span class="comment">#这两种是一样的</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多对多（ManyToManyField）"><a href="#多对多（ManyToManyField）" class="headerlink" title="多对多（ManyToManyField）"></a>多对多（ManyToManyField）</h3><p>多对多关系在数据库中也是非常常见的关系类型。比如一本书可以有好几个作者，一个作者也可以写好几本书。多对多的字段可以定义在任何的一方，请尽量定义在符合人们思维习惯的一方，但不要同时都定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ManyToManyField</span><span class="params">(to, **options)</span>[<span class="title">source</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>多对多关系需要一个位置参数：关联的对象模型。它的用法和外键多对一基本类似。（通过两个一对多的关系 做多对多的关联）</p>
+<p>可以通过<code>db_table</code>选项，自定义表名。</p>
+<h4 id="through（定义中间表）"><a href="#through（定义中间表）" class="headerlink" title="through（定义中间表）"></a>through（定义中间表）</h4><h4 id="through-fields"><a href="#through-fields" class="headerlink" title="through_fields"></a>through_fields</h4><p>接着上面的例子。Membership模型中包含两个关联Person的外键，Django无法确定到底使用哪个作为和Group关联的对象。所以，在这个例子中，必须显式的指定<code>through_fields</code>参数，用于定义关系。</p>
+<p><code>through_fields</code>参数接收一个二元元组(‘field1’, ‘field2’)，field1是指向定义有多对多关系的模型的外键字段的名称，这里是Membership中的‘group’字段（注意大小写），另外一个则是指向目标模型的外键字段的名称，这里是Membership中的‘person’，而不是‘inviter’。</p>
+<p>再通俗的说，就是<code>through_fields</code>参数指定从中间表模型Membership中选择哪两个字段，作为关系连接字段。</p>
+<h4 id="db-table"><a href="#db-table" class="headerlink" title="db_table"></a>db_table</h4><p>设置中间表的名称。不指定的话，则使用默认值。</p>
+<h3 id="一对一（OneToOneField）"><a href="#一对一（OneToOneField）" class="headerlink" title="一对一（OneToOneField）"></a>一对一（OneToOneField）</h3><p>一对一关系类型的定义如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OneToOneField</span><span class="params">(to, on_delete, parent_link=False, **options)</span>[<span class="title">source</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>用法和前面的多对一外键一样</p>
+<h2 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h2><p>每个模型都可以有自己的元数据类，每个元数据类也只对自己所在模型起作用。</p>
+<h4 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h4><p>如果<code>abstract=True</code>，那么模型会被认为是一个抽象模型。抽象模型本身不实际生成数据库表，而是作为其它模型的父类，被继承使用。</p>
+<h4 id="db-table-1"><a href="#db-table-1" class="headerlink" title="db_table"></a>db_table</h4><p>指定在数据库中，当前模型生成的数据表的表名。比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_table = <span class="string">'my_freinds'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="managed"><a href="#managed" class="headerlink" title="managed"></a>managed</h4><p>该元数据默认值为True，表示Django将按照既定的规则，管理数据库表的生命周期。如果设置为False，将不会针对当前模型创建和删除数据库表。</p>
+<p>一般需要migration的时候才会设置成true</p>
+<h4 id="ordering"><a href="#ordering" class="headerlink" title="ordering"></a>ordering</h4><p>最常用的元数据之一了！</p>
+<p>用于指定该模型生成的所有对象的排序方式，接收一个字段名组成的元组或列表。默认按升序排列，如果在字段名前加上字符“-”则表示按降序排列，如果使用字符问号“？”表示随机排列。请看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ordering = [&apos;pub_date&apos;]             # 表示按&apos;pub_date&apos;字段进行升序排列</span><br><span class="line">ordering = [&apos;-pub_date&apos;]            # 表示按&apos;pub_date&apos;字段进行降序排列</span><br><span class="line">ordering = [&apos;-pub_date&apos;, &apos;author&apos;]  # 表示先按&apos;pub_date&apos;字段进行降序排列，再按`author`字段进行升序排列。</span><br></pre></td></tr></table></figure>
+
+<h4 id="unique-together"><a href="#unique-together" class="headerlink" title="unique_together"></a>unique_together</h4><p>这个元数据是非常重要的一个！它等同于数据库的联合约束！</p>
+<p>举个例子，假设有一张用户表，保存有用户的姓名、出生日期、性别和籍贯等等信息。要求是所有的用户唯一不重复，可现在有好几个叫“张伟”的，如何区别它们呢？（不要和我说主键唯一，这里讨论的不是这个问题）</p>
+<p>我们可以设置不能有两个用户在同一个地方同一时刻出生并且都叫“张伟”，使用这种联合约束，保证数据库能不能重复添加用户（也不要和我谈小概率问题）。在Django的模型中，如何实现这种约束呢？</p>
+<p>使用<code>unique_together</code>，也就是联合唯一！</p>
+<p>比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unique_together = ((<span class="string">'name'</span>, <span class="string">'birth_day'</span>, <span class="string">'address'</span>),)</span><br></pre></td></tr></table></figure>
+
+<p>这样，哪怕有两个在同一天出生的张伟，但他们的籍贯不同，也就是两个不同的用户。一旦三者都相同，则会被Django拒绝创建。这一元数据经常被用在admin后台，并且强制应用于数据库层面。</p>
+<p>unique_together接收一个二维的元组((xx,xx,xx,…),(),(),()…)，每一个元素都是一个元组，表示一组联合唯一约束，可以同时设置多组约束。为了方便，对于只有一组约束的情况下，可以简单地使用一维元素，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unique_together = (<span class="string">'name'</span>, <span class="string">'birth_day'</span>, <span class="string">'address'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="indexes"><a href="#indexes" class="headerlink" title="indexes"></a>indexes</h4><p>Django1.11新增的选项。</p>
+<p>接收一个应用在当前模型上的索引列表，如下例所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    first_name = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">    last_name = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        indexes = [</span><br><span class="line">            models.Index(fields=[<span class="string">'last_name'</span>, <span class="string">'first_name'</span>]),</span><br><span class="line">            models.Index(fields=[<span class="string">'first_name'</span>], name=<span class="string">'first_name_idx'</span>),</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure>
+
+<h2 id="模型继承"><a href="#模型继承" class="headerlink" title="模型继承"></a>模型继承</h2><p>Django有三种继承的方式：</p>
+<ul>
+<li>抽象基类：被用来继承的模型被称为<code>Abstract base classes</code>，将子类共同的数据抽离出来，供子类继承重用，它不会创建实际的数据表；</li>
+<li>多表继承：<code>Multi-table inheritance</code>，每一个模型都有自己的数据库表；</li>
+<li>代理模型：如果你只想修改模型的Python层面的行为，并不想改动模型的字段，可以使用代理模型。</li>
+</ul>
+<p><strong>注意！同Python的继承一样，Django也是可以同时继承两个以上父类的！</strong></p>
+<h4 id="抽象基类："><a href="#抽象基类：" class="headerlink" title="抽象基类："></a>抽象基类：</h4><p>只需要在模型的Meta类里添加<code>abstract=True</code>元数据项，就可以将一个模型转换为抽象基类。Django不会为这种类创建实际的数据库表，它们也没有管理器，不能被实例化也无法直接保存，它们就是用来被继承的。抽象基类完全就是用来保存子模型们共有的内容部分，达到重用的目的。当它们被继承时，它们的字段会全部复制到子模型中。看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line">class CommonInfo(models.Model):</span><br><span class="line">    name = models.CharField(max_length=100)</span><br><span class="line">    age = models.PositiveIntegerField()</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        abstract = True</span><br><span class="line"></span><br><span class="line">class Student(CommonInfo):</span><br><span class="line">    home_group = models.CharField(max_length=5)</span><br></pre></td></tr></table></figure>
+
+<p>Student模型将拥有name，age，home_group三个字段，并且CommonInfo模型不能当做一个正常的模型使用。</p>
+<p>如果子类没有声明自己的Meta类，那么它将继承抽象基类的Meta类</p>
+<p>ps: </p>
+<ul>
+<li>抽象基类中有的元数据，子模型没有的话，直接继承；</li>
+<li>抽象基类中有的元数据，子模型也有的话，直接覆盖；</li>
+<li>子模型可以额外添加元数据；</li>
+<li>抽象基类中的<code>abstract=True</code>这个元数据不会被继承。也就是说如果想让一个抽象基类的子模型，同样成为一个抽象基类，那你必须显式的在该子模型的Meta中同样声明一个<code>abstract = True</code>；</li>
+<li>有一些元数据对抽象基类无效，比如<code>db_table</code>，首先是抽象基类本身不会创建数据表，其次它的所有子类也不会按照这个元数据来设置表名。</li>
+</ul>
+<h4 id="多表继承"><a href="#多表继承" class="headerlink" title="多表继承"></a>多表继承</h4><p>这种继承方式下，父类和子类都是独立自主、功能完整、可正常使用的模型，都有自己的数据库表，内部隐含了一个一对一的关系。</p>
+<p>在多表继承的情况下，由于父类和子类都在数据库内有物理存在的表，父类的Meta类会对子类造成不确定的影响，子类除了<code>ordering</code>和<code>get_latest_by</code>都不会继承父类的Meta功能。这一点和抽象基类的继承方式有所不同。</p>
+<p>如果在多表继承中，你不想让你的子类继承父类的上面两种参数，就必须在子类中显示的指出或重写。如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildModel</span><span class="params">(ParentModel)</span>:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        <span class="comment"># 移除父类对子类的排序影响</span></span><br><span class="line">        ordering = []</span><br></pre></td></tr></table></figure>
+
+<h4 id="代理模型"><a href="#代理模型" class="headerlink" title="代理模型"></a>代理模型</h4><p>只想更改模型在Python层面的行为，比如更改默认的manager管理器，或者添加一个新方法。你可以创建、删除、更新代理模型的实例，并且所有的数据都可以像使用原始模型（非代理类模型）一样被保存。不同之处在于你可以在代理模型中改变默认的排序方式和默认的manager管理器等等，而不会对原始模型产生影响。</p>
+<p><strong>声明一个代理模型只需要将Meta中proxy的值设为True。</strong></p>
+<ul>
+<li>代理模型必须继承自一个非抽象的基类，并且不能同时继承多个非抽象基类；</li>
+<li>代理模型可以同时继承任意多个抽象基类，前提是这些抽象基类没有定义任何模型字段。</li>
+<li>代理模型可以同时继承多个别的代理模型，前提是这些代理模型继承同一个非抽象基类。</li>
+</ul>
+<h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4><p>注意，多重继承和多表继承是两码事，两个概念。</p>
+<p>Django的模型体系支持多重继承，就像Python一样。如果多个父类都含有Meta类，则只有第一个父类的会被使用，剩下的会忽略掉。</p>
+<p>一般情况，能不要多重继承就不要，尽量让继承关系简单和直接，避免不必要的混乱和复杂。</p>
+
       
     </div>
     
@@ -349,7 +470,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/Django-python/" rel="tag"># Django python</a>
           
         </div>
       
@@ -371,6 +492,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/python-model-sql-operation.html" rel="prev" title="Django model sql 操作">
+                Django model sql 操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -427,8 +552,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -443,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">273</span>
+                  <span class="site-state-item-count">276</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -465,7 +599,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -488,6 +622,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model声明"><span class="nav-number">1.</span> <span class="nav-text">Model声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model关联"><span class="nav-number">2.</span> <span class="nav-text">Model关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1对多"><span class="nav-number">2.1.</span> <span class="nav-text">1对多</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#on-delete参数"><span class="nav-number">2.1.1.</span> <span class="nav-text">on_delete参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#db-column参数"><span class="nav-number">2.1.2.</span> <span class="nav-text">db_column参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多对多（ManyToManyField）"><span class="nav-number">2.2.</span> <span class="nav-text">多对多（ManyToManyField）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#through（定义中间表）"><span class="nav-number">2.2.1.</span> <span class="nav-text">through（定义中间表）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#through-fields"><span class="nav-number">2.2.2.</span> <span class="nav-text">through_fields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#db-table"><span class="nav-number">2.2.3.</span> <span class="nav-text">db_table</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对一（OneToOneField）"><span class="nav-number">2.3.</span> <span class="nav-text">一对一（OneToOneField）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meta"><span class="nav-number">3.</span> <span class="nav-text">Meta</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#abstract"><span class="nav-number">3.0.1.</span> <span class="nav-text">abstract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#db-table-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">db_table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#managed"><span class="nav-number">3.0.3.</span> <span class="nav-text">managed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ordering"><span class="nav-number">3.0.4.</span> <span class="nav-text">ordering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unique-together"><span class="nav-number">3.0.5.</span> <span class="nav-text">unique_together</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#indexes"><span class="nav-number">3.0.6.</span> <span class="nav-text">indexes</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#模型继承"><span class="nav-number">4.</span> <span class="nav-text">模型继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象基类："><span class="nav-number">4.0.1.</span> <span class="nav-text">抽象基类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多表继承"><span class="nav-number">4.0.2.</span> <span class="nav-text">多表继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理模型"><span class="nav-number">4.0.3.</span> <span class="nav-text">代理模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多重继承"><span class="nav-number">4.0.4.</span> <span class="nav-text">多重继承</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
