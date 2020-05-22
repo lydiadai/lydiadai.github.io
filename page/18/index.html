@@ -265,6 +265,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">css-自己写的moal background</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T15:18:00+08:00">
+                2017-12-29 15:18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>  .modal-background{
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.5);
+overflow: hidden;
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+//outline: 0;
+z-index: 9;</code></pre><p>  }</p>
+<p>  如果不想让蒙版后面滑动 加上js<br>  $(“body,html”).css({“overflow”:”hidden”});<br>  取消不可滑动<br>$(“body,html”).css({“overflow”:”auto”});</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/h5-intercom-change-css.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1357,125 +1489,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">解决手机端input不能滚动focus</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-10T17:44:00+08:00">
-                2017-11-10 17:44
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var mobileOtherInput= function()&#123;</span><br><span class="line">  var interval;</span><br><span class="line">  $(document).on(&apos;touchstart&apos;, &apos;#cvs-other .main .other-info-content-item .item-content .item-content-form .fields input.description&apos;, function()&#123;</span><br><span class="line">    this.focus();</span><br><span class="line">    var el=this,ratio=el.scrollWidth/el.value.length;</span><br><span class="line">    var inputwidthinchar=$(el).width()/ratio;</span><br><span class="line"></span><br><span class="line">    clearInterval(interval);</span><br><span class="line">    interval=setInterval(function()&#123;</span><br><span class="line">      var x=el.selectionStart,x2=el.selectionEnd,width=$(el).width();</span><br><span class="line">      if ( (width + 1) &gt; el.scrollWidth) return;</span><br><span class="line">      var curposS=x-el.scrollLeft/ratio,</span><br><span class="line">        curposE=x2-el.scrollLeft/ratio, </span><br><span class="line">        tenper=inputwidthinchar*.1;     </span><br><span class="line">      if (curposS &gt; tenper &amp;&amp; curposE &lt; (inputwidthinchar-tenper) ) return; // only if at edges;</span><br><span class="line">      if (curposS &lt; tenper &amp;&amp; curposE &gt; (inputwidthinchar-tenper) ) return; // if at both edges, don&apos;t do anything;</span><br><span class="line">      //center text - good for tapping on spot to be centered</span><br><span class="line">      //$(el).scrollLeft(x*ratio-(width/2));</span><br><span class="line"></span><br><span class="line">      //scroll two char at a time - good for touch and hold at edge and more like expected function</span><br><span class="line">      if (curposS &lt; tenper)</span><br><span class="line">        $(el).scrollLeft(el.scrollLeft-ratio*2);</span><br><span class="line">      else</span><br><span class="line">        $(el).scrollLeft(el.scrollLeft+ratio*2);</span><br><span class="line"></span><br><span class="line">      el.setSelectionRange(x, x2); //not working so well.</span><br><span class="line">    &#125;,100);</span><br><span class="line">  &#125;).blur(function()&#123;</span><br><span class="line">    clearInterval(interval);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1526,7 +1539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">276</span>
+                  <span class="site-state-item-count">277</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

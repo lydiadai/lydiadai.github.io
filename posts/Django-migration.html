@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Django python,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="This is lydia&apos;s blog">
-<meta name="keywords" content="ruby vue redis mysql postgres nginx object-c javascript">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lydia&#39;s blog">
-<meta property="og:url" content="https://lydiadai.github.io/archives/2019/07/page/2/index.html">
+<meta name="description" content="1$ python manage.py makemigrations app_name  Model 文件里metal 不能有 managed=False 关联表也会生成migration 文件 1234567$ python manage.py migrate app_name // 执行migration文件$ python manage.py showmigrations  //查看执行过的">
+<meta name="keywords" content="Django python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django migration">
+<meta property="og:url" content="https://lydiadai.github.io/posts/Django-migration.html">
 <meta property="og:site_name" content="Lydia&#39;s blog">
-<meta property="og:description" content="This is lydia&apos;s blog">
+<meta property="og:description" content="1$ python manage.py makemigrations app_name  Model 文件里metal 不能有 managed=False 关联表也会生成migration 文件 1234567$ python manage.py migrate app_name // 执行migration文件$ python manage.py showmigrations  //查看执行过的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-09T05:34:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lydia&#39;s blog">
-<meta name="twitter:description" content="This is lydia&apos;s blog">
+<meta name="twitter:title" content="Django migration">
+<meta name="twitter:description" content="1$ python manage.py makemigrations app_name  Model 文件里metal 不能有 managed=False 关联表也会生成migration 文件 1234567$ python manage.py migrate app_name // 执行migration文件$ python manage.py showmigrations  //查看执行过的">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://lydiadai.github.io/archives/2019/07/page/2/">
+  <link rel="canonical" href="https://lydiadai.github.io/posts/Django-migration.html">
 
 
 
 
 
-  <title>Archive | Lydia's blog</title>
+  <title>Django migration | Lydia's blog</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,110 +251,156 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-         
-          
-        Excellent! 277 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/Django-migration.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/posts/html-raw-show.html" itemprop="url">
-              
-                <span itemprop="name">html-raw-show</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Django migration</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-08T14:47:22+08:00" content="2019-07-08 14:47">
-          07-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T13:34:35+08:00">
+                2020-05-09 13:34
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py makemigrations app_name</span><br></pre></td></tr></table></figure>
+
+<p>Model 文件里metal 不能有 managed=False</p>
+<p>关联表也会生成migration 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py migrate app_name // 执行migration文件</span><br><span class="line"></span><br><span class="line">$ python manage.py showmigrations  //查看执行过的操作 x代表已经执行过</span><br><span class="line"></span><br><span class="line">$ python manage.py migrate cvs 0001 --fake-init  //已有表</span><br><span class="line"></span><br><span class="line">$ python manage.py migrate profiles 0002  //给数据库加新字段</span><br></pre></td></tr></table></figure>
 
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/posts/show-spider-html.html" itemprop="url">
-              
-                <span itemprop="name">直接展示爬来数据的html</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-08T14:47:12+08:00" content="2019-07-08 14:47">
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Django-python/" rel="tag"># Django python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/Django-some-base-operation.html" rel="next" title="Django 一些基本操作">
+                <i class="fa fa-chevron-left"></i> Django 一些基本操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/python-first.html" rel="prev" title="postgres sql 语句">
+                postgres sql 语句 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/07/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2019/07/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -361,6 +408,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -575,6 +631,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -615,6 +675,22 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8ded9eb0fd1b0c413702',
+          clientSecret: '3bc43a9155cbae7aff9c015c2616cf37a5204a37',
+          repo: 'lydiadai.github.io',
+          owner: 'lydiadai',
+          admin: ['lydiadai'],
+          id: md5(window.location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
 

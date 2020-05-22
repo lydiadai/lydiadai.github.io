@@ -9,6 +9,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Django migration]]></title>
+    <url>%2Fposts%2FDjango-migration.html</url>
+    <content type="text"><![CDATA[1$ python manage.py makemigrations app_name Model 文件里metal 不能有 managed=False 关联表也会生成migration 文件 1234567$ python manage.py migrate app_name // 执行migration文件$ python manage.py showmigrations //查看执行过的操作 x代表已经执行过$ python manage.py migrate cvs 0001 --fake-init //已有表$ python manage.py migrate profiles 0002 //给数据库加新字段]]></content>
+      <tags>
+        <tag>Django python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django 一些基本操作]]></title>
     <url>%2Fposts%2FDjango-some-base-operation.html</url>
     <content type="text"><![CDATA[安装插件包: 在requirements.txt里面添加 需要的包 可以指定版本号 1$ pip install -r requirements.txt 然后再settings 下面的base.py里面引入 THIRD_PARTY_APPS Object 看具体的值 123vars(obj)obj.__dict__.keys()obj.__dict__.values()]]></content>
@@ -90,7 +98,7 @@
   </entry>
   <entry>
     <title><![CDATA[react-native 引入icon-font]]></title>
-    <url>%2Fposts%2Freact-native-error-fix.html</url>
+    <url>%2Fposts%2Freact-native-icon-font.html</url>
     <content type="text"><![CDATA[安装 react native vector icons 1234$ npm install react-native-vector-icons --save$ react-native link react-native-vector-icons$ cd ios$ pod install 使用 iconfont-自定义字体 我们这里是从 iconfont - 阿里巴巴矢量图图标 中选择喜欢的自定义字体，然后加入自己的项目中。 打包下载项目到本地 解压项目文件，获取项目内容 打开 fontello 网站 拖拽上图文件夹中的 svg 文件至页面。 选中需要的自定义字体并打包下载 在下载解压的文件夹中找到 config.json 文件和 font 文件夹下的 fontello.ttf 文件 打开 xcode，将 fontello.ttf 文件拖入 RN 项目的 Resource 文件夹，注意必须勾选 ‘Create groups’ 和 ‘Add to targets’ 选项 在 xcode 点击项目名，再点击 Info tab, 手动添加相应字段 在 RN 项目中合适的位置引入 config.json 文件 在项目中生成新组件 1234import &#123; createIconSetFromFontello &#125; from &apos;react-native-vector-icons&apos;;import fontelloConfig from &apos;./config.json&apos;;export default Icon = createIconSetFromFontello(fontelloConfig); 在项目中需要使用 Icon 的位置直接引入该组件，通过如下代码显示 iconfont name要去掉icon 1&lt;Icon name=&#123;&quot;register&quot;&#125; color=&#123;&apos;#E5E5E5&apos;&#125; size=&#123;20&#125;/&gt;]]></content>
       <tags>
         <tag>react</tag>

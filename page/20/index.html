@@ -284,6 +284,132 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
+                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">rails - 查询自动刷新</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T15:30:00+08:00">
+                2017-09-08 15:30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.在application.js页面添加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function merge_parameter_and_refresh(key, value) &#123;</span><br><span class="line">  key = escape(key); value = escape(value);</span><br><span class="line">  var kvp = document.location.search.substr(1).split(&apos;&amp;&apos;);</span><br><span class="line">  if (kvp == &apos;&apos;) &#123;</span><br><span class="line">    document.location.search = &apos;?&apos; + key + &apos;=&apos; + value;</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    var i = kvp.length; var x; while (i--) &#123;</span><br><span class="line">      x = kvp[i].split(&apos;=&apos;);</span><br><span class="line">      if (x[0] == key) &#123;</span><br><span class="line">        x[1] = value;</span><br><span class="line">        kvp[i] = x.join(&apos;=&apos;);</span><br><span class="line">        break;</span><br><span class="line">      &#125;   </span><br><span class="line">    &#125;   </span><br><span class="line">    if (i &lt; 0) &#123; kvp[kvp.length] = [key, value].join(&apos;=&apos;); &#125;</span><br><span class="line">    //this will reload the page, it&apos;s likely better to store this until finished</span><br><span class="line">    document.location.search = kvp.join(&apos;&amp;&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.在view页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  $(&apos;#good_goods_first_category_id&apos;).change(function()&#123;</span><br><span class="line">    merge_parameter_and_refresh(&apos;category_id&apos;, $(this).val())</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p> category_id 是下拉框的name</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lydia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lydia's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
                 <a class="post-title-link" href="/posts/undefined.html" itemprop="url">js- date 格式化</a></h1>
         
 
@@ -1342,133 +1468,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lydiadai.github.io/posts/undefined.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lydia">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lydia's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/undefined.html" itemprop="url">iOS 发布证书配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T16:06:00+08:00">
-                2017-08-21 16:06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>公司账号<br>1.先登录公司账号 invite成管理员，点击邮件中链接点选同意</p>
-<ol start="2">
-<li>钥匙串访问：<br>钥匙串访问 –&gt; 证书助理 –&gt; 从证书办法机构请求证书 –&gt;生成CSR文件</li>
-<li>到Xcode –&gt; preference –&gt; account 添加apple ID，并选择对应的公司账号</li>
-<li>apple developer中 certificates 添加production证书 将CSR文件传上去 下载生成的证书，<br>双击点开配置到电脑上</li>
-<li>Provisioning Profiles –&gt; distribution 再申请一个证书选择ADhoc<br>下载生成的证书双击运行<br>ps:现在Xcode中运行的设备必须是配置distribution证书是select的设备</li>
-</ol>
-<p>个人账号<br>1.钥匙串访问：<br>   钥匙串访问 –&gt; 证书助理 –&gt; 从证书办法机构请求证书 –&gt;生成CSR文件<br>2.申请production证书<br>3.申请appid（bundle id要跟xcode里面一样）<br>4.申请distribution证书</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1519,7 +1518,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">276</span>
+                  <span class="site-state-item-count">277</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
